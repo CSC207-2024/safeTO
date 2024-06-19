@@ -1,28 +1,42 @@
 ## This is the draft folder.
 ## Please put the modules you designed here, handwritten is fine.
 
---- Data Access Layer ---
+---- Data Access Layer ----
 
-<<interface>> DataRepository
-fetchData():List<CSVRecord>
+<<interface>> InterfaceDataFetcher
+fetchData():JSONArray
 
-CrimeDataRepository implements DataRepository
-- CSV_URL: String
-+ fetchData():List<CSVRecord>
+CrimeDataFetcher implements InterfaceDataFetcher
+- URL: String
+-----------------------
++ fetchData():JSONArray
+
+<<interface>> DataConverter
+JsonToCSV(JSONArray data): void
+CSVToTPSEvent(List<CSVRecord> records): List<TPSEvent>
+
+CrimeDataConverter implements DataConverter
++ JsonToCSV(JSONArray data): void
++ CSVToTPSEvent(List<CSVRecord> records): List<TPSEvent>
 
 <<interface>> DataProcessor
-selectColumns(List<CSVRecord> records, Set<String> columns):List<CSVRecord>
+selectColumns(List<CSVRecord> records, List<String> columns): List<CSVRecord>
 filterByYearRange(List<CSVRecord> records, int startYear, int endYear):List<CSVRecord>
 filterByCrimeType(List<CSVRecord> records, String crimeType):List<CSVRecord>
 filterByNeighbourhood(List<CSVRecord> records, String neighbourhood):List<CSVRecord>
 
 CrimeDataProcessor implements DataProcessor
-+ selectColumns(List<CSVRecord> records, Set<String> columns):List<CSVRecord>
++ selectColumns(List<CSVRecord> records, List<String> columns): List<CSVRecord>
 + filterByYearRange(List<CSVRecord> records, int startYear, int endYear):List<CSVRecord>
 + filterByCrimeType(List<CSVRecord> records, String crimeType):List<CSVRecord>
 + filterByNeighbourhood(List<CSVRecord> records, String neighbourhood):List<CSVRecord>
-+ formatToTPSEvent(List<CSVRecord> records):List<TPSEvent>
 
-CrimeRatesCalculator
-+ calculateCrimeRates(List<TPSEvent> events):Map<String, Double>
+<<interface>> DataExporter
+exportToCSV(List<TPSEvent> data, String filePath): void
+
+CrimeDataExporter implements DataExporter
++ exportToCSV(List<TPSEvent> data, String filePath): void
+
+CrimeRateCalculator
++ calculateRates(List<TPSEvent> events): Map<String, Double>
 
