@@ -18,7 +18,7 @@ public class CrimeDataConverter {
     };
 
     /**
-     * Converts a JSONArray of JSONObjects into a CSV-formatted StringBuilder.
+     * A helper method converts a JSONArray of JSONObjects into a CSV-formatted StringBuilder.
      * Each JSONObject in the JSONArray has a nested JSONObject under the "attributes" key
      * which contains the actual data to be converted into CSV format.
      *
@@ -26,7 +26,7 @@ public class CrimeDataConverter {
      * @return StringBuilder containing the CSV formatted data.
      * @throws JSONException If an error occurs during the parsing of the JSON data.
      */
-    public StringBuilder jsonToString(JSONArray data) throws JSONException {
+    private StringBuilder jsonToString(JSONArray data) throws JSONException {
         StringBuilder builder = new StringBuilder();
         builder.append(String.join(",", jsonKeys)).append("\n");
         for (int i = 0; i < data.length(); i++) {
@@ -40,7 +40,7 @@ public class CrimeDataConverter {
      * A private helper method which appends a row to the StringBuilder in CSV format.
      *
      * @param builder The StringBuilder to which the CSV row will be appended.
-     * @param obj The JSONObject containing the data to be appended as a CSV row.
+     * @param obj     The JSONObject containing the data to be appended as a CSV row.
      */
     private void appendRow(StringBuilder builder, JSONObject obj) {
         for (String key : jsonKeys) {
@@ -51,15 +51,20 @@ public class CrimeDataConverter {
     }
 
     /**
-     * Converts a StringBuilder CSV formatted StringBuilder into a Tablesaw Table.
+     * Converts a CSV formatted StringBuilder into a Tablesaw Table.
      *
-     * @param builderData The StringBuilder containing the CSV data.
-     * @return a Table containing the data represented by the StringBuilder.
+     * @param data The JSONArray to be converted into Table
+     * @return Table containing the data represented by the StringBuilder.
      */
-    public Table stringBuilderToTable(StringBuilder builderData) {
+    public Table jsonToTable(JSONArray data) {
 
+        StringBuilder builderData = null;
+        try {
+            builderData = jsonToString(data);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
         StringReader reader = new StringReader(builderData.toString());
-
         CsvReadOptions options = CsvReadOptions.builder(reader)
                 .header(true)
                 .separator(',')
@@ -79,11 +84,11 @@ public class CrimeDataConverter {
 //        CrimeDataFetcher fetcher = new CrimeDataFetcher();
 //        JSONArray data = fetcher.fetchData();
 //        CrimeDataConverter converter = new CrimeDataConverter();
-//        StringBuilder out = converter.jsonToString(data);
-//        Table t = converter.stringBuilderToTable(out);
+//        Table t = converter.jsonToTable(data);
 //        System.out.println(t.structure());
 //        System.out.println(t.first(10));
-    }
+//    }
+}
 
 
 
