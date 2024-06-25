@@ -3,21 +3,20 @@
 
 ---- Data Access Layer ----
 
-<<interface>> InterfaceDataFetcher
+<<interface>> src.DataAccess.InterfaceDataFetcher
 fetchData():JSONArray
 
-CrimeDataFetcher implements InterfaceDataFetcher
+CrimeDataFetcher implements src.DataAccess.InterfaceDataFetcher
 - URL: String
 -----------------------
 + fetchData():JSONArray
 
-<<interface>> DataConverter
-JsonToCSV(JSONArray data): void
-CSVToTPSEvent(List<CSVRecord> records): List<TPSEvent>
-
-CrimeDataConverter implements DataConverter
-+ JsonToCSV(JSONArray data): void
-+ CSVToTPSEvent(List<CSVRecord> records): List<TPSEvent>
+CrimeDataConverter
+- jsonKeys: String
+-----------------------
++ jsonToString(JSONArray data): StringBuilder
+- appendRow(StringBuilder builder, JSONObject obj): void
++ stringBuilderToTable(StringBuilder builderData): Table
 
 <<interface>> DataProcessor
 selectColumns(List<CSVRecord> records, List<String> columns): List<CSVRecord>
