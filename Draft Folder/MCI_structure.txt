@@ -1,0 +1,27 @@
+ Index  |     Column Name     |  Column Type  |
+-----------------------------------------------
+     0  |    EVENT_UNIQUE_ID  |       STRING  |
+     1  |           OCC_YEAR  |      INTEGER  |
+     2  |          OCC_MONTH  |       STRING  |
+     3  |            OCC_DAY  |      INTEGER  |
+     4  |            OCC_DOW  |       STRING  |
+     5  |           OCC_HOUR  |      INTEGER  |
+     6  |          LAT_WGS84  |       DOUBLE  |
+     7  |         LONG_WGS84  |       DOUBLE  |
+     8  |  NEIGHBOURHOOD_158  |       STRING  |
+     9  |           HOOD_158  |       STRING  |
+    10  |      PREMISES_TYPE  |       STRING  |
+    11  |       MCI_CATEGORY  |       STRING  |
+
+    EVENT_UNIQUE_ID  |  OCC_YEAR  |  OCC_MONTH  |  OCC_DAY  |   OCC_DOW   |  OCC_HOUR  |     LAT_WGS84      |     LONG_WGS84      |   NEIGHBOURHOOD_158    |  HOOD_158  |  PREMISES_TYPE  |  MCI_CATEGORY  |
+    ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      GO-20141260127  |      2014  |    January  |        1  |  Wednesday  |         1  |   43.642516787878  |   -79.427105224297  |       Little Portugal  |        84  |     Commercial  |       Assault  |
+      GO-20141263725  |      2014  |    January  |        1  |  Wednesday  |        18  |  43.6548107944083  |  -79.3942335387789  |  Kensington-Chinatown  |        78  |      Apartment  |       Assault  |
+      GO-20141264272  |      2014  |    January  |        1  |  Wednesday  |        21  |   43.638305880956  |  -79.4205324264879  |        South Parkdale  |        85  |      Apartment  |       Assault  |
+      GO-20141263706  |      2014  |    January  |        1  |  Wednesday  |        18  |  43.7073653479291  |  -79.5050425436361  |                Weston  |       113  |          House  |       Assault  |
+      GO-20141263710  |      2014  |    January  |        1  |  Wednesday  |        18  |  43.7787433961406  |  -79.4152931507629  |           Yonge-Doris  |       151  |      Apartment  |       Assault  |
+      GO-20141263744  |      2014  |    January  |        1  |  Wednesday  |        18  |  43.6944140148806  |  -79.3006179542788  |         Taylor-Massey  |        61  |      Apartment  |       Assault  |
+      GO-20141263357  |      2013  |   December  |       29  |     Sunday  |        12  |  43.7593621211978  |  -79.3209136681278  |     Fenside-Parkwoods  |       150  |      Apartment  |       Assault  |
+      GO-20141264140  |      2014  |    January  |        1  |  Wednesday  |        20  |  43.7054664049601  |  -79.4000833426357  |        Yonge-Eglinton  |       100  |          House  |       Assault  |
+      GO-20141259834  |      2014  |    January  |        1  |  Wednesday  |         0  |  43.7032343898983  |  -79.3466150216221  |      Thorncliffe Park  |        55  |     Commercial  |       Assault  |
+      GO-20141262553  |      2014  |    January  |        1  |  Wednesday  |        13  |  43.6738417211567  |  -79.4223710327978  |              Wychwood  |        94  |          Other  |       Assault  |
