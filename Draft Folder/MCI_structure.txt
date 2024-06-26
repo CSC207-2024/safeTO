@@ -1,3 +1,6 @@
+
+ --------- data frame structure (MCI)  ---------
+
  Index  |     Column Name     |  Column Type  |
 -----------------------------------------------
      0  |    EVENT_UNIQUE_ID  |       STRING  |
@@ -25,3 +28,47 @@
       GO-20141264140  |      2014  |    January  |        1  |  Wednesday  |        20  |  43.7054664049601  |  -79.4000833426357  |        Yonge-Eglinton  |       100  |          House  |       Assault  |
       GO-20141259834  |      2014  |    January  |        1  |  Wednesday  |         0  |  43.7032343898983  |  -79.3466150216221  |      Thorncliffe Park  |        55  |     Commercial  |       Assault  |
       GO-20141262553  |      2014  |    January  |        1  |  Wednesday  |        13  |  43.6738417211567  |  -79.4223710327978  |              Wychwood  |        94  |          Other  |       Assault  |
+
+
+    # data manipulation:
+
+    - methods
+    1. select subset of columns *
+    2. filter by year range * (problem: 2003-2014)
+    3. filter by MCI_CATEGORY
+    4. filter by PREMISES_TYPE
+    5. filter by neighbourhood
+
+
+
+    - sub-table
+    1. Total MCI by year
+    OCC_YEAR | MCI_COUNT
+
+    2. Total MCI by year + neighbourhood
+    OCC_YEAR | NEIGHBOURHOOD_158 | MCI_COUNT
+
+    4. Total offences by year
+    MCI_CATEGORY | OCC_YEAR | INCIDENT_COUNT
+
+    5. Total offences by year + neighbourhood
+    MCI_CATEGORY | OCC_YEAR | NEIGHBOURHOOD_158 | INCIDENT_COUNT
+
+
+
+    # data visualizations:
+
+    1. bar plot
+
+    2. line chart
+
+
+
+
+
+
+
+
+
+
+

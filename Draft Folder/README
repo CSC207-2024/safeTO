@@ -14,28 +14,25 @@ CrimeDataFetcher implements src.DataAccess.InterfaceDataFetcher
 CrimeDataConverter
 - jsonKeys: String
 -----------------------
-+ jsonToString(JSONArray data): StringBuilder
+- jsonToString(JSONArray data): StringBuilder
 - appendRow(StringBuilder builder, JSONObject obj): void
-+ stringBuilderToTable(StringBuilder builderData): Table
++ jsonToTable(JSONArray data): Table
 
-<<interface>> DataProcessor
-selectColumns(List<CSVRecord> records, List<String> columns): List<CSVRecord>
-filterByYearRange(List<CSVRecord> records, int startYear, int endYear):List<CSVRecord>
-filterByCrimeType(List<CSVRecord> records, String crimeType):List<CSVRecord>
-filterByNeighbourhood(List<CSVRecord> records, String neighbourhood):List<CSVRecord>
-
-CrimeDataProcessor implements DataProcessor
-+ selectColumns(List<CSVRecord> records, List<String> columns): List<CSVRecord>
-+ filterByYearRange(List<CSVRecord> records, int startYear, int endYear):List<CSVRecord>
-+ filterByCrimeType(List<CSVRecord> records, String crimeType):List<CSVRecord>
-+ filterByNeighbourhood(List<CSVRecord> records, String neighbourhood):List<CSVRecord>
+CrimeDataProcessor
+- df: Table
+-----------------------
++ setTable(Table df): void
++ selectColumn(ArrayList<String> colNames): Table
++ filterByYear(int startYear, int endYear): Table
++ filterByType(String crimeType): Table
++ filterByNeighbourhood(String neighbourhood): Table
 
 <<interface>> DataExporter
-exportToCSV(List<TPSEvent> data, String filePath): void
+exportToCSV(Table df, String filePath): void
 
 CrimeDataExporter implements DataExporter
-+ exportToCSV(List<TPSEvent> data, String filePath): void
++ exportToCSV(Table df, String filePath): void
 
 CrimeRateCalculator
-+ calculateRates(List<TPSEvent> events): Map<String, Double>
++ calculateRates(Table df): Table
 
