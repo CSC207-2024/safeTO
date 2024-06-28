@@ -34,10 +34,12 @@
 
     - methods
     1. select subset of columns *
-    2. filter by year range * (problem: 2003-2014)
-    3. filter by MCI_CATEGORY
-    4. filter by PREMISES_TYPE
-    5. filter by neighbourhood
+    2. filter by year range * only 2000 observations in total per request
+    TODO: join the data table per request
+
+    3. filter by MCI_CATEGORY *
+    4. filter by PREMISES_TYPE *
+    5. filter by neighbourhood *
 
 
 
@@ -57,6 +59,7 @@
 
 
     # data visualizations:
+    TODO: JFreeChart + JFreeSVG
 
     1. bar plot
 
