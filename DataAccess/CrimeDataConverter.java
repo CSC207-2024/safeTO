@@ -78,16 +78,6 @@ public class CrimeDataConverter {
         }
     }
 
-
-
-    public static void main(String[] args) throws JSONException {
-        CrimeDataFetcher fetcher = new CrimeDataFetcher();
-        JSONArray data = fetcher.fetchData();
-        CrimeDataConverter converter = new CrimeDataConverter();
-        Table t = converter.jsonToTable(data);
-        System.out.println(t.structure());
-        System.out.println(t.first(100));
-    }
 }
 
 

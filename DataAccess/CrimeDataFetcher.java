@@ -54,16 +54,5 @@ public class CrimeDataFetcher implements InterfaceDataFetcher {
 
     }
 
-//    public static void main(String[] args) {
-//        CrimeDataFetcher fetcher = new CrimeDataFetcher();
-//        JSONArray result = fetcher.fetchData();
-//
-//        if (result != null) {
-//            System.out.println("Data fetched successfully!");
-//            System.out.println(result);
-//        } else {
-//            System.out.println("Failed to fetch data.");
-//        }
-//    }
 }
 
