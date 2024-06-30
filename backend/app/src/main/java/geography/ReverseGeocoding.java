@@ -1,3 +1,5 @@
+package geography;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -5,6 +7,7 @@ import java.net.URL;
 import org.json.JSONObject;
 
 import location.Location;
+import location.SimpleLocation;
 
 public class ReverseGeocoding {
     public static String getNeighborhoodByCoordinates(Location location) {
@@ -50,7 +53,7 @@ public class ReverseGeocoding {
     public static void main(String[] args) {
         double latitude = 43.651070;
         double longitude = -79.347015;
-        String neighborhood = getNeighborhoodByCoordinates(latitude, longitude);
+        String neighborhood = getNeighborhoodByCoordinates(new SimpleLocation(latitude, longitude));
         if (neighborhood != null) {
             System.out.println("The neighborhood is: " + neighborhood);
         } else {

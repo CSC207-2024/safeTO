@@ -1,6 +1,7 @@
-package backend.types;
+package types;
 
 import java.util.Date;
+import location.Location;
 
 public class TPSEvent {
     String eventUniqueID;
