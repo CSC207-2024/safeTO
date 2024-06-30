@@ -1,18 +1,7 @@
-package backend.types;
+package types;
 
-import java.util.Optional;
+public interface Location {
+    double getLatitude();
 
-public class Location {
-    private double latitude;
-    private double longitude;
-    private Optional<String> postalCode;
-    private Optional<String> address;
-
-    public double getLatitude() {
-        return this.latitude;
-    }
-
-    public double getLongitude() {
-        return this.longitude;
-    }
+    double getLongitude();
 }
