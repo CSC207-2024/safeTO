@@ -1,4 +1,4 @@
-package DataAccess;
+package access;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,8 +18,10 @@ public class CrimeDataConverter {
     };
 
     /**
-     * A helper method converts a JSONArray of JSONObjects into a CSV-formatted StringBuilder.
-     * Each JSONObject in the JSONArray has a nested JSONObject under the "attributes" key
+     * A helper method converts a JSONArray of JSONObjects into a CSV-formatted
+     * StringBuilder.
+     * Each JSONObject in the JSONArray has a nested JSONObject under the
+     * "attributes" key
      * which contains the actual data to be converted into CSV format.
      *
      * @param data The JSONArray to be converted into CSV format.
@@ -37,10 +39,12 @@ public class CrimeDataConverter {
     }
 
     /**
-     * A private helper method which appends a row to the StringBuilder in CSV format.
+     * A private helper method which appends a row to the StringBuilder in CSV
+     * format.
      *
      * @param builder The StringBuilder to which the CSV row will be appended.
-     * @param obj     The JSONObject containing the data to be appended as a CSV row.
+     * @param obj     The JSONObject containing the data to be appended as a CSV
+     *                row.
      */
     private void appendRow(StringBuilder builder, JSONObject obj) {
         for (String key : jsonKeys) {
@@ -79,13 +83,3 @@ public class CrimeDataConverter {
     }
 
 }
-
-
-
-
-
-
-
-
-
-

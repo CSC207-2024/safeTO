@@ -1,7 +1,7 @@
-package DataAccess;
+package access;
+
 import org.json.JSONArray;
 import tech.tablesaw.api.Table;
-
 
 /**
  * A class for DataAccess Usage Demonstration.
@@ -18,10 +18,9 @@ public class Usage {
         CrimeDataProcessor processor = new CrimeDataProcessor();
         processor.setTable(t);
         String[] names = processor.getColumnNames();
-        for (String n : names){
+        for (String n : names) {
             System.out.println(n);
         }
-
 
         // CrimeDataProcessor
         Table byYear = processor.filterByRange("OCC_YEAR", 2019, 2019);
@@ -39,21 +38,17 @@ public class Usage {
         Table agg1 = processor.aggregate("MCI_CATEGORY", "OCC_YEAR");
         System.out.println(agg1.first(5));
 
-//        byColumns... is a syntactic sugar for passing 0 or more arguments
+        // byColumns... is a syntactic sugar for passing 0 or more arguments
 
-        Table agg2 = processor.aggregate("MCI_CATEGORY", "OCC_YEAR","NEIGHBOURHOOD_158");
+        Table agg2 = processor.aggregate("MCI_CATEGORY", "OCC_YEAR", "NEIGHBOURHOOD_158");
         System.out.println(agg2.first(5));
 
         Table agg3 = processor.aggregate("MCI_CATEGORY", "OCC_YEAR", "MCI_CATEGORY");
         System.out.println(agg3.first(5));
 
         Table agg4 = processor.aggregate("MCI_CATEGORY",
-                "OCC_YEAR", "MCI_CATEGORY","NEIGHBOURHOOD_158");
+                "OCC_YEAR", "MCI_CATEGORY", "NEIGHBOURHOOD_158");
         System.out.println(agg4.first(15));
-
-
-
-
 
     }
 
