@@ -1,4 +1,5 @@
-package DataAccess;
+package access;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,9 +11,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-
 /**
- * A public class implements src.InterfaceDataFetcher. It is responsible for fetching
+ * A public class implements src.InterfaceDataFetcher. It is responsible for
+ * fetching
  * JSON format data from a specified API.
  */
 public class CrimeDataFetcher implements InterfaceDataFetcher {
@@ -21,8 +22,10 @@ public class CrimeDataFetcher implements InterfaceDataFetcher {
 
     /**
      * Fetches crime data from pre-specified API and return it as a JSONArray
+     * 
      * @return JSONArray containing the crime data or {@code null} if error occurs
-     * @throws RuntimeException wrapping a JSONException if parsing of the received JSON data fails.
+     * @throws RuntimeException wrapping a JSONException if parsing of the received
+     *                          JSON data fails.
      */
     @Override
     public JSONArray fetchData() {
@@ -51,8 +54,6 @@ public class CrimeDataFetcher implements InterfaceDataFetcher {
             throw new RuntimeException(e);
         }
 
-
     }
 
 }
-
