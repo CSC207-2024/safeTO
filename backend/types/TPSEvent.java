@@ -2,9 +2,6 @@ package backend.types;
 
 import java.util.Date;
 
-/**
- * TPSEvent
- */
 public class TPSEvent {
     String eventUniqueID;
     Date occDate;

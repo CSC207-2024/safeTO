@@ -1,4 +1,5 @@
-package DataAccess;
+package access;
+
 import org.json.JSONArray;
 
 /**
@@ -8,4 +9,3 @@ public interface InterfaceDataFetcher {
 
     JSONArray fetchData();
 }
-

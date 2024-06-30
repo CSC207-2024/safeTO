@@ -1,4 +1,4 @@
-package DataAccess;
+package access;
 
 import tech.tablesaw.api.Table;
 
@@ -7,5 +7,6 @@ import tech.tablesaw.api.Table;
  */
 public interface Filterable {
     Table filterBy(String columnName, String value);
+
     Table filterByRange(String columnName, int start, int end);
 }
