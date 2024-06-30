@@ -8,7 +8,7 @@ Format: `<type>(<scope>): <subject>`
 
 ## Example
 
-```
+```git
 feat: add hat wobble
 ^--^  ^------------^
 |     |
