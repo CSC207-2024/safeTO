@@ -1,4 +1,4 @@
-package types;
+package location;
 
 import java.util.Optional;
 

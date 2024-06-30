@@ -1,4 +1,4 @@
-package types;
+package location;
 
 public interface Location {
     double getLatitude();

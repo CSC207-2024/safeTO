@@ -4,7 +4,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
 
-import types.Location;
+import location.Location;
 
 public class ReverseGeocoding {
     public static String getNeighborhoodByCoordinates(Location location) {
