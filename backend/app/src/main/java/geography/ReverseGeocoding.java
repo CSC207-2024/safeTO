@@ -38,12 +38,11 @@ public class ReverseGeocoding {
                 in.close();
 
                 // Parse JSON response
-                System.out.println(response.toString());
                 Gson gson = new Gson();
                 Place place = gson.fromJson(response.toString(), Place.class);
                 return place;
             } else {
-                System.out.println("GET request not worked, Response Code: " + responseCode);
+                System.err.println("GET request not worked, Response Code: " + responseCode);
             }
         } catch (Exception e) {
             e.printStackTrace();
