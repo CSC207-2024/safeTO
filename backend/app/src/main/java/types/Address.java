@@ -17,5 +17,45 @@ public class Address {
     @SerializedName("country_code")
     private String countryCode;
 
+    public String getRoad() {
+        return road;
+    }
+
+    public String getNeighbourhood() {
+        return neighbourhood;
+    }
+
+    public String getQuarter() {
+        return quarter;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getStateDistrict() {
+        return stateDistrict;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getIso31662Lvl4() {
+        return iso31662Lvl4;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
     // Getters and setters
 }
