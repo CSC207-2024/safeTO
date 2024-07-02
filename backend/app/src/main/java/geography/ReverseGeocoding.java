@@ -6,10 +6,52 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
 
+import com.google.gson.Gson;
+
+import types.Place;
 import location.Location;
 import location.SimpleLocation;
 
 public class ReverseGeocoding {
+    public static Place resolve(Location location) {
+        double latitude = location.getLatitude();
+        double longitude = location.getLongitude();
+
+        String apiUrl = String.format(
+                "https://nominatim.openstreetmap.org/reverse?lat=%f&lon=%f&format=json&addressdetails=1",
+                latitude,
+                longitude);
+
+        try {
+            URL url = new URL(apiUrl);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("User-Agent", "Mozilla/5.0");
+
+            int responseCode = conn.getResponseCode();
+            if (responseCode == 200) { // HTTP OK
+                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                String inputLine;
+                StringBuilder response = new StringBuilder();
+
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+                in.close();
+
+                // Parse JSON response
+                Gson gson = new Gson();
+                Place place = gson.fromJson(response.toString(), Place.class);
+                return place;
+            } else {
+                System.out.println("GET request not worked, Response Code: " + responseCode);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static String getNeighborhoodByCoordinates(Location location) {
         double latitude = location.getLatitude();
         double longitude = location.getLongitude();

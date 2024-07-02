@@ -1,25 +1,22 @@
 package location;
 
-import java.util.Optional;
 import types.Place;
+import geography.ReverseGeocoding;
 
 public class OpenStreetMapLocation extends SimpleLocation {
     private Place place;
 
-    public double getLatitude() {
-        return super.getLatitude();
-    }
-
-    public double getLongitude() {
-        return super.getLongitude();
-    }
-
     public String getAddress() {
-        return place.
+        return place.getDisplayName();
+    }
+
+    public String getPostalCode() {
+        return place.getAddress().getPostcode();
     }
 
     public OpenStreetMapLocation(double latitude, double longitude) {
         super(latitude, longitude);
+        place = ReverseGeocoding.resolve(this);
     }
 };
 
