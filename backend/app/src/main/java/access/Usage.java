@@ -1,4 +1,4 @@
-package DataAccess;
+package access;
 import org.json.JSONArray;
 import tech.tablesaw.api.Table;
 
@@ -50,6 +50,7 @@ public class Usage {
         Table agg4 = processor.aggregate("MCI_CATEGORY",
                 "OCC_YEAR", "MCI_CATEGORY","NEIGHBOURHOOD_158");
         System.out.println(agg4.first(15));
+
 
 
 
