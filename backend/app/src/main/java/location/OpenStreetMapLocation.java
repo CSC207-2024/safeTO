@@ -1,10 +1,10 @@
 package location;
 
 import java.util.Optional;
-import types.OSMResponse;
+import types.Place;
 
 public class OpenStreetMapLocation extends SimpleLocation {
-    private OSMResponse cache;
+    private Place place;
 
     public double getLatitude() {
         return super.getLatitude();
@@ -15,7 +15,7 @@ public class OpenStreetMapLocation extends SimpleLocation {
     }
 
     public String getAddress() {
-        return cache.
+        return place.
     }
 
     public OpenStreetMapLocation(double latitude, double longitude) {
