@@ -1,5 +1,5 @@
 
- --------- data frame structure (MCI)  ---------
+ --------- data frame structure (MCI) 210928 rows X 12 cols (2019-2024) ---------
 
  Index  |     Column Name     |  Column Type  |
 -----------------------------------------------
@@ -16,27 +16,19 @@
     10  |      PREMISES_TYPE  |       STRING  |
     11  |       MCI_CATEGORY  |       STRING  |
 
-    EVENT_UNIQUE_ID  |  OCC_YEAR  |  OCC_MONTH  |  OCC_DAY  |   OCC_DOW   |  OCC_HOUR  |     LAT_WGS84      |     LONG_WGS84      |   NEIGHBOURHOOD_158    |  HOOD_158  |  PREMISES_TYPE  |  MCI_CATEGORY  |
-    ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-      GO-20141260127  |      2014  |    January  |        1  |  Wednesday  |         1  |   43.642516787878  |   -79.427105224297  |       Little Portugal  |        84  |     Commercial  |       Assault  |
-      GO-20141263725  |      2014  |    January  |        1  |  Wednesday  |        18  |  43.6548107944083  |  -79.3942335387789  |  Kensington-Chinatown  |        78  |      Apartment  |       Assault  |
-      GO-20141264272  |      2014  |    January  |        1  |  Wednesday  |        21  |   43.638305880956  |  -79.4205324264879  |        South Parkdale  |        85  |      Apartment  |       Assault  |
-      GO-20141263706  |      2014  |    January  |        1  |  Wednesday  |        18  |  43.7073653479291  |  -79.5050425436361  |                Weston  |       113  |          House  |       Assault  |
-      GO-20141263710  |      2014  |    January  |        1  |  Wednesday  |        18  |  43.7787433961406  |  -79.4152931507629  |           Yonge-Doris  |       151  |      Apartment  |       Assault  |
-      GO-20141263744  |      2014  |    January  |        1  |  Wednesday  |        18  |  43.6944140148806  |  -79.3006179542788  |         Taylor-Massey  |        61  |      Apartment  |       Assault  |
-      GO-20141263357  |      2013  |   December  |       29  |     Sunday  |        12  |  43.7593621211978  |  -79.3209136681278  |     Fenside-Parkwoods  |       150  |      Apartment  |       Assault  |
-      GO-20141264140  |      2014  |    January  |        1  |  Wednesday  |        20  |  43.7054664049601  |  -79.4000833426357  |        Yonge-Eglinton  |       100  |          House  |       Assault  |
-      GO-20141259834  |      2014  |    January  |        1  |  Wednesday  |         0  |  43.7032343898983  |  -79.3466150216221  |      Thorncliffe Park  |        55  |     Commercial  |       Assault  |
-      GO-20141262553  |      2014  |    January  |        1  |  Wednesday  |        13  |  43.6738417211567  |  -79.4223710327978  |              Wychwood  |        94  |          Other  |       Assault  |
-
+     EVENT_UNIQUE_ID  |  OCC_YEAR  |  OCC_MONTH  |  OCC_DAY  |  OCC_DOW  |  OCC_HOUR  |      LAT_WGS84       |      LONG_WGS84      |      NEIGHBOURHOOD_158      |  HOOD_158  |  PREMISES_TYPE  |   MCI_CATEGORY    |
+    ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+         GO-20245567  |      2024  |    January  |        1  |   Monday  |        18  |   43.71912844644492  |  -79.51680604265206  |   Oakdale-Beverley Heights  |       154  |      Apartment  |          Assault  |
+         GO-20245771  |      2024  |    January  |        1  |   Monday  |        19  |   43.69557020518646  |  -79.33963622735183  |              Old East York  |        58  |        Outside  |          Assault  |
+         GO-20242611  |      2024  |    January  |        1  |   Monday  |         6  |  43.776331711695555  |  -79.22468249239172  |  Golfdale-Cedarbrae-Woburn  |       141  |          House  |  Break and Enter  |
+         GO-20244110  |      2024  |    January  |        1  |   Monday  |        14  |   43.64057888586853  |  -79.42798082400508  |             South Parkdale  |        85  |      Apartment  |          Assault  |
+         GO-20243181  |      2024  |    January  |        1  |   Monday  |         6  |  43.675543918327726  |  -79.39691514719333  |                      Annex  |        95  |      Apartment  |  Break and Enter  |
 
     # data manipulation:
 
     - methods
     1. select subset of columns *
-    2. filter by year range * only 2000 observations in total per request
-    TODO: join the data table per request
-
+    2. filter by year range *
     3. filter by MCI_CATEGORY *
     4. filter by PREMISES_TYPE *
     5. filter by neighbourhood *
@@ -44,25 +36,25 @@
 
 
     - sub-table
-    1. Total MCI by year
+    1. Total MCI by year*
     OCC_YEAR | MCI_COUNT
 
-    2. Total MCI by year + neighbourhood
+    2. Total MCI by year + neighbourhood*
     OCC_YEAR | NEIGHBOURHOOD_158 | MCI_COUNT
 
-    4. Total offences by year
+    4. Total offences by year*
     MCI_CATEGORY | OCC_YEAR | INCIDENT_COUNT
 
-    5. Total offences by year + neighbourhood
+    5. Total offences by year + neighbourhood*
     MCI_CATEGORY | OCC_YEAR | NEIGHBOURHOOD_158 | INCIDENT_COUNT
 
 
 
+    TODO: Calculate crime rates
     # data visualizations:
     TODO: JFreeChart + JFreeSVG
 
     1. bar plot
-
     2. line chart
 
 
