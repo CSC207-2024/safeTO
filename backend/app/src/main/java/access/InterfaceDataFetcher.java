@@ -1,4 +1,4 @@
-package backend.app.src.main.java.access;
+package access;
 
 import org.json.JSONArray;
 
