@@ -32,7 +32,7 @@ public class CrimeDataConverter {
         StringBuilder builder = new StringBuilder();
         builder.append(String.join(",", jsonKeys)).append("\n");
         for (int i = 0; i < data.length(); i++) {
-            JSONObject obj = data.getJSONObject(i).getJSONObject("attributes");
+            JSONObject obj = data.getJSONObject(i);
             appendRow(builder, obj);
         }
         return builder;

@@ -1,6 +1,8 @@
 package access;
 import org.json.JSONArray;
 import tech.tablesaw.api.Table;
+import org.json.JSONException;
+
 
 
 /**
@@ -9,13 +11,15 @@ import tech.tablesaw.api.Table;
 
 public class Usage {
 
-    public static void main(String[] args) {
-        CrimeDataFetcher fetcher = new CrimeDataFetcher();
-        JSONArray data = fetcher.fetchData();
-        CrimeDataConverter converter = new CrimeDataConverter();
+    public static void main(String[] args) throws JSONException {
+
+        access.CrimeDataFetcher dataFetcher = new access.CrimeDataFetcher();
+
+        JSONArray data = dataFetcher.fetchData();
+        access.CrimeDataConverter converter = new access.CrimeDataConverter();
         Table t = converter.jsonToTable(data);
         System.out.println(t.shape());
-        CrimeDataProcessor processor = new CrimeDataProcessor();
+        access.CrimeDataProcessor processor = new access.CrimeDataProcessor();
         processor.setTable(t);
         String[] names = processor.getColumnNames();
         for (String n : names){
@@ -24,7 +28,7 @@ public class Usage {
 
 
         // CrimeDataProcessor
-        Table byYear = processor.filterByRange("OCC_YEAR", 2019, 2019);
+        Table byYear = processor.filterByRange("OCC_YEAR", 2024, 2024);
         System.out.println(byYear.first(5));
 
         Table byNeighbourhood = processor.filterBy("NEIGHBOURHOOD_158", "Guildwood");
@@ -37,7 +41,7 @@ public class Usage {
         System.out.println(byPremises.first(5));
 
         Table agg1 = processor.aggregate("MCI_CATEGORY", "OCC_YEAR");
-        System.out.println(agg1.first(5));
+        System.out.println(agg1.first(6));
 
 //        byColumns... is a syntactic sugar for passing 0 or more arguments
 
@@ -50,6 +54,10 @@ public class Usage {
         Table agg4 = processor.aggregate("MCI_CATEGORY",
                 "OCC_YEAR", "MCI_CATEGORY","NEIGHBOURHOOD_158");
         System.out.println(agg4.first(15));
+
+
+        Table agg5 = processor.aggregate("MCI_CATEGORY", "MCI_CATEGORY");
+        System.out.println(agg5.first(15));
 
 
 

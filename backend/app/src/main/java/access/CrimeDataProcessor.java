@@ -9,7 +9,7 @@ import static tech.tablesaw.aggregate.AggregateFunctions.count;
  * A class that is responsible for data wrangling, manipulation, and
  * visualization.
  */
-public class CrimeDataProcessor implements Filterable, Aggregator {
+public class CrimeDataProcessor implements access.Filterable, access.Aggregator {
 
     private Table df;
 
