@@ -57,5 +57,11 @@ public class Address {
         return countryCode;
     }
 
-    // Getters and setters
+    @Override
+    public boolean equals(Object rhs) {
+        if (!(rhs instanceof Address)) {
+            return false;
+        }
+        Address ref = (Address) rhs;
+    }
 }
