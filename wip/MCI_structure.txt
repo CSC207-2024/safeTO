@@ -54,10 +54,38 @@
     # data visualizations:
     TODO: JFreeChart + JFreeSVG
 
-    1. bar plot
+    1. bar plotg
     2. line chart
 
 
+
+
+TODO: data exporter
+sample data:
+
+OCC_YEAR | NEIGHBOURHOOD_158 | MCI_COUNT
+2023     | Neighbourhood A   | 5
+2024     | Neighbourhood A   | 8
+
+json format:
+{
+  "features": [
+    {
+      "attributes": {
+        "OCC_YEAR": 2023,
+        "NEIGHBOURHOOD_158": "Neighbourhood A",
+        "MCI_COUNT": 5
+      }
+    },
+    {
+      "attributes": {
+        "OCC_YEAR": 2024,
+        "NEIGHBOURHOOD_158": "Neighbourhood A",
+        "MCI_COUNT": 8
+      }
+    }
+  ]
+}
 
 
 

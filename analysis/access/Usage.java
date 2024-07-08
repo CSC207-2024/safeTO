@@ -62,6 +62,11 @@ public class Usage {
         Table agg5 = processor.aggregate("MCI_CATEGORY", "MCI_CATEGORY");
         System.out.println(agg5.first(15));
 
+//        Export the data
+        CrimeDataExporter exporter = new CrimeDataExporter();
+        String path = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/incidents_by_year.json";
+        exporter.writeToJson(agg1, path);
+
 
 
 

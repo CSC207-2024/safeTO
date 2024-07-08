@@ -15,8 +15,8 @@ public class StolenCarDataFetcher {
         this.dataFetcher = dataFetcher;
     }
 
-    public List<src.DataAccess.StolenCarData> getAllStolenCarData() {
-        List<src.DataAccess.StolenCarData> stolenCarDataList = new ArrayList<>();
+    public List<StolenCarData> getAllStolenCarData() {
+        List<StolenCarData> stolenCarDataList = new ArrayList<>();
         JSONArray data = dataFetcher.fetchData();
         if (data == null) {
             return stolenCarDataList;
@@ -40,7 +40,7 @@ public class StolenCarDataFetcher {
                 double latitude = geometry.getDouble("y");
                 double longitude = geometry.getDouble("x");
 
-                src.DataAccess.StolenCarData stolenCarData = new src.DataAccess.StolenCarData(objectId, eventUniqueId, reportDate, occDate, offence, mciCategory, latitude, longitude);
+                StolenCarData stolenCarData = new StolenCarData(objectId, eventUniqueId, reportDate, occDate, offence, mciCategory, latitude, longitude);
                 stolenCarDataList.add(stolenCarData);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -52,11 +52,11 @@ public class StolenCarDataFetcher {
     public static void main(String[] args) {
         CrimeDataFetcher fetcher = new CrimeDataFetcher();
         StolenCarDataFetcher stolenCarDataFetcher = new StolenCarDataFetcher(fetcher);
-        List<src.DataAccess.StolenCarData> stolenCarDataList = stolenCarDataFetcher.getAllStolenCarData();
+        List<StolenCarData> stolenCarDataList = stolenCarDataFetcher.getAllStolenCarData();
 
         if (!stolenCarDataList.isEmpty()) {
             System.out.println("Data fetched successfully!");
-            for (src.DataAccess.StolenCarData data : stolenCarDataList) {
+            for (StolenCarData data : stolenCarDataList) {
                 System.out.println(data);
             }
         } else {
