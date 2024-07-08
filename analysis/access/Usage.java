@@ -1,4 +1,7 @@
-package access;
+package analysis.access;
+import analysis.access.CrimeDataConverter;
+import analysis.access.CrimeDataFetcher;
+import analysis.access.CrimeDataProcessor;
 import org.json.JSONArray;
 import tech.tablesaw.api.Table;
 import org.json.JSONException;
@@ -13,13 +16,13 @@ public class Usage {
 
     public static void main(String[] args) throws JSONException {
 
-        access.CrimeDataFetcher dataFetcher = new access.CrimeDataFetcher();
+        CrimeDataFetcher dataFetcher = new CrimeDataFetcher();
 
         JSONArray data = dataFetcher.fetchData();
-        access.CrimeDataConverter converter = new access.CrimeDataConverter();
+        CrimeDataConverter converter = new CrimeDataConverter();
         Table t = converter.jsonToTable(data);
         System.out.println(t.shape());
-        access.CrimeDataProcessor processor = new access.CrimeDataProcessor();
+        CrimeDataProcessor processor = new CrimeDataProcessor();
         processor.setTable(t);
         String[] names = processor.getColumnNames();
         for (String n : names){

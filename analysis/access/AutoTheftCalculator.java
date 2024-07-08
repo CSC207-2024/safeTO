@@ -1,4 +1,4 @@
-package src.DataAccess;
+package analysis.access;
 
 import java.sql.Timestamp;
 import java.util.List;
