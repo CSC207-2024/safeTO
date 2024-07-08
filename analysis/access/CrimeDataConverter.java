@@ -6,6 +6,10 @@ import org.json.JSONObject;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.io.csv.CsvReadOptions;
 import java.io.StringReader;
+import com.google.gson.*;
+import tech.tablesaw.api.*;
+import java.util.List;
+import static tech.tablesaw.api.ColumnType.*;
 
 /**
  * A class that is responsible for converting input data into other formats.
@@ -80,6 +84,43 @@ public class CrimeDataConverter {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * A method converts the given Table of data into a JSON string with dynamic column names.
+     *
+     * @param table Tablesaw data table.
+     * @return A JSON string representing the data.
+     */
+    public String tableToJson(Table table) {
+        JsonObject root = new JsonObject();
+        JsonArray featuresArray = new JsonArray();
+
+        List<Row> rows = (List<Row>) table.rows();
+
+        for (Row row : rows) {
+            JsonObject feature = new JsonObject();
+            JsonObject attributes = new JsonObject();
+
+            for (String columnName : table.columnNames()) {
+                ColumnType columnType = table.column(columnName).type();
+                if (columnType.equals(STRING)) {
+                    attributes.addProperty(columnName, row.getString(columnName));
+                } else if (columnType.equals(INTEGER)) {
+                    attributes.addProperty(columnName, row.getInt(columnName));
+                } else if (columnType.equals(DOUBLE)) {
+                    attributes.addProperty(columnName, row.getDouble(columnName));
+                } else {
+                    attributes.addProperty(columnName, row.getObject(columnName).toString());
+                }
+            }
+            feature.add("attributes", attributes);
+            featuresArray.add(feature);
+        }
+
+        root.add("features", featuresArray);
+        Gson gson = new Gson();
+        return gson.toJson(root);
     }
 
 }
