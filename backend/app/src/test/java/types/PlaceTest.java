@@ -20,10 +20,10 @@ public class PlaceTest {
 
     @Test
     void testGetAddress() {
-        System.out.println(gson.toJson(address));
-        System.out.println(gson.toJson(place.getAddress()));
+        // System.out.println(gson.toJson(address));
+        // System.out.println(gson.toJson(place.getAddress()));
         // assertEquals(address.hashCode(), place.getAddress().hashCode());
-        assert gson.toJson(address).equals(gson.toJson(place.getAddress()));
+        assertEquals(address, place.getAddress());
     }
 
     @Test
