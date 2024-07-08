@@ -1,4 +1,4 @@
-package access;
+package analysis.access;
 
 import org.json.JSONArray;
 import org.json.JSONException;

@@ -1,4 +1,4 @@
-package src.DataAccess;
+package analysis.access;
 
 import org.json.JSONArray;
 import org.json.JSONException;

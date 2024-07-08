@@ -1,5 +1,5 @@
 
-package src.DataAccess;
+package analysis.access;
 
 import java.text.SimpleDateFormat;
 import java.util.Comparator;

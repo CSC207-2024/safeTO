@@ -1,4 +1,4 @@
-package access;
+package analysis.access;
 
 import tech.tablesaw.api.*;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import static tech.tablesaw.aggregate.AggregateFunctions.count;
  * A class that is responsible for data wrangling, manipulation, and
  * visualization.
  */
-public class CrimeDataProcessor implements access.Filterable, access.Aggregator {
+public class CrimeDataProcessor implements access.Filterable, Aggregator {
 
     private Table df;
 
