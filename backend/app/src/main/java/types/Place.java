@@ -1,6 +1,8 @@
 package types;
 
+import java.util.Objects;
 import com.google.gson.Gson;
+import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 public class Place {
@@ -89,11 +91,28 @@ public class Place {
 
     @Override
     public boolean equals(Object rhs) {
+        if (this == rhs) {
+            return true;
+        }
         if (!(rhs instanceof Place)) {
             return false;
         }
         Place ref = (Place) rhs;
-        return Object.equals(address, ref.address) && addressType == ref.addressType;
+        return placeId == ref.placeId &&
+                osmId == ref.osmId &&
+                placeRank == ref.placeRank &&
+                Double.compare(ref.importance, importance) == 0 &&
+                Objects.equals(licence, ref.licence) &&
+                Objects.equals(osmType, ref.osmType) &&
+                Objects.equals(lat, ref.lat) &&
+                Objects.equals(lon, ref.lon) &&
+                Objects.equals(classType, ref.classType) &&
+                Objects.equals(type, ref.type) &&
+                Objects.equals(addressType, ref.addressType) &&
+                Objects.equals(name, ref.name) &&
+                Objects.equals(displayName, ref.displayName) &&
+                Objects.equals(address, ref.address) &&
+                Arrays.equals(boundingbox, ref.boundingbox);
     }
 
     public static void main(String[] args) {
