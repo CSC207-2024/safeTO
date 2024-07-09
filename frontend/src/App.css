@@ -1,3 +1,13 @@
+.overlay-text {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  padding: 10px;
+  border-radius: 5px;
+}
+
 .geosuggest__input {
   width: 300px;
   padding: 10px;
@@ -15,7 +25,7 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   display: none;
 }
 

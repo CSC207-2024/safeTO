@@ -5,6 +5,7 @@ import Geosuggest from 'react-geosuggest';
 import 'react-geosuggest/module/geosuggest.css';
 import { Tooltip } from 'react-tippy';
 import 'react-tippy/dist/tippy.css';
+import './App.css'; // Ensure this import is present
 
 const Home = () => {
     return (
@@ -15,7 +16,7 @@ const Home = () => {
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 />
             </MapContainer>
-            <div style={{ position: 'absolute', top: 20, left: 20, zIndex: 1000 }}>
+            <div className="overlay-text">
                 <h2>Welcome to Community Safety App</h2>
                 <p>Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.</p>
             </div>
@@ -25,7 +26,7 @@ const Home = () => {
             <div style={{ position: 'absolute', top: 20, right: 20, zIndex: 1000 }}>
                 <Tooltip title="User Profile" position="bottom" trigger="mouseenter">
                     <img
-                        src="https://via.placeholder.com/40" // replace with your user icon
+                        src="https://img.icons8.com/ios-filled/50/000000/user.png"
                         alt="User Icon"
                         style={{ borderRadius: '50%', cursor: 'pointer' }}
                     />
