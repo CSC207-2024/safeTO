@@ -8,9 +8,18 @@ import types.Place;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandler;
+import java.net.http.HttpResponse.BodyHandlers;
 
 public class ReverseGeocoding {
+    private static final Gson gson = new Gson();
+    private static final HttpClient httpClient = HttpClient.newHttpClient();
+
     public static Place resolve(Location location) {
         double latitude = location.getLatitude();
         double longitude = location.getLongitude();
@@ -21,28 +30,21 @@ public class ReverseGeocoding {
                 longitude);
 
         try {
-            URL url = new URL(apiUrl);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("User-Agent", "Mozilla/5.0");
+            HttpResponse<String> response = httpClient.send(HttpRequest.newBuilder()
+                    .GET()
+                    .uri(URI.create(apiUrl))
+                    .setHeader(
+                            "user-agent",
+                            "safeTO <client@csc207.joefang.org>")
+                    .build(),
+                    BodyHandlers.ofString());
 
-            int responseCode = conn.getResponseCode();
-            if (responseCode == 200) { // HTTP OK
-                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                String inputLine;
-                StringBuilder response = new StringBuilder();
-
-                while ((inputLine = in.readLine()) != null) {
-                    response.append(inputLine);
-                }
-                in.close();
-
+            int statusCode = response.statusCode();
+            if (statusCode == 200) { // HTTP OK
                 // Parse JSON response
-                Gson gson = new Gson();
-                Place place = gson.fromJson(response.toString(), Place.class);
-                return place;
+                return gson.fromJson(response.body(), Place.class);
             } else {
-                System.err.println("GET request not worked, Response Code: " + responseCode);
+                System.err.println("GET request not worked, Response Code: " + statusCode);
             }
         } catch (Exception e) {
             e.printStackTrace();
