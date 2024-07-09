@@ -9,7 +9,8 @@ OCC_YEAR | NEIGHBOURHOOD_158 | MCI_COUNT
 
 json format:
 
-```    {
+```    
+   {
       "attributes": [
       {
         "OCC_YEAR": 2023,
@@ -21,7 +22,7 @@ json format:
         "NEIGHBOURHOOD_158": "Neighbourhood A",
         "MCI_COUNT": 8
       }
-                       ]
-    }
+                      ]
+   }
     
 ```
