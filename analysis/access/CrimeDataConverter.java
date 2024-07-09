@@ -96,7 +96,7 @@ public class CrimeDataConverter {
         JsonObject root = new JsonObject();
         JsonArray featuresArray = new JsonArray();
 
-        List<Row> rows = (List<Row>) table.rows();
+        Iterable<Row> rows = table;
 
         for (Row row : rows) {
             JsonObject feature = new JsonObject();

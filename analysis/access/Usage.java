@@ -2,6 +2,7 @@ package analysis.access;
 import analysis.access.CrimeDataConverter;
 import analysis.access.CrimeDataFetcher;
 import analysis.access.CrimeDataProcessor;
+import org.jfree.chart.JFreeChart;
 import org.json.JSONArray;
 import tech.tablesaw.api.Table;
 import org.json.JSONException;
@@ -46,8 +47,6 @@ public class Usage {
         Table agg1 = processor.aggregate("MCI_CATEGORY", "OCC_YEAR");
         System.out.println(agg1.first(6));
 
-//        byColumns... is a syntactic sugar for passing 0 or more arguments
-
         Table agg2 = processor.aggregate("MCI_CATEGORY", "OCC_YEAR","NEIGHBOURHOOD_158");
         System.out.println(agg2.first(5));
 
@@ -62,10 +61,30 @@ public class Usage {
         Table agg5 = processor.aggregate("MCI_CATEGORY", "MCI_CATEGORY");
         System.out.println(agg5.first(15));
 
-//        Export the data
+        Table agg6 = processor.aggregate("MCI_CATEGORY", "NEIGHBOURHOOD_158");
+        System.out.println(agg6.first(15));
+
+//        Export the data to frontend/aggregates
         CrimeDataExporter exporter = new CrimeDataExporter();
-        String path = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/incidents_by_year.json";
-        exporter.writeToJson(agg1, path);
+//        String path1 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/total_by_year.json";
+//        String path2 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/by_year_neighbourhood.json";
+//        String path3 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/by_year_category.json";
+//        String path4 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/by_year_category_neighbourhood.json";
+//        String path5 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/total_by_category.json";
+//        String path6 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/total_by_neighbourhood.json";
+//        exporter.writeToJson(agg1, path1);
+//        exporter.writeToJson(agg2, path2);
+//        exporter.writeToJson(agg3, path3);
+//        exporter.writeToJson(agg4, path4);
+//        exporter.writeToJson(agg5, path5);
+//        exporter.writeToJson(agg6, path6);
+
+        CrimeDataPlotter plotter = new CrimeDataPlotter();
+//        JFreeChart barplot1 = plotter.barPlot(agg1, "OCC_YEAR", "Count [MCI_CATEGORY]", "Total Crime by Year", "Year", "Count");
+//        exporter.exportToSVG(barplot1, "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/total_by_year.svg");
+//        JFreeChart lineplot1 = plotter.linePlot(agg3, "OCC_YEAR", "Count [MCI_CATEGORY]","MCI_CATEGORY",
+//                "Total Crime by Year and Category", "Year", "Count");
+//        exporter.exportToSVG(lineplot1, "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/by_year_category.svg");
 
 
 
