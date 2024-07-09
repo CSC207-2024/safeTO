@@ -94,12 +94,11 @@ public class CrimeDataConverter {
      */
     public String tableToJson(Table table) {
         JsonObject root = new JsonObject();
-        JsonArray featuresArray = new JsonArray();
+        JsonArray attributesArray = new JsonArray();
 
         Iterable<Row> rows = table;
 
         for (Row row : rows) {
-            JsonObject feature = new JsonObject();
             JsonObject attributes = new JsonObject();
 
             for (String columnName : table.columnNames()) {
@@ -114,11 +113,10 @@ public class CrimeDataConverter {
                     attributes.addProperty(columnName, row.getObject(columnName).toString());
                 }
             }
-            feature.add("attributes", attributes);
-            featuresArray.add(feature);
+            attributesArray.add(attributes);
         }
 
-        root.add("features", featuresArray);
+        root.add("attributes", attributesArray);
         Gson gson = new Gson();
         return gson.toJson(root);
     }
