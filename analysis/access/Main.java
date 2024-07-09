@@ -1,4 +1,3 @@
-
 package analysis.access;
 
 import java.text.SimpleDateFormat;
@@ -23,10 +22,12 @@ public class Main {
 
         System.out.println("All Auto Theft in the past year within the radius：");
         int index = 1;
-        for (StolenCarData data: pastYearData) {
-            double distance = calculator.calculateDistance(latitude, longitude, data.getLatitude(), data.getLongitude());
+        for (StolenCarData data : pastYearData) {
+            double distance = calculator.calculateDistance(latitude, longitude, data.getLatitude(),
+                    data.getLongitude());
             String formattedDate = dateFormat.format(data.getOccDate());
-            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, formattedDate, distance);
+            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, formattedDate,
+                    distance);
         }
 
         // all stolen car info in the data set
@@ -36,9 +37,11 @@ public class Main {
         System.out.println("ALL known Auto Theft within the radius：");
         index = 1;
         for (StolenCarData data : allData) {
-            double distance = calculator.calculateDistance(latitude, longitude, data.getLatitude(), data.getLongitude());
+            double distance = calculator.calculateDistance(latitude, longitude, data.getLatitude(),
+                    data.getLongitude());
             String formattedDate = dateFormat.format(data.getOccDate());
-            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, formattedDate, distance);
+            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, formattedDate,
+                    distance);
         }
 
         // probability of being stolen

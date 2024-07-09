@@ -30,7 +30,7 @@ public class ReverseGeocoding {
                     .uri(URI.create(apiUrl))
                     .setHeader(
                             "user-agent",
-                            "safeTO <client@csc207.joefang.org>")
+                            "safeTO <backend@csc207.joefang.org>")
                     .build(),
                     BodyHandlers.ofString());
 
@@ -55,11 +55,13 @@ public class ReverseGeocoding {
     public static void main(String[] args) {
         double latitude = 43.651070;
         double longitude = -79.347015;
-        String neighborhood = getNeighborhoodByCoordinates(new SimpleLocation(latitude, longitude));
+        Place place = resolve(new SimpleLocation(latitude, longitude));
+        String neighborhood = place.getAddress().getNeighbourhood();
         if (neighborhood != null) {
             System.out.println("The neighborhood is: " + neighborhood);
         } else {
             System.out.println("Neighborhood not found.");
+            System.out.println(gson.toJson(place.getAddress()));
         }
     }
 }
