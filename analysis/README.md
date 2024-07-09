@@ -71,8 +71,16 @@
 - -checkValidColumn `(String colname) -> void`
 
 ---
+`interface` **Exportable**
 
-`class` **CrimeDataExporter**
+> Methods
+- +writeToJson `(Table table, String outputPath) -> void`
+- +exportToSVG `(JFreeChart chart, String outputPath) -> void`
+
+
+---
+
+`class` **CrimeDataExporter** `implements` **Exportable**
 
 > Variables
 - -converter: `CrimeDataConverter`
@@ -80,5 +88,14 @@
 > Methods
 
 - +writeToJson `(Table table, String outputPath) -> void`
+- +exportToSVG `(JFreeChart chart, String outputPath) -> void`
 
+---
+
+`class` **CrimeDataPlotter**
+
+> Methods
+
+- +barPlot `(Table table, String xCol, String yCol, String title, String xLabel, String yLabel) -> JFreeChart`
+- +linePlot `linePlot(Table table, String xCol, String yCol, String type, String xLab, String yLab, String title) -> JFreeChart`
 
