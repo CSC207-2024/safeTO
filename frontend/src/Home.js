@@ -5,7 +5,7 @@ import Geosuggest from 'react-geosuggest';
 import 'react-geosuggest/module/geosuggest.css';
 import { Tooltip } from 'react-tippy';
 import 'react-tippy/dist/tippy.css';
-import './App.css'; // Ensure this import is present
+import './App.css';
 
 const Home = () => {
     return (
