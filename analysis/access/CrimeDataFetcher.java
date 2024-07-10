@@ -46,7 +46,7 @@ public class CrimeDataFetcher implements InterfaceDataFetcher {
                             .setHeader("accept",
                                     "application/json")
                             .build(),
-                            BodyHandlers.ofString());
+                            HttpResponse.BodyHandlers.ofString());
 
                     JSONObject jsonResponse = new JSONObject(response.body());
 
@@ -70,10 +70,12 @@ public class CrimeDataFetcher implements InterfaceDataFetcher {
                     }
                 }
             }
-        } catch (IOException | URISyntaxException e) {
+        } catch (IOException e) {
             e.printStackTrace();
             return null;
         } catch (JSONException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 

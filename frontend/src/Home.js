@@ -1,12 +1,55 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { MapContainer, TileLayer, useMap } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import Geosuggest from 'react-geosuggest';
+import 'react-geosuggest/module/geosuggest.css';
+import { Tooltip } from 'react-tippy';
+import 'react-tippy/dist/tippy.css';
+import './App.css';
+
+const TorontoCoordinates = [43.65107, -79.347015];
 
 const Home = () => {
-  return (
-    <div>
-      <h2>Welcome to Community Safety App</h2>
-      <p>Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.</p>
-    </div>
-  );
+    const mapRef = useRef();
+
+    const onSuggestSelect = (suggest) => {
+        if (suggest && suggest.location) {
+            const { lat, lng } = suggest.location;
+            mapRef.current.setView([lat, lng], 13);
+        }
+    };
+
+    return (
+        <div style={{ height: '100vh', position: 'relative' }}>
+            <MapContainer center={TorontoCoordinates} zoom={13} style={{ height: '100%', width: '100%' }} ref={mapRef}>
+                <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                />
+            </MapContainer>
+            <div className="overlay-text">
+                <h2>Welcome to Community Safety App</h2>
+                <p>Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.</p>
+            </div>
+            <div style={{ position: 'absolute', top: 100, left: 20, zIndex: 1000 }}>
+                <Geosuggest placeholder="Search for a location" onSuggestSelect={onSuggestSelect} />
+            </div>
+            <div style={{ position: 'absolute', top: 20, right: 20, zIndex: 1000 }}>
+                <Tooltip title="User Profile" position="bottom" trigger="mouseenter">
+                    <img
+                        src="https://img.icons8.com/ios-filled/50/000000/user.png"
+                        alt="User Icon"
+                        style={{ borderRadius: '50%', cursor: 'pointer' }}
+                    />
+                    <div style={{ display: 'none' }} className="user-profile">
+                        <p>User Name</p>
+                        <p>Email: user@example.com</p>
+                        <p>Other Profile Info</p>
+                    </div>
+                </Tooltip>
+            </div>
+        </div>
+    );
 };
 
 export default Home;
