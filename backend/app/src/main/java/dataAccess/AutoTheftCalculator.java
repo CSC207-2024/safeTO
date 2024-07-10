@@ -4,15 +4,18 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
-public class AutoTheftCalculator {
+public class AutoTheftCalculator implements CrimeCalculatorInterface<StolenCarData> {
 
-    private final StolenCarDataFetcher stolenCarDataFetcher;
+    private final CrimeDataFetcherInterface<StolenCarData> stolenCarDataFetcher;
 
-    public AutoTheftCalculator(StolenCarDataFetcher stolenCarDataFetcher) {
+    public AutoTheftCalculator(CrimeDataFetcherInterface<StolenCarData> stolenCarDataFetcher) {
         this.stolenCarDataFetcher = stolenCarDataFetcher;
     }
 
+    @Override
     public double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
         final int R = 6371; // Radius of the Earth in km
         double latDistance = Math.toRadians(lat2 - lat1);
@@ -50,17 +53,33 @@ public class AutoTheftCalculator {
         return filteredData;
     }
 
-    public List<StolenCarData> getStolenCarDataWithinRadius(double lat, double lon, double radius) {
-        List<StolenCarData> stolenCarDataList = stolenCarDataFetcher.getAllStolenCarData();
+    @Override
+    public List<StolenCarData> getCrimeDataWithinRadius(double lat, double lon, double radius) {
+        List<StolenCarData> stolenCarDataList = stolenCarDataFetcher.fetchCrimeData();
         return filterDataByRadius(lat, lon, radius, stolenCarDataList);
     }
 
-    public List<StolenCarData> getStolenCarDataWithinRadiusPastYear(double lat, double lon, double radius) {
-        List<StolenCarData> stolenCarDataList = stolenCarDataFetcher.getAllStolenCarData();
+    @Override
+    public List<StolenCarData> getCrimeDataWithinRadiusPastYear(double lat, double lon, double radius) {
+        List<StolenCarData> stolenCarDataList = stolenCarDataFetcher.fetchCrimeData();
         List<StolenCarData> pastYearData = filterDataByYear(stolenCarDataList);
         return filterDataByRadius(lat, lon, radius, pastYearData);
     }
 
+    public double calculateAnnualAverageIncidents(List<StolenCarData> data) {
+        Map<Integer, Integer> yearlyCounts = new HashMap<>();
+        for (StolenCarData item : data) {
+            int year = item.getOccDate().toLocalDateTime().getYear();
+            yearlyCounts.put(year, yearlyCounts.getOrDefault(year, 0) + 1);
+        }
+
+        int totalYears = yearlyCounts.size();
+        int totalIncidents = yearlyCounts.values().stream().mapToInt(Integer::intValue).sum();
+
+        return totalIncidents / (double) totalYears;
+    }
+
+    @Override
     public double calculatePoissonProbability(double lambda, int threshold) {
         double cumulativeProbability = 0.0;
         for (int k = 0; k <= threshold; k++) {

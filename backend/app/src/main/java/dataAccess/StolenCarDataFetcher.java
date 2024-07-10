@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StolenCarDataFetcher {
+public class StolenCarDataFetcher implements CrimeDataFetcherInterface<StolenCarData>{
     private final CrimeDataFetcher dataFetcher;
     private final CrimeDataConverter dataConverter;
 
@@ -19,7 +19,8 @@ public class StolenCarDataFetcher {
         this.dataConverter = dataConverter;
     }
 
-    public List<StolenCarData> getAllStolenCarData() {
+    @Override
+    public List<StolenCarData> fetchCrimeData() {
         List<StolenCarData> stolenCarDataList = new ArrayList<>();
         JSONArray data = dataFetcher.fetchData();
         if (data == null) {
@@ -47,7 +48,7 @@ public class StolenCarDataFetcher {
                 double longitude = attributes.getDouble("LONG_WGS84");
 
                 StolenCarData stolenCarData = new StolenCarData(
-                       eventUniqueId, reportDate, occDate, mciCategory, latitude, longitude);
+                        eventUniqueId, reportDate, occDate, mciCategory, latitude, longitude);
                 stolenCarDataList.add(stolenCarData);
             } catch (JSONException e) {
                 e.printStackTrace();
