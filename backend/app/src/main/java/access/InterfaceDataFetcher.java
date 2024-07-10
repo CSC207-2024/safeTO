@@ -1,4 +1,4 @@
-package access;
+package backend.app.src.main.java.access;
 
 import org.json.JSONArray;
 import org.json.JSONException;

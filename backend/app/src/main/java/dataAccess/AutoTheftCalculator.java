@@ -1,4 +1,4 @@
-package src.DataAccess;
+package backend.app.src.main.java.dataAccess;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -25,7 +25,6 @@ public class AutoTheftCalculator {
         return distance;
     }
 
-
     private List<StolenCarData> filterDataByRadius(double lat, double lon, double radius, List<StolenCarData> data) {
         List<StolenCarData> filteredData = new ArrayList<>();
         for (StolenCarData item : data) {
@@ -41,10 +40,10 @@ public class AutoTheftCalculator {
         List<StolenCarData> filteredData = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.YEAR, -1); // get date one year ago
-        Timestamp threeYearAgo = new Timestamp(calendar.getTimeInMillis());
+        Timestamp oneYearAgo = new Timestamp(calendar.getTimeInMillis());
 
         for (StolenCarData item : data) {
-            if (item.getOccDate().after(threeYearAgo)) {
+            if (item.getOccDate().after(oneYearAgo)) {
                 filteredData.add(item);
             }
         }
@@ -52,24 +51,21 @@ public class AutoTheftCalculator {
     }
 
     public List<StolenCarData> getStolenCarDataWithinRadius(double lat, double lon, double radius) {
-        List<StolenCarData> stolenCarDataList = stolenCarDataFetcher.getAllStolenCarData(); // get all Auto Theft data
+        List<StolenCarData> stolenCarDataList = stolenCarDataFetcher.getAllStolenCarData();
         return filterDataByRadius(lat, lon, radius, stolenCarDataList);
     }
 
     public List<StolenCarData> getStolenCarDataWithinRadiusPastYear(double lat, double lon, double radius) {
-        List<StolenCarData> stolenCarDataList = stolenCarDataFetcher.getAllStolenCarData(); // get all Auto Theft data
+        List<StolenCarData> stolenCarDataList = stolenCarDataFetcher.getAllStolenCarData();
         List<StolenCarData> pastYearData = filterDataByYear(stolenCarDataList);
         return filterDataByRadius(lat, lon, radius, pastYearData);
     }
 
     public double calculatePoissonProbability(double lambda, int threshold) {
-        // calculate P(X <= threshold)
         double cumulativeProbability = 0.0;
         for (int k = 0; k <= threshold; k++) {
             cumulativeProbability += (Math.pow(lambda, k) * Math.exp(-lambda)) / factorial(k);
         }
-
-        // calculate P(X > threshold)
         return 1 - cumulativeProbability;
     }
 
@@ -79,5 +75,4 @@ public class AutoTheftCalculator {
         }
         return n * factorial(n - 1);
     }
-
 }

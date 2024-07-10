@@ -1,0 +1,69 @@
+
+ --------- data frame structure (MCI) 210928 rows X 12 cols (2019-2024) ---------
+
+ Index  |     Column Name     |  Column Type  |
+-----------------------------------------------
+     0  |    EVENT_UNIQUE_ID  |       STRING  |
+     1  |           OCC_YEAR  |      INTEGER  |
+     2  |          OCC_MONTH  |       STRING  |
+     3  |            OCC_DAY  |      INTEGER  |
+     4  |            OCC_DOW  |       STRING  |
+     5  |           OCC_HOUR  |      INTEGER  |
+     6  |          LAT_WGS84  |       DOUBLE  |
+     7  |         LONG_WGS84  |       DOUBLE  |
+     8  |  NEIGHBOURHOOD_158  |       STRING  |
+     9  |           HOOD_158  |       STRING  |
+    10  |      PREMISES_TYPE  |       STRING  |
+    11  |       MCI_CATEGORY  |       STRING  |
+
+     EVENT_UNIQUE_ID  |  OCC_YEAR  |  OCC_MONTH  |  OCC_DAY  |  OCC_DOW  |  OCC_HOUR  |      LAT_WGS84       |      LONG_WGS84      |      NEIGHBOURHOOD_158      |  HOOD_158  |  PREMISES_TYPE  |   MCI_CATEGORY    |
+    ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+         GO-20245567  |      2024  |    January  |        1  |   Monday  |        18  |   43.71912844644492  |  -79.51680604265206  |   Oakdale-Beverley Heights  |       154  |      Apartment  |          Assault  |
+         GO-20245771  |      2024  |    January  |        1  |   Monday  |        19  |   43.69557020518646  |  -79.33963622735183  |              Old East York  |        58  |        Outside  |          Assault  |
+         GO-20242611  |      2024  |    January  |        1  |   Monday  |         6  |  43.776331711695555  |  -79.22468249239172  |  Golfdale-Cedarbrae-Woburn  |       141  |          House  |  Break and Enter  |
+         GO-20244110  |      2024  |    January  |        1  |   Monday  |        14  |   43.64057888586853  |  -79.42798082400508  |             South Parkdale  |        85  |      Apartment  |          Assault  |
+         GO-20243181  |      2024  |    January  |        1  |   Monday  |         6  |  43.675543918327726  |  -79.39691514719333  |                      Annex  |        95  |      Apartment  |  Break and Enter  |
+
+    # data manipulation:
+
+    - methods
+    1. select subset of columns *
+    2. filter by year range *
+    3. filter by MCI_CATEGORY *
+    4. filter by PREMISES_TYPE *
+    5. filter by neighbourhood *
+
+
+
+    - sub-table
+    1. Total MCI by year*
+    OCC_YEAR | MCI_COUNT
+
+    2. Total MCI by year + neighbourhood*
+    OCC_YEAR | NEIGHBOURHOOD_158 | MCI_COUNT
+
+    4. Total offences by year*
+    MCI_CATEGORY | OCC_YEAR | INCIDENT_COUNT
+
+    5. Total offences by year + neighbourhood*
+    MCI_CATEGORY | OCC_YEAR | NEIGHBOURHOOD_158 | INCIDENT_COUNT
+
+
+
+    TODO: Calculate crime rates
+    # data visualizations:
+    TODO: JFreeChart + JFreeSVG
+
+    1. bar plot
+    2. line chart
+
+
+
+
+
+
+
+
+
+
+
