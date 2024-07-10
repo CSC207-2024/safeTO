@@ -8,7 +8,6 @@ import tech.tablesaw.io.csv.CsvReadOptions;
 import java.io.StringReader;
 import com.google.gson.*;
 import tech.tablesaw.api.*;
-import java.util.List;
 import static tech.tablesaw.api.ColumnType.*;
 
 /**
