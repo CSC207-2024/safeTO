@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { MapContainer, TileLayer, useMap } from 'react-leaflet';
+import React, { useState, useRef, useEffect } from 'react';
+import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import Geosuggest from 'react-geosuggest';
 import 'react-geosuggest/module/geosuggest.css';
@@ -11,6 +11,13 @@ const TorontoCoordinates = [43.65107, -79.347015];
 
 const Home = () => {
     const mapRef = useRef();
+    const [isEditing, setIsEditing] = useState(false);
+    const [userInfo, setUserInfo] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phoneNumber: ''
+    });
 
     const onSuggestSelect = (suggest) => {
         if (suggest && suggest.location) {
@@ -19,9 +26,24 @@ const Home = () => {
         }
     };
 
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setUserInfo((prevInfo) => ({ ...prevInfo, [name]: value }));
+    };
+
+    const toggleEdit = () => {
+        setIsEditing((prevEdit) => !prevEdit);
+    };
+
+    useEffect(() => {
+        if (mapRef.current && mapRef.current.setView) {
+            mapRef.current.setView(TorontoCoordinates, 13);
+        }
+    }, []);
+
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
-            <MapContainer center={TorontoCoordinates} zoom={13} style={{ height: '100%', width: '100%' }} ref={mapRef}>
+            <MapContainer center={TorontoCoordinates} zoom={13} style={{ height: '100%', width: '100%' }} whenCreated={mapInstance => { mapRef.current = mapInstance; }}>
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -41,10 +63,54 @@ const Home = () => {
                         alt="User Icon"
                         style={{ borderRadius: '50%', cursor: 'pointer' }}
                     />
-                    <div style={{ display: 'none' }} className="user-profile">
-                        <p>User Name</p>
-                        <p>Email: user@example.com</p>
-                        <p>Other Profile Info</p>
+                    <div className="user-profile">
+                        <div>
+                            <label htmlFor="firstName">First Name:</label>
+                            <input
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                value={userInfo.firstName}
+                                disabled={!isEditing}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="lastName">Last Name:</label>
+                            <input
+                                type="text"
+                                id="lastName"
+                                name="lastName"
+                                value={userInfo.lastName}
+                                disabled={!isEditing}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="email">Email:</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={userInfo.email}
+                                disabled={!isEditing}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="phoneNumber">Phone Number:</label>
+                            <input
+                                type="tel"
+                                id="phoneNumber"
+                                name="phoneNumber"
+                                value={userInfo.phoneNumber}
+                                disabled={!isEditing}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <button onClick={toggleEdit}>
+                            {isEditing ? 'Save' : 'Edit'}
+                        </button>
                     </div>
                 </Tooltip>
             </div>
