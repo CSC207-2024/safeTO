@@ -1,5 +1,5 @@
-import React from 'react';
-import { MapContainer, TileLayer } from 'react-leaflet';
+import React, { useRef } from 'react';
+import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import Geosuggest from 'react-geosuggest';
 import 'react-geosuggest/module/geosuggest.css';
@@ -7,10 +7,21 @@ import { Tooltip } from 'react-tippy';
 import 'react-tippy/dist/tippy.css';
 import './App.css';
 
+const TorontoCoordinates = [43.65107, -79.347015];
+
 const Home = () => {
+    const mapRef = useRef();
+
+    const onSuggestSelect = (suggest) => {
+        if (suggest && suggest.location) {
+            const { lat, lng } = suggest.location;
+            mapRef.current.setView([lat, lng], 13);
+        }
+    };
+
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
-            <MapContainer center={[51.505, -0.09]} zoom={13} style={{ height: '100%', width: '100%' }}>
+            <MapContainer center={TorontoCoordinates} zoom={13} style={{ height: '100%', width: '100%' }} ref={mapRef}>
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -21,7 +32,7 @@ const Home = () => {
                 <p>Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.</p>
             </div>
             <div style={{ position: 'absolute', top: 100, left: 20, zIndex: 1000 }}>
-                <Geosuggest placeholder="Search for a location" />
+                <Geosuggest placeholder="Search for a location" onSuggestSelect={onSuggestSelect} />
             </div>
             <div style={{ position: 'absolute', top: 20, right: 20, zIndex: 1000 }}>
                 <Tooltip title="User Profile" position="bottom" trigger="mouseenter">
