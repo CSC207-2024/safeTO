@@ -1,8 +1,9 @@
 package http;
 
+import java.io.BufferedWriter;
 import java.net.http.HttpClient;
 import java.net.http.HttpResponse;
-
+import logging.Logger;
 import java.net.http.HttpRequest;
 
 public class Client {
@@ -15,13 +16,14 @@ public class Client {
             try {
                 return client.send(request, responseBodyHandler);
             } catch (Exception e) {
-                // log error
+                logging.Logger.warn(e.getMessage(), "/backend/http/Client");
             }
             backoff_factor *= 2;
             if (backoff_factor > 16) {
                 backoff_factor = 16;
             }
         }
+        logging.Logger.error("max_retries exceeded", "/backend/http/Client");
         return null;
     }
 }
