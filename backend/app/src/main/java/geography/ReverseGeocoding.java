@@ -3,16 +3,15 @@ package geography;
 import com.google.gson.Gson;
 import location.Location;
 import types.Place;
-
+import http.Client;
 import java.net.URI;
-import java.net.http.HttpClient;
+import logging.Logger;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 
 public class ReverseGeocoding {
     private static final Gson gson = new Gson();
-    private static final HttpClient httpClient = HttpClient.newHttpClient();
 
     public static Place resolve(double latitude, double longitude) {
         String apiUrl = String.format(
@@ -21,24 +20,26 @@ public class ReverseGeocoding {
                 longitude);
 
         try {
-            HttpResponse<String> response = httpClient.send(HttpRequest.newBuilder()
+            HttpResponse<String> response = Client.send(HttpRequest.newBuilder()
                     .GET()
                     .uri(URI.create(apiUrl))
                     .setHeader(
                             "user-agent",
                             "safeTO <backend@csc207.joefang.org>")
                     .build(),
-                    BodyHandlers.ofString());
+                    BodyHandlers.ofString(),
+                    5);
 
             int statusCode = response.statusCode();
             if (statusCode == 200) { // HTTP OK
                 // Parse JSON response
                 return gson.fromJson(response.body(), Place.class);
             } else {
-                System.err.println("GET request not worked, Response Code: " + statusCode);
+                Logger.warn("GET request not worked, Response Code: " + statusCode,
+                        "/backend/geography/ReverseGeocoding");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Logger.error(e.getMessage(), "/backend/geography/ReverseGeocoding");
         }
         return null;
     }
