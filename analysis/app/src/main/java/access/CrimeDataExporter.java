@@ -4,15 +4,15 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.graphics2d.svg.SVGGraphics2D;
 import org.jfree.graphics2d.svg.SVGUtils;
 import tech.tablesaw.api.*;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+
 /**
- * A class for exporting analyzed crime data from data table to gson format.
+ * A class for exporting analyzed crime.
  */
-public class CrimeDataExporter implements Exportable{
+public class CrimeDataExporter implements Exportable {
 
     private final CrimeDataConverter converter = new CrimeDataConverter();
 

@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
  * A public class implements InterfaceDataFetcher It is responsible for
  * fetching JSON format data from a specified API.
  */
-public class CrimeDataFetcher implements InterfaceDataFetcher {
+public class CrimeDataFetcher {
     private static final HttpClient httpClient = HttpClient.newHttpClient();
     private static final String BASE_API_URL = "https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/Major_Crime_Indicators_Open_Data/FeatureServer/0/query?outFields=EVENT_UNIQUE_ID,OCC_DATE,OCC_YEAR,OCC_MONTH,OCC_DAY,OCC_DOY,OCC_DOW,OCC_HOUR,DIVISION,LOCATION_TYPE,PREMISES_TYPE,UCR_CODE,UCR_EXT,OFFENCE,MCI_CATEGORY,HOOD_158,NEIGHBOURHOOD_158,LONG_WGS84,LAT_WGS84,REPORT_DATE&outSR=4326&f=json";
 
@@ -22,7 +22,7 @@ public class CrimeDataFetcher implements InterfaceDataFetcher {
      * @throws RuntimeException wrapping a JSONException if parsing of the received
      *                          JSON data fails.
      */
-    @Override
+
     public JSONArray fetchData() {
         JSONArray aggregatedData = new JSONArray();
 

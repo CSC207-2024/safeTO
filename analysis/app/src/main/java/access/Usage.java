@@ -1,10 +1,9 @@
-package access;
+package analysis.access;
 
 import org.jfree.chart.JFreeChart;
 import org.json.JSONArray;
 import tech.tablesaw.api.Table;
 import org.json.JSONException;
-
 
 
 /**
@@ -15,13 +14,13 @@ public class Usage {
 
     public static void main(String[] args) throws JSONException {
 
-        CrimeDataFetcher dataFetcher = new CrimeDataFetcher();
+        access.CrimeDataFetcher dataFetcher = new access.CrimeDataFetcher();
 
         JSONArray data = dataFetcher.fetchData();
-        CrimeDataConverter converter = new CrimeDataConverter();
+        access.CrimeDataConverter converter = new access.CrimeDataConverter();
         Table t = converter.jsonToTable(data);
         System.out.println(t.shape());
-        CrimeDataProcessor processor = new CrimeDataProcessor();
+        access.CrimeDataProcessor processor = new access.CrimeDataProcessor();
         processor.setTable(t);
         String[] names = processor.getColumnNames();
         for (String n : names){
@@ -63,7 +62,7 @@ public class Usage {
         System.out.println(agg6.first(15));
 
 //        Export the data to frontend/aggregates
-        CrimeDataExporter exporter = new CrimeDataExporter();
+        access.CrimeDataExporter exporter = new access.CrimeDataExporter();
 //        String path1 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/total_by_year.json";
 //        String path2 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/by_year_neighbourhood.json";
 //        String path3 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/by_year_category.json";
@@ -77,7 +76,7 @@ public class Usage {
 //        exporter.writeToJson(agg5, path5);
 //        exporter.writeToJson(agg6, path6);
 
-        CrimeDataPlotter plotter = new CrimeDataPlotter();
+        access.CrimeDataPlotter plotter = new access.CrimeDataPlotter();
 //        JFreeChart barplot1 = plotter.barPlot(agg1, "OCC_YEAR", "Count [MCI_CATEGORY]", "Total Crime by Year", "Year", "Count");
 //        exporter.exportToSVG(barplot1, "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/total_by_year.svg");
 //        JFreeChart lineplot1 = plotter.linePlot(agg3, "OCC_YEAR", "Count [MCI_CATEGORY]","MCI_CATEGORY",
