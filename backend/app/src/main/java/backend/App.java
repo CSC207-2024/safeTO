@@ -3,6 +3,8 @@
  */
 package backend;
 
+import jakarta.ws.rs.*;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
