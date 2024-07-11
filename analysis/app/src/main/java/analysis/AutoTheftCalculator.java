@@ -1,18 +1,19 @@
-package analysis.access;
+package analysis;
+
+import access.CrimeDataFetcherInterface;
 
 import java.sql.Timestamp;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.*;
 
-public class AutoTheftCalculator {
+public class AutoTheftCalculator implements CrimeCalculatorInterface<StolenCarData> {
 
-    private final StolenCarDataFetcher stolenCarDataFetcher;
+    private final CrimeDataFetcherInterface<StolenCarData> stolenCarDataFetcher;
 
-    public AutoTheftCalculator(StolenCarDataFetcher stolenCarDataFetcher) {
+    public AutoTheftCalculator(CrimeDataFetcherInterface<StolenCarData> stolenCarDataFetcher) {
         this.stolenCarDataFetcher = stolenCarDataFetcher;
     }
 
+    @Override
     public double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
         final int R = 6371; // Radius of the Earth in km
         double latDistance = Math.toRadians(lat2 - lat1);
@@ -24,7 +25,6 @@ public class AutoTheftCalculator {
         double distance = R * c * 1000; // convert to meters
         return distance;
     }
-
 
     private List<StolenCarData> filterDataByRadius(double lat, double lon, double radius, List<StolenCarData> data) {
         List<StolenCarData> filteredData = new ArrayList<>();
@@ -41,35 +41,48 @@ public class AutoTheftCalculator {
         List<StolenCarData> filteredData = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.YEAR, -1); // get date one year ago
-        Timestamp threeYearAgo = new Timestamp(calendar.getTimeInMillis());
+        Timestamp oneYearAgo = new Timestamp(calendar.getTimeInMillis());
 
         for (StolenCarData item : data) {
-            if (item.getOccDate().after(threeYearAgo)) {
+            if (item.getOccDate().after(oneYearAgo)) {
                 filteredData.add(item);
             }
         }
         return filteredData;
     }
 
-    public List<StolenCarData> getStolenCarDataWithinRadius(double lat, double lon, double radius) {
-        List<StolenCarData> stolenCarDataList = stolenCarDataFetcher.getAllStolenCarData(); // get all Auto Theft data
+    @Override
+    public List<StolenCarData> getCrimeDataWithinRadius(double lat, double lon, double radius) {
+        List<StolenCarData> stolenCarDataList = stolenCarDataFetcher.fetchCrimeData();
         return filterDataByRadius(lat, lon, radius, stolenCarDataList);
     }
 
-    public List<StolenCarData> getStolenCarDataWithinRadiusPastYear(double lat, double lon, double radius) {
-        List<StolenCarData> stolenCarDataList = stolenCarDataFetcher.getAllStolenCarData(); // get all Auto Theft data
+    @Override
+    public List<StolenCarData> getCrimeDataWithinRadiusPastYear(double lat, double lon, double radius) {
+        List<StolenCarData> stolenCarDataList = stolenCarDataFetcher.fetchCrimeData();
         List<StolenCarData> pastYearData = filterDataByYear(stolenCarDataList);
         return filterDataByRadius(lat, lon, radius, pastYearData);
     }
 
+    public double calculateAnnualAverageIncidents(List<StolenCarData> data) {
+        Map<Integer, Integer> yearlyCounts = new HashMap<>();
+        for (StolenCarData item : data) {
+            int year = item.getOccDate().toLocalDateTime().getYear();
+            yearlyCounts.put(year, yearlyCounts.getOrDefault(year, 0) + 1);
+        }
+
+        int totalYears = yearlyCounts.size();
+        int totalIncidents = yearlyCounts.values().stream().mapToInt(Integer::intValue).sum();
+
+        return totalIncidents / (double) totalYears;
+    }
+
+    @Override
     public double calculatePoissonProbability(double lambda, int threshold) {
-        // calculate P(X <= threshold)
         double cumulativeProbability = 0.0;
         for (int k = 0; k <= threshold; k++) {
             cumulativeProbability += (Math.pow(lambda, k) * Math.exp(-lambda)) / factorial(k);
         }
-
-        // calculate P(X > threshold)
         return 1 - cumulativeProbability;
     }
 
@@ -79,5 +92,4 @@ public class AutoTheftCalculator {
         }
         return n * factorial(n - 1);
     }
-
 }

@@ -1,7 +1,5 @@
-package analysis.access;
-import analysis.access.CrimeDataConverter;
-import analysis.access.CrimeDataFetcher;
-import analysis.access.CrimeDataProcessor;
+package access;
+
 import org.jfree.chart.JFreeChart;
 import org.json.JSONArray;
 import tech.tablesaw.api.Table;

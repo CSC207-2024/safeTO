@@ -1,4 +1,4 @@
-package analysis.access;
+package access;
 
 import org.jfree.chart.JFreeChart;
 import org.jfree.graphics2d.svg.SVGGraphics2D;

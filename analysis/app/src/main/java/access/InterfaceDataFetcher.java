@@ -1,4 +1,4 @@
-package analysis.access;
+package access;
 
 import org.json.JSONArray;
 

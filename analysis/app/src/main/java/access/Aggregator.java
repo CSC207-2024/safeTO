@@ -1,4 +1,4 @@
-package analysis.access;
+package access;
 
 import tech.tablesaw.api.Table;
 

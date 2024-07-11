@@ -1,4 +1,4 @@
-package analysis.access;
+package access;
 
 import org.jfree.chart.axis.*;
 import org.jfree.chart.plot.*;
