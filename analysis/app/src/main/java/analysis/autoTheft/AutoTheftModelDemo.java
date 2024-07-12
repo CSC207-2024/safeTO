@@ -7,7 +7,16 @@ import access.CrimeDataProcessor;
 import java.util.Comparator;
 import java.util.List;
 
-public class CarStealingModelDemo {
+/**
+ * A demo class for analyzing and displaying auto theft data within a specified radius.
+ */
+public class AutoTheftModelDemo {
+
+    /**
+     * The main method that runs the demo for analyzing and displaying auto theft data.
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
         CrimeDataFetcher fetcher = new CrimeDataFetcher();
         CrimeDataConverter converter = new CrimeDataConverter();
