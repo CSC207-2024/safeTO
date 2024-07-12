@@ -1,4 +1,4 @@
-package analysis;
+package analysis.breakAndEnter;
 
 import access.CrimeDataConverter;
 import access.CrimeDataFetcher;
@@ -7,7 +7,16 @@ import access.CrimeDataProcessor;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * A demo class for analyzing and displaying break and enter data within a specified radius.
+ */
 public class BreakAndEnterModelDemo {
+
+    /**
+     * The main method that runs the demo for analyzing and displaying break and enter data.
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
         CrimeDataFetcher fetcher = new CrimeDataFetcher();
         CrimeDataConverter converter = new CrimeDataConverter();

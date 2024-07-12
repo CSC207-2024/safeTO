@@ -1,8 +1,9 @@
-package analysis;
+package analysis.breakAndEnter;
 
 import access.CrimeDataConverter;
 import access.CrimeDataFetcher;
 import access.CrimeDataProcessor;
+import analysis.IncidentFetcherInterface;
 import org.json.JSONArray;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.api.TextColumn;
@@ -10,17 +11,32 @@ import tech.tablesaw.api.TextColumn;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A class for fetching and processing break and enter incident data.
+ */
 public class BreakAndEnterIncidentFetcher implements IncidentFetcherInterface<BreakAndEnterData> {
     private final CrimeDataFetcher dataFetcher;
     private final CrimeDataConverter dataConverter;
     private final CrimeDataProcessor dataProcessor;
 
+    /**
+     * Constructs a BreakAndEnterIncidentFetcher with the specified data fetcher, data converter, and data processor.
+     *
+     * @param dataFetcher    The data fetcher for fetching raw data.
+     * @param dataConverter  The data converter for converting raw data to Table format.
+     * @param dataProcessor  The data processor for filtering and processing data.
+     */
     public BreakAndEnterIncidentFetcher(CrimeDataFetcher dataFetcher, CrimeDataConverter dataConverter, CrimeDataProcessor dataProcessor) {
         this.dataFetcher = dataFetcher;
         this.dataConverter = dataConverter;
         this.dataProcessor = dataProcessor;
     }
 
+    /**
+     * Fetches break and enter incident data, converts it to a Table, and processes it to filter break and enter records.
+     *
+     * @return A list of break and enter data records.
+     */
     @Override
     public List<BreakAndEnterData> fetchCrimeData() {
         List<BreakAndEnterData> breakAndEnterDataList = new ArrayList<>();
@@ -59,6 +75,14 @@ public class BreakAndEnterIncidentFetcher implements IncidentFetcherInterface<Br
         return breakAndEnterDataList;
     }
 
+    /**
+     * Retrieves a string value from the specified column and row index of a Table.
+     *
+     * @param table      The Table from which to retrieve the value.
+     * @param columnName The name of the column.
+     * @param rowIndex   The index of the row.
+     * @return The string value from the specified column and row index.
+     */
     private String getStringValue(Table table, String columnName, int rowIndex) {
         if (table.column(columnName) instanceof TextColumn) {
             return table.textColumn(columnName).get(rowIndex);

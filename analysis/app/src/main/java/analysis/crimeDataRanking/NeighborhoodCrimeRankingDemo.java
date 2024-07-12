@@ -1,6 +1,5 @@
-package analysis;
+package analysis.crimeDataRanking;
 
-import access.CrimeDataRanker;
 import org.json.JSONArray;
 import access.CrimeDataFetcher;
 import access.CrimeDataConverter;
@@ -9,7 +8,16 @@ import tech.tablesaw.api.Table;
 
 import java.util.Scanner;
 
+/**
+ * A demo class for ranking neighborhoods based on crime data.
+ */
 public class NeighborhoodCrimeRankingDemo {
+
+    /**
+     * The main method that runs the demo for ranking neighborhoods based on crime data.
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
         CrimeDataFetcher fetcher = new CrimeDataFetcher();
         CrimeDataConverter converter = new CrimeDataConverter();

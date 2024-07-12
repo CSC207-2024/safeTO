@@ -11,17 +11,32 @@ import tech.tablesaw.api.TextColumn;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A class for fetching and processing auto theft incident data.
+ */
 public class AutoTheftIncidentFetcher implements IncidentFetcherInterface<AutoTheftData> {
     private final CrimeDataFetcher dataFetcher;
     private final CrimeDataConverter dataConverter;
     private final CrimeDataProcessor dataProcessor;
 
+    /**
+     * Constructs an AutoTheftIncidentFetcher with the specified data fetcher, data converter, and data processor.
+     *
+     * @param dataFetcher    The data fetcher for fetching raw data.
+     * @param dataConverter  The data converter for converting raw data to Table format.
+     * @param dataProcessor  The data processor for filtering and processing data.
+     */
     public AutoTheftIncidentFetcher(CrimeDataFetcher dataFetcher, CrimeDataConverter dataConverter, CrimeDataProcessor dataProcessor) {
         this.dataFetcher = dataFetcher;
         this.dataConverter = dataConverter;
         this.dataProcessor = dataProcessor;
     }
 
+    /**
+     * Fetches auto theft incident data, converts it to a Table, and processes it to filter auto theft records.
+     *
+     * @return A list of auto theft data records.
+     */
     @Override
     public List<AutoTheftData> fetchCrimeData() {
         List<AutoTheftData> autoTheftDataList = new ArrayList<>();
@@ -60,6 +75,14 @@ public class AutoTheftIncidentFetcher implements IncidentFetcherInterface<AutoTh
         return autoTheftDataList;
     }
 
+    /**
+     * Retrieves a string value from the specified column and row index of a Table.
+     *
+     * @param table      The Table from which to retrieve the value.
+     * @param columnName The name of the column.
+     * @param rowIndex   The index of the row.
+     * @return The string value from the specified column and row index.
+     */
     private String getStringValue(Table table, String columnName, int rowIndex) {
         if (table.column(columnName) instanceof TextColumn) {
             return table.textColumn(columnName).get(rowIndex);

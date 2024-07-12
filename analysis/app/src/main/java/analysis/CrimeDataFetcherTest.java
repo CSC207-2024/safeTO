@@ -8,8 +8,17 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * A test class for the CrimeDataFetcher class.
+ */
 public class CrimeDataFetcherTest {
 
+    /**
+     * Tests the fetchData method of the CrimeDataFetcher class to ensure
+     * that data is correctly fetched from the data source.
+     *
+     * @throws JSONException if there is an error parsing the JSON data.
+     */
     @Test
     public void testFetchData() throws JSONException {
         CrimeDataFetcher dataFetcher = new CrimeDataFetcher();

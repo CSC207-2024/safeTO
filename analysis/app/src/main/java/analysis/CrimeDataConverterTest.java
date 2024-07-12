@@ -10,8 +10,17 @@ import tech.tablesaw.api.Table;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * A test class for the CrimeDataConverter class.
+ */
 public class CrimeDataConverterTest {
 
+    /**
+     * Tests the jsonToTable method of the CrimeDataConverter class to ensure
+     * that JSON data is correctly converted into a Table.
+     *
+     * @throws JSONException if there is an error parsing the JSON data.
+     */
     @Test
     public void testJsonToTableConversion() throws JSONException {
         // Arrange
