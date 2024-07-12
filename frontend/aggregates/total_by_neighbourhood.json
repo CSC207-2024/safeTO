@@ -1,1 +1,640 @@
-{"attributes":[{"NEIGHBOURHOOD_158":"Junction Area","Count [MCI_CATEGORY]":1204.0},{"NEIGHBOURHOOD_158":"Henry Farm","Count [MCI_CATEGORY]":930.0},{"NEIGHBOURHOOD_158":"East End-Danforth","Count [MCI_CATEGORY]":1660.0},{"NEIGHBOURHOOD_158":"Woburn North","Count [MCI_CATEGORY]":1711.0},{"NEIGHBOURHOOD_158":"The Beaches","Count [MCI_CATEGORY]":1105.0},{"NEIGHBOURHOOD_158":"Yonge-Bay Corridor","Count [MCI_CATEGORY]":3771.0},{"NEIGHBOURHOOD_158":"Yonge-Eglinton","Count [MCI_CATEGORY]":917.0},{"NEIGHBOURHOOD_158":"Woodbine-Lumsden","Count [MCI_CATEGORY]":317.0},{"NEIGHBOURHOOD_158":"Bayview Village","Count [MCI_CATEGORY]":1117.0},{"NEIGHBOURHOOD_158":"Oakdale-Beverley Heights","Count [MCI_CATEGORY]":2864.0},{"NEIGHBOURHOOD_158":"Milliken","Count [MCI_CATEGORY]":1818.0},{"NEIGHBOURHOOD_158":"Kensington-Chinatown","Count [MCI_CATEGORY]":3542.0},{"NEIGHBOURHOOD_158":"Beechborough-Greenbrook","Count [MCI_CATEGORY]":552.0},{"NEIGHBOURHOOD_158":"NSA","Count [MCI_CATEGORY]":3310.0},{"NEIGHBOURHOOD_158":"St.Andrew-Windfields","Count [MCI_CATEGORY]":1109.0},{"NEIGHBOURHOOD_158":"Morningside Heights","Count [MCI_CATEGORY]":1318.0},{"NEIGHBOURHOOD_158":"Weston","Count [MCI_CATEGORY]":1982.0},{"NEIGHBOURHOOD_158":"Greenwood-Coxwell","Count [MCI_CATEGORY]":1072.0},{"NEIGHBOURHOOD_158":"Clairlea-Birchmount","Count [MCI_CATEGORY]":2222.0},{"NEIGHBOURHOOD_158":"Wychwood","Count [MCI_CATEGORY]":815.0},{"NEIGHBOURHOOD_158":"Broadview North","Count [MCI_CATEGORY]":543.0},{"NEIGHBOURHOOD_158":"Annex","Count [MCI_CATEGORY]":3337.0},{"NEIGHBOURHOOD_158":"Stonegate-Queensway","Count [MCI_CATEGORY]":1448.0},{"NEIGHBOURHOOD_158":"Playter Estates-Danforth","Count [MCI_CATEGORY]":770.0},{"NEIGHBOURHOOD_158":"Humbermede","Count [MCI_CATEGORY]":1534.0},{"NEIGHBOURHOOD_158":"Wellington Place","Count [MCI_CATEGORY]":3530.0},{"NEIGHBOURHOOD_158":"Etobicoke City Centre","Count [MCI_CATEGORY]":2603.0},{"NEIGHBOURHOOD_158":"Forest Hill North","Count [MCI_CATEGORY]":679.0},{"NEIGHBOURHOOD_158":"Fort York-Liberty Village","Count [MCI_CATEGORY]":1160.0},{"NEIGHBOURHOOD_158":"East Willowdale","Count [MCI_CATEGORY]":886.0},{"NEIGHBOURHOOD_158":"Bayview Woods-Steeles","Count [MCI_CATEGORY]":481.0},{"NEIGHBOURHOOD_158":"Malvern East","Count [MCI_CATEGORY]":1282.0},{"NEIGHBOURHOOD_158":"Glenfield-Jane Heights","Count [MCI_CATEGORY]":2712.0},{"NEIGHBOURHOOD_158":"Ionview","Count [MCI_CATEGORY]":664.0},{"NEIGHBOURHOOD_158":"Yorkdale-Glen Park","Count [MCI_CATEGORY]":2484.0},{"NEIGHBOURHOOD_158":"Bendale-Glen Andrew","Count [MCI_CATEGORY]":1743.0},{"NEIGHBOURHOOD_158":"Tam O\u0027Shanter-Sullivan","Count [MCI_CATEGORY]":1338.0},{"NEIGHBOURHOOD_158":"Lambton Baby Point","Count [MCI_CATEGORY]":340.0},{"NEIGHBOURHOOD_158":"University","Count [MCI_CATEGORY]":1004.0},{"NEIGHBOURHOOD_158":"Oakwood Village","Count [MCI_CATEGORY]":1274.0},{"NEIGHBOURHOOD_158":"Cliffcrest","Count [MCI_CATEGORY]":1148.0},{"NEIGHBOURHOOD_158":"Princess-Rosethorn","Count [MCI_CATEGORY]":605.0},{"NEIGHBOURHOOD_158":"South Parkdale","Count [MCI_CATEGORY]":2131.0},{"NEIGHBOURHOOD_158":"Downtown Yonge East","Count [MCI_CATEGORY]":4618.0},{"NEIGHBOURHOOD_158":"North St.James Town","Count [MCI_CATEGORY]":1815.0},{"NEIGHBOURHOOD_158":"Keelesdale-Eglinton West","Count [MCI_CATEGORY]":784.0},{"NEIGHBOURHOOD_158":"Eglinton East","Count [MCI_CATEGORY]":1441.0},{"NEIGHBOURHOOD_158":"Mimico-Queensway","Count [MCI_CATEGORY]":2251.0},{"NEIGHBOURHOOD_158":"Roncesvalles","Count [MCI_CATEGORY]":1149.0},{"NEIGHBOURHOOD_158":"Humber Summit","Count [MCI_CATEGORY]":1894.0},{"NEIGHBOURHOOD_158":"Newtonbrook West","Count [MCI_CATEGORY]":2046.0},{"NEIGHBOURHOOD_158":"Brookhaven-Amesbury","Count [MCI_CATEGORY]":1315.0},{"NEIGHBOURHOOD_158":"Malvern West","Count [MCI_CATEGORY]":872.0},{"NEIGHBOURHOOD_158":"Moss Park","Count [MCI_CATEGORY]":5055.0},{"NEIGHBOURHOOD_158":"Briar Hill-Belgravia","Count [MCI_CATEGORY]":918.0},{"NEIGHBOURHOOD_158":"Oakridge","Count [MCI_CATEGORY]":1380.0},{"NEIGHBOURHOOD_158":"Thistletown-Beaumond Heights","Count [MCI_CATEGORY]":745.0},{"NEIGHBOURHOOD_158":"Bay-Cloverhill","Count [MCI_CATEGORY]":1245.0},{"NEIGHBOURHOOD_158":"Hillcrest Village","Count [MCI_CATEGORY]":755.0},{"NEIGHBOURHOOD_158":"Pelmo Park-Humberlea","Count [MCI_CATEGORY]":995.0},{"NEIGHBOURHOOD_158":"Long Branch","Count [MCI_CATEGORY]":803.0},{"NEIGHBOURHOOD_158":"Black Creek","Count [MCI_CATEGORY]":1881.0},{"NEIGHBOURHOOD_158":"East L\u0027Amoreaux","Count [MCI_CATEGORY]":853.0},{"NEIGHBOURHOOD_158":"Cabbagetown-South St.James Town","Count [MCI_CATEGORY]":1278.0},{"NEIGHBOURHOOD_158":"Kingsway South","Count [MCI_CATEGORY]":612.0},{"NEIGHBOURHOOD_158":"Harbourfront-CityPlace","Count [MCI_CATEGORY]":1947.0},{"NEIGHBOURHOOD_158":"Don Valley Village","Count [MCI_CATEGORY]":1425.0},{"NEIGHBOURHOOD_158":"High Park-Swansea","Count [MCI_CATEGORY]":1093.0},{"NEIGHBOURHOOD_158":"West Rouge","Count [MCI_CATEGORY]":855.0},{"NEIGHBOURHOOD_158":"Kennedy Park","Count [MCI_CATEGORY]":1752.0},{"NEIGHBOURHOOD_158":"O\u0027Connor-Parkview","Count [MCI_CATEGORY]":1207.0},{"NEIGHBOURHOOD_158":"North Toronto","Count [MCI_CATEGORY]":921.0},{"NEIGHBOURHOOD_158":"Palmerston-Little Italy","Count [MCI_CATEGORY]":807.0},{"NEIGHBOURHOOD_158":"Fenside-Parkwoods","Count [MCI_CATEGORY]":886.0},{"NEIGHBOURHOOD_158":"Wexford/Maryvale","Count [MCI_CATEGORY]":2448.0},{"NEIGHBOURHOOD_158":"Bedford Park-Nortown","Count [MCI_CATEGORY]":1480.0},{"NEIGHBOURHOOD_158":"Junction-Wallace Emerson","Count [MCI_CATEGORY]":1711.0},{"NEIGHBOURHOOD_158":"Alderwood","Count [MCI_CATEGORY]":625.0},{"NEIGHBOURHOOD_158":"Rockcliffe-Smythe","Count [MCI_CATEGORY]":1429.0},{"NEIGHBOURHOOD_158":"West Humber-Clairville","Count [MCI_CATEGORY]":5983.0},{"NEIGHBOURHOOD_158":"Elms-Old Rexdale","Count [MCI_CATEGORY]":702.0},{"NEIGHBOURHOOD_158":"Dufferin Grove","Count [MCI_CATEGORY]":953.0},{"NEIGHBOURHOOD_158":"Blake-Jones","Count [MCI_CATEGORY]":573.0},{"NEIGHBOURHOOD_158":"Agincourt North","Count [MCI_CATEGORY]":1029.0},{"NEIGHBOURHOOD_158":"Dorset Park","Count [MCI_CATEGORY]":1753.0},{"NEIGHBOURHOOD_158":"Weston-Pelham Park","Count [MCI_CATEGORY]":838.0},{"NEIGHBOURHOOD_158":"High Park North","Count [MCI_CATEGORY]":1112.0},{"NEIGHBOURHOOD_158":"Church-Wellesley","Count [MCI_CATEGORY]":2784.0},{"NEIGHBOURHOOD_158":"Steeles","Count [MCI_CATEGORY]":680.0},{"NEIGHBOURHOOD_158":"North Riverdale","Count [MCI_CATEGORY]":685.0},{"NEIGHBOURHOOD_158":"Bathurst Manor","Count [MCI_CATEGORY]":853.0},{"NEIGHBOURHOOD_158":"Mount Pleasant East","Count [MCI_CATEGORY]":752.0},{"NEIGHBOURHOOD_158":"Birchcliffe-Cliffside","Count [MCI_CATEGORY]":1469.0},{"NEIGHBOURHOOD_158":"South Riverdale","Count [MCI_CATEGORY]":2638.0},{"NEIGHBOURHOOD_158":"York University Heights","Count [MCI_CATEGORY]":4179.0},{"NEIGHBOURHOOD_158":"Dovercourt Village","Count [MCI_CATEGORY]":939.0},{"NEIGHBOURHOOD_158":"Lansing-Westgate","Count [MCI_CATEGORY]":1088.0},{"NEIGHBOURHOOD_158":"Highland Creek","Count [MCI_CATEGORY]":583.0},{"NEIGHBOURHOOD_158":"Taylor-Massey","Count [MCI_CATEGORY]":972.0},{"NEIGHBOURHOOD_158":"Humber Heights-Westmount","Count [MCI_CATEGORY]":418.0},{"NEIGHBOURHOOD_158":"Agincourt South-Malvern West","Count [MCI_CATEGORY]":1700.0},{"NEIGHBOURHOOD_158":"West Queen West","Count [MCI_CATEGORY]":998.0},{"NEIGHBOURHOOD_158":"Trinity-Bellwoods","Count [MCI_CATEGORY]":1338.0},{"NEIGHBOURHOOD_158":"Englemount-Lawrence","Count [MCI_CATEGORY]":1022.0},{"NEIGHBOURHOOD_158":"Runnymede-Bloor West Village","Count [MCI_CATEGORY]":570.0},{"NEIGHBOURHOOD_158":"St Lawrence-East Bayfront-The Islands","Count [MCI_CATEGORY]":2942.0},{"NEIGHBOURHOOD_158":"Lawrence Park South","Count [MCI_CATEGORY]":853.0},{"NEIGHBOURHOOD_158":"Rustic","Count [MCI_CATEGORY]":626.0},{"NEIGHBOURHOOD_158":"Bridle Path-Sunnybrook-York Mills","Count [MCI_CATEGORY]":756.0},{"NEIGHBOURHOOD_158":"Banbury-Don Mills","Count [MCI_CATEGORY]":1307.0},{"NEIGHBOURHOOD_158":"Pleasant View","Count [MCI_CATEGORY]":507.0},{"NEIGHBOURHOOD_158":"Humewood-Cedarvale","Count [MCI_CATEGORY]":648.0},{"NEIGHBOURHOOD_158":"Old East York","Count [MCI_CATEGORY]":452.0},{"NEIGHBOURHOOD_158":"Newtonbrook East","Count [MCI_CATEGORY]":996.0},{"NEIGHBOURHOOD_158":"Scarborough Village","Count [MCI_CATEGORY]":1244.0},{"NEIGHBOURHOOD_158":"Mount Olive-Silverstone-Jamestown","Count [MCI_CATEGORY]":2269.0},{"NEIGHBOURHOOD_158":"Flemingdon Park","Count [MCI_CATEGORY]":1028.0},{"NEIGHBOURHOOD_158":"Willowridge-Martingrove-Richview","Count [MCI_CATEGORY]":1167.0},{"NEIGHBOURHOOD_158":"Westminster-Branson","Count [MCI_CATEGORY]":1082.0},{"NEIGHBOURHOOD_158":"Forest Hill South","Count [MCI_CATEGORY]":735.0},{"NEIGHBOURHOOD_158":"Parkwoods-O\u0027Connor Hills","Count [MCI_CATEGORY]":657.0},{"NEIGHBOURHOOD_158":"Rosedale-Moore Park","Count [MCI_CATEGORY]":2061.0},{"NEIGHBOURHOOD_158":"Edenbridge-Humber Valley","Count [MCI_CATEGORY]":756.0},{"NEIGHBOURHOOD_158":"Kingsview Village-The Westway","Count [MCI_CATEGORY]":1262.0},{"NEIGHBOURHOOD_158":"Willowdale West","Count [MCI_CATEGORY]":1048.0},{"NEIGHBOURHOOD_158":"Corso Italia-Davenport","Count [MCI_CATEGORY]":1002.0},{"NEIGHBOURHOOD_158":"Golfdale-Cedarbrae-Woburn","Count [MCI_CATEGORY]":1608.0},{"NEIGHBOURHOOD_158":"South Eglinton-Davisville","Count [MCI_CATEGORY]":958.0},{"NEIGHBOURHOOD_158":"West Hill","Count [MCI_CATEGORY]":2954.0},{"NEIGHBOURHOOD_158":"Leaside-Bennington","Count [MCI_CATEGORY]":840.0},{"NEIGHBOURHOOD_158":"Clanton Park","Count [MCI_CATEGORY]":1441.0},{"NEIGHBOURHOOD_158":"Mount Dennis","Count [MCI_CATEGORY]":908.0},{"NEIGHBOURHOOD_158":"Humber Bay Shores","Count [MCI_CATEGORY]":1024.0},{"NEIGHBOURHOOD_158":"Woodbine Corridor","Count [MCI_CATEGORY]":767.0},{"NEIGHBOURHOOD_158":"Regent Park","Count [MCI_CATEGORY]":1189.0},{"NEIGHBOURHOOD_158":"New Toronto","Count [MCI_CATEGORY]":1072.0},{"NEIGHBOURHOOD_158":"Downsview","Count [MCI_CATEGORY]":1594.0},{"NEIGHBOURHOOD_158":"Thorncliffe Park","Count [MCI_CATEGORY]":1082.0},{"NEIGHBOURHOOD_158":"Yonge-St.Clair","Count [MCI_CATEGORY]":479.0},{"NEIGHBOURHOOD_158":"Victoria Village","Count [MCI_CATEGORY]":1068.0},{"NEIGHBOURHOOD_158":"Yonge-Doris","Count [MCI_CATEGORY]":895.0},{"NEIGHBOURHOOD_158":"Little Portugal","Count [MCI_CATEGORY]":965.0},{"NEIGHBOURHOOD_158":"Avondale","Count [MCI_CATEGORY]":508.0},{"NEIGHBOURHOOD_158":"Centennial Scarborough","Count [MCI_CATEGORY]":469.0},{"NEIGHBOURHOOD_158":"Danforth","Count [MCI_CATEGORY]":927.0},{"NEIGHBOURHOOD_158":"Lawrence Park North","Count [MCI_CATEGORY]":651.0},{"NEIGHBOURHOOD_158":"Caledonia-Fairbank","Count [MCI_CATEGORY]":517.0},{"NEIGHBOURHOOD_158":"L\u0027Amoreaux West","Count [MCI_CATEGORY]":916.0},{"NEIGHBOURHOOD_158":"Markland Wood","Count [MCI_CATEGORY]":468.0},{"NEIGHBOURHOOD_158":"Bendale South","Count [MCI_CATEGORY]":554.0},{"NEIGHBOURHOOD_158":"Maple Leaf","Count [MCI_CATEGORY]":477.0},{"NEIGHBOURHOOD_158":"Casa Loma","Count [MCI_CATEGORY]":658.0},{"NEIGHBOURHOOD_158":"Eringate-Centennial-West Deane","Count [MCI_CATEGORY]":879.0},{"NEIGHBOURHOOD_158":"Rexdale-Kipling","Count [MCI_CATEGORY]":795.0},{"NEIGHBOURHOOD_158":"Islington","Count [MCI_CATEGORY]":1333.0},{"NEIGHBOURHOOD_158":"Etobicoke West Mall","Count [MCI_CATEGORY]":569.0},{"NEIGHBOURHOOD_158":"Morningside","Count [MCI_CATEGORY]":979.0},{"NEIGHBOURHOOD_158":"Guildwood","Count [MCI_CATEGORY]":329.0},{"NEIGHBOURHOOD_158":"Danforth East York","Count [MCI_CATEGORY]":723.0}]}
+{
+  "attributes": [
+    {
+      "NEIGHBOURHOOD_158": "Junction Area",
+      "INCIDENTS": 1204.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Henry Farm",
+      "INCIDENTS": 930.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East End-Danforth",
+      "INCIDENTS": 1660.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woburn North",
+      "INCIDENTS": 1711.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "The Beaches",
+      "INCIDENTS": 1105.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Bay Corridor",
+      "INCIDENTS": 3771.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Eglinton",
+      "INCIDENTS": 917.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woodbine-Lumsden",
+      "INCIDENTS": 317.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bayview Village",
+      "INCIDENTS": 1117.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakdale-Beverley Heights",
+      "INCIDENTS": 2864.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Milliken",
+      "INCIDENTS": 1818.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kensington-Chinatown",
+      "INCIDENTS": 3542.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Beechborough-Greenbrook",
+      "INCIDENTS": 552.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "NSA",
+      "INCIDENTS": 3310.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "St.Andrew-Windfields",
+      "INCIDENTS": 1109.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Morningside Heights",
+      "INCIDENTS": 1318.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Weston",
+      "INCIDENTS": 1982.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Greenwood-Coxwell",
+      "INCIDENTS": 1072.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Clairlea-Birchmount",
+      "INCIDENTS": 2222.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wychwood",
+      "INCIDENTS": 815.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Broadview North",
+      "INCIDENTS": 543.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Annex",
+      "INCIDENTS": 3337.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Stonegate-Queensway",
+      "INCIDENTS": 1448.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Playter Estates-Danforth",
+      "INCIDENTS": 770.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humbermede",
+      "INCIDENTS": 1534.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wellington Place",
+      "INCIDENTS": 3530.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Etobicoke City Centre",
+      "INCIDENTS": 2603.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Forest Hill North",
+      "INCIDENTS": 679.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Fort York-Liberty Village",
+      "INCIDENTS": 1160.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East Willowdale",
+      "INCIDENTS": 886.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bayview Woods-Steeles",
+      "INCIDENTS": 481.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Malvern East",
+      "INCIDENTS": 1282.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Glenfield-Jane Heights",
+      "INCIDENTS": 2712.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Ionview",
+      "INCIDENTS": 664.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yorkdale-Glen Park",
+      "INCIDENTS": 2484.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bendale-Glen Andrew",
+      "INCIDENTS": 1743.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Tam O\u0027Shanter-Sullivan",
+      "INCIDENTS": 1338.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lambton Baby Point",
+      "INCIDENTS": 340.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "University",
+      "INCIDENTS": 1004.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakwood Village",
+      "INCIDENTS": 1274.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Cliffcrest",
+      "INCIDENTS": 1148.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Princess-Rosethorn",
+      "INCIDENTS": 605.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Parkdale",
+      "INCIDENTS": 2131.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Downtown Yonge East",
+      "INCIDENTS": 4618.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North St.James Town",
+      "INCIDENTS": 1815.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Keelesdale-Eglinton West",
+      "INCIDENTS": 784.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Eglinton East",
+      "INCIDENTS": 1441.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mimico-Queensway",
+      "INCIDENTS": 2251.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Roncesvalles",
+      "INCIDENTS": 1149.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Summit",
+      "INCIDENTS": 1894.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Newtonbrook West",
+      "INCIDENTS": 2046.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Brookhaven-Amesbury",
+      "INCIDENTS": 1315.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Malvern West",
+      "INCIDENTS": 872.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Moss Park",
+      "INCIDENTS": 5055.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Briar Hill-Belgravia",
+      "INCIDENTS": 918.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakridge",
+      "INCIDENTS": 1380.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Thistletown-Beaumond Heights",
+      "INCIDENTS": 745.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bay-Cloverhill",
+      "INCIDENTS": 1245.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Hillcrest Village",
+      "INCIDENTS": 755.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Pelmo Park-Humberlea",
+      "INCIDENTS": 995.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Long Branch",
+      "INCIDENTS": 803.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Black Creek",
+      "INCIDENTS": 1881.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East L\u0027Amoreaux",
+      "INCIDENTS": 853.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Cabbagetown-South St.James Town",
+      "INCIDENTS": 1278.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kingsway South",
+      "INCIDENTS": 612.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Harbourfront-CityPlace",
+      "INCIDENTS": 1947.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Don Valley Village",
+      "INCIDENTS": 1425.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "High Park-Swansea",
+      "INCIDENTS": 1093.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Rouge",
+      "INCIDENTS": 855.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kennedy Park",
+      "INCIDENTS": 1752.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "O\u0027Connor-Parkview",
+      "INCIDENTS": 1207.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North Toronto",
+      "INCIDENTS": 921.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Palmerston-Little Italy",
+      "INCIDENTS": 807.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Fenside-Parkwoods",
+      "INCIDENTS": 886.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wexford/Maryvale",
+      "INCIDENTS": 2448.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bedford Park-Nortown",
+      "INCIDENTS": 1480.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Junction-Wallace Emerson",
+      "INCIDENTS": 1711.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Alderwood",
+      "INCIDENTS": 625.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rockcliffe-Smythe",
+      "INCIDENTS": 1429.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Humber-Clairville",
+      "INCIDENTS": 5983.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Elms-Old Rexdale",
+      "INCIDENTS": 702.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dufferin Grove",
+      "INCIDENTS": 953.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Blake-Jones",
+      "INCIDENTS": 573.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Agincourt North",
+      "INCIDENTS": 1029.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dorset Park",
+      "INCIDENTS": 1753.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Weston-Pelham Park",
+      "INCIDENTS": 838.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "High Park North",
+      "INCIDENTS": 1112.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Church-Wellesley",
+      "INCIDENTS": 2784.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Steeles",
+      "INCIDENTS": 680.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North Riverdale",
+      "INCIDENTS": 685.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bathurst Manor",
+      "INCIDENTS": 853.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Pleasant East",
+      "INCIDENTS": 752.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Birchcliffe-Cliffside",
+      "INCIDENTS": 1469.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Riverdale",
+      "INCIDENTS": 2638.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "York University Heights",
+      "INCIDENTS": 4179.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dovercourt Village",
+      "INCIDENTS": 939.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lansing-Westgate",
+      "INCIDENTS": 1088.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Highland Creek",
+      "INCIDENTS": 583.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Taylor-Massey",
+      "INCIDENTS": 972.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Heights-Westmount",
+      "INCIDENTS": 418.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Agincourt South-Malvern West",
+      "INCIDENTS": 1700.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Queen West",
+      "INCIDENTS": 998.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Trinity-Bellwoods",
+      "INCIDENTS": 1338.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Englemount-Lawrence",
+      "INCIDENTS": 1022.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Runnymede-Bloor West Village",
+      "INCIDENTS": 570.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "St Lawrence-East Bayfront-The Islands",
+      "INCIDENTS": 2942.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lawrence Park South",
+      "INCIDENTS": 853.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rustic",
+      "INCIDENTS": 626.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bridle Path-Sunnybrook-York Mills",
+      "INCIDENTS": 756.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Banbury-Don Mills",
+      "INCIDENTS": 1307.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Pleasant View",
+      "INCIDENTS": 507.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humewood-Cedarvale",
+      "INCIDENTS": 648.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Old East York",
+      "INCIDENTS": 452.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Newtonbrook East",
+      "INCIDENTS": 996.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Scarborough Village",
+      "INCIDENTS": 1244.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Olive-Silverstone-Jamestown",
+      "INCIDENTS": 2269.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Flemingdon Park",
+      "INCIDENTS": 1028.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Willowridge-Martingrove-Richview",
+      "INCIDENTS": 1167.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Westminster-Branson",
+      "INCIDENTS": 1082.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Forest Hill South",
+      "INCIDENTS": 735.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Parkwoods-O\u0027Connor Hills",
+      "INCIDENTS": 657.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rosedale-Moore Park",
+      "INCIDENTS": 2061.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Edenbridge-Humber Valley",
+      "INCIDENTS": 756.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kingsview Village-The Westway",
+      "INCIDENTS": 1262.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Willowdale West",
+      "INCIDENTS": 1048.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Corso Italia-Davenport",
+      "INCIDENTS": 1002.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Golfdale-Cedarbrae-Woburn",
+      "INCIDENTS": 1608.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Eglinton-Davisville",
+      "INCIDENTS": 958.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Hill",
+      "INCIDENTS": 2954.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Leaside-Bennington",
+      "INCIDENTS": 840.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Clanton Park",
+      "INCIDENTS": 1441.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Dennis",
+      "INCIDENTS": 908.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Bay Shores",
+      "INCIDENTS": 1024.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woodbine Corridor",
+      "INCIDENTS": 767.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Regent Park",
+      "INCIDENTS": 1189.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "New Toronto",
+      "INCIDENTS": 1072.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Downsview",
+      "INCIDENTS": 1594.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Thorncliffe Park",
+      "INCIDENTS": 1082.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-St.Clair",
+      "INCIDENTS": 479.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Victoria Village",
+      "INCIDENTS": 1068.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Doris",
+      "INCIDENTS": 895.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Little Portugal",
+      "INCIDENTS": 965.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Avondale",
+      "INCIDENTS": 508.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Centennial Scarborough",
+      "INCIDENTS": 469.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Danforth",
+      "INCIDENTS": 927.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lawrence Park North",
+      "INCIDENTS": 651.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Caledonia-Fairbank",
+      "INCIDENTS": 517.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "L\u0027Amoreaux West",
+      "INCIDENTS": 916.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Markland Wood",
+      "INCIDENTS": 468.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bendale South",
+      "INCIDENTS": 554.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Maple Leaf",
+      "INCIDENTS": 477.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Casa Loma",
+      "INCIDENTS": 658.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Eringate-Centennial-West Deane",
+      "INCIDENTS": 879.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rexdale-Kipling",
+      "INCIDENTS": 795.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Islington",
+      "INCIDENTS": 1333.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Etobicoke West Mall",
+      "INCIDENTS": 569.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Morningside",
+      "INCIDENTS": 979.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Guildwood",
+      "INCIDENTS": 329.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Danforth East York",
+      "INCIDENTS": 723.0
+    }
+  ]
+}
