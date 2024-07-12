@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * A demo class for analyzing and displaying auto theft data within a specified radius.
  */
-public class CarStealingModelDemo {
+public class AutoTheftModelDemo {
 
     /**
      * The main method that runs the demo for analyzing and displaying auto theft data.
