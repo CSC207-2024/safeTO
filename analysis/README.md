@@ -30,8 +30,11 @@
 
 - -jsonToString `(data: JSONArray) -> StringBuilder`
 - -appendRow `(builder: StringBuilder, obj: JSONObject) -> void`
+- -changeKeys `(String jsonKeys, String oldKey, String newKey) -> void`
 - +jsonToTable `(data: JSONArray) -> Table`
 - +tableToJson `(Table table) -> String`
+- +changeJsonKeys `(String jsonKeys) -> String`
+
 
 ---
 
@@ -75,6 +78,7 @@
 
 > Methods
 - +writeToJson `(Table table, String outputPath) -> void`
+- +writeToJson `(String jsonString, String outputPath) -> void`
 - +exportToSVG `(JFreeChart chart, String outputPath) -> void`
 
 
@@ -88,6 +92,7 @@
 > Methods
 
 - +writeToJson `(Table table, String outputPath) -> void`
+- +writeToJson `(String jsonString, String outputPath) -> void`
 - +exportToSVG `(JFreeChart chart, String outputPath) -> void`
 
 ---
