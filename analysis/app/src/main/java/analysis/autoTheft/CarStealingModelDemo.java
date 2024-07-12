@@ -1,10 +1,9 @@
-package analysis;
+package analysis.autoTheft;
 
 import access.CrimeDataConverter;
 import access.CrimeDataFetcher;
-import access.CrimeDataFetcherInterface;
+import access.CrimeDataProcessor;
 
-import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.List;
 
@@ -12,39 +11,40 @@ public class CarStealingModelDemo {
     public static void main(String[] args) {
         CrimeDataFetcher fetcher = new CrimeDataFetcher();
         CrimeDataConverter converter = new CrimeDataConverter();
+        CrimeDataProcessor processor = new CrimeDataProcessor();
 
-        CrimeDataFetcherInterface<StolenCarData> stolenCarDataFetcher = new StolenCarDataFetcher(fetcher, converter);
-        AutoTheftCalculator autoTheftCalculator = new AutoTheftCalculator(stolenCarDataFetcher);
+        AutoTheftIncidentFetcher autoTheftIncidentFetcher = new AutoTheftIncidentFetcher(fetcher, converter, processor);
+        AutoTheftCalculator autoTheftCalculator = new AutoTheftCalculator(autoTheftIncidentFetcher);
 
         double latitude = 43.64444078400003;
         double longitude = -79.40006913299997;
         int radius = 200;
         int threshold = 10; // Set threshold
 
-        // Get stolen car data for the past year
-        List<StolenCarData> pastYearData = autoTheftCalculator.getCrimeDataWithinRadiusPastYear(latitude, longitude, radius);
-        pastYearData.sort(Comparator.comparing(StolenCarData::getOccDate)); // Sort by date
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        // Get auto theft data for the past year
+        List<AutoTheftData> pastYearData = autoTheftCalculator.getCrimeDataWithinRadiusPastYear(latitude, longitude, radius);
+        pastYearData.sort(Comparator.comparing(AutoTheftData::getOccYear)
+                .thenComparing(AutoTheftData::getOccMonth)
+                .thenComparing(AutoTheftData::getOccDay)); // Sort by date
 
         System.out.println("All Auto Theft in the past year within the radius:");
         int index = 1;
-        for (StolenCarData data : pastYearData) {
+        for (AutoTheftData data : pastYearData) {
             double distance = autoTheftCalculator.calculateDistance(latitude, longitude, data.getLatitude(), data.getLongitude());
-            String formattedDate = dateFormat.format(data.getOccDate());
-            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, formattedDate, distance);
+            System.out.printf("#%d, occur date: %d-%s-%d, distance from you: %.2f meters%n", index++, data.getOccYear(), data.getOccMonth(), data.getOccDay(), distance);
         }
 
-        // Get all stolen car data within the radius
-        List<StolenCarData> allData = autoTheftCalculator.getCrimeDataWithinRadius(latitude, longitude, radius);
-        allData.sort(Comparator.comparing(StolenCarData::getOccDate));
+        // Get all auto theft data within the radius
+        List<AutoTheftData> allData = autoTheftCalculator.getCrimeDataWithinRadius(latitude, longitude, radius);
+        allData.sort(Comparator.comparing(AutoTheftData::getOccYear)
+                .thenComparing(AutoTheftData::getOccMonth)
+                .thenComparing(AutoTheftData::getOccDay));
 
         System.out.println("ALL known Auto Theft within the radius:");
         index = 1;
-        for (StolenCarData data : allData) {
+        for (AutoTheftData data : allData) {
             double distance = autoTheftCalculator.calculateDistance(latitude, longitude, data.getLatitude(), data.getLongitude());
-            String formattedDate = dateFormat.format(data.getOccDate());
-            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, formattedDate, distance);
+            System.out.printf("#%d, occur date: %d-%s-%d, distance from you: %.2f meters%n", index++, data.getOccYear(), data.getOccMonth(), data.getOccDay(), distance);
         }
 
         // Calculate the average annual rate of incidents

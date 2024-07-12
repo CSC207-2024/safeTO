@@ -1,16 +1,15 @@
 package analysis;
 
-import access.CrimeDataFetcherInterface;
-
-import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.*;
 
-public class AutoTheftCalculator implements CrimeCalculatorInterface<StolenCarData> {
+public class BreakAndEnterCalculator implements CrimeCalculatorInterface<BreakAndEnterData> {
 
-    private final CrimeDataFetcherInterface<StolenCarData> stolenCarDataFetcher;
+    private final IncidentFetcherInterface<BreakAndEnterData> breakAndEnterIncidentFetcher;
 
-    public AutoTheftCalculator(CrimeDataFetcherInterface<StolenCarData> stolenCarDataFetcher) {
-        this.stolenCarDataFetcher = stolenCarDataFetcher;
+    public BreakAndEnterCalculator(IncidentFetcherInterface<BreakAndEnterData> breakAndEnterIncidentFetcher) {
+        this.breakAndEnterIncidentFetcher = breakAndEnterIncidentFetcher;
     }
 
     @Override
@@ -26,9 +25,9 @@ public class AutoTheftCalculator implements CrimeCalculatorInterface<StolenCarDa
         return distance;
     }
 
-    private List<StolenCarData> filterDataByRadius(double lat, double lon, double radius, List<StolenCarData> data) {
-        List<StolenCarData> filteredData = new ArrayList<>();
-        for (StolenCarData item : data) {
+    private List<BreakAndEnterData> filterDataByRadius(double lat, double lon, double radius, List<BreakAndEnterData> data) {
+        List<BreakAndEnterData> filteredData = new ArrayList<>();
+        for (BreakAndEnterData item : data) {
             double distance = calculateDistance(lat, lon, item.getLatitude(), item.getLongitude());
             if (distance <= radius) {
                 filteredData.add(item);
@@ -37,14 +36,13 @@ public class AutoTheftCalculator implements CrimeCalculatorInterface<StolenCarDa
         return filteredData;
     }
 
-    private List<StolenCarData> filterDataByYear(List<StolenCarData> data) {
-        List<StolenCarData> filteredData = new ArrayList<>();
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.YEAR, -1); // get date one year ago
-        Timestamp oneYearAgo = new Timestamp(calendar.getTimeInMillis());
+    private List<BreakAndEnterData> filterDataByYear(List<BreakAndEnterData> data) {
+        List<BreakAndEnterData> filteredData = new ArrayList<>();
+        LocalDate oneYearAgo = LocalDate.now().minusYears(1);
 
-        for (StolenCarData item : data) {
-            if (item.getOccDate().after(oneYearAgo)) {
+        for (BreakAndEnterData item : data) {
+            LocalDate occDate = LocalDate.of(item.getOccYear(), Month.valueOf(item.getOccMonth().toUpperCase()), item.getOccDay());
+            if (occDate.isAfter(oneYearAgo)) {
                 filteredData.add(item);
             }
         }
@@ -52,22 +50,22 @@ public class AutoTheftCalculator implements CrimeCalculatorInterface<StolenCarDa
     }
 
     @Override
-    public List<StolenCarData> getCrimeDataWithinRadius(double lat, double lon, double radius) {
-        List<StolenCarData> stolenCarDataList = stolenCarDataFetcher.fetchCrimeData();
-        return filterDataByRadius(lat, lon, radius, stolenCarDataList);
+    public List<BreakAndEnterData> getCrimeDataWithinRadius(double lat, double lon, double radius) {
+        List<BreakAndEnterData> breakAndEnterDataList = breakAndEnterIncidentFetcher.fetchCrimeData();
+        return filterDataByRadius(lat, lon, radius, breakAndEnterDataList);
     }
 
     @Override
-    public List<StolenCarData> getCrimeDataWithinRadiusPastYear(double lat, double lon, double radius) {
-        List<StolenCarData> stolenCarDataList = stolenCarDataFetcher.fetchCrimeData();
-        List<StolenCarData> pastYearData = filterDataByYear(stolenCarDataList);
+    public List<BreakAndEnterData> getCrimeDataWithinRadiusPastYear(double lat, double lon, double radius) {
+        List<BreakAndEnterData> breakAndEnterDataList = breakAndEnterIncidentFetcher.fetchCrimeData();
+        List<BreakAndEnterData> pastYearData = filterDataByYear(breakAndEnterDataList);
         return filterDataByRadius(lat, lon, radius, pastYearData);
     }
 
-    public double calculateAnnualAverageIncidents(List<StolenCarData> data) {
+    public double calculateAnnualAverageIncidents(List<BreakAndEnterData> data) {
         Map<Integer, Integer> yearlyCounts = new HashMap<>();
-        for (StolenCarData item : data) {
-            int year = item.getOccDate().toLocalDateTime().getYear();
+        for (BreakAndEnterData item : data) {
+            int year = item.getOccYear();
             yearlyCounts.put(year, yearlyCounts.getOrDefault(year, 0) + 1);
         }
 

@@ -1,36 +1,39 @@
-package analysis;
+package analysis.autoTheft;
 
-import java.sql.Timestamp;
-
-public class StolenCarData {
+public class AutoTheftData {
     private String eventUniqueId;
-    private Timestamp reportDate;
-    private Timestamp occDate;
+    private int occYear;
+    private String occMonth;
+    private int occDay;
     private String mciCategory;
     private double latitude;
     private double longitude;
 
-    public StolenCarData(String eventUniqueId, Timestamp reportDate, Timestamp occDate,
+    public AutoTheftData(String eventUniqueId, int occYear, String occMonth, int occDay,
                          String mciCategory, double latitude, double longitude) {
         this.eventUniqueId = eventUniqueId;
-        this.reportDate = reportDate;
-        this.occDate = occDate;
+        this.occYear = occYear;
+        this.occMonth = occMonth;
+        this.occDay = occDay;
         this.mciCategory = mciCategory;
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-
     public String getEventUniqueId() {
         return eventUniqueId;
     }
 
-    public Timestamp getReportDate() {
-        return reportDate;
+    public int getOccYear() {
+        return occYear;
     }
 
-    public Timestamp getOccDate() {
-        return occDate;
+    public String getOccMonth() {
+        return occMonth;
+    }
+
+    public int getOccDay() {
+        return occDay;
     }
 
     public String getMciCategory() {
@@ -47,10 +50,11 @@ public class StolenCarData {
 
     @Override
     public String toString() {
-        return "StolenCarData{" +
-                ", eventUniqueId='" + eventUniqueId + '\'' +
-                ", reportDate=" + reportDate +
-                ", occDate=" + occDate +
+        return "AutoTheftData{" +
+                "eventUniqueId='" + eventUniqueId + '\'' +
+                ", occYear=" + occYear +
+                ", occMonth='" + occMonth + '\'' +
+                ", occDay=" + occDay +
                 ", mciCategory='" + mciCategory + '\'' +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
