@@ -1,1 +1,24 @@
-{"attributes":[{"MCI_CATEGORY":"Break and Enter","Count [MCI_CATEGORY]":36882.0},{"MCI_CATEGORY":"Robbery","Count [MCI_CATEGORY]":15785.0},{"MCI_CATEGORY":"Assault","Count [MCI_CATEGORY]":108627.0},{"MCI_CATEGORY":"Auto Theft","Count [MCI_CATEGORY]":42451.0},{"MCI_CATEGORY":"Theft Over","Count [MCI_CATEGORY]":7183.0}]}
+{
+  "attributes": [
+    {
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 36882.0
+    },
+    {
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 15785.0
+    },
+    {
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 108627.0
+    },
+    {
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 42451.0
+    },
+    {
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 7183.0
+    }
+  ]
+}
