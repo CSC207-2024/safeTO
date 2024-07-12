@@ -120,4 +120,42 @@ public class CrimeDataConverter {
         return gson.toJson(root);
     }
 
+
+    /**
+     * A helper method that changes the key of a JsonString.
+     *
+     * @param jsonString The JSON string to be modified.
+     * @return A JSON string with modified keys.
+     */
+    public String changeJsonKeys(String jsonString) {
+        Gson gson = new Gson();
+        JsonObject jsonObject = gson.fromJson(jsonString, JsonObject.class);
+
+        JsonArray attributes = jsonObject.getAsJsonArray("attributes");
+
+        for (JsonElement element : attributes) {
+            JsonObject obj = element.getAsJsonObject();
+
+            // Modify keys here
+            changeKey(obj, "Count [MCI_CATEGORY]", "INCIDENTS");
+        }
+
+        Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
+        return prettyGson.toJson(jsonObject);
+    }
+
+    /**
+     * A private helper method that changes the key of a JsonObject.
+     *
+     * @param obj     The JsonObject to be modified.
+     * @param oldKey  The old key to be replaced.
+     * @param newKey  The new key to replace the old key.
+     */
+    private void changeKey(JsonObject obj, String oldKey, String newKey) {
+        if (obj.has(oldKey)) {
+            JsonElement value = obj.remove(oldKey);
+            obj.add(newKey, value);
+        }
+    }
+
 }
