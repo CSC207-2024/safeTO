@@ -1,6 +1,8 @@
 package analysis.crimeDataRanking;
 
-import org.json.JSONArray;
+import com.google.gson.JsonArray;
+//import org.json.JSONArray;
+import com.google.gson.JsonArray;
 import access.CrimeDataFetcher;
 import access.CrimeDataConverter;
 import access.CrimeDataProcessor;
@@ -24,7 +26,7 @@ public class NeighborhoodCrimeRankingDemo {
         CrimeDataProcessor processor = new CrimeDataProcessor();
 
         // Fetch and convert data
-        JSONArray data = fetcher.fetchData();
+        JsonArray data = fetcher.fetchData();
         Table table = converter.jsonToTable(data);
         processor.setTable(table);
 

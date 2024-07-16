@@ -1,9 +1,12 @@
 package access;
 
-import org.json.*;
-import java.io.*;
-import java.net.*;
-import java.net.http.*;
+import com.google.gson.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URLEncoder;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -23,8 +26,9 @@ public class CrimeDataFetcher {
      *                          JSON data fails.
      */
 
-    public JSONArray fetchData() {
-        JSONArray aggregatedData = new JSONArray();
+    public JsonArray fetchData() {
+        JsonArray aggregatedData = new JsonArray();
+        Gson gson = new Gson();
 
         try {
             // iterate over 2019 to 2024
@@ -38,29 +42,26 @@ public class CrimeDataFetcher {
                     String apiUrl = BASE_API_URL + "&where=" + URLEncoder.encode(whereClause, StandardCharsets.UTF_8)
                             + "&resultOffset=" + offset + "&resultRecordCount=2000";
                     HttpResponse<String> response = httpClient.send(HttpRequest.newBuilder()
-                            .GET()
-                            .uri(URI.create(apiUrl))
-                            .setHeader(
-                                    "user-agent",
-                                    "safeTO <analysis@csc207.joefang.org>")
-                            .setHeader("accept",
-                                    "application/json")
-                            .build(),
+                                    .GET()
+                                    .uri(URI.create(apiUrl))
+                                    .setHeader("user-agent", "safeTO <analysis@csc207.joefang.org>")
+                                    .setHeader("accept", "application/json")
+                                    .build(),
                             HttpResponse.BodyHandlers.ofString());
 
-                    JSONObject jsonResponse = new JSONObject(response.body());
+                    JsonObject jsonResponse = gson.fromJson(response.body(), JsonObject.class);
 
                     if (jsonResponse.has("features")) {
-                        JSONArray features = jsonResponse.getJSONArray("features");
+                        JsonArray features = jsonResponse.getAsJsonArray("features");
 
-                        for (int i = 0; i < features.length(); i++) {
-                            JSONObject feature = features.getJSONObject(i);
+                        for (JsonElement element : features) {
+                            JsonObject feature = element.getAsJsonObject();
                             if (feature.has("attributes")) {
-                                aggregatedData.put(feature.getJSONObject("attributes"));
+                                aggregatedData.add(feature.getAsJsonObject("attributes"));
                             }
                         }
 
-                        if (features.length() < 2000) {
+                        if (features.size() < 2000) {
                             hasMoreData = false;
                         } else {
                             offset += 2000;
@@ -73,13 +74,12 @@ public class CrimeDataFetcher {
         } catch (IOException e) {
             e.printStackTrace();
             return null;
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
-        System.out.println("Total aggregated data: " + aggregatedData.length());
+        System.out.println("Total aggregated data: " + aggregatedData.size());
         return aggregatedData;
     }
+
 }

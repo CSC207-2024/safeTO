@@ -1,8 +1,8 @@
 package access;
 
-import org.json.JSONArray;
+import com.google.gson.JsonArray;
 import tech.tablesaw.api.Table;
-import org.json.JSONException;
+
 
 
 
@@ -12,11 +12,11 @@ import org.json.JSONException;
 
 public class Usage {
 
-    public static void main(String[] args) throws JSONException {
+    public static void main(String[] args)  {
 
         CrimeDataFetcher dataFetcher = new CrimeDataFetcher();
 
-        JSONArray data = dataFetcher.fetchData();
+        JsonArray data = dataFetcher.fetchData();
         CrimeDataConverter converter = new CrimeDataConverter();
         Table t = converter.jsonToTable(data);
         System.out.println(t.shape());
