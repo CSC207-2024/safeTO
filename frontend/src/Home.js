@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MapContainer, TileLayer } from 'react-leaflet';
+import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import Geosuggest from 'react-geosuggest';
 import 'react-geosuggest/module/geosuggest.css';
@@ -8,6 +8,16 @@ import 'react-tippy/dist/tippy.css';
 import './App.css';
 
 const TorontoCoordinates = [43.65107, -79.347015];
+
+const HoverCoordinates = ({ setCoordinates }) => {
+    useMapEvents({
+        mousemove: (event) => {
+            const { lat, lng } = event.latlng;
+            setCoordinates({ lat, lng });
+        },
+    });
+    return null;
+};
 
 const Home = () => {
     const mapRef = useRef();
@@ -18,6 +28,7 @@ const Home = () => {
         email: '',
         phoneNumber: ''
     });
+    const [coordinates, setCoordinates] = useState({ lat: null, lng: null });
 
     const onSuggestSelect = (suggest) => {
         if (suggest && suggest.location) {
@@ -48,6 +59,7 @@ const Home = () => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 />
+                <HoverCoordinates setCoordinates={setCoordinates} />
             </MapContainer>
             <div className="overlay-text">
                 <h2>Welcome to Community Safety App</h2>
@@ -114,6 +126,11 @@ const Home = () => {
                     </div>
                 </Tooltip>
             </div>
+            {coordinates.lat && coordinates.lng && (
+                <div style={{ position: 'absolute', bottom: 20, left: 20, zIndex: 1000, backgroundColor: 'white', padding: '10px', borderRadius: '5px' }}>
+                    Hovered Coordinates: Latitude: {coordinates.lat}, Longitude: {coordinates.lng}
+                </div>
+            )}
         </div>
     );
 };
