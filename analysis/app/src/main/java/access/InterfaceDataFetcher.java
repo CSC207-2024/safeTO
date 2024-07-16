@@ -1,6 +1,7 @@
 package access;
 
-import org.json.JSONArray;
+import com.google.gson.JsonArray;
+
 
 
 /**
@@ -8,5 +9,5 @@ import org.json.JSONArray;
  */
 public interface InterfaceDataFetcher {
 
-    JSONArray fetchData();
+    JsonArray fetchData();
 }

@@ -1,14 +1,12 @@
 package access;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tech.tablesaw.api.Table;
-import tech.tablesaw.io.csv.CsvReadOptions;
-import java.io.StringReader;
 import com.google.gson.*;
-import tech.tablesaw.api.*;
-import static tech.tablesaw.api.ColumnType.*;
+import tech.tablesaw.api.Table;
+import tech.tablesaw.api.ColumnType;
+import tech.tablesaw.api.Row;
+import tech.tablesaw.io.csv.CsvReadOptions;
+
+import java.io.StringReader;
 
 /**
  * A class that is responsible for converting input data into other formats.
@@ -21,21 +19,20 @@ public class CrimeDataConverter {
     };
 
     /**
-     * A helper method converts a JSONArray of JSONObjects into a CSV-formatted
+     * A helper method converts a JsonArray of JsonObjects into a CSV-formatted
      * StringBuilder.
-     * Each JSONObject in the JSONArray has a nested JSONObject under the
+     * Each JsonObject in the JsonArray has a nested JsonObject under the
      * "attributes" key
      * which contains the actual data to be converted into CSV format.
      *
-     * @param data The JSONArray to be converted into CSV format.
+     * @param data The JsonArray to be converted into CSV format.
      * @return StringBuilder containing the CSV formatted data.
-     * @throws JSONException If an error occurs during the parsing of the JSON data.
      */
-    private StringBuilder jsonToString(JSONArray data) throws JSONException {
+    private StringBuilder jsonToString(JsonArray data) {
         StringBuilder builder = new StringBuilder();
         builder.append(String.join(",", jsonKeys)).append("\n");
-        for (int i = 0; i < data.length(); i++) {
-            JSONObject obj = data.getJSONObject(i);
+        for (JsonElement element : data) {
+            JsonObject obj = element.getAsJsonObject();
             appendRow(builder, obj);
         }
         return builder;
@@ -46,12 +43,14 @@ public class CrimeDataConverter {
      * format.
      *
      * @param builder The StringBuilder to which the CSV row will be appended.
-     * @param obj     The JSONObject containing the data to be appended as a CSV
+     * @param obj     The JsonObject containing the data to be appended as a CSV
      *                row.
      */
-    private void appendRow(StringBuilder builder, JSONObject obj) {
+    private void appendRow(StringBuilder builder, JsonObject obj) {
+        JsonObject attributes = obj.has("attributes") ? obj.getAsJsonObject("attributes") : obj;
+
         for (String key : jsonKeys) {
-            builder.append(obj.optString(key, "")).append(",");
+            builder.append(attributes.has(key) ? attributes.get(key).getAsString() : "").append(",");
         }
         builder.setLength(builder.length() - 1);
         builder.append("\n");
@@ -60,17 +59,11 @@ public class CrimeDataConverter {
     /**
      * Converts a CSV formatted StringBuilder into a Tablesaw Table.
      *
-     * @param data The JSONArray to be converted into Table
+     * @param data The JsonArray to be converted into Table
      * @return Table containing the data represented by the StringBuilder.
      */
-    public Table jsonToTable(JSONArray data) {
-
-        StringBuilder builderData = null;
-        try {
-            builderData = jsonToString(data);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
+    public Table jsonToTable(JsonArray data) {
+        StringBuilder builderData = jsonToString(data);
         StringReader reader = new StringReader(builderData.toString());
         CsvReadOptions options = CsvReadOptions.builder(reader)
                 .header(true)
@@ -102,11 +95,11 @@ public class CrimeDataConverter {
 
             for (String columnName : table.columnNames()) {
                 ColumnType columnType = table.column(columnName).type();
-                if (columnType.equals(STRING)) {
+                if (columnType.equals(ColumnType.STRING)) {
                     attributes.addProperty(columnName, row.getString(columnName));
-                } else if (columnType.equals(INTEGER)) {
+                } else if (columnType.equals(ColumnType.INTEGER)) {
                     attributes.addProperty(columnName, row.getInt(columnName));
-                } else if (columnType.equals(DOUBLE)) {
+                } else if (columnType.equals(ColumnType.DOUBLE)) {
                     attributes.addProperty(columnName, row.getDouble(columnName));
                 } else {
                     attributes.addProperty(columnName, row.getObject(columnName).toString());
@@ -119,7 +112,6 @@ public class CrimeDataConverter {
         Gson gson = new Gson();
         return gson.toJson(root);
     }
-
 
     /**
      * A helper method that changes the key of a JsonString.
@@ -135,8 +127,6 @@ public class CrimeDataConverter {
 
         for (JsonElement element : attributes) {
             JsonObject obj = element.getAsJsonObject();
-
-            // Modify keys here
             changeKey(obj, "Count [MCI_CATEGORY]", "INCIDENTS");
         }
 
@@ -157,5 +147,5 @@ public class CrimeDataConverter {
             obj.add(newKey, value);
         }
     }
-
 }
+

@@ -4,7 +4,9 @@ import access.CrimeDataConverter;
 import access.CrimeDataFetcher;
 import access.CrimeDataProcessor;
 import analysis.IncidentFetcherInterface;
-import org.json.JSONArray;
+import com.google.gson.JsonArray;
+//import org.json.JSONArray;
+import com.google.gson.JsonArray;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.api.TextColumn;
 
@@ -40,7 +42,7 @@ public class BreakAndEnterIncidentFetcher implements IncidentFetcherInterface<Br
     @Override
     public List<BreakAndEnterData> fetchCrimeData() {
         List<BreakAndEnterData> breakAndEnterDataList = new ArrayList<>();
-        JSONArray data = dataFetcher.fetchData();
+        JsonArray data = dataFetcher.fetchData();
         if (data == null) {
             return breakAndEnterDataList;
         }
