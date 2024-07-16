@@ -4,7 +4,7 @@
 
 > Methods
 
-- +fetchData `() -> JSONArray`
+- +fetchData `() -> JsonArray`
 
 ---
 
@@ -16,7 +16,7 @@
 
 > Methods
 
-- +fetchData `() -> JSONArray`
+- +fetchData `() -> JsonArray`
 
 ---
 
@@ -28,10 +28,10 @@
 
 > Methods
 
-- -jsonToString `(data: JSONArray) -> StringBuilder`
+- -jsonToString `(data: JsonArray) -> StringBuilder`
 - -appendRow `(builder: StringBuilder, obj: JSONObject) -> void`
 - -changeKeys `(String jsonKeys, String oldKey, String newKey) -> void`
-- +jsonToTable `(data: JSONArray) -> Table`
+- +jsonToTable `(data: JsonArra) -> Table`
 - +tableToJson `(Table table) -> String`
 - +changeJsonKeys `(String jsonKeys) -> String`
 
