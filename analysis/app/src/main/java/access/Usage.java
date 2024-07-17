@@ -1,5 +1,9 @@
 package access;
 
+import access.convert.CrimeDataConverter;
+import access.data.CrimeDataFetcher;
+import access.export.CrimeDataExporter;
+import access.manipulate.CrimeDataProcessor;
 import com.google.gson.JsonArray;
 import tech.tablesaw.api.Table;
 
@@ -70,7 +74,7 @@ public class Usage {
         String total_neighbourhood = converter.changeJsonKeys(total_by_n);
 
 //        Export the data to frontend/aggregates
-        access.CrimeDataExporter exporter = new access.CrimeDataExporter();
+        CrimeDataExporter exporter = new CrimeDataExporter();
 //        String path1 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/total_by_year.json";
 //        String path2 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/by_year_neighbourhood.json";
 //        String path3 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/by_year_category.json";
@@ -84,7 +88,7 @@ public class Usage {
 //        exporter.writeToJson(total_category, path5);
 //        exporter.writeToJson(total_neighbourhood, path6);
 
-//        access.CrimeDataPlotter plotter = new access.CrimeDataPlotter();
+//        access.manipulate.CrimeDataPlotter plotter = new access.manipulate.CrimeDataPlotter();
 //        JFreeChart barplot1 = plotter.barPlot(agg1, "OCC_YEAR", "Count [MCI_CATEGORY]", "Total Crime by Year", "Year", "Count");
 //        exporter.exportToSVG(barplot1, "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/total_by_year.svg");
 //        JFreeChart lineplot1 = plotter.linePlot(agg3, "OCC_YEAR", "Count [MCI_CATEGORY]","MCI_CATEGORY",
