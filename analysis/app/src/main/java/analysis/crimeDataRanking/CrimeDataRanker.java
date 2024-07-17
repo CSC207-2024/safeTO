@@ -1,7 +1,7 @@
 package analysis.crimeDataRanking;
 
 import tech.tablesaw.api.Table;
-import access.CrimeDataProcessor;
+import access.manipulate.CrimeDataProcessor;
 
 /**
  * A class for ranking neighborhoods based on crime data.

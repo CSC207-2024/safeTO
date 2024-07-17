@@ -1,12 +1,11 @@
 package analysis.autoTheft;
 
-import access.CrimeDataConverter;
-import access.CrimeDataFetcher;
-import access.CrimeDataProcessor;
+import access.convert.CrimeDataConverter;
+import access.data.CrimeDataFetcher;
+import access.manipulate.CrimeDataProcessor;
 import analysis.IncidentFetcherInterface;
 import com.google.gson.JsonArray;
 //import org.json.JSONArray;
-import com.google.gson.JsonArray;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.api.TextColumn;
 

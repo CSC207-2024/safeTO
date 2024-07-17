@@ -1,8 +1,8 @@
 package analysis.breakAndEnter;
 
-import access.CrimeDataConverter;
-import access.CrimeDataFetcher;
-import access.CrimeDataProcessor;
+import access.convert.CrimeDataConverter;
+import access.data.CrimeDataFetcher;
+import access.manipulate.CrimeDataProcessor;
 
 import java.util.Comparator;
 import java.util.List;

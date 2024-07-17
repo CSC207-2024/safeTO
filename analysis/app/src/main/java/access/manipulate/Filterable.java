@@ -1,4 +1,4 @@
-package access;
+package access.manipulate;
 
 import tech.tablesaw.api.Table;
 

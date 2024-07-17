@@ -2,10 +2,9 @@ package analysis.crimeDataRanking;
 
 import com.google.gson.JsonArray;
 //import org.json.JSONArray;
-import com.google.gson.JsonArray;
-import access.CrimeDataFetcher;
-import access.CrimeDataConverter;
-import access.CrimeDataProcessor;
+import access.data.CrimeDataFetcher;
+import access.convert.CrimeDataConverter;
+import access.manipulate.CrimeDataProcessor;
 import tech.tablesaw.api.Table;
 
 import java.util.Scanner;
