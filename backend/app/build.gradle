@@ -43,11 +43,6 @@ dependencies {
     implementation 'org.glassfish.jersey.media:jersey-media-json-jackson:3.1.7'
 }
 
-application {
-    // Define the main class for the application.
-    mainClass = 'backend.App'
-}
-
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()

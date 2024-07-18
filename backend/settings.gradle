@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'backend'
-// include('org.joefang.csc207-backend')
+include('app')
