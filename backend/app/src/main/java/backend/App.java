@@ -3,14 +3,12 @@
  */
 package backend;
 
-import jakarta.ws.rs.*;
+import org.glassfish.jersey.server.ResourceConfig;
+import jakarta.ws.rs.ApplicationPath;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+@ApplicationPath("/api")
+public class App extends ResourceConfig {
+    public App() {
+        packages("org.joefang.csc207");
     }
 }
