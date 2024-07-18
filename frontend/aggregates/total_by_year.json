@@ -1,1 +1,28 @@
-{"attributes":[{"OCC_YEAR":2019,"Count [MCI_CATEGORY]":40113.0},{"OCC_YEAR":2020,"Count [MCI_CATEGORY]":35219.0},{"OCC_YEAR":2021,"Count [MCI_CATEGORY]":34805.0},{"OCC_YEAR":2022,"Count [MCI_CATEGORY]":41448.0},{"OCC_YEAR":2023,"Count [MCI_CATEGORY]":48402.0},{"OCC_YEAR":2024,"Count [MCI_CATEGORY]":10941.0}]}
+{
+  "attributes": [
+    {
+      "OCC_YEAR": 2019,
+      "INCIDENTS": 40113.0
+    },
+    {
+      "OCC_YEAR": 2020,
+      "INCIDENTS": 35219.0
+    },
+    {
+      "OCC_YEAR": 2021,
+      "INCIDENTS": 34805.0
+    },
+    {
+      "OCC_YEAR": 2022,
+      "INCIDENTS": 41448.0
+    },
+    {
+      "OCC_YEAR": 2023,
+      "INCIDENTS": 48402.0
+    },
+    {
+      "OCC_YEAR": 2024,
+      "INCIDENTS": 10941.0
+    }
+  ]
+}
