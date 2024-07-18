@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, useMapEvents, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import Geosuggest from 'react-geosuggest';
 import 'react-geosuggest/module/geosuggest.css';
 import './App.css';
 import Profile from './Profile';
+import Map from './Map';
 
-const TorontoCoordinates = [43.65107, -79.347015];
+const TorontoCoordinates = [43.651070, -79.347015];
 
 const HoverCoordinates = ({ setCoordinates }) => {
     useMapEvents({
@@ -53,13 +54,8 @@ const Home = () => {
 
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
-            <MapContainer center={TorontoCoordinates} zoom={13} style={{ height: '100%', width: '100%' }} whenCreated={mapInstance => { mapRef.current = mapInstance; }}>
-                <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                />
-                <HoverCoordinates setCoordinates={setCoordinates} />
-            </MapContainer>
+            {/* add map layer */}
+            <Map />
             <div className="overlay-text">
                 <h2>Welcome to Community Safety App</h2>
                 <p>Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.</p>
