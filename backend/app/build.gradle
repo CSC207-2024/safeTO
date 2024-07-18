@@ -36,5 +36,5 @@ tasks.named('test') {
 }
 
 war {
-    archiveFileName = 'csc207-backend.war'
+    archiveFileName = 'ROOT.war'
 }
