@@ -3,5 +3,8 @@
     "@tippyjs/react": "^4.2.6",
     "react-geosuggest": "^2.14.1",
     "tippy.js": "^6.3.7"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }

@@ -3,9 +3,8 @@ import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import Geosuggest from 'react-geosuggest';
 import 'react-geosuggest/module/geosuggest.css';
-import { Tooltip } from 'react-tippy';
-import 'react-tippy/dist/tippy.css';
 import './App.css';
+import Profile from './Profile';
 
 const TorontoCoordinates = [43.65107, -79.347015];
 
@@ -69,62 +68,12 @@ const Home = () => {
                 <Geosuggest placeholder="Search for a location" onSuggestSelect={onSuggestSelect} />
             </div>
             <div style={{ position: 'absolute', top: 20, right: 20, zIndex: 1000 }}>
-                <Tooltip title="User Profile" position="bottom" trigger="mouseenter">
-                    <img
-                        src="https://img.icons8.com/ios-filled/50/000000/user.png"
-                        alt="User Icon"
-                        style={{ borderRadius: '50%', cursor: 'pointer' }}
-                    />
-                    <div className="user-profile">
-                        <div>
-                            <label htmlFor="firstName">First Name:</label>
-                            <input
-                                type="text"
-                                id="firstName"
-                                name="firstName"
-                                value={userInfo.firstName}
-                                disabled={!isEditing}
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="lastName">Last Name:</label>
-                            <input
-                                type="text"
-                                id="lastName"
-                                name="lastName"
-                                value={userInfo.lastName}
-                                disabled={!isEditing}
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="email">Email:</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={userInfo.email}
-                                disabled={!isEditing}
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="phoneNumber">Phone Number:</label>
-                            <input
-                                type="tel"
-                                id="phoneNumber"
-                                name="phoneNumber"
-                                value={userInfo.phoneNumber}
-                                disabled={!isEditing}
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                        <button onClick={toggleEdit}>
-                            {isEditing ? 'Save' : 'Edit'}
-                        </button>
-                    </div>
-                </Tooltip>
+                <Profile
+                    userInfo={userInfo}
+                    isEditing={isEditing}
+                    handleInputChange={handleInputChange}
+                    toggleEdit={toggleEdit}
+                />
             </div>
             {coordinates.lat && coordinates.lng && (
                 <div style={{ position: 'absolute', bottom: 20, left: 20, zIndex: 1000, backgroundColor: 'white', padding: '10px', borderRadius: '5px' }}>
