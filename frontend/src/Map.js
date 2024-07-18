@@ -39,7 +39,7 @@ const Map = () => {
     fillColor: '#3388ff' // Fill color
   };
 
-  // return (
+
   //   <MapContainer center={position} zoom={12} style={{ height: '100vh', width: '100%' }}>
     
   //     {/* <Marker position={position}>
