@@ -1,4 +1,4 @@
-package analysis.autoTheft;
+package analysis.carTheft;
 
 import access.convert.CrimeDataConverter;
 import access.data.CrimeDataFetcher;
@@ -6,6 +6,7 @@ import access.manipulate.CrimeDataProcessor;
 
 import java.util.Comparator;
 import java.util.List;
+
 
 /**
  * A demo class for analyzing and displaying auto theft data within a specified radius.

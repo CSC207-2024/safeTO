@@ -1,4 +1,4 @@
-package analysis.autoTheft;
+package analysis.carTheft;
 
 /**
  * A class representing data related to auto theft incidents.

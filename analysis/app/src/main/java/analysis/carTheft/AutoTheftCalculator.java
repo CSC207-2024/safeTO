@@ -1,4 +1,4 @@
-package analysis.autoTheft;
+package analysis.carTheft;
 
 import analysis.CrimeCalculatorInterface;
 import analysis.IncidentFetcherInterface;

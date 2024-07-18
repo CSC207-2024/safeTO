@@ -1,4 +1,4 @@
-package analysis.autoTheft;
+package analysis.carTheft;
 
 import access.convert.CrimeDataConverter;
 import access.data.CrimeDataFetcher;
