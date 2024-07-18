@@ -3,7 +3,7 @@ package analysis.breakAndEnter;
 import access.convert.CrimeDataConverter;
 import access.data.CrimeDataFetcher;
 import access.manipulate.CrimeDataProcessor;
-import analysis.IncidentFetcherInterface;
+import analysis.interfaces.IncidentFetcherInterface;
 import com.google.gson.JsonArray;
 //import org.json.JSONArray;
 import tech.tablesaw.api.Table;

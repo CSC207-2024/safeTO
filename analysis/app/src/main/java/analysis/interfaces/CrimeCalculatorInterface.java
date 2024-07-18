@@ -1,4 +1,4 @@
-package analysis;
+package analysis.interfaces;
 
 import java.util.List;
 
