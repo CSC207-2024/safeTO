@@ -1,7 +1,7 @@
-package analysis.autoTheft;
+package analysis.carTheft;
 
-import analysis.CrimeCalculatorInterface;
-import analysis.IncidentFetcherInterface;
+import analysis.interfaces.CrimeCalculatorInterface;
+import analysis.interfaces.IncidentFetcherInterface;
 
 import java.time.LocalDate;
 import java.time.Month;
