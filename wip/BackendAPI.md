@@ -1,3 +1,4 @@
+prompt: "Is it possible to send the coordinate the user hovers on it back to the back end, so they can extract crime data and sent it back to the front end?"
 Below is the response from ChatGPT:
 Yes, it's possible to send the coordinates that the user hovers over to the backend and then retrieve the relevant crime data. Here’s how you can achieve this in your React application:
 
