@@ -2,9 +2,9 @@
 
 ## Contact
 
-* [`@MinecraftFuns`](https://github.com/MinecraftFuns) Joe Fang <joe.fang@mail.utoronto.ca>
-* [`@mhnwa`](https://github.com/mhnwa) Minghe Ma <minghe.ma@mail.utoronto.ca>
-* [`@Bilin22`](https://github.com/Bilin22) Bilin Nong
+* Joe Fang [`@MinecraftFuns`](https://github.com/MinecraftFuns) <joe.fang@mail.utoronto.ca>
+* Minghe Ma [`@mhnwa`](https://github.com/mhnwa) <minghe.ma@mail.utoronto.ca>
+* Bilin Nong [`@Bilin22`](https://github.com/Bilin22)
  <bilin.nong@mail.utoronto.ca>
-* [`@larryzhuly`](https://github.com/larryzhuly) Liangyu Zhu <liangyu.zhu@mail.utoronto.ca>
-* [`@Yiyun95788`](https://github.com/Yiyun95788) Yiyun Zhang <yvonnezy.zhang@mail.utoronto.ca>
+* Yiyun Zhang [`@Yiyun95788`](https://github.com/Yiyun95788) <yvonnezy.zhang@mail.utoronto.ca>
+* Liangyu Zhu [`@larryzhuly`](https://github.com/larryzhuly) <liangyu.zhu@mail.utoronto.ca>
