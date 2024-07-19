@@ -1,4 +1,4 @@
-package access;
+package access.data;
 
 import com.google.gson.JsonArray;
 
