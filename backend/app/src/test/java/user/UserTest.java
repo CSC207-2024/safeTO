@@ -1,7 +1,6 @@
-package userTester;
+package user;
 
 import location.SimpleLocation;
-import user.User;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
