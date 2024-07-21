@@ -16,4 +16,13 @@ public class SimpleLocation implements Location {
         this.latitude = latitude;
         this.longitude = longitude;
     }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "latitude=" + super.getLatitude() +
+                ", longitude=" + super.getLongitude()
+                '}';
+    }
+
 }
