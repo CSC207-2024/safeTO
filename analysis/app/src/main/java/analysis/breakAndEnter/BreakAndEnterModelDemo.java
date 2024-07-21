@@ -3,6 +3,7 @@ package analysis.breakAndEnter;
 import access.convert.CrimeDataConverter;
 import access.data.CrimeDataFetcher;
 import access.manipulate.CrimeDataProcessor;
+import analysis.utils.GeoUtils;
 
 import java.util.Comparator;
 import java.util.List;
@@ -39,7 +40,7 @@ public class BreakAndEnterModelDemo {
         System.out.println("All Break and Enter in the past year within the radius:");
         int index = 1;
         for (BreakAndEnterData data : pastYearData) {
-            double distance = breakAndEnterCalculator.calculateDistance(latitude, longitude, data.getLatitude(), data.getLongitude());
+            double distance = GeoUtils.calculateDistance(latitude, longitude, data.getLatitude(), data.getLongitude());
             System.out.printf("#%d, occur date: %d-%s-%d, distance from you: %.2f meters%n", index++, data.getOccYear(), data.getOccMonth(), data.getOccDay(), distance);
         }
 
@@ -52,7 +53,7 @@ public class BreakAndEnterModelDemo {
         System.out.println("ALL known Break and Enter within the radius:");
         index = 1;
         for (BreakAndEnterData data : allData) {
-            double distance = breakAndEnterCalculator.calculateDistance(latitude, longitude, data.getLatitude(), data.getLongitude());
+            double distance = GeoUtils.calculateDistance(latitude, longitude, data.getLatitude(), data.getLongitude());
             System.out.printf("#%d, occur date: %d-%s-%d, distance from you: %.2f meters%n", index++, data.getOccYear(), data.getOccMonth(), data.getOccDay(), distance);
         }
 

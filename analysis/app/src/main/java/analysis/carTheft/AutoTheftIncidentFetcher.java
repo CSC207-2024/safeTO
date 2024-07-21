@@ -5,9 +5,8 @@ import access.data.CrimeDataFetcher;
 import access.manipulate.CrimeDataProcessor;
 import analysis.interfaces.IncidentFetcherInterface;
 import com.google.gson.JsonArray;
-//import org.json.JSONArray;
+import tech.tablesaw.api.Row;
 import tech.tablesaw.api.Table;
-import tech.tablesaw.api.TextColumn;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,17 +53,28 @@ public class AutoTheftIncidentFetcher implements IncidentFetcherInterface<AutoTh
         // Set the table in the processor
         dataProcessor.setTable(table);
 
+        // Select only the necessary columns
+        ArrayList<String> selectedColumns = new ArrayList<>();
+        selectedColumns.add("EVENT_UNIQUE_ID");
+        selectedColumns.add("OCC_YEAR");
+        selectedColumns.add("OCC_MONTH");
+        selectedColumns.add("OCC_DAY");
+        selectedColumns.add("LAT_WGS84");
+        selectedColumns.add("LONG_WGS84");
+        selectedColumns.add("MCI_CATEGORY");
+        table = dataProcessor.selectColumn(selectedColumns);
+
         // Filter data by "MCI_CATEGORY" column where value is "Auto Theft"
         Table filteredTable = dataProcessor.filterBy("MCI_CATEGORY", "Auto Theft");
 
-        for (int i = 0; i < filteredTable.rowCount(); i++) {
+        for (Row row : filteredTable) {
             try {
-                String eventUniqueId = getStringValue(filteredTable, "EVENT_UNIQUE_ID", i);
-                int occYear = filteredTable.intColumn("OCC_YEAR").get(i);
-                String occMonth = getStringValue(filteredTable, "OCC_MONTH", i);
-                int occDay = filteredTable.intColumn("OCC_DAY").get(i);
-                double latitude = filteredTable.doubleColumn("LAT_WGS84").get(i);
-                double longitude = filteredTable.doubleColumn("LONG_WGS84").get(i);
+                String eventUniqueId = row.getString("EVENT_UNIQUE_ID");
+                int occYear = row.getInt("OCC_YEAR");
+                String occMonth = row.getString("OCC_MONTH");
+                int occDay = row.getInt("OCC_DAY");
+                double latitude = row.getDouble("LAT_WGS84");
+                double longitude = row.getDouble("LONG_WGS84");
 
                 AutoTheftData autoTheftData = new AutoTheftData(
                         eventUniqueId, occYear, occMonth, occDay, "Auto Theft", latitude, longitude);
@@ -74,21 +84,5 @@ public class AutoTheftIncidentFetcher implements IncidentFetcherInterface<AutoTh
             }
         }
         return autoTheftDataList;
-    }
-
-    /**
-     * Retrieves a string value from the specified column and row index of a Table.
-     *
-     * @param table      The Table from which to retrieve the value.
-     * @param columnName The name of the column.
-     * @param rowIndex   The index of the row.
-     * @return The string value from the specified column and row index.
-     */
-    private String getStringValue(Table table, String columnName, int rowIndex) {
-        if (table.column(columnName) instanceof TextColumn) {
-            return table.textColumn(columnName).get(rowIndex);
-        } else {
-            return table.stringColumn(columnName).get(rowIndex);
-        }
     }
 }

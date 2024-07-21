@@ -46,8 +46,8 @@ public class CrimeDataFetcher implements InterfaceDataFetcher {
         Gson gson = new Gson();
 
         try {
-            // iterate over 2019 to 2024
-            for (int year = 2019; year <= 2024; year++) {
+            // iterate over 2014 to 2024
+            for (int year = 2014; year <= 2024; year++) {
                 int offset = 0;
                 boolean hasMoreData = true;
 

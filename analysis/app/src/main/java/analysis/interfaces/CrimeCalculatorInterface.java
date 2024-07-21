@@ -5,21 +5,9 @@ import java.util.List;
 /**
  * An interface for calculating crime-related data.
  *
- * @param <T> The type of crime data to process.
+ * @param <T> The type of data being processed.
  */
 public interface CrimeCalculatorInterface<T> {
-
-    /**
-     * Calculates the distance between two geographical points specified by their
-     * latitude and longitude.
-     *
-     * @param lat1 The latitude of the first point.
-     * @param lon1 The longitude of the first point.
-     * @param lat2 The latitude of the second point.
-     * @param lon2 The longitude of the second point.
-     * @return The distance between the two points in meters.
-     */
-    double calculateDistance(double lat1, double lon1, double lat2, double lon2);
 
     /**
      * Retrieves a list of crime data within a specified radius from a given point.
@@ -27,7 +15,7 @@ public interface CrimeCalculatorInterface<T> {
      * @param lat The latitude of the center point.
      * @param lon The longitude of the center point.
      * @param radius The radius in meters within which to search for crime data.
-     * @return A list of crime data of type T within the specified radius.
+     * @return A list of crime data within the specified radius.
      */
     List<T> getCrimeDataWithinRadius(double lat, double lon, double radius);
 
@@ -38,7 +26,7 @@ public interface CrimeCalculatorInterface<T> {
      * @param lat The latitude of the center point.
      * @param lon The longitude of the center point.
      * @param radius The radius in meters within which to search for crime data.
-     * @return A list of crime data of type T within the specified radius that occurred in the past year.
+     * @return A list of crime data within the specified radius that occurred in the past year.
      */
     List<T> getCrimeDataWithinRadiusPastYear(double lat, double lon, double radius);
 
