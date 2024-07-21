@@ -1,6 +1,6 @@
 .overlay-text {
   position: absolute;
-  top: 20px;
+  top: 0;
   left: 20px;
   z-index: 1000;
   background: rgba(255, 255, 255, 0.8);

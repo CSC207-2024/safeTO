@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "@tippyjs/react": "^4.2.6",
+    "leaflet": "^1.9.4",
     "react-geosuggest": "^2.14.1",
+    "react-leaflet": "^4.2.1",
     "tippy.js": "^6.3.7"
   },
   "devDependencies": {

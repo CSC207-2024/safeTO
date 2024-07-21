@@ -1,17 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON} from 'react-leaflet';
-import L from 'leaflet';
+import React, {useImperativeHandle, forwardRef, useEffect, useState, useRef} from 'react';
+import { MapContainer, TileLayer, GeoJSON} from 'react-leaflet';
+// import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'esri-leaflet/dist/esri-leaflet';
 // import geoJsonData from '../../frontend/public/Toronto_Neighbourhoods.geojson'; // Import GeoJSON file
-//import axios from 'axios';
+// import axios from 'axios';
 
 
-const Map = () => {
+const Map = forwardRef((props, ref) => {
   // Central View Coordinates of Toronto
   const position = [43.737207, -79.343448];
 
+  const mapRef = useRef();
+
   const [geoJsonData, setGeoJsonData] = useState(null);
+
+  useImperativeHandle(ref, () => ({
+    flyTo: (coords, zoom) => {
+      if (mapRef.current) {
+        mapRef.current.flyTo(coords, zoom);
+      }
+    },
+    setView: (coords, zoom) => {
+      if (mapRef.current) {
+        mapRef.current.setView(coords, zoom);
+      }
+    }
+  }));
 
   useEffect(() => {
     // Fetch the GeoJSON data for Toronto
@@ -19,8 +34,10 @@ const Map = () => {
       .then((response) => response.json())
       .then((data) => setGeoJsonData(data))
       .catch((error) => console.error('Error fetching GeoJSON data:', error));
+    if (mapRef.current) {
+      mapRef.current.setView([43.651070, -79.347015], 13); // Central coordinate of Toronto
+    }
   }, []);
-
 
   const highlightStyle = {
     weight: 2,
@@ -82,7 +99,7 @@ const Map = () => {
       )}
     </MapContainer>
   );
-};
+});
 
 
 export default Map;

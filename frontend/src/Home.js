@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MapContainer, TileLayer, useMapEvents, GeoJSON } from 'react-leaflet';
+import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import Geosuggest from '@ubilabs/react-geosuggest';
-import '@ubilabs/react-geosuggest/module/geosuggest.css';
+import { useMapEvents } from 'react-leaflet';
 import './App.css';
 import Profile from './Profile';
 import Map from './Map';
+import LocationSearch from './LocationSearch';
 
 const TorontoCoordinates = [43.651070, -79.347015];
 
@@ -30,10 +30,12 @@ const Home = () => {
     });
     const [coordinates, setCoordinates] = useState({ lat: null, lng: null });
 
-    const onSuggestSelect = (suggest) => {
-        if (suggest && suggest.location) {
-            const { lat, lng } = suggest.location;
-            mapRef.current.setView([lat, lng], 13);
+    const onSuggestSelect = (location) => {
+        if (location) {
+            const { lat, lng } = location;
+            if (mapRef.current) {
+                mapRef.current.flyTo(lat, lng, 13); // Zoom level 13
+            }
         }
     };
 
@@ -54,14 +56,13 @@ const Home = () => {
 
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
-            {/* add map layer */}
-            <Map />
+            <Map ref={mapRef} />
             <div className="overlay-text">
                 <h2>Welcome to Community Safety App</h2>
                 <p>Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.</p>
             </div>
             <div style={{ position: 'absolute', top: 100, left: 20, zIndex: 1000 }}>
-                <Geosuggest placeholder="Search for a location" onSuggestSelect={onSuggestSelect} />
+                <LocationSearch onSuggestSelect={onSuggestSelect} />
             </div>
             <div style={{ position: 'absolute', top: 20, right: 20, zIndex: 1000 }}>
                 <Profile
