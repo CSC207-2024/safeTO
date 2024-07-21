@@ -11,14 +11,14 @@ public class User {
     private String lastName;
     private String userId;
     private String email;
-    private String passwordHash;
-    private String salt;
+    //TODO hash the password
+    private String password;
     private String phoneNumber;
     private SimpleLocation homeLocation;
     private List<SimpleLocation> savedLocations;
     private Map<String, Boolean> notificationPreferences;
     private List<long> contacts;
-    //to be added
+    //TODO add profile pic
     //private String profilePictureUrl;
     private long registrationTimestamp;
     private List<Long> lastLoginsTimestamps;
@@ -30,27 +30,23 @@ public class User {
      * @param lastName                the user's last name
      * @param userId                  the user's unique identifier
      * @param email                   the user's email address
-     * @param passwordHash            the hash of the user's password
-     * @param salt                    the salt used to hash the user's password
+     * @param password                the user's password
      * @param phoneNumber             the user's phone number
      * @param homeLocation            the user's home location
      * @param savedLocations          a list of locations saved by the user
      * @param notificationPreferences a map of notification preferences (key: notification type, value: enabled/disabled)
      * @param contacts                a list of user contacts
-     * @param profilePictureUrl       the URL of the user's profile picture
      * @param registrationTimestamp   the timestamp of the user's registration
      * @param lastLoginsTimestamps    a list of timestamps of the user's last logins
      */
-    public User(String firstName, String lastName, String userId, String email, String passwordHash, String salt,
-                String phoneNumber, String homeLocation, List<String> savedLocations,
-                Map<String, Boolean> notificationPreferences, List<String> contacts, String profilePictureUrl,
-                long registrationTimestamp, List<Long> lastLoginsTimestamps) {
+    public User(String firstName, String lastName, String userId, String email, String password,
+                String phoneNumber, SimpleLocation homeLocation, List<SimpleLocation> savedLocations,
+                Map<String, Boolean> notificationPreferences, List<String> contacts, long registrationTimestamp, List<Long> lastLoginsTimestamps) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userId = userId;
         this.email = email;
-        this.passwordHash = passwordHash;
-        this.salt = salt;
+        this.password = password;
         this.phoneNumber = phoneNumber;
         this.homeLocation = homeLocation;
         this.savedLocations = savedLocations;
@@ -138,8 +134,8 @@ public class User {
      *
      * @return the hash of the user's password
      */
-    public String getPasswordHash() {
-        return passwordHash;
+    public String getPassword() {
+        return password;
     }
 
     /**
@@ -147,26 +143,8 @@ public class User {
      *
      * @param passwordHash the hash of the user's password
      */
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
-    }
-
-    /**
-     * Gets the salt used to hash the user's password.
-     *
-     * @return the salt used to hash the user's password
-     */
-    public String getSalt() {
-        return salt;
-    }
-
-    /**
-     * Sets the salt used to hash the user's password.
-     *
-     * @param salt the salt used to hash the user's password
-     */
-    public void setSalt(String salt) {
-        this.salt = salt;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     /**

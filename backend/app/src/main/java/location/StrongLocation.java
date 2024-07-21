@@ -1,15 +1,14 @@
-package user;
+package location;
 import java.util.regex.Pattern;
 
 /**
- * Represents a geographical location.
+ * Represents a geographical strong location.
  */
-public class Location {
+public class StrongLocation extends SimpleLocation implements Location{
 
-    private static final Pattern POSTAL_CODE_PATTERN = Pattern.compile("^[A-Z]\\d[A-Z] \\d[A-Z]\\d$");
+    //Use Regex to validate Canadian postcode 'A1A 1A1'
+    private static final Pattern POSTAL_CODE_PATTERN = Pattern.compile("^[A-Z]\d[A-Z] \d[A-Z]\d$");
 
-    private double latitude;
-    private double longitude;
     private String postalCode;
     private String address;
 
@@ -22,48 +21,14 @@ public class Location {
      * @param address    the address of the location
      * @throws IllegalArgumentException if the postal code is not in the correct format
      */
-    public Location(double latitude, double longitude, String postalCode, String address) {
-        this.latitude = latitude;
-        this.longitude = longitude;
+    public StrongLocation(double latitude, double longitude, String postalCode, String address) {
+        super(latitude, longitude);
+    
         setPostalCode(postalCode); // Using setter to validate
         this.address = address;
     }
 
-    /**
-     * Gets the latitude of the location.
-     *
-     * @return the latitude of the location
-     */
-    public double getLatitude() {
-        return latitude;
-    }
-
-    /**
-     * Sets the latitude of the location.
-     *
-     * @param latitude the latitude of the location
-     */
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    /**
-     * Gets the longitude of the location.
-     *
-     * @return the longitude of the location
-     */
-    public double getLongitude() {
-        return longitude;
-    }
-
-    /**
-     * Sets the longitude of the location.
-     *
-     * @param longitude the longitude of the location
-     */
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
+    
 
     /**
      * Gets the postal code of the location.
@@ -115,13 +80,13 @@ public class Location {
                 '}';
     }
 
-    public static void main(String[] args) {
-        // Example usage
-        try {
-            Location location = new Location(43.6532, -79.3832, "M5V 3C6", "123 Main St, Toronto, ON");
-            System.out.println(location);
-        } catch (IllegalArgumentException e) {
-            System.err.println(e.getMessage());
-        }
-    }
+    // public static void main(String[] args) {
+    //     // Example usage
+    //     try {
+    //         Location location = new Location(43.6532, -79.3832, "M5V 3C6", "123 Main St, Toronto, ON");
+    //         System.out.println(location);
+    //     } catch (IllegalArgumentException e) {
+    //         System.err.println(e.getMessage());
+    //     }
+    // }
 }

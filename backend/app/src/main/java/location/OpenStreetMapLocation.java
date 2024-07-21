@@ -5,15 +5,13 @@ import geography.ReverseGeocoding;
 
 public class OpenStreetMapLocation extends SimpleLocation {
     private Place place;
-    //to be implemented: regex validates Canadian postcode 'A1A 1A1'
-    private static final Pattern POSTAL_CODE_PATTERN = Pattern.compile("^[A-Z]\d[A-Z] \d[A-Z]\d$");
 
     public String getAddress() {
         return place.getDisplayName();
     }
 
     public String getPostalCode() {
-        return place.getAddress().getPostcode();
+        return place.getAddress().getPostcode();    
     }
 
     public OpenStreetMapLocation(double latitude, double longitude) {
