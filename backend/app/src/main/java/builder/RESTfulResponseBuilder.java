@@ -3,6 +3,7 @@ package builder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
+import com.google.gson.Gson;
 import singleton.GsonSingleton;
 
 /**
@@ -20,6 +21,7 @@ import singleton.GsonSingleton;
  * </p>
  */
 public class RESTfulResponseBuilder {
+    private static final Gson gson = GsonSingleton.getInstance();
 
     private boolean ok = true; // Default value set to true
     private String message = ""; // Default value set to empty string
@@ -82,7 +84,7 @@ public class RESTfulResponseBuilder {
      * @return the current instance of RESTfulResponseBuilder for method chaining
      */
     public RESTfulResponseBuilder withData(Object data) {
-        this.data = GsonSingleton.getInstance().toJsonTree(data);
+        this.data = gson.toJsonTree(data);
         return this;
     }
 
@@ -97,6 +99,6 @@ public class RESTfulResponseBuilder {
         jsonObject.addProperty("message", this.message);
         jsonObject.add("data", this.data);
 
-        return GsonSingleton.getInstance().toJson(jsonObject);
+        return gson.toJson(jsonObject);
     }
 }
