@@ -1,5 +1,4 @@
 package user;
-import User from user;
 
 public class Login{
 
