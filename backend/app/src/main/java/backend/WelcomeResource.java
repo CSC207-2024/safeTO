@@ -19,6 +19,6 @@ public class WelcomeResource {
         json.addProperty("message",
                 "Welcome to the API. This endpoint is not intended for human interaction. Check out our repository at https://github.com/CSC207-2024/safeTO");
 
-        return Response.ok(GsonSingleton.geInstance().toJson(json)).build();
+        return Response.ok(GsonSingleton.getInstance().toJson(json)).build();
     }
 }

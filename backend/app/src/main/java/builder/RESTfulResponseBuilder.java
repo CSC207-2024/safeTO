@@ -82,7 +82,7 @@ public class RESTfulResponseBuilder {
      * @return the current instance of RESTfulResponseBuilder for method chaining
      */
     public RESTfulResponseBuilder withData(Object data) {
-        this.data = GsonSingleton.geInstance().toJsonTree(data);
+        this.data = GsonSingleton.getInstance().toJsonTree(data);
         return this;
     }
 
@@ -97,6 +97,6 @@ public class RESTfulResponseBuilder {
         jsonObject.addProperty("message", this.message);
         jsonObject.add("data", this.data);
 
-        return GsonSingleton.geInstance().toJson(jsonObject);
+        return GsonSingleton.getInstance().toJson(jsonObject);
     }
 }
