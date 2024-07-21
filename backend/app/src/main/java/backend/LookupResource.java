@@ -8,6 +8,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 import types.Place;
+import com.google.gson.JsonObject;
 import singleton.GsonSingleton;
 
 import geography.ReverseGeocoding;
@@ -21,6 +22,12 @@ public class LookupResource {
         if (place != null) {
             return Response.ok(GsonSingleton.getGson().toJson(place)).build();
         }
-        return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+        JsonObject object = new JsonObject();
+        object.addProperty("ok", false);
+        object.addProperty("message", "Upstream API fails to respond");
+        JsonObject data = new JsonObject();
+        
+        object.addProperty("data", );
+        return Response.status(Status.INTERNAL_SERVER_ERROR).entity(GsonSingleton.getGson().toJson(object)).build();
     }
 }

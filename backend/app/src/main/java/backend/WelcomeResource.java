@@ -10,15 +10,15 @@ import jakarta.ws.rs.core.Response;
 import singleton.GsonSingleton;
 
 @Path("/")
-public class ApiFacade {
+public class WelcomeResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response welcome() {
         JsonObject json = new JsonObject();
-        json.addProperty("status", 200);
+        json.addProperty("ok", true);
         json.addProperty("message",
                 "Welcome to the API. This endpoint is not intended for human interaction. Check out our repository at https://github.com/CSC207-2024/safeTO");
 
-        return Response.ok(GsonSingleton.getGson().toJson(json)).build();
+        return Response.ok(GsonSingleton.geInstance().toJson(json)).build();
     }
 }

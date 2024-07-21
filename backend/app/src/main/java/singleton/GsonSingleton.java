@@ -9,7 +9,7 @@ public class GsonSingleton {
         // private constructor to prevent instantiation
     }
 
-    public static Gson getGson() {
+    public static Gson geInstance() {
         return instance;
     }
 }
