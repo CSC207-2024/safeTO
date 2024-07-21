@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MapContainer, TileLayer, useMapEvents, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import Geosuggest from 'react-geosuggest';
-import 'react-geosuggest/module/geosuggest.css';
+import Geosuggest from '@ubilabs/react-geosuggest';
+import '@ubilabs/react-geosuggest/module/geosuggest.css';
 import './App.css';
 import Profile from './Profile';
 import Map from './Map';
