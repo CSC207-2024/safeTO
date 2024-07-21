@@ -13,7 +13,7 @@ Yes, it's possible to send the coordinates that the user hovers over to the back
 
    app.use(express.json());
 
-   app.post('/getCrimeData', (req, res) => {
+   app.post('/lookup', (req, res) => {
      const { lat, lng } = req.body;
      // Implement your logic to fetch crime data based on coordinates
      const crimeData = getCrimeDataForCoordinates(lat, lng);
@@ -106,8 +106,9 @@ Yes, it's possible to send the coordinates that the user hovers over to the back
    ```
 
 In this implementation:
+
 - **Backend**: The backend provides an endpoint `/getCrimeData` that accepts coordinates and responds with crime data.
-- **React Component**: 
+- **React Component**:
   - `HoverCoordinates` captures the hover event and updates the state with the coordinates.
   - `MapComponent` sends the coordinates to the backend whenever they change and displays the returned crime data.
 

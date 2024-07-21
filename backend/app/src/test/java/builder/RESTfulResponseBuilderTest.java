@@ -70,7 +70,9 @@ public class RESTfulResponseBuilderTest {
     }
 
     private class DummyData {
+        @SuppressWarnings("unused")
         private String id;
+        @SuppressWarnings("unused")
         private String content;
 
         public DummyData(String id, String content) {
