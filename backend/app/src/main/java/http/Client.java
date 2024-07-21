@@ -9,7 +9,7 @@ public class Client {
     private static final HttpClient client = HttpClient.newHttpClient();
 
     public static <T> HttpResponse<T> send(HttpRequest request, HttpResponse.BodyHandler<T> responseBodyHandler,
-             int max_retries) {
+            int max_retries) {
         int backoff_factor = 1;
         for (int tries = 0; tries < max_retries; ++tries) {
             try {
@@ -28,5 +28,13 @@ public class Client {
         }
         Logger.error("max_retries exceeded", "/backend/http/Client");
         return null;
+    }
+
+    public static <T> HttpResponse<T> send(HttpRequest request, HttpResponse.BodyHandler<T> responseBodyHandler,
+            int max_retries, int ttl) {
+        HttpResponse<T> response = send(request, responseBodyHandler, max_retries);
+        if (response != null && response.statusCode() >= 200 && response.statusCode() < 300) {
+
+        }
     }
 }

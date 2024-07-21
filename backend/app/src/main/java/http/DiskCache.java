@@ -7,7 +7,6 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
@@ -16,23 +15,20 @@ import java.util.Map;
 import types.CachedResponse;
 
 public class DiskCache {
-
     private final Path cacheDir;
-    private final Map<String, String> urlToHash;
-    private final Map<String, Long> expiryTimes;
+    private final Map<String, CacheMetadata> urlToMetadata;
     private final Gson gson;
 
     public DiskCache() throws IOException {
-        this.cacheDir = Files.createTempDirectory("fetch-cache");
-        this.urlToHash = new HashMap<>();
-        this.expiryTimes = new HashMap<>();
+        this.cacheDir = Files.createTempDirectory("csc207-backend-http");
+        this.urlToMetadata = new HashMap<>();
         this.gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
     public CachedResponse get(String url) throws IOException {
-        String hash = urlToHash.get(url);
-        if (hash != null && expiryTimes.containsKey(hash) && System.currentTimeMillis() < expiryTimes.get(hash)) {
-            Path cachedFilePath = getCacheFilePath(hash);
+        CacheMetadata metadata = urlToMetadata.get(url);
+        if (metadata != null && System.currentTimeMillis() < metadata.expiryTime) {
+            Path cachedFilePath = getCacheFilePath(metadata.hash);
             if (Files.exists(cachedFilePath)) {
                 try (BufferedReader reader = new BufferedReader(new FileReader(cachedFilePath.toFile()))) {
                     return gson.fromJson(reader, CachedResponse.class);
@@ -52,8 +48,8 @@ public class DiskCache {
             writer.write(serializedResponse);
         }
 
-        urlToHash.put(url, hash);
-        expiryTimes.put(hash, System.currentTimeMillis() + ttl);
+        // Record both hash and expiry time for the URL
+        urlToMetadata.put(url, new CacheMetadata(hash, System.currentTimeMillis() + ttl));
     }
 
     private String computeSHA256(String input) throws NoSuchAlgorithmException {
@@ -70,6 +66,16 @@ public class DiskCache {
         String dir1 = hash.substring(0, 2);
         String dir2 = hash.substring(2, 4);
         String restOfHash = hash.substring(4);
-        return cacheDir.resolve(Paths.get(dir1, dir2, restOfHash + ".cache"));
+        return cacheDir.resolve(Paths.get("cache", dir1, dir2, restOfHash + ".json"));
+    }
+
+    private static class CacheMetadata {
+        String hash;
+        long expiryTime;
+
+        CacheMetadata(String hash, long expiryTime) {
+            this.hash = hash;
+            this.expiryTime = expiryTime;
+        }
     }
 }
