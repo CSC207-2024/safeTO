@@ -1,4 +1,4 @@
-package locationTester;
+package location;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -15,10 +15,10 @@ public class LocationTest {
     @BeforeEach
     public void setUp() {
         simpleLocation = new SimpleLocation(43.737207, -79.343448); // Example coordinates for Toronto
-        strongLocation = new StrongLocation(43.6532, -79.3832, "M5V 3C6", "123 Main St, Toronto, ON"); 
+        strongLocation = new StrongLocation(43.6532, -79.3832, "M5V 3C6", "123 Main St, Toronto, ON");
     }
 
-    //================= Test Simple Location==================
+    // ================= Test Simple Location==================
     @Test
     public void testGetLatitude() {
         assertEquals(43.737207, simpleLocation.getLatitude(), "Latitude should be 43.737207");
@@ -44,14 +44,16 @@ public class LocationTest {
     @Test
     public void testToString1() {
         String expected = "Location{latitude=43.737207, longitude=-79.343448}";
-        assertEquals(expected, simpleLocation.toString(), "toString() method should return correct string representation");
+        assertEquals(expected, simpleLocation.toString(),
+                "toString() method should return correct string representation");
     }
 
-    //================= Test Strong Location==================
-     @Test
+    // ================= Test Strong Location==================
+    @Test
     public void testConstructorValidPostalCode() {
         assertEquals("M5V 3C6", strongLocation.getPostalCode(), "Postal code should be M5V 3C6");
-        assertEquals("123 Main St, Toronto, ON", strongLocation.getAddress(), "Address should be 123 Main St, Toronto, ON");
+        assertEquals("123 Main St, Toronto, ON", strongLocation.getAddress(),
+                "Address should be 123 Main St, Toronto, ON");
     }
 
     @Test
@@ -77,12 +79,14 @@ public class LocationTest {
     @Test
     public void testSetAddress() {
         strongLocation.setAddress("456 Elm St, Toronto, ON");
-        assertEquals("456 Elm St, Toronto, ON", strongLocation.getAddress(), "Address should be updated to 456 Elm St, Toronto, ON");
+        assertEquals("456 Elm St, Toronto, ON", strongLocation.getAddress(),
+                "Address should be updated to 456 Elm St, Toronto, ON");
     }
 
     @Test
     public void testToString2() {
         String expected = "Location{latitude=43.6532, longitude=-79.3832, postalCode='M5V 3C6', address='123 Main St, Toronto, ON'}";
-        assertEquals(expected, strongLocation.toString(), "toString() method should return the correct string representation");
+        assertEquals(expected, strongLocation.toString(),
+                "toString() method should return the correct string representation");
     }
 }
