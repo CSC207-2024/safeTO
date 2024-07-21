@@ -4,11 +4,12 @@
 package backend;
 
 import org.glassfish.jersey.server.ResourceConfig;
+
 import jakarta.ws.rs.ApplicationPath;
 
-@ApplicationPath("/api")
+@ApplicationPath("/")
 public class App extends ResourceConfig {
     public App() {
-        packages("org.joefang.csc207");
+        packages("backend");
     }
 }

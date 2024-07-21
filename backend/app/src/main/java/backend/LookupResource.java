@@ -14,7 +14,6 @@ import geography.ReverseGeocoding;
 
 @Path("/lookup")
 public class LookupResource {
-
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response lookup(@QueryParam("lat") float latitude, @QueryParam("long") float longitude) {
