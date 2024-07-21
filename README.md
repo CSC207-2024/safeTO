@@ -22,6 +22,8 @@ Since the backend API is intended to be exposed directly on the web, it's advisa
 
 ### Frontend
 
+Execute `npm run build` within the `frontend` folder to build the app for production. In CI environments such as Netlify or Cloudflare Pages, it might be advisable to set `CI=false` since our team is currently working on resolving several warnings. For additional information, take a look at this [Stack Overflow post](https://bit.ly/4fdHRty).
+
 ## Contact
 
 * Joe Fang [`@MinecraftFuns`](https://github.com/MinecraftFuns) <joe.fang@mail.utoronto.ca>
