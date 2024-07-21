@@ -1,6 +1,7 @@
 package user;
 import java.util.List;
 import java.util.Map;
+import location.*;
 
 /**
  * Represents a user in the system.
@@ -17,7 +18,7 @@ public class User {
     private SimpleLocation homeLocation;
     private List<SimpleLocation> savedLocations;
     private Map<String, Boolean> notificationPreferences;
-    private List<long> contacts;
+    private List<String> contacts;
     //TODO add profile pic
     //private String profilePictureUrl;
     private long registrationTimestamp;

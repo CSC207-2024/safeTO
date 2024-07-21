@@ -1,7 +1,10 @@
-package builder;
+package builderTester;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+
+import builder.RESTfulResponseBuilder;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

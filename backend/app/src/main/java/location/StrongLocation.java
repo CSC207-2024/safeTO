@@ -4,10 +4,10 @@ import java.util.regex.Pattern;
 /**
  * Represents a geographical strong location.
  */
-public class StrongLocation extends SimpleLocation implements Location{
+public class StrongLocation extends SimpleLocation{
 
     //Use Regex to validate Canadian postcode 'A1A 1A1'
-    private static final Pattern POSTAL_CODE_PATTERN = Pattern.compile("^[A-Z]\d[A-Z] \d[A-Z]\d$");
+    private static final Pattern POSTAL_CODE_PATTERN = Pattern.compile("^[A-Z]\\d[A-Z] \\d[A-Z]\\d$");
 
     private String postalCode;
     private String address;
@@ -73,15 +73,15 @@ public class StrongLocation extends SimpleLocation implements Location{
     @Override
     public String toString() {
         return "Location{" +
-                "latitude=" + latitude +
-                ", longitude=" + longitude +
-                ", postalCode='" + postalCode + '\'' +
-                ", address='" + address + '\'' +
+                "latitude=" + super.getLatitude() +
+                ", longitude=" + super.getLongitude() +
+                ", postalCode='" + getPostalCode() + '\'' +
+                ", address='" + getAddress() + '\'' +
                 '}';
     }
 
     // public static void main(String[] args) {
-    //     // Example usage
+    // 
     //     try {
     //         Location location = new Location(43.6532, -79.3832, "M5V 3C6", "123 Main St, Toronto, ON");
     //         System.out.println(location);

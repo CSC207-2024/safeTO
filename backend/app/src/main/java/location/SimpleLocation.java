@@ -59,8 +59,8 @@ public class SimpleLocation implements Location {
     @Override
     public String toString() {
         return "Location{" +
-                "latitude=" + super.getLatitude() +
-                ", longitude=" + super.getLongitude()
+                "latitude=" + getLatitude() +
+                ", longitude=" + getLongitude() +
                 '}';
     }
 

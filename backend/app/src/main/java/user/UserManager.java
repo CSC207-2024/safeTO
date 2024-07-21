@@ -1,7 +1,12 @@
 package user;
 
-public class Login{
+import java.util.Scanner;
 
+public class UserManager{
+
+    //TODO read from the username and password database
+    private String validUsername;
+    private String validPassword;
 
     // Method to authenticate the user
     public boolean authenticate(String username, String password) {
@@ -15,7 +20,7 @@ public class Login{
 
     public static void main (String args[]) {
         Scanner scanner = new Scanner(System.in);
-        LoginService loginService = new LoginService();
+        UserManager um = new UserManager();
 
         System.out.println("Enter username:");
         String username = scanner.nextLine();
@@ -23,7 +28,7 @@ public class Login{
         System.out.println("Enter password:");
         String password = scanner.nextLine();
 
-        if (loginService.authenticate(username, password)) {
+        if (um.authenticate(username, password)) {
             System.out.println("Login successful!");
         } else {
             System.out.println("Login failed. Invalid username or password.");
