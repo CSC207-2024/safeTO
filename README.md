@@ -29,12 +29,10 @@ Execute `npm run build` within the `frontend` folder to build the app for produc
 Our data access and persistence code is located in [access](analysis/app/src/main/java/access) directory.
 
 We send a request to the Toronto Police Service API to fetch [Major Crime Indicators Data](https://data.torontopolice.on.ca/datasets/0a239a5563a344a3bbf8452504ed8d68_0/explore?location=9.598356%2C-39.819624%2C1.56) in JSON format for the years 2019 to 2024.
-The fetched data is saved in the `cache` directory for further analysis. (Note: This directory is included in `.gitignore` to prevent large data files from being committed to the repository.) 
+The fetched data is saved in the `cache` directory for further analysis. (Note: This directory is included in `.gitignore` to prevent large data files from being committed to the repository.)
 This approach minimizes repeated API calls and optimizes the performance of our analysis pipeline.
 
-The analysis results are exported in JSON format to [resource](backend/app/src/main/resources) directory.
-
-
+The analysis results are exported in JSON format to the [resources](backend/app/src/main/resources) directory.
 
 ### Analysis
 
@@ -42,36 +40,32 @@ Our usecase demo is available at [analysis](analysis/app/src/main/java/analysis)
 
 1. [Break and Enter](analysis/app/src/main/java/analysis/BreakAndEnter)
 
-* Execute the `BreakAndEnterModelDemo.java` file to see the analysis results for Break and Enter incidents in Toronto within a specified radius.
-You may adjust the `latitude`, `longitude`, `radius`, and `threshold` to customize the search parameter.
-* The results are displayed in the console, showing all known incidents within the specified `radius`.
-     * For each incident, the following information is provided:
+    * Execute the `BreakAndEnterModelDemo.java` file to see the analysis results for Break and Enter incidents in Toronto within a specified radius.
+    You may adjust the `latitude`, `longitude`, `radius`, and `threshold` to customize the search parameter.
+        * The results are displayed in the console, showing all known incidents within the specified `radius`.
+        * For each incident, the following information is provided:
+            * occur date: The date when the incident happened.
+            * distance from you: The distance from the specified location to the incident location.
+    * Additionally, we calculate the probability that Break and Enter incidents will occur more than the specified `threshold` in the future using a Poisson model.
+        Based on this analysis, we provide a suggestion on whether the user is safe to live here.
+
+1. [Car Theft](analysis/app/src/main/java/analysis/carTheft)
+
+    * Execute the `AutoTheftSafeCaseDemo.java` or `AutoTheftUnsafeCaseDemo.java` file to see the analysis results for auto theft incidents in Toronto within a specified radius.
+        You may adjust the `latitude`, `longitude`, `radius`,`threshold`, and `earliestYear` to customize the search parameter.
+    * The results are displayed in the console, showing all known incidents within the specified `radius`.
+    * For each incident, the following information is provided:
         * occur date: The date when the incident happened.
         * distance from you: The distance from the specified location to the incident location.
-* Additionally, we calculate the probability that Break and Enter incidents will occur more than the specified `threshold` in the future using a Poisson model.
-  Based on this analysis, we provide a suggestion on whether the user is safe to live here.
+    * Additionally, we calculate the probability that auto theft incidents will occur more than the specified `threshold` in the future using a Poisson model.
+        we also provide a suggestion on whether is safe to park here based on our analysis.
 
-2. [Car Theft](analysis/app/src/main/java/analysis/carTheft)
+1. [Crime Data Ranking](analysis/app/src/main/java/analysis/crimeDataRanking)
 
-
-* Execute the `AutoTheftSafeCaseDemo.java` or `AutoTheftUnsafeCaseDemo.java` file to see the analysis results for auto theft incidents in Toronto within a specified radius.
-  You may adjust the `latitude`, `longitude`, `radius`,`threshold`, and `earliestYear` to customize the search parameter.
-* The results are displayed in the console, showing all known incidents within the specified `radius`.
-  * For each incident, the following information is provided:
-    * occur date: The date when the incident happened.
-    * distance from you: The distance from the specified location to the incident location.
-* Additionally, we calculate the probability that auto theft incidents will occur more than the specified `threshold` in the future using a Poisson model.
-  we also provide a suggestion on whether is safe to park here based on our analysis.
-
-3. [Crime Data Ranking](analysis/app/src/main/java/analysis/crimeDataRanking)
-
-* Execute the `NeighborhoodCrimeRankingDemo.java` file to see the analysis results for crime data ranking in Toronto.
-* You may interact with the console to input the `neighourhood`, and `sepcific crime type` to get the ranking of 
-the `neighbourhood` by total number of `specific crime type` incidents. 
-* You may also leave blank for `specific crime type` to get the ranking of the `neighbourhood` by total number of all crime incidents.
-
-
-
+    * Execute the `NeighborhoodCrimeRankingDemo.java` file to see the analysis results for crime data ranking in Toronto.
+    * You may interact with the console to input the `neighourhood`, and `sepcific crime type` to get the ranking of
+    the `neighbourhood` by total number of `specific crime type` incidents.
+    * You may also leave blank for `specific crime type` to get the ranking of the `neighbourhood` by total number of all crime incidents.
 
 ## Contact
 
@@ -82,7 +76,8 @@ the `neighbourhood` by total number of `specific crime type` incidents.
 * Yiyun Zhang [`@Yiyun95788`](https://github.com/Yiyun95788) <yvonnezy.zhang@mail.utoronto.ca>
 * Liangyu Zhu [`@larryzhuly`](https://github.com/larryzhuly) <liangyu.zhu@mail.utoronto.ca>
 
-## Some Revisions to Blueprint:
+## Some Revisions to Blueprint
+
 1. In `User.java` class, change `names` from `list<String>` to `firstName`, `lastName`;
 2. In `User.java` class, change `userID` from `long` to `String`, in order to accommodate alphanumeric username;
 3. In `User.java` class, change `notificationPreferences` from `List<String>` to `Map<String, Boolean>`;
