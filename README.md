@@ -40,7 +40,7 @@ The analysis results are exported in JSON format to [resource](backend/app/src/m
 
 Our usecase demo is available at [analysis](analysis/app/src/main/java/analysis) directory.
 
-1. [Break and Enter](analysis/app/src/main/java/analysis/BreakAndEnter)
+1. [Break and Enter](analysis/app/src/main/java/analysis/breakAndEnter)
 
 * Execute the `BreakAndEnterModelDemo.java` file to see the analysis results for Break and Enter incidents in Toronto within a specified radius.
 You may adjust the `latitude`, `longitude`, `radius`, and `threshold` to customize the search parameter.
