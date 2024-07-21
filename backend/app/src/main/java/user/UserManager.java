@@ -5,8 +5,10 @@ import java.util.Scanner;
 public class UserManager{
 
     //TODO read from the username and password database
-    private String validUsername;
-    private String validPassword;
+
+    //Demo
+    private String validUsername = "admin";
+    private String validPassword = "pswd";
 
     // Method to authenticate the user
     public boolean authenticate(String username, String password) {
@@ -16,8 +18,17 @@ public class UserManager{
         return username.equals(validUsername) && password.equals(validPassword);
     }
 
-    
+    //TODO Method to sign up the user
+    public boolean register(String username, String password) {
 
+        return false;
+    }
+
+
+    
+        
+
+    //Demo to run login/authenticate process
     public static void main (String args[]) {
         Scanner scanner = new Scanner(System.in);
         UserManager um = new UserManager();
