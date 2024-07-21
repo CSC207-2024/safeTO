@@ -32,3 +32,11 @@ Execute `npm run build` within the `frontend` folder to build the app for produc
  <bilin.nong@mail.utoronto.ca>
 * Yiyun Zhang [`@Yiyun95788`](https://github.com/Yiyun95788) <yvonnezy.zhang@mail.utoronto.ca>
 * Liangyu Zhu [`@larryzhuly`](https://github.com/larryzhuly) <liangyu.zhu@mail.utoronto.ca>
+
+## Some Revisions to Blueprint:
+1. In `User.java` class, change `names` from `list<String>` to `firstName`, `lastName`;
+2. In `User.java` class, change `userID` from `long` to `String`, in order to accommodate alphanumeric username;
+3. In `User.java` class, change `notificationPreferences` from `List<String>` to `Map<String, Boolean>`;
+4. In `User.java` class, change `homeLocation`, elements of `savedLocations` from `Location` to `SimpleLocation`;
+5. In `User.java` class, change `contacts` from `list<long>` to `list<String>`;
+6. In `Location.java` class, apply regular expression to Canadian postcodes;
