@@ -10,7 +10,7 @@ import jakarta.ws.rs.core.Response.Status;
 import types.Place;
 import com.google.gson.JsonObject;
 import singleton.GsonSingleton;
-
+import builder.RESTfulResponseBuilder;
 import geography.ReverseGeocoding;
 
 @Path("/lookup")
@@ -20,14 +20,21 @@ public class LookupResource {
     public Response lookup(@QueryParam("lat") float latitude, @QueryParam("long") float longitude) {
         Place place = ReverseGeocoding.resolve(latitude, longitude);
         if (place != null) {
-            return Response.ok(GsonSingleton.getGson().toJson(place)).build();
+            return Response.ok(RESTfulResponseBuilder.create()
+                    .withOk(true)
+                    .withMessage("Upstream API responded successfully")
+                    .withData(place)
+                    .build())
+                    .build();
         }
-        JsonObject object = new JsonObject();
-        object.addProperty("ok", false);
-        object.addProperty("message", "Upstream API fails to respond");
-        JsonObject data = new JsonObject();
-        
-        object.addProperty("data", );
-        return Response.status(Status.INTERNAL_SERVER_ERROR).entity(GsonSingleton.getGson().toJson(object)).build();
+        return Response.status(Status.INTERNAL_SERVER_ERROR).entity(
+                RESTfulResponseBuilder.create()
+                        .withOk(false)
+                        .withMessage("Upstream API failed to respond")
+                        .withData(String.format(
+                                "[Trace] Component: ReverseGeocoding.resolve(%f, %f)", latitude,
+                                longitude))
+                        .build())
+                .build();
     }
 }

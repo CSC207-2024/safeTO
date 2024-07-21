@@ -37,6 +37,11 @@ public class RESTfulResponseBuilder {
         return this;
     }
 
+    public RESTfulResponseBuilder withData(Object data) {
+        this.data = GsonSingleton.geInstance().toJsonTree(data);
+        return this;
+    }
+
     // Method to build the response and return as a JSON string
     public String build() {
         JsonObject jsonObject = new JsonObject();
