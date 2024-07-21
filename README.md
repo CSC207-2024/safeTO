@@ -4,10 +4,6 @@
 
 ### Backend
 
-Certainly, here is the reworded version:
-
----
-
 We use Gradle for dependency management. Please make sure that Gradle is installed locally on your machine.
 
 The source code is located in the [backend](backend) directory.

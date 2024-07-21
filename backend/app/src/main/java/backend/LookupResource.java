@@ -8,8 +8,6 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 import types.Place;
-import com.google.gson.JsonObject;
-import singleton.GsonSingleton;
 import builder.RESTfulResponseBuilder;
 import geography.ReverseGeocoding;
 
