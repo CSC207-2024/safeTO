@@ -3,13 +3,17 @@ package http;
 import java.net.http.HttpClient;
 import java.net.http.HttpResponse;
 import logging.Logger;
+import types.CachedResponse;
+
 import java.net.http.HttpRequest;
+import java.net.http.HttpResponse.BodyHandlers;
 
 public class Client {
     private static final HttpClient client = HttpClient.newHttpClient();
+    private static final CacheInterface cache = new DiskCache();
 
     public static <T> HttpResponse<T> send(HttpRequest request, HttpResponse.BodyHandler<T> responseBodyHandler,
-             int max_retries) {
+            int max_retries) {
         int backoff_factor = 1;
         for (int tries = 0; tries < max_retries; ++tries) {
             try {
@@ -29,4 +33,35 @@ public class Client {
         Logger.error("max_retries exceeded", "/backend/http/Client");
         return null;
     }
+
+    public static <T> HttpResponse<T> send(HttpRequest request, HttpResponse.BodyHandler<T> responseBodyHandler) {
+        return send(request, responseBodyHandler, 1);
+    }
+
+    public static HttpResponse<String> send(HttpRequest request) {
+        return send(request, BodyHandlers.ofString());
+    }
+
+    public static HttpResponse<String> send(HttpRequest request, int max_retries) {
+        return send(request, BodyHandlers.ofString(), max_retries);
+    }
+
+    // public static HttpResponse<String> send(HttpRequest request,
+    // int max_retries, int cache_ttl) {
+    // if (request.method() != "GET" && request.method() != "HEAD") {
+    // // non-cacheable request, fall back to normal send
+    // return send(request, max_retries);
+    // }
+
+    // CachedResponse cachedResponse = cache.get(request.uri().toString());
+    // if (cachedResponse != null) {
+    // return new Httprespon
+    // }
+
+    // HttpResponse<String> response = send(request, max_retries);
+    // if (response != null && response.statusCode() >= 200 && response.statusCode()
+    // < 300) {
+
+    // }
+    // }
 }
