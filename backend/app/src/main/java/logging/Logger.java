@@ -28,6 +28,7 @@ import java.io.IOException;
  */
 public class Logger {
     private static final String rootLoggerName = "backend";
+    private static final String rootLoggerPrefix = rootLoggerName + ".";
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(rootLoggerName);
 
     static {
@@ -51,6 +52,17 @@ public class Logger {
         }
     }
 
+    private static String fixNamespace(String component) {
+        if (component.startsWith(rootLoggerPrefix)) {
+            return component;
+        }
+        // Ensures that the logging message writes to our logging file
+        logger.warning(component
+                + " is calling this method with an incorrect namespace; it has been automatically corrected.");
+        return rootLoggerPrefix + component;
+
+    }
+
     /**
      * Logs an informational message to the specified component's logger.
      *
@@ -58,6 +70,7 @@ public class Logger {
      * @param component the name of the component logger
      */
     public static void log(String message, String component) {
+        component = fixNamespace(component);
         java.util.logging.Logger.getLogger(component).info(message);
     }
 
@@ -77,6 +90,7 @@ public class Logger {
      * @param component the name of the component logger
      */
     public static void warn(String message, String component) {
+        component = fixNamespace(component);
         java.util.logging.Logger.getLogger(component).warning(message);
     }
 
@@ -96,6 +110,7 @@ public class Logger {
      * @param component the name of the component logger
      */
     public static void error(String message, String component) {
+        component = fixNamespace(component);
         java.util.logging.Logger.getLogger(component).severe(message);
     }
 
