@@ -39,10 +39,10 @@ const Map = forwardRef((props, ref) => {
 
   // Fetch GeoJSON data and set initial view
   useEffect(() => {
-    fetch('../../frontend/public/Toronto_Neighbourhoods.geojson')
-        .then((response) => response.json())
-        .then((data) => setGeoJsonData(data)) // Set GeoJSON data
-        .catch((error) => console.error('Error fetching GeoJSON data:', error));
+    fetch('/data/Toronto_Neighbourhoods.geojson') // fix geojson data path
+      .then((response) => response.json())
+      .then((data) => setGeoJsonData(data)) // Set GeoJSON data
+      .catch((error) => console.error('Error fetching GeoJSON data:', error));
     if (mapRef.current) {
       mapRef.current.setView([43.651070, -79.347015], 16); // Set initial view to Toronto with zoom level 16
     }
@@ -79,20 +79,20 @@ const Map = forwardRef((props, ref) => {
   };
 
   return (
-      <MapContainer center={position} zoom={15} style={{ height: '100vh', width: '100%' }} ref={mapRef}>
-        {/* Tile layer for the map */}
-        <TileLayer
-            url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
-            attribution='&copy; <a href="https://www.esri.com/">Esri</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            opacity={0.6}
-        />
-        {/* Render GeoJSON data if available */}
-        {geoJsonData && (
-            <GeoJSON data={geoJsonData} style={defaultStyle} onEachFeature={onEachArea} />
-        )}
-        {/* Component to track mouse movements */}
-        <HoverCoordinates setCoordinates={setCoordinates} />
-      </MapContainer>
+    <MapContainer center={position} zoom={15} style={{ height: '100vh', width: '100%' }} ref={mapRef}>
+      {/* Tile layer for the map */}
+      <TileLayer
+        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
+        attribution='&copy; <a href="https://www.esri.com/">Esri</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        opacity={0.6}
+      />
+      {/* Render GeoJSON data if available */}
+      {geoJsonData && (
+        <GeoJSON data={geoJsonData} style={defaultStyle} onEachFeature={onEachArea} />
+      )}
+      {/* Component to track mouse movements */}
+      <HoverCoordinates setCoordinates={setCoordinates} />
+    </MapContainer>
   );
 });
 
