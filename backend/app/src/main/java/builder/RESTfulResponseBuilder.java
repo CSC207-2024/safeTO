@@ -3,8 +3,10 @@ package builder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
+
+import gson.GsonSingleton;
+
 import com.google.gson.Gson;
-import singleton.GsonSingleton;
 
 /**
  * A builder class for constructing a RESTful JSON response.

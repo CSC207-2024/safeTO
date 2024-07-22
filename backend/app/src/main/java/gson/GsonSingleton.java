@@ -1,4 +1,4 @@
-package singleton;
+package gson;
 
 import com.google.gson.Gson;
 

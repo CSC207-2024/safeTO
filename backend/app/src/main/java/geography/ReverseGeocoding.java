@@ -1,14 +1,17 @@
 package geography;
 
-import com.google.gson.Gson;
 import location.Location;
+import logging.Logger;
 import types.Place;
 import http.Client;
 import java.net.URI;
-import logging.Logger;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
+
+import com.google.gson.Gson;
+
+import gson.GsonSingleton;
 
 /**
  * A class for performing reverse geocoding to resolve geographical coordinates
@@ -23,7 +26,7 @@ import java.net.http.HttpResponse.BodyHandlers;
  * </p>
  */
 public class ReverseGeocoding {
-    private static final Gson gson = new Gson();
+    private static final Gson gson = GsonSingleton.getInstance();
 
     /**
      * Resolves the given latitude and longitude to a Place object containing

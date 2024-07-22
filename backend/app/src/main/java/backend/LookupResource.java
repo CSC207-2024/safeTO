@@ -11,9 +11,10 @@ import types.Place;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import singleton.GsonSingleton;
+
 import builder.RESTfulResponseBuilder;
 import geography.ReverseGeocoding;
+import gson.GsonSingleton;
 
 @Path("/lookup")
 public class LookupResource {

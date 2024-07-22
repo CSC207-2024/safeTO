@@ -3,6 +3,9 @@ package http;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import gson.GsonSingleton;
+import logging.Logger;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,20 +17,20 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 import types.CachedResponse;
-import singleton.GsonSingleton;
-import logging.Logger;
 
 public class DiskCache implements CacheInterface {
     private final Path cacheDir;
     private final Map<String, CacheMetadata> urlToMetadata;
     private static final Gson gson = GsonSingleton.getInstance();
 
+    private static final String componentName = "backend.http.DiskCache";
+
     public DiskCache() {
         this.cacheDir = ((Supplier<Path>) () -> {
             try {
                 return Files.createTempDirectory("csc207-backend-http");
             } catch (Throwable e) {
-                Logger.error(e.getMessage(), "/backend/http/DiskCache");
+                Logger.error(e.getMessage(), componentName);
                 return null;
             }
         }).get();
@@ -45,7 +48,7 @@ public class DiskCache implements CacheInterface {
                 try (BufferedReader reader = new BufferedReader(new FileReader(cachedFilePath.toFile()))) {
                     return gson.fromJson(reader, CachedResponse.class);
                 } catch (Throwable e) {
-                    Logger.error(e.getMessage(), "/backend/http/DiskCache");
+                    Logger.error(e.getMessage(), componentName);
                     return null;
                 }
             }
@@ -59,7 +62,9 @@ public class DiskCache implements CacheInterface {
         }
         try {
             String serializedResponse = gson.toJson(response);
+            Logger.log("put/serializedResponse: length = " + serializedResponse.length(), componentName);
             String hash = computeSHA256(serializedResponse);
+            Logger.log("put/computeSHA256: result = " + hash, componentName);
 
             Path cachedFilePath = getCacheFilePath(hash);
             Files.createDirectories(cachedFilePath.getParent());

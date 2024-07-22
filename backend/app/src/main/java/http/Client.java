@@ -2,11 +2,13 @@ package http;
 
 import java.net.http.HttpClient;
 import java.net.http.HttpResponse;
-import logging.Logger;
+
 import types.CachedResponse;
 
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse.BodyHandlers;
+
+import logging.Logger;
 
 public class Client {
     private static final HttpClient client = HttpClient.newHttpClient();
@@ -19,7 +21,7 @@ public class Client {
             try {
                 return client.send(request, responseBodyHandler);
             } catch (Exception e) {
-                Logger.warn(e.getMessage(), "/backend/http/Client");
+                Logger.warn(e.getMessage(), "backend.http.Client");
             }
             try {
                 Thread.sleep(backoff_factor * 1000);
