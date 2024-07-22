@@ -56,3 +56,20 @@
 .user-profile button:hover {
   background-color: #0056b3;
 }
+
+/* Custom styles for Leaflet popups */
+.leaflet-popup-custom {
+  width: 50vw; /* 50% of viewport width */
+  max-width: 400px; /* Optional: max width for larger screens */
+  text-align: center; /* Center text and image */
+}
+
+.leaflet-popup-custom .leaflet-popup-content-wrapper {
+  background: white; /* Background color of the popup */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px; /* Padding inside the popup */
+}
+
+.leaflet-popup-custom .leaflet-popup-content {
+  margin: 0; /* Remove default margin */
+}

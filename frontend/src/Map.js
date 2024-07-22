@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, GeoJSON, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'esri-leaflet/dist/esri-leaflet';
 
+
 // Component to track mouse movements and update coordinates
 const HoverCoordinates = ({ setCoordinates }) => {
   useMapEvents({
@@ -19,6 +20,8 @@ const Map = forwardRef((props, ref) => {
   const { setCoordinates } = props;
   const position = [43.737207, -79.343448]; // Initial position for the map (Toronto)
   const mapRef = useRef(); // Reference to the map instance
+
+  const [tooltip, setTooltip] = useState({ visible: false, content: '', position: [0, 0] });
 
   // State for storing GeoJSON data
   const [geoJsonData, setGeoJsonData] = useState(null);
@@ -44,17 +47,17 @@ const Map = forwardRef((props, ref) => {
       .then((data) => setGeoJsonData(data)) // Set GeoJSON data
       .catch((error) => console.error('Error fetching GeoJSON data:', error));
     if (mapRef.current) {
-      mapRef.current.setView([43.651070, -79.347015], 16); // Set initial view to Toronto with zoom level 16
+      mapRef.current.setView([43.651070, -79.347015], 12); // Set initial view to Toronto with zoom level 16
     }
   }, []);
 
   // Styles for GeoJSON features
   const highlightStyle = {
     weight: 2,
-    color: '#00FF00',
+    color: '#89CFEF', //Baby Blue
     dashArray: '',
-    fillOpacity: 0.7,
-    fillColor: '#00FF00'
+    fillOpacity: 0.6,
+    fillColor: '#89CFEF' //Baby Blue
   };
 
   const defaultStyle = {
@@ -68,23 +71,63 @@ const Map = forwardRef((props, ref) => {
 
   // Function to apply styles and event handlers to each GeoJSON feature
   const onEachArea = (area, layer) => {
+    let mouseInside = false; // Flag to check if mouse is inside
+    // Bind a popup to the layer
+    layer.bindPopup(area.properties.Neighbourhood);
+    // layer.bindPopup(area.properties.Neighbourhood, {
+    //   className: 'leaflet-popup-custom' // Apply the custom class to the popup
+    // });
+
+
     layer.on({
+
+      //TODO 
+      // //on click to show stats image
+      // click: (event) => {
+      //   const imageUrl = '/demo_stats.png'; // Assuming imageUrl is a property in the GeoJSON data
+      //   const popupContent = `
+      //     <div>
+      //       <h3>${area.properties.Neighbourhood}</h3>
+      //       <img src="${imageUrl}" alt="${"Car Theft Rate"}" style="width: auto; height: auto;" />
+      //     </div>
+      //   `;
+      //   event.target.bindPopup(popupContent).openPopup(); // Show the popup with image
+      // },
+
+
       mouseover: (event) => {
+        mouseInside = true; // Set flag to true when mouse enters
         event.target.setStyle(highlightStyle); // Highlight on hover
+        
+        // Open the popup on mouseover
+        event.target.openPopup();
       },
       mouseout: (event) => {
+        mouseInside = false; // Set flag to false when mouse leaves
         event.target.setStyle(defaultStyle); // Reset style on mouseout
+      },
+      mousemove: (event) => {
+        if (mouseInside) {
+          event.target.setStyle(highlightStyle); // Ensure highlight stays while mouse is inside
+        }
       }
     });
   };
 
   return (
-    <MapContainer center={position} zoom={15} style={{ height: '100vh', width: '100%' }} ref={mapRef}>
+    <MapContainer center={position} zoom={12} style={{ height: '100vh', width: '100%' }} ref={mapRef}>
       {/* Tile layer for the map */}
+      
+      {/* Default Layer */}
       <TileLayer
         url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
         attribution='&copy; <a href="https://www.esri.com/">Esri</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         opacity={0.6}
+
+        //Satellite Layer
+        // url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+        // attribution='&copy; <a href="https://www.esri.com/">Esri</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        // opacity={0.6}
       />
       {/* Render GeoJSON data if available */}
       {geoJsonData && (
@@ -92,6 +135,8 @@ const Map = forwardRef((props, ref) => {
       )}
       {/* Component to track mouse movements */}
       <HoverCoordinates setCoordinates={setCoordinates} />
+
+
     </MapContainer>
   );
 });
