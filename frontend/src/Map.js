@@ -1,5 +1,5 @@
-import React, {useImperativeHandle, forwardRef, useEffect, useState, useRef} from 'react';
-import { MapContainer, TileLayer, GeoJSON} from 'react-leaflet';
+import React, { useImperativeHandle, forwardRef, useEffect, useState, useRef } from 'react';
+import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 // import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'esri-leaflet/dist/esri-leaflet';
@@ -30,7 +30,7 @@ const Map = forwardRef((props, ref) => {
 
   useEffect(() => {
     // Fetch the GeoJSON data for Toronto
-    fetch('../../frontend/public/Toronto_Neighbourhoods.geojson')
+    fetch('/data/Toronto_Neighbourhoods.geojson')
       .then((response) => response.json())
       .then((data) => setGeoJsonData(data))
       .catch((error) => console.error('Error fetching GeoJSON data:', error));
@@ -58,14 +58,14 @@ const Map = forwardRef((props, ref) => {
 
 
   //   <MapContainer center={position} zoom={12} style={{ height: '100vh', width: '100%' }}>
-    
+
   //     {/* <Marker position={position}>
   //       <Popup>
   //         Toronto Center view
   //       </Popup>
   //     </Marker> */}
 
-      
+
 
   // );
 
