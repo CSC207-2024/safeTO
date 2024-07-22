@@ -14,6 +14,8 @@ public class Client {
     private static final HttpClient client = HttpClient.newHttpClient();
     private static final CacheInterface cache = new DiskCache();
 
+    private static final String componentName = "backend.http.Client";
+
     public static <T> HttpResponse<T> send(HttpRequest request, HttpResponse.BodyHandler<T> responseBodyHandler,
             int max_retries) {
         int backoff_factor = 1;
@@ -21,7 +23,7 @@ public class Client {
             try {
                 return client.send(request, responseBodyHandler);
             } catch (Exception e) {
-                Logger.warn(e.getMessage(), "backend.http.Client");
+                Logger.warn(e.getMessage(), componentName);
             }
             try {
                 Thread.sleep(backoff_factor * 1000);
@@ -32,7 +34,7 @@ public class Client {
                 backoff_factor = 16;
             }
         }
-        Logger.error("max_retries exceeded", "/backend/http/Client");
+        Logger.error("max_retries exceeded", componentName);
         return null;
     }
 

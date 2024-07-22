@@ -27,6 +27,7 @@ import gson.GsonSingleton;
  */
 public class ReverseGeocoding {
     private static final Gson gson = GsonSingleton.getInstance();
+    private static final String componentName = "backend.geography.ReverseGeocoding";
 
     /**
      * Resolves the given latitude and longitude to a Place object containing
@@ -61,10 +62,10 @@ public class ReverseGeocoding {
                 return gson.fromJson(response.body(), Place.class);
             } else {
                 Logger.warn("GET request not worked, Response Code: " + statusCode,
-                        "/backend/geography/ReverseGeocoding");
+                        componentName);
             }
         } catch (Exception e) {
-            Logger.error(e.getMessage(), "/backend/geography/ReverseGeocoding");
+            Logger.error(e.getMessage(), componentName);
         }
         return null;
     }

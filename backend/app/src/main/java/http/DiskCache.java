@@ -75,7 +75,7 @@ public class DiskCache implements CacheInterface {
             // Record both hash and expiry time for the URL
             urlToMetadata.put(url, new CacheMetadata(hash, System.currentTimeMillis() + ttl));
         } catch (Throwable e) {
-            Logger.error(e.getMessage(), "/backend/http/DiskCache");
+            Logger.error(e.getMessage(), componentName);
             return;
         }
     }
