@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, GeoJSON, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'esri-leaflet/dist/esri-leaflet';
 
+
 // Component to track mouse movements and update coordinates
 const HoverCoordinates = ({ setCoordinates }) => {
   useMapEvents({
@@ -19,6 +20,8 @@ const Map = forwardRef((props, ref) => {
   const { setCoordinates } = props;
   const position = [43.737207, -79.343448]; // Initial position for the map (Toronto)
   const mapRef = useRef(); // Reference to the map instance
+
+  const [tooltip, setTooltip] = useState({ visible: false, content: '', position: [0, 0] });
 
   // State for storing GeoJSON data
   const [geoJsonData, setGeoJsonData] = useState(null);
@@ -50,10 +53,10 @@ const Map = forwardRef((props, ref) => {
 
   // Styles for GeoJSON features
   const highlightStyle = {
-    weight: 4,
+    weight: 2,
     color: '#89CFEF', //Baby Blue
     dashArray: '',
-    fillOpacity: 0.9,
+    fillOpacity: 0.6,
     fillColor: '#89CFEF' //Baby Blue
   };
 
@@ -69,15 +72,22 @@ const Map = forwardRef((props, ref) => {
   // Function to apply styles and event handlers to each GeoJSON feature
   const onEachArea = (area, layer) => {
     let mouseInside = false; // Flag to check if mouse is inside
+    // Bind a popup to the layer
+    layer.bindPopup(area.properties.Neighbourhood);
 
     layer.on({
       mouseover: (event) => {
         mouseInside = true; // Set flag to true when mouse enters
         event.target.setStyle(highlightStyle); // Highlight on hover
+        
+        // Open the popup on mouseover
+        event.target.openPopup();
       },
       mouseout: (event) => {
         mouseInside = false; // Set flag to false when mouse leaves
         event.target.setStyle(defaultStyle); // Reset style on mouseout
+
+        setTooltip({ ...tooltip, visible: false });
       },
       mousemove: (event) => {
         if (mouseInside) {
@@ -108,6 +118,8 @@ const Map = forwardRef((props, ref) => {
       )}
       {/* Component to track mouse movements */}
       <HoverCoordinates setCoordinates={setCoordinates} />
+
+
     </MapContainer>
   );
 });
