@@ -74,8 +74,27 @@ const Map = forwardRef((props, ref) => {
     let mouseInside = false; // Flag to check if mouse is inside
     // Bind a popup to the layer
     layer.bindPopup(area.properties.Neighbourhood);
+    // layer.bindPopup(area.properties.Neighbourhood, {
+    //   className: 'leaflet-popup-custom' // Apply the custom class to the popup
+    // });
+
 
     layer.on({
+
+      //TODO 
+      // //on click to show stats image
+      // click: (event) => {
+      //   const imageUrl = '/demo_stats.png'; // Assuming imageUrl is a property in the GeoJSON data
+      //   const popupContent = `
+      //     <div>
+      //       <h3>${area.properties.Neighbourhood}</h3>
+      //       <img src="${imageUrl}" alt="${"Car Theft Rate"}" style="width: auto; height: auto;" />
+      //     </div>
+      //   `;
+      //   event.target.bindPopup(popupContent).openPopup(); // Show the popup with image
+      // },
+
+
       mouseover: (event) => {
         mouseInside = true; // Set flag to true when mouse enters
         event.target.setStyle(highlightStyle); // Highlight on hover
@@ -86,8 +105,6 @@ const Map = forwardRef((props, ref) => {
       mouseout: (event) => {
         mouseInside = false; // Set flag to false when mouse leaves
         event.target.setStyle(defaultStyle); // Reset style on mouseout
-
-        setTooltip({ ...tooltip, visible: false });
       },
       mousemove: (event) => {
         if (mouseInside) {
