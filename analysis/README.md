@@ -1,5 +1,8 @@
 
 # Usecases (data analysis related):
+Note: 
+- First time running might take 1 minute to generate data( using api). Average time for any further running should be 12 seconds.
+- The warning about the logger (SLF4J) can be ignored for this demo. It indicates that no logging framework is bound to SLF4J, defaulting to a no-operation implementation.
 
 ----------------------------------------------------------------------------------
 
@@ -48,7 +51,7 @@ In this demo, the location is preset and tested as a safe location. Users can ch
   
 ## Features
 - Fetches auto theft crime data for the past year and displays it.
-- Fetches all known auto theft crime data within the specified radius.
+- Fetches all known auto theft crime data within the specified radius. The earliest year of thefts can be chosen by users, from 2014 to 2024.
 - Calculates the average annual rate of incidents.
 - Uses the Poisson distribution to estimate the probability of auto theft incidents exceeding a specified threshold.
 - Provides a recommendation based on the calculated probability.
@@ -68,7 +71,7 @@ The project consists of the following key files:
 ## How it Works
 1. **Fetch Data**: The application fetches auto theft crime data from a specified source. The fetched data is converted and processed to filter relevant records.
 2. **Display Past Year Data**: The application displays all auto theft incidents that occurred in the past year within the specified radius of the given location.
-3. **Display All Data**: It also displays all known auto theft incidents within the specified radius regardless of the time of occurrence.
+3. **Display All Data**: It also displays all known auto theft incidents within the specified radius regardless of the time of occurrence. The earliest year of thefts can be set by user.
 4. **Calculate Probability**: The application calculates the average annual rate of auto theft incidents and uses the Poisson distribution to estimate the probability of incidents exceeding the given threshold.
 5. **Provide Recommendation**: Based on the calculated probability, the application provides a recommendation on whether it is safe to park in the specified location.
 6. **Add Safe Location**: If the location is deemed safe, the user can add it to the safe parking locations.
@@ -91,7 +94,8 @@ The `AutoTheftUnsafeCaseDemo` is designed to analyze and display auto theft crim
 
 ## Features
 - Fetches auto theft crime data for the past year and displays it.
-- Fetches all known auto theft crime data within the specified radius.
+- Fetches all known auto theft crime data within the specified radius. The earliest year of thefts can be chosen by users, from 2014 to 2024.
+
 - Calculates the average annual rate of incidents.
 - Uses the Poisson distribution to estimate the probability of auto theft incidents exceeding a specified threshold.
 - Provides a recommendation based on the calculated probability.
@@ -110,7 +114,8 @@ The project consists of the following key files:
 ## How it Works
 1. **Fetch Data**: The application fetches auto theft crime data from a specified source. The fetched data is converted and processed to filter relevant records.
 2. **Display Past Year Data**: The application displays all auto theft incidents that occurred in the past year within the specified radius of the given location.
-3. **Display All Data**: It also displays all known auto theft incidents within the specified radius regardless of the time of occurrence.
+3. **Display All Data**: It also displays all known auto theft incidents within the specified radius regardless of the time of occurrence. The earliest year of thefts can be set by user.
+
 4. **Calculate Probability**: The application calculates the average annual rate of auto theft incidents and uses the Poisson distribution to estimate the probability of incidents exceeding the given threshold.
 5. **Provide Recommendation**: Based on the calculated probability, the application provides a recommendation on whether it is safe to park in the specified location.
 6. **Suggest Safe Spots**: If the location is deemed unsafe, the application suggests up to 3 nearby safe parking spots based on previously added safe locations.
