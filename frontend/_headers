@@ -1,0 +1,6 @@
+# <https://developers.cloudflare.com/pages/configuration/headers/>
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Content-Security-Policy: default-src 'self' csc207-api.joefang.org 'localhost:8080'; img-src 'self' *.joefang.org 'localhost:8080' server.arcgisonline.com;
