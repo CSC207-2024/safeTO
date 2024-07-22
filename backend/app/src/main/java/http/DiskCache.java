@@ -11,45 +11,68 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Supplier;
 
 import types.CachedResponse;
+import singleton.GsonSingleton;
+import logging.Logger;
 
-public class DiskCache {
+public class DiskCache implements CacheInterface {
     private final Path cacheDir;
     private final Map<String, CacheMetadata> urlToMetadata;
-    private final Gson gson;
+    private static final Gson gson = GsonSingleton.getInstance();
 
-    public DiskCache() throws IOException {
-        this.cacheDir = Files.createTempDirectory("csc207-backend-http");
+    public DiskCache() {
+        this.cacheDir = ((Supplier<Path>) () -> {
+            try {
+                return Files.createTempDirectory("csc207-backend-http");
+            } catch (Throwable e) {
+                Logger.error(e.getMessage(), "/backend/http/DiskCache");
+                return null;
+            }
+        }).get();
         this.urlToMetadata = new HashMap<>();
-        this.gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
-    public CachedResponse get(String url) throws IOException {
+    public CachedResponse get(String url) {
+        if (this.cacheDir == null) {
+            return null;
+        }
         CacheMetadata metadata = urlToMetadata.get(url);
         if (metadata != null && System.currentTimeMillis() < metadata.expiryTime) {
             Path cachedFilePath = getCacheFilePath(metadata.hash);
             if (Files.exists(cachedFilePath)) {
                 try (BufferedReader reader = new BufferedReader(new FileReader(cachedFilePath.toFile()))) {
                     return gson.fromJson(reader, CachedResponse.class);
+                } catch (Throwable e) {
+                    Logger.error(e.getMessage(), "/backend/http/DiskCache");
+                    return null;
                 }
             }
         }
         return null;
     }
 
-    public void put(String url, CachedResponse response, long ttl) throws IOException, NoSuchAlgorithmException {
-        String serializedResponse = gson.toJson(response);
-        String hash = computeSHA256(serializedResponse);
-
-        Path cachedFilePath = getCacheFilePath(hash);
-        Files.createDirectories(cachedFilePath.getParent());
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(cachedFilePath.toFile()))) {
-            writer.write(serializedResponse);
+    public void put(String url, CachedResponse response, long ttl) {
+        if (cacheDir == null) {
+            return;
         }
+        try {
+            String serializedResponse = gson.toJson(response);
+            String hash = computeSHA256(serializedResponse);
 
-        // Record both hash and expiry time for the URL
-        urlToMetadata.put(url, new CacheMetadata(hash, System.currentTimeMillis() + ttl));
+            Path cachedFilePath = getCacheFilePath(hash);
+            Files.createDirectories(cachedFilePath.getParent());
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(cachedFilePath.toFile()))) {
+                writer.write(serializedResponse);
+            }
+
+            // Record both hash and expiry time for the URL
+            urlToMetadata.put(url, new CacheMetadata(hash, System.currentTimeMillis() + ttl));
+        } catch (Throwable e) {
+            Logger.error(e.getMessage(), "/backend/http/DiskCache");
+            return;
+        }
     }
 
     private String computeSHA256(String input) throws NoSuchAlgorithmException {
