@@ -59,8 +59,8 @@ const Home = () => {
             {/* Map component with a reference and a function to set coordinates on hover */}
             <Map ref={mapRef} setCoordinates={setCoordinates} />
             <div className="overlay-text">
-                <h2>Welcome to <i>safeTO</i>: A Community Safety App </h2>
-                <p>Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.</p>
+                <h2>Welcome to <i>safeTO</i></h2>
+                <p>A Community Safety Website: Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.</p>
             </div>
             {/* LocationSearch component for searching locations */}
             <div style={{ position: 'absolute', top: 100, left: 20, zIndex: 1000 }}>
