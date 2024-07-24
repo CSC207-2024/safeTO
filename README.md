@@ -1,5 +1,8 @@
 # safeTO - A Comprehensive Community Safety App for Torontonians
 
+## For grading TA
+Please click [here](https://csc207.joefang.org/) to have a quick view of frontend part.
+
 ## Deployment
 
 ### Backend
