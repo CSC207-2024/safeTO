@@ -72,6 +72,8 @@ Our usecase demo is available at [analysis](analysis/app/src/main/java/analysis)
 
 ## Contact
 
+Team name: Stack Underflow
+
 * Joe Fang [`@MinecraftFuns`](https://github.com/MinecraftFuns) <joe.fang@mail.utoronto.ca>
 * Minghe Ma [`@mhnwa`](https://github.com/mhnwa) <minghe.ma@mail.utoronto.ca>
 * Bilin Nong [`@Bilin22`](https://github.com/Bilin22)
