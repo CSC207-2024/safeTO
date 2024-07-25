@@ -63,7 +63,7 @@ const Home = () => {
                 <p>A Community Safety Website: Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.</p>
             </div>
             {/* LocationSearch component for searching locations */}
-            <div style={{ position: 'absolute', top: 100, left: 20, zIndex: 1000 }}>
+            <div style={{ position: 'absolute', top: 130, left: 645, zIndex: 1000 }}>
                 <LocationSearch onSuggestSelect={onSuggestSelect} />
             </div>
             {/* Profile component for displaying and editing user information */}
