@@ -3,7 +3,7 @@ import 'leaflet/dist/leaflet.css';
 import './App.css';
 import Profile from './Profile';
 import Map from './Map';
-import LocationSearch from './LocationSearch';
+import Search from './Search';
 
 // Initial coordinates for Toronto
 const TorontoCoordinates = [43.651070, -79.347015];
@@ -63,9 +63,7 @@ const Home = () => {
                 <p>A Community Safety Website: Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.</p>
             </div>
             {/* LocationSearch component for searching locations */}
-            <div style={{ position: 'absolute', top: 130, left: 645, zIndex: 1000 }}>
-                <LocationSearch onSuggestSelect={onSuggestSelect} />
-            </div>
+            <Search onSuggestSelect={onSuggestSelect} />
             {/* Profile component for displaying and editing user information */}
             <div style={{ position: 'absolute', top: 20, right: 20, zIndex: 1000 }}>
                 <Profile
