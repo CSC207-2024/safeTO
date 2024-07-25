@@ -59,6 +59,7 @@ const Home = () => {
             {/* Map component with a reference and a function to set coordinates on hover */}
             <Map ref={mapRef} setCoordinates={setCoordinates} />
             <div className="overlay-text">
+                {/* TODO: design a fassion header */}
                 <h2>Welcome to <i>safeTO</i> (Style T.B.D.)</h2>
                 <p>A Community Safety Website: Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.</p>
             </div>
