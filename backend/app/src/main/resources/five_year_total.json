@@ -1,0 +1,3979 @@
+{
+  "attributes": [
+    {
+      "NEIGHBOURHOOD_158": "Junction Area",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 287.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Henry Farm",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 47.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East End-Danforth",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 979.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woburn North",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 396.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "The Beaches",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 253.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Bay Corridor",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 628.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Eglinton",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 176.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woodbine-Lumsden",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 51.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bayview Village",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 495.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakdale-Beverley Heights",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 600.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Milliken",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 698.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kensington-Chinatown",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 841.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Beechborough-Greenbrook",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 67.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "NSA",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 328.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "NSA",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1876.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "St.Andrew-Windfields",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 290.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Morningside Heights",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 516.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Weston",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 247.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Greenwood-Coxwell",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 90.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Clairlea-Birchmount",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1305.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wychwood",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 414.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Broadview North",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 111.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Clairlea-Birchmount",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 326.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Annex",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1713.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Stonegate-Queensway",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 298.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Playter Estates-Danforth",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 421.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humbermede",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 116.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wellington Place",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 786.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakdale-Beverley Heights",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1642.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Bay Corridor",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 2457.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Etobicoke City Centre",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 385.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Forest Hill North",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 200.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Fort York-Liberty Village",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 727.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East Willowdale",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 245.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bayview Woods-Steeles",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 215.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Malvern East",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 810.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Glenfield-Jane Heights",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 194.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Ionview",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 469.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yorkdale-Glen Park",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 943.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bendale-Glen Andrew",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 906.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "The Beaches",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 517.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Tam O\u0027Shanter-Sullivan",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 120.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lambton Baby Point",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 177.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "University",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 549.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Weston",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1122.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakwood Village",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 690.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woburn North",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 200.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Cliffcrest",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 163.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Princess-Rosethorn",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 135.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Etobicoke City Centre",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 987.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Greenwood-Coxwell",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 628.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wellington Place",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 2108.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Parkdale",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1432.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yorkdale-Glen Park",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 470.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humbermede",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 707.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Downtown Yonge East",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 3061.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North St.James Town",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1269.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Keelesdale-Eglinton West",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 439.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Eglinton East",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 849.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mimico-Queensway",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 196.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Roncesvalles",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 565.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Summit",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 627.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Newtonbrook West",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 998.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Brookhaven-Amesbury",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 681.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Bay Corridor",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 297.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Malvern West",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 476.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Glenfield-Jane Heights",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1610.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Moss Park",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 3313.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Briar Hill-Belgravia",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 402.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakridge",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 949.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Thistletown-Beaumond Heights",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 255.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bay-Cloverhill",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 685.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Hillcrest Village",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 99.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Pelmo Park-Humberlea",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 390.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wychwood",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 204.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Long Branch",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 63.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Newtonbrook West",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 221.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Black Creek",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1156.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East L\u0027Amoreaux",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 428.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Cabbagetown-South St.James Town",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 700.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kingsway South",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 161.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Black Creek",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 155.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Harbourfront-CityPlace",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1278.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Don Valley Village",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 676.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "High Park-Swansea",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 75.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Rouge",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 343.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Long Branch",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 424.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kennedy Park",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1167.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "O\u0027Connor-Parkview",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 693.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Forest Hill North",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 233.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mimico-Queensway",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1681.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North Toronto",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 506.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Palmerston-Little Italy",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 212.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Fenside-Parkwoods",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 111.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "High Park-Swansea",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 242.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wexford/Maryvale",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1145.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bedford Park-Nortown",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 676.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Junction-Wallace Emerson",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 452.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Alderwood",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 157.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rockcliffe-Smythe",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 294.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Briar Hill-Belgravia",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 185.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Humber-Clairville",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 3158.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Elms-Old Rexdale",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 237.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dufferin Grove",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 535.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Blake-Jones",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 131.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Annex",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 901.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Milliken",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 180.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Agincourt North",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 163.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Thistletown-Beaumond Heights",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 78.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Princess-Rosethorn",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 40.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dorset Park",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 863.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Weston-Pelham Park",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 138.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "High Park North",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 242.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Parkdale",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 367.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Downtown Yonge East",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 734.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dufferin Grove",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 207.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Henry Farm",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 161.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Forest Hill North",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 168.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Black Creek",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 127.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Church-Wellesley",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 478.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Eglinton",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 515.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Steeles",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 175.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North Riverdale",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 328.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bathurst Manor",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 65.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Pleasant East",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 287.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakdale-Beverley Heights",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 201.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Junction-Wallace Emerson",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 922.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Birchcliffe-Cliffside",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 907.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Riverdale",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1396.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "York University Heights",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 349.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dovercourt Village",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 497.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lansing-Westgate",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 342.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Summit",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 706.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Highland Creek",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 193.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Taylor-Massey",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 93.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Greenwood-Coxwell",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 140.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wexford/Maryvale",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 648.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Clairlea-Birchmount",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 406.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Annex",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 271.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Stonegate-Queensway",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 473.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Alderwood",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 206.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Heights-Westmount",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 76.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Agincourt South-Malvern West",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 362.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Queen West",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 573.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yorkdale-Glen Park",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 163.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Trinity-Bellwoods",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 120.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Milliken",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 414.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Cabbagetown-South St.James Town",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 374.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Englemount-Lawrence",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 162.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Briar Hill-Belgravia",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 212.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Runnymede-Bloor West Village",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 146.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "University",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 292.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "St Lawrence-East Bayfront-The Islands",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1856.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Moss Park",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 511.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "York University Heights",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1840.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lawrence Park South",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 253.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Humber-Clairville",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1389.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Greenwood-Coxwell",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 190.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rustic",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 363.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "The Beaches",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 205.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Riverdale",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 191.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bridle Path-Sunnybrook-York Mills",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 217.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Banbury-Don Mills",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 360.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Pleasant View",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 143.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Newtonbrook West",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 57.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Glenfield-Jane Heights",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 211.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humewood-Cedarvale",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 17.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "NSA",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 494.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakridge",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 114.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dorset Park",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 372.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bendale-Glen Andrew",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 425.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Malvern West",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 84.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Old East York",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 35.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Newtonbrook East",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 203.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Scarborough Village",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 105.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kensington-Chinatown",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 2114.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Pelmo Park-Humberlea",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 36.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Olive-Silverstone-Jamestown",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 258.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rockcliffe-Smythe",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 81.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Weston-Pelham Park",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 546.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dorset Park",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 322.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Henry Farm",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 488.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Trinity-Bellwoods",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 403.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North Toronto",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 267.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Flemingdon Park",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 751.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Banbury-Don Mills",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 501.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Roncesvalles",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 347.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humewood-Cedarvale",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 171.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Willowridge-Martingrove-Richview",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 484.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakridge",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 29.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Westminster-Branson",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 521.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Olive-Silverstone-Jamestown",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1289.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Forest Hill South",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 205.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bedford Park-Nortown",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 415.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Pleasant View",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 197.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Olive-Silverstone-Jamestown",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 126.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Malvern East",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 99.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Banbury-Don Mills",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 315.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Malvern East",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 104.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Alderwood",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 194.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Parkwoods-O\u0027Connor Hills",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 304.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rosedale-Moore Park",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 455.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Moss Park",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 888.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lambton Baby Point",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 12.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Harbourfront-CityPlace",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 348.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East End-Danforth",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 319.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "St.Andrew-Windfields",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 344.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Edenbridge-Humber Valley",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 203.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Tam O\u0027Shanter-Sullivan",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 648.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kingsview Village-The Westway",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 603.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Willowdale West",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 134.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Birchcliffe-Cliffside",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 217.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bayview Woods-Steeles",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 113.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Downtown Yonge East",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 495.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Westminster-Branson",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 145.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "St Lawrence-East Bayfront-The Islands",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 198.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Tam O\u0027Shanter-Sullivan",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 226.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Moss Park",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 243.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kingsview Village-The Westway",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 445.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wellington Place",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 282.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Morningside Heights",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 498.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Corso Italia-Davenport",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 85.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Golfdale-Cedarbrae-Woburn",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 975.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Cliffcrest",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 669.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Eglinton-Davisville",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 523.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East L\u0027Amoreaux",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 137.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Hill",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 282.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Leaside-Bennington",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 224.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Junction Area",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 592.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Clanton Park",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 241.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Willowridge-Martingrove-Richview",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 154.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rockcliffe-Smythe",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 215.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Hill",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1967.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Dennis",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 117.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yorkdale-Glen Park",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 680.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Bay Shores",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 203.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humbermede",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 466.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Malvern East",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 249.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Weston",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 163.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Church-Wellesley",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 1831.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woodbine Corridor",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 16.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bridle Path-Sunnybrook-York Mills",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 261.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Humber-Clairville",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 363.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Broadview North",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 336.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humbermede",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 53.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Regent Park",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 808.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Pelmo Park-Humberlea",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 42.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "New Toronto",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 75.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woodbine Corridor",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 153.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Englemount-Lawrence",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 521.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kensington-Chinatown",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 222.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Downsview",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 783.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Forest Hill South",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 157.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yorkdale-Glen Park",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 228.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Black Creek",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 387.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Tam O\u0027Shanter-Sullivan",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 323.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Thorncliffe Park",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 613.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Elms-Old Rexdale",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 328.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bathurst Manor",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 138.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Parkwoods-O\u0027Connor Hills",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 135.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "O\u0027Connor-Parkview",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 215.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Westminster-Branson",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 53.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Humber-Clairville",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 747.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Riverdale",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 113.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-St.Clair",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 150.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bayview Village",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 212.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Church-Wellesley",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 117.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Victoria Village",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 608.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bayview Village",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 57.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Taylor-Massey",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 155.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Downsview",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 430.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Doris",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 197.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Agincourt North",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 368.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Fort York-Liberty Village",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 93.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kingsway South",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 250.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Edenbridge-Humber Valley",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 297.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Don Valley Village",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 190.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Stonegate-Queensway",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 545.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rustic",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 67.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Summit",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 288.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Long Branch",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 142.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Newtonbrook East",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 413.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "New Toronto",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 156.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kennedy Park",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 153.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Golfdale-Cedarbrae-Woburn",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 167.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "York University Heights",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 722.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Little Portugal",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 537.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wexford/Maryvale",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 87.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Willowridge-Martingrove-Richview",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 411.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Avondale",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 79.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wychwood",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 112.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Church-Wellesley",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 250.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Don Valley Village",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 355.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Cabbagetown-South St.James Town",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 83.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kingsway South",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 47.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Eglinton East",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 209.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East Willowdale",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 93.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kingsview Village-The Westway",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 118.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Glenfield-Jane Heights",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 616.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "High Park North",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 613.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Downtown Yonge East",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 115.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Brookhaven-Amesbury",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 108.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bay-Cloverhill",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 118.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Annex",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 234.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Centennial Scarborough",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 222.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Victoria Village",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 189.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dufferin Grove",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 108.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "NSA",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 485.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Parkdale",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 109.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "High Park-Swansea",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 46.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Pleasant East",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 183.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Fenside-Parkwoods",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 526.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Princess-Rosethorn",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 267.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wexford/Maryvale",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 399.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Annex",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 218.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Bay Corridor",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 233.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakwood Village",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 208.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Agincourt South-Malvern West",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 776.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Clanton Park",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 549.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Old East York",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 249.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East End-Danforth",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 189.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woburn North",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 959.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Agincourt South-Malvern West",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 120.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North Riverdale",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 14.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bay-Cloverhill",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 322.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "NSA",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 127.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bendale-Glen Andrew",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 127.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Avondale",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 235.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Downsview",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 229.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Cliffcrest",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 197.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakdale-Beverley Heights",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 338.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Birchcliffe-Cliffside",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 220.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Morningside Heights",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 150.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dorset Park",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 143.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Blake-Jones",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 61.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Blake-Jones",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 328.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Fort York-Liberty Village",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 229.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Agincourt North",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 387.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Regent Park",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 83.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humewood-Cedarvale",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 239.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Eglinton",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 43.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Eglinton-Davisville",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 282.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Regent Park",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 198.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Danforth",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 213.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dovercourt Village",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 240.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Queen West",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 269.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakwood Village",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 127.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Bay Corridor",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 156.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lawrence Park North",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 198.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Westminster-Branson",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 331.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Caledonia-Fairbank",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 326.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Eglinton East",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 38.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Olive-Silverstone-Jamestown",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 543.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Dennis",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 174.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakwood Village",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 225.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "L\u0027Amoreaux West",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 77.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Markland Wood",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 77.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Scarborough Village",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 800.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Heights-Westmount",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 125.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woodbine-Lumsden",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 62.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Corso Italia-Davenport",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 142.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mimico-Queensway",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 260.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Newtonbrook West",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 134.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Weston",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 417.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Church-Wellesley",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 108.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Newtonbrook East",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 70.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Avondale",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 34.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Clairlea-Birchmount",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 124.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Parkdale",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 75.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Danforth",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 504.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bedford Park-Nortown",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 53.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Dennis",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 66.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bendale South",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 346.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Maple Leaf",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 78.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Milliken",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 446.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "New Toronto",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 663.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Etobicoke City Centre",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 200.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "L\u0027Amoreaux West",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 165.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Newtonbrook East",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 52.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wexford/Maryvale",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 169.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Agincourt South-Malvern West",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 394.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Junction-Wallace Emerson",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 195.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "York University Heights",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 1062.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Runnymede-Bloor West Village",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 133.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Corso Italia-Davenport",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 556.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Trinity-Bellwoods",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 653.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "York University Heights",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 206.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Milliken",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 80.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dovercourt Village",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 89.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Casa Loma",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 187.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rosedale-Moore Park",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 989.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Caledonia-Fairbank",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 35.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humbermede",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 192.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Dennis",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 526.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Beechborough-Greenbrook",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 97.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rustic",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 155.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Doris",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 427.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rockcliffe-Smythe",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 798.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Elms-Old Rexdale",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 61.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Scarborough Village",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 153.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "University",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 50.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Don Valley Village",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 149.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Cabbagetown-South St.James Town",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 30.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wellington Place",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 134.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Runnymede-Bloor West Village",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 208.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humewood-Cedarvale",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 28.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Weston-Pelham Park",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 15.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East End-Danforth",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 130.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Hill",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 313.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Eringate-Centennial-West Deane",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 410.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Downtown Yonge East",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 213.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Trinity-Bellwoods",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 123.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Downsview",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 97.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woodbine Corridor",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 462.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Palmerston-Little Italy",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 414.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Humber-Clairville",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 326.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bendale South",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 61.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lawrence Park South",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 154.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Summit",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 141.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Rouge",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 117.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Ionview",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 80.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Willowdale West",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 126.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Willowridge-Martingrove-Richview",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 95.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Forest Hill South",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 29.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Hillcrest Village",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 282.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Golfdale-Cedarbrae-Woburn",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 282.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East Willowdale",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 244.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Little Portugal",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 41.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East L\u0027Amoreaux",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 178.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North Riverdale",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 170.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Bay Shores",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 576.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Morningside Heights",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 54.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Queen West",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 48.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Forest Hill South",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 317.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rexdale-Kipling",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 276.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Moss Park",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 100.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Riverdale",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 631.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Beechborough-Greenbrook",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 332.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Corso Italia-Davenport",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 188.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Islington",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 280.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Highland Creek",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 265.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Princess-Rosethorn",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 145.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Eringate-Centennial-West Deane",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 61.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Elms-Old Rexdale",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 63.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Doris",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 90.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Etobicoke West Mall",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 298.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dorset Park",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 53.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bedford Park-Nortown",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 261.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Brookhaven-Amesbury",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 297.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bayview Village",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 284.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Etobicoke City Centre",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 894.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humewood-Cedarvale",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 193.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "L\u0027Amoreaux West",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 520.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Clanton Park",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 40.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Englemount-Lawrence",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 69.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lambton Baby Point",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 66.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Flemingdon Park",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 92.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East Willowdale",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 258.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Eglinton",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 43.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Golfdale-Cedarbrae-Woburn",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 154.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Parkwoods-O\u0027Connor Hills",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 44.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Clanton Park",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 528.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Hillcrest Village",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 189.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Willowdale West",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 524.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North Riverdale",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 60.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bayview Woods-Steeles",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 21.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Casa Loma",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 286.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lansing-Westgate",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 81.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North Toronto",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 62.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Banbury-Don Mills",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 74.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lansing-Westgate",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 429.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Palmerston-Little Italy",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 31.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Banbury-Don Mills",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 57.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "O\u0027Connor-Parkview",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 55.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wychwood",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 70.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Etobicoke West Mall",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 146.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "High Park North",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 150.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North Riverdale",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 113.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Regent Park",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 71.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Clanton Park",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 83.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Old East York",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 64.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "High Park-Swansea",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 497.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Summit",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 132.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bathurst Manor",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 293.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Playter Estates-Danforth",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 190.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Taylor-Massey",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 605.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lansing-Westgate",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 193.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Little Portugal",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 100.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Junction-Wallace Emerson",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 102.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Weston-Pelham Park",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 34.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Morningside",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 655.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rexdale-Kipling",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 306.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Rouge",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 92.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Malvern West",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 214.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East End-Danforth",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 43.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Hill",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 340.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Hillcrest Village",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 153.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Eringate-Centennial-West Deane",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 288.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Palmerston-Little Italy",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 63.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Old East York",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 91.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Bay Shores",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 158.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woodbine-Lumsden",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 17.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Thistletown-Beaumond Heights",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 330.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Guildwood",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 39.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lawrence Park North",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 265.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Danforth East York",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 383.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Islington",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 454.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bridle Path-Sunnybrook-York Mills",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 222.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Pelmo Park-Humberlea",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 413.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rexdale-Kipling",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 88.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "St Lawrence-East Bayfront-The Islands",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 607.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Markland Wood",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 153.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Thorncliffe Park",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 66.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Markland Wood",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 52.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Eglinton East",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 131.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Brookhaven-Amesbury",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 185.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kingsway South",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 133.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Danforth East York",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 122.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "High Park-Swansea",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 233.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North St.James Town",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 266.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Danforth",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 19.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Pleasant East",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 210.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-St.Clair",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 106.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Willowridge-Martingrove-Richview",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 23.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bendale-Glen Andrew",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 230.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Newtonbrook West",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 636.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East L\u0027Amoreaux",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 26.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Thorncliffe Park",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 151.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Eglinton East",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 214.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Morningside",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 187.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "University",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 72.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Heights-Westmount",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 179.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Playter Estates-Danforth",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 66.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woodbine-Lumsden",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 176.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Queen West",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 78.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Leaside-Bennington",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 377.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Ionview",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 78.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Danforth East York",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 158.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Steeles",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 221.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woodbine Corridor",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 42.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bayview Village",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 69.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Stonegate-Queensway",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 92.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Rouge",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 283.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woburn North",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 49.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kennedy Park",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 196.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dufferin Grove",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 29.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Guildwood",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 196.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Agincourt North",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 92.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rosedale-Moore Park",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 71.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Centennial Scarborough",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 137.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Junction Area",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 200.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Doris",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 108.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lansing-Westgate",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 43.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Edenbridge-Humber Valley",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 201.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Hillcrest Village",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 32.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Steeles",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 15.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Keelesdale-Eglinton West",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 68.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woburn North",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 107.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East L\u0027Amoreaux",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 84.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rosedale-Moore Park",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 118.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Doris",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 73.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Danforth East York",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 23.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mimico-Queensway",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 67.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakwood Village",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 24.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "New Toronto",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 153.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Little Portugal",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 226.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakridge",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 185.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Highland Creek",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 27.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Leaside-Bennington",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 189.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakridge",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 103.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kennedy Park",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 39.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kennedy Park",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 197.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Eringate-Centennial-West Deane",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 103.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "L\u0027Amoreaux West",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 139.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bendale South",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 43.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "The Beaches",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 81.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kensington-Chinatown",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 216.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North St.James Town",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 143.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dovercourt Village",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 98.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bayview Woods-Steeles",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 120.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North Toronto",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 60.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Morningside",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 54.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "St.Andrew-Windfields",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 378.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Islington",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 467.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bedford Park-Nortown",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 75.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Rouge",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 20.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Caledonia-Fairbank",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 49.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Danforth",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 98.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wellington Place",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 220.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "St Lawrence-East Bayfront-The Islands",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 129.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Briar Hill-Belgravia",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 85.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Casa Loma",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 119.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Cliffcrest",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 95.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Pleasant View",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 58.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Markland Wood",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 171.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Beechborough-Greenbrook",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 43.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Steeles",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 234.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Harbourfront-CityPlace",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 78.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Don Valley Village",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 55.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-St.Clair",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 187.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Eglinton-Davisville",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 55.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Morningside",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 71.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rockcliffe-Smythe",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 41.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Agincourt South-Malvern West",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 48.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Harbourfront-CityPlace",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 126.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rosedale-Moore Park",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 428.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Etobicoke West Mall",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 29.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Glenfield-Jane Heights",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 81.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Scarborough Village",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 157.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Guildwood",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 22.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Etobicoke City Centre",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 137.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Newtonbrook East",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 258.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Princess-Rosethorn",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 18.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kingsview Village-The Westway",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 64.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Maple Leaf",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 19.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Palmerston-Little Italy",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 87.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bathurst Manor",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 334.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Thorncliffe Park",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 224.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bendale South",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 99.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Fenside-Parkwoods",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 173.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Taylor-Massey",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 91.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Victoria Village",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 59.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Bay Shores",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 44.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kensington-Chinatown",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 149.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Edenbridge-Humber Valley",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 28.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Harbourfront-CityPlace",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 117.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Little Portugal",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 61.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "High Park North",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 82.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Keelesdale-Eglinton West",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 148.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Maple Leaf",
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 203.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Birchcliffe-Cliffside",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 98.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Broadview North",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 23.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Stonegate-Queensway",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 40.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Danforth East York",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 37.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Fenside-Parkwoods",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 59.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Willowdale West",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 216.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Morningside Heights",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 100.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bathurst Manor",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 23.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Cabbagetown-South St.James Town",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 91.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bendale-Glen Andrew",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 55.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Riverdale",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 307.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Junction Area",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 45.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Eglinton-Davisville",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 73.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Ionview",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 27.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Roncesvalles",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 36.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Westminster-Branson",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 32.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bay-Cloverhill",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 68.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "St Lawrence-East Bayfront-The Islands",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 152.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Victoria Village",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 27.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "O\u0027Connor-Parkview",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 210.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Blake-Jones",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 37.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lawrence Park South",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 352.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Flemingdon Park",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 117.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Roncesvalles",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 104.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Victoria Village",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 185.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North St.James Town",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 41.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Fort York-Liberty Village",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 50.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Centennial Scarborough",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 81.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lambton Baby Point",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 7.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Thistletown-Beaumond Heights",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 54.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Forest Hill North",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 56.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "St.Andrew-Windfields",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 51.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Broadview North",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 58.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Highland Creek",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 89.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Taylor-Massey",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 28.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Pelmo Park-Humberlea",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 114.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Alderwood",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 33.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Caledonia-Fairbank",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 94.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Forest Hill South",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 27.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Heights-Westmount",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 24.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Englemount-Lawrence",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 36.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Roncesvalles",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 97.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Alderwood",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 35.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Brookhaven-Amesbury",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 44.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Scarborough Village",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 29.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Forest Hill North",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 22.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Weston",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 33.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Englemount-Lawrence",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 234.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Leaside-Bennington",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 27.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Henry Farm",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 187.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Greenwood-Coxwell",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 24.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North St.James Town",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 96.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Malvern West",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 83.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dufferin Grove",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 74.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Hill",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 52.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lambton Baby Point",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 78.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Golfdale-Cedarbrae-Woburn",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 30.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Henry Farm",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 47.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "University",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 41.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Corso Italia-Davenport",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 31.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Parkwoods-O\u0027Connor Hills",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 159.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lawrence Park North",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 16.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Parkdale",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 148.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Clairlea-Birchmount",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 61.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "West Queen West",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 30.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Steeles",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 35.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Etobicoke West Mall",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 72.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Weston-Pelham Park",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 105.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Long Branch",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 16.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Pleasant East",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 51.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lawrence Park North",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 135.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Maple Leaf",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 164.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rexdale-Kipling",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 106.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Junction Area",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 80.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Pleasant View",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 85.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Flemingdon Park",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 50.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Runnymede-Bloor West Village",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 64.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Fort York-Liberty Village",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 61.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Junction-Wallace Emerson",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 40.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bay-Cloverhill",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 52.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Thorncliffe Park",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 28.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "O\u0027Connor-Parkview",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 34.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rustic",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 12.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Oakdale-Beverley Heights",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 83.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Trinity-Bellwoods",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 39.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Islington",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 87.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Olive-Silverstone-Jamestown",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 53.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Eringate-Centennial-West Deane",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 17.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "South Eglinton-Davisville",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 25.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Heights-Westmount",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 14.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-St.Clair",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 15.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Danforth",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 93.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Keelesdale-Eglinton West",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 16.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Flemingdon Park",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 18.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Ionview",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 10.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Thistletown-Beaumond Heights",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 28.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Malvern East",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 20.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Humber Bay Shores",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 43.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woodbine Corridor",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 94.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Avondale",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 130.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Elms-Old Rexdale",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 13.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Downsview",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 55.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "The Beaches",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 49.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bridle Path-Sunnybrook-York Mills",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 23.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Agincourt North",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 19.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Dennis",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 25.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Playter Estates-Danforth",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 74.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Cliffcrest",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 24.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Woodbine-Lumsden",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 11.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Keelesdale-Eglinton West",
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 113.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Dovercourt Village",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 15.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lawrence Park South",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 34.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Parkwoods-O\u0027Connor Hills",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 15.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Old East York",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 13.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Centennial Scarborough",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 17.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Black Creek",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 56.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "St.Andrew-Windfields",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 46.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Blake-Jones",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 16.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mount Pleasant East",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 21.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Avondale",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 30.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Playter Estates-Danforth",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 19.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Tam O\u0027Shanter-Sullivan",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 21.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Edenbridge-Humber Valley",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 27.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Briar Hill-Belgravia",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 34.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Birchcliffe-Cliffside",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 27.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Long Branch",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 158.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Regent Park",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 29.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Mimico-Queensway",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 47.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bridle Path-Sunnybrook-York Mills",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 33.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Casa Loma",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 43.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Maple Leaf",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 13.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Malvern West",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 15.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kingsway South",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 21.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Beechborough-Greenbrook",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 13.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "East Willowdale",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 46.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Willowdale West",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 48.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-St.Clair",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 21.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Guildwood",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 8.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Pleasant View",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 24.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Morningside",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 12.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "New Toronto",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 25.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Etobicoke West Mall",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 24.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lawrence Park North",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 37.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Kingsview Village-The Westway",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 32.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Guildwood",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 64.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "North Toronto",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 26.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Islington",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 45.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Markland Wood",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 15.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bayview Woods-Steeles",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 12.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Caledonia-Fairbank",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 13.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "High Park North",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 25.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Yonge-Eglinton",
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 140.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Bendale South",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 5.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Lawrence Park South",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 60.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Runnymede-Bloor West Village",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 19.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Centennial Scarborough",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 12.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rustic",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 29.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Fenside-Parkwoods",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 17.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Casa Loma",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 23.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Leaside-Bennington",
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 23.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Broadview North",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 15.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Rexdale-Kipling",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 19.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "L\u0027Amoreaux West",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 15.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Wychwood",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 15.0
+    },
+    {
+      "NEIGHBOURHOOD_158": "Highland Creek",
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 9.0
+    }
+  ]
+}
