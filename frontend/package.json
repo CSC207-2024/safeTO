@@ -20,6 +20,7 @@
     "web-vitals": "^4.2.2"
   },
   "scripts": {
+    "prebuild": "copyfiles ../backend/app/src/main/resources/aggregates/* public/aggregates/",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
