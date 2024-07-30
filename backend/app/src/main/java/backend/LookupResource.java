@@ -28,6 +28,10 @@ public class LookupResource {
             JsonObject response = new JsonObject();
             response.add("_place", gson.toJsonTree(place));
             response.addProperty("postalCode", place.getAddress().getPostcode());
+            response.addProperty("neighbourhood", place.getAddress().getNeighbourhood());
+            JsonObject comments = new JsonObject();
+            comments.addProperty("is_neighbourhood_in_toronto_158", null);
+            response.add("_comments", comments);
             return Response.ok(
                     RESTfulResponseBuilder.create()
                             .withOk(true)
@@ -41,7 +45,8 @@ public class LookupResource {
                         .withOk(false)
                         .withMessage("Upstream API failed to respond")
                         .withData(String.format(
-                                "[Trace] Component: ReverseGeocoding.resolve(%f, %f)", latitude,
+                                "[Trace] Component: ReverseGeocoding.resolve(%f, %f)",
+                                latitude,
                                 longitude))
                         .build())
                 .build();
