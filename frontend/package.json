@@ -46,5 +46,8 @@
   "overrides": {
     "nth-check": "2.1.1",
     "postcss": "8.4.39"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1"
   }
 }
