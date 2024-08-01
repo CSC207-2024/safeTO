@@ -26,12 +26,14 @@ const LocationSearch = ({ onSuggestSelect }) => {
     };
 
     return (
-        <div>
+        <div className='container'>
             <input
                 type="text"
                 placeholder="Search for a location"
                 value={searchQuery}
                 onChange={handleSearchChange}
+                className='search-bar'
+
             />
             {suggestions.length > 0 && (
                 <ul style={{ listStyleType: 'none', padding: 0, margin: 0, backgroundColor: 'white' }}>

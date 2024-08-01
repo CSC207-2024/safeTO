@@ -4,6 +4,7 @@ import './App.css';
 import Profile from './Profile';
 import Map from './Map';
 import Search from './Search';
+import LocationSearch from './LocationSearch';
 
 // Initial coordinates for Toronto
 const TorontoCoordinates = [43.651070, -79.347015];
@@ -62,9 +63,11 @@ const Home = () => {
                 {/* TODO: design a fassion header */}
                 <h2>Welcome to <i>safeTO</i> (Style T.B.D.)</h2>
                 <p>A Community Safety Website: Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.</p>
+                {/* LocationSearch component for searching locations */}
+                <LocationSearch onSuggestSelect={onSuggestSelect} />
             </div>
-            {/* LocationSearch component for searching locations */}
-            <Search onSuggestSelect={onSuggestSelect} />
+            
+            
             {/* Profile component for displaying and editing user information */}
             <div style={{ position: 'absolute', top: 20, right: 20, zIndex: 1000 }}>
                 <Profile
@@ -74,6 +77,7 @@ const Home = () => {
                     toggleEdit={toggleEdit}
                 />
             </div>
+
             {/* Display hovered coordinates if available */}
             {coordinates.lat && coordinates.lng && (
                 <div style={{ position: 'absolute', bottom: 20, left: 20, zIndex: 1000, backgroundColor: 'white', padding: '10px', borderRadius: '5px' }}>
