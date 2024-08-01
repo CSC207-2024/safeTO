@@ -1,12 +1,14 @@
 /*style for the header*/
-.overlay-text {
+.glassmorphism-header {
   position: absolute;
   top: 0;
   left: 50%;
   z-index: 1000;
   transform: translate(-50%, 0);
-  /* TODO: change the colour of the title here*/
-  background-color: #aad7fb;
+
+  background: rgba(255, 255, 255, .7);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
   width: 50%;
   text-align: center;
   padding: 10px;

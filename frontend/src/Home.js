@@ -58,10 +58,10 @@ const Home = () => {
         <div style={{ height: '100vh', position: 'relative' }}>
             {/* Map component with a reference and a function to set coordinates on hover */}
             <Map ref={mapRef} setCoordinates={setCoordinates} />
-            <div className="overlay-text">
+            <div className="glassmorphism-header">
                 {/* TODO: design a fassion header */}
-                <h2>Welcome to <i>safeTO</i> (Style T.B.D.)</h2>
-                <p>A Community Safety Website: Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.</p>
+                <h2>Welcome to <i>safeTO</i></h2>
+                {/* <p>A Community Safety Website: Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.</p> */}
                 {/* LocationSearch component for searching locations */}
                 <LocationSearch onSuggestSelect={onSuggestSelect} />
             </div>
