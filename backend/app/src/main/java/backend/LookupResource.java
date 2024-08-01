@@ -30,7 +30,7 @@ public class LookupResource {
             response.addProperty("postalCode", place.getAddress().getPostcode());
             response.addProperty("neighbourhood", place.getAddress().getNeighbourhood());
             JsonObject comments = new JsonObject();
-            comments.addProperty("is_neighbourhood_in_toronto_158", null);
+            comments.addProperty("is_neighbourhood_in_toronto_158", (String) null);
             response.add("_comments", comments);
             return Response.ok(
                     RESTfulResponseBuilder.create()
