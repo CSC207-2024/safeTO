@@ -20,7 +20,8 @@ const Home = () => {
         firstName: '',
         lastName: '',
         email: '',
-        phoneNumber: ''
+        phoneNumber: '',
+        address: ''
     });
 
     // State for managing coordinates from map hover
@@ -66,7 +67,6 @@ const Home = () => {
             {/* Map component with a reference and a function to set coordinates on hover */}
             <Map ref={mapRef} setCoordinates={setCoordinates} />
             <div className="glassmorphism-header">
-                {/* TODO: design a fasion header */}
                 <h2>Welcome to <i className={"safe-text-color"}>safe</i><i className={"to-text-color"}>TO</i> <button class="btn" onClick={handleClick}>{showMessage ? 'ℹ Hide Message' : 'ℹ'} </button></h2>
                 {showMessage && (
                     <p >
