@@ -3,7 +3,6 @@ import 'leaflet/dist/leaflet.css';
 import './App.css';
 import Profile from './Profile';
 import Map from './Map';
-import Search from './Search';
 import LocationSearch from './LocationSearch';
 
 // Initial coordinates for Toronto
