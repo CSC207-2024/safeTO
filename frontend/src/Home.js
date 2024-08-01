@@ -20,7 +20,8 @@ const Home = () => {
         firstName: '',
         lastName: '',
         email: '',
-        phoneNumber: ''
+        phoneNumber: '',
+        address: ''
     });
 
     // State for managing coordinates from map hover
@@ -66,8 +67,7 @@ const Home = () => {
             {/* Map component with a reference and a function to set coordinates on hover */}
             <Map ref={mapRef} setCoordinates={setCoordinates} />
             <div className="glassmorphism-header">
-                {/* TODO: design a fassion header */}
-                <h2>Welcome to <i>safeTO</i> <button class="btn" onClick={handleClick}>{showMessage ? 'ℹ Hide Message' : 'ℹ'} </button></h2>
+                <h2>Welcome to <i className={"safe-text-color"}>safe</i><i className={"to-text-color"}>TO</i> <button class="btn" onClick={handleClick}>{showMessage ? 'ℹ Hide Message' : 'ℹ'} </button></h2>
                 {showMessage && (
                     <p >
                     A Community Safety Website: Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.

@@ -34,49 +34,58 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
         <h2>User Profile</h2>
         
         {isEditing ? (
-          <div>
-            <input
-              type="text"
-              name="firstName"
-              value={userInfo.firstName}
-              onChange={handleInputChange}
-              placeholder="First Name"
-              className='profile-input'
-            />
-            <input
-              type="text"
-              name="lastName"
-              value={userInfo.lastName}
-              onChange={handleInputChange}
-              placeholder="Last Name"
-              className='profile-input'
-            />
-            <input
-              type="email"
-              name="email"
-              value={userInfo.email}
-              onChange={handleInputChange}
-              placeholder="Email"
-              className='profile-input'
-            />
-            <input
-              type="tel"
-              name="phoneNumber"
-              value={userInfo.phoneNumber}
-              onChange={handleInputChange}
-              placeholder="Phone Number"
-              className='profile-input'
-            />
-            <button onClick={toggleEdit} className="save-button">Save</button>
-          </div>
+            <div>
+                <input
+                    type="text"
+                    name="firstName"
+                    value={userInfo.firstName}
+                    onChange={handleInputChange}
+                    placeholder="First Name"
+                    className='profile-input'
+                />
+                <input
+                    type="text"
+                    name="lastName"
+                    value={userInfo.lastName}
+                    onChange={handleInputChange}
+                    placeholder="Last Name"
+                    className='profile-input'
+                />
+                <input
+                    type="email"
+                    name="email"
+                    value={userInfo.email}
+                    onChange={handleInputChange}
+                    placeholder="Email"
+                    className='profile-input'
+                />
+                <input
+                    type="tel"
+                    name="phoneNumber"
+                    value={userInfo.phoneNumber}
+                    onChange={handleInputChange}
+                    placeholder="Phone Number"
+                    className='profile-input'
+                />
+                <input
+                    type="text"
+                    name="address"
+                    value={userInfo.address}
+                    onChange={handleInputChange}
+                    placeholder="Address"
+                    className='profile-input'
+                />
+                <button onClick={toggleEdit} className="save-button">Save</button>
+            </div>
         ) : (
-          <div>
-            <p><strong>First Name:</strong> {userInfo.firstName}</p>
-            <p><strong>Last Name:</strong> {userInfo.lastName}</p>
-            <p><strong>Email:</strong> {userInfo.email}</p>
-            <p><strong>Phone Number:</strong> {userInfo.phoneNumber}</p>
-            <button onClick={toggleEdit} className="edit-button">Edit</button>
-          </div>
+            <div>
+                <p><strong>First Name:</strong> {userInfo.firstName}</p>
+                <p><strong>Last Name:</strong> {userInfo.lastName}</p>
+                <p><strong>Email:</strong> {userInfo.email}</p>
+                <p><strong>Phone Number:</strong> {userInfo.phoneNumber}</p>
+                <p><strong>Address:</strong> {userInfo.address}</p>
+                <button onClick={toggleEdit} className="edit-button">Edit</button>
+            </div>
         )}
       </Modal>
     </div>

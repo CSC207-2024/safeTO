@@ -1,4 +1,12 @@
 /*style for the header*/
+.safe-text-color {
+  color: #00791B;
+}
+
+.to-text-color {
+  color: #164DB9;
+}
+
 .glassmorphism-header {
   position: absolute;
   top: 0;
