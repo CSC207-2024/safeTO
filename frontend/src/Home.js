@@ -54,14 +54,26 @@ const Home = () => {
         }
     }, []);
 
+    
+    const [showMessage, setShowMessage] = useState(false);
+    
+    const handleClick = () => {
+        setShowMessage(!showMessage);
+    };
+
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
             {/* Map component with a reference and a function to set coordinates on hover */}
             <Map ref={mapRef} setCoordinates={setCoordinates} />
             <div className="glassmorphism-header">
                 {/* TODO: design a fassion header */}
-                <h2>Welcome to <i>safeTO</i></h2>
-                {/* <p>A Community Safety Website: Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.</p> */}
+                <h2>Welcome to <i>safeTO</i> <button class="btn" onClick={handleClick}>{showMessage ? 'ℹ Hide Message' : 'ℹ'} </button></h2>
+                {showMessage && (
+                    <p >
+                    A Community Safety Website: Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.
+                    </p>
+                )}
+                
                 {/* LocationSearch component for searching locations */}
                 <LocationSearch onSuggestSelect={onSuggestSelect} />
             </div>
