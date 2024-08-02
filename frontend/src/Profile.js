@@ -75,6 +75,15 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
                     placeholder="123 Sample St, Toronto, A1A 1A1"
                     className='profile-input'
                 />
+                <label>
+                    <input
+                        type="checkbox"
+                        name="subscribed"
+                        checked={userInfo.subscribed}
+                        onChange={handleInputChange}
+                    />
+                    Subscribe to monthly crime reports
+                </label>
                 <button onClick={toggleEdit} className="save-button">Save</button>
             </div>
         ) : (
@@ -84,6 +93,7 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
                 <p><strong>Email:</strong> {userInfo.email}</p>
                 <p><strong>Phone Number:</strong> {userInfo.phoneNumber}</p>
                 <p><strong>Address:</strong> {userInfo.address}</p>
+                <p><strong>Subscribed:</strong> {userInfo.subscribed ? 'Yes' : 'No'}</p>
                 <button onClick={toggleEdit} className="edit-button">Edit</button>
             </div>
         )}
