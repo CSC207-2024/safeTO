@@ -64,7 +64,7 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
                     name="phoneNumber"
                     value={userInfo.phoneNumber}
                     onChange={handleInputChange}
-                    placeholder="Phone Number"
+                    placeholder="(xxx) xxx-xxxx"
                     className='profile-input'
                 />
                 <input
@@ -72,7 +72,7 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
                     name="address"
                     value={userInfo.address}
                     onChange={handleInputChange}
-                    placeholder="Address"
+                    placeholder="123 Sample St, Toronto, A1A 1A1"
                     className='profile-input'
                 />
                 <button onClick={toggleEdit} className="save-button">Save</button>

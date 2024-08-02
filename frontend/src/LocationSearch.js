@@ -1,53 +1,58 @@
 import React, { useState } from 'react';
 import { getLocations } from './LocationService';
+import axios from 'axios';
 
 const LocationSearch = ({ onSuggestSelect }) => {
-    const [searchQuery, setSearchQuery] = useState("");
-    const [suggestions, setSuggestions] = useState([]);
-    const locations = getLocations();
+    const [query, setQuery] = useState('');
+    const [results, setResults] = useState([]);
+    const [error, setError] = useState(null);
 
-    const handleSearchChange = (e) => {
-        const query = e.target.value;
-        setSearchQuery(query);
-        if (query.length > 1) {
-            const filteredSuggestions = locations.filter(location =>
-                location.name.toLowerCase().includes(query.toLowerCase())
-            );
-            setSuggestions(filteredSuggestions);
-        } else {
-            setSuggestions([]);
+    const handleSearch = async () => {
+        setResults([]);
+        setError(null);
+
+        try {
+        const response = await axios.get('https://api.canadapost.ca/pcd/addresses', {
+            headers: {
+            'Authorization': `Bearer YOUR_API_KEY`, // Replace with your actual API key
+            'Accept': 'application/vnd.cpc.addresses-v1+xml' // Adjust the Accept header if needed
+            },
+            params: {
+            'postal-code': query,
+            'address': query
+            }
+        });
+
+        // Parse the response data based on the API's response format
+        const data = response.data; // Adjust based on response structure
+        setResults(data.results || []); // Adjust based on response structure
+        } catch (err) {
+        setError('Failed to fetch addresses');
+        console.error('Error fetching addresses:', err);
         }
     };
 
-    const handleSelect = (location) => {
-        onSuggestSelect(location);
-        setSuggestions([]);
-        setSearchQuery(location.name);
-    };
-
     return (
-        <div className='container'>
-            <input
-                type="text"
-                placeholder="Search for a location"
-                value={searchQuery}
-                onChange={handleSearchChange}
-                className='search-bar'
+        <div>
+        <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Enter Address or Postal Code"
+            className='search-bar'
 
-            />
-            {suggestions.length > 0 && (
-                <ul style={{ listStyleType: 'none', padding: 0, margin: 0, backgroundColor: 'white' }}>
-                    {suggestions.map((suggestion, index) => (
-                        <li
-                            key={index}
-                            onClick={() => handleSelect(suggestion)}
-                            style={{ cursor: 'pointer', padding: '5px' }}
-                        >
-                            {suggestion.name}
-                        </li>
-                    ))}
-                </ul>
-            )}
+        />
+        <button onClick={handleSearch} className='search-button'>Search</button>
+        {error && <p>{error}</p>}
+        {results.length > 0 && (
+            <ul>
+            {results.map((result, index) => (
+                <li key={index}>
+                {result.address} {/* Adjust based on response structure */}
+                </li>
+            ))}
+            </ul>
+        )}
         </div>
     );
 };

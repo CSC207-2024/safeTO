@@ -205,10 +205,21 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
 }
 
 .search-bar:focus {
   border-color: #007bff; /* Change the border color on focus */
   outline: none;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.search-button {
+  padding: 9px;
+  font-size: 16px;
+  width: 80px; /* Adjust the width as needed */
+  max-width: 90%; /* Responsive design: prevent overflowing on small screens */
+  margin: 0 10px;
+  border-radius: 4px;
+
 }

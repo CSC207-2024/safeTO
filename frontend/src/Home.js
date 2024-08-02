@@ -92,7 +92,7 @@ const Home = () => {
             {/* Display hovered coordinates if available */}
             {coordinates.lat && coordinates.lng && (
                 <div style={{ position: 'absolute', bottom: 20, left: 20, zIndex: 1000, backgroundColor: 'white', padding: '10px', borderRadius: '5px' }}>
-                    Hovered Coordinates: Latitude: {coordinates.lat}, Longitude: {coordinates.lng}
+                    Hovered Coordinates: ({coordinates.lat}, {coordinates.lng})
                 </div>
             )}
         </div>

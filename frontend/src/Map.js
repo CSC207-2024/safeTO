@@ -1,5 +1,5 @@
 import React, { useImperativeHandle, forwardRef, useEffect, useState, useRef } from 'react';
-import { MapContainer, TileLayer, GeoJSON, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, GeoJSON, useMapEvents, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'esri-leaflet/dist/esri-leaflet';
 
@@ -25,6 +25,9 @@ const Map = forwardRef((props, ref) => {
 
   // State for storing GeoJSON data
   const [geoJsonData, setGeoJsonData] = useState(null);
+
+  // State to track the currently hovered layer
+  const [hoveredLayer, setHoveredLayer] = useState(null);
 
   // Expose map methods to parent components
   useImperativeHandle(ref, () => ({
@@ -56,7 +59,7 @@ const Map = forwardRef((props, ref) => {
     weight: 2,
     color: '#89CFEF', //Baby Blue
     dashArray: '',
-    fillOpacity: 0.6,
+    fillOpacity: 0.7,
     fillColor: '#89CFEF' //Baby Blue
   };
 
@@ -65,13 +68,14 @@ const Map = forwardRef((props, ref) => {
     opacity: 0.5,
     color: '#3388ff',
     dashArray: '3',
-    fillOpacity: 0.1,
+    fillOpacity: 0.2,
     fillColor: '#3388ff'
   };
 
   // Function to apply styles and event handlers to each GeoJSON feature
   const onEachArea = (area, layer) => {
     let mouseInside = false; // Flag to check if mouse is inside
+
     // Bind a popup to the layer
     layer.bindPopup(area.properties.Neighbourhood);
     // layer.bindPopup(area.properties.Neighbourhood, {
@@ -99,16 +103,18 @@ const Map = forwardRef((props, ref) => {
         mouseInside = true; // Set flag to true when mouse enters
         event.target.setStyle(highlightStyle); // Highlight on hover
         
-        // Open the popup on mouseover
-        event.target.openPopup();
+        event.target.openPopup(); // Open the popup on mouseover
+        
       },
       mouseout: (event) => {
         mouseInside = false; // Set flag to false when mouse leaves
-        event.target.setStyle(defaultStyle); // Reset style on mouseout
+        event.target.setStyle(defaultStyle); // Reset style only if highlight is not active
       },
       mousemove: (event) => {
         if (mouseInside) {
           event.target.setStyle(highlightStyle); // Ensure highlight stays while mouse is inside
+        } else {
+          event.target.setStyle(defaultStyle);
         }
       }
     });
