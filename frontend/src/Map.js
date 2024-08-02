@@ -1,7 +1,9 @@
 import React, { useImperativeHandle, forwardRef, useEffect, useState, useRef } from 'react';
-import { MapContainer, TileLayer, GeoJSON, useMapEvents, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, GeoJSON, useMapEvents, Popup, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'esri-leaflet/dist/esri-leaflet';
+import L from 'leaflet';
+import LocationSearch from './LocationSearch';
 
 
 // Component to track mouse movements and update coordinates
@@ -135,13 +137,20 @@ const Map = forwardRef((props, ref) => {
         // attribution='&copy; <a href="https://www.esri.com/">Esri</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         // opacity={0.6}
       />
+      
       {/* Render GeoJSON data if available */}
       {geoJsonData && (
         <GeoJSON data={geoJsonData} style={defaultStyle} onEachFeature={onEachArea} />
       )}
+
       {/* Component to track mouse movements */}
       <HoverCoordinates setCoordinates={setCoordinates} />
 
+      {LocationSearch.onSuggestSelect && (
+                <Marker position={LocationSearch.onSuggestSelect}>
+                    <Popup>Selected Location</Popup>
+                </Marker>
+      )}
 
     </MapContainer>
   );

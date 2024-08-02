@@ -14,7 +14,7 @@
   z-index: 1000;
   transform: translate(-50%, 0);
 
-  background: rgba(255, 255, 255, .7);
+  background: rgba(255, 255, 255, 0.66);
 	-webkit-backdrop-filter: blur(10px);
 	backdrop-filter: blur(10px);
   width: 50%;
@@ -220,6 +220,5 @@
   width: 80px; /* Adjust the width as needed */
   max-width: 90%; /* Responsive design: prevent overflowing on small screens */
   margin: 0 10px;
-  border-radius: 4px;
-
+  
 }
