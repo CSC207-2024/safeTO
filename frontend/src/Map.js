@@ -146,11 +146,11 @@ const Map = forwardRef((props, ref) => {
       {/* Component to track mouse movements */}
       <HoverCoordinates setCoordinates={setCoordinates} />
 
-      {LocationSearch.onSuggestSelect && (
-                <Marker position={LocationSearch.onSuggestSelect}>
+      {/* {LocationSearch.onSuggestSelect && (
+                <Marker position={LocationSearch.onSuggestSelect.result.geometry.location}>
                     <Popup>Selected Location</Popup>
                 </Marker>
-      )}
+      )} */}
 
     </MapContainer>
   );

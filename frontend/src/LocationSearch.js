@@ -46,7 +46,7 @@ const LocationSearch = ({ onSuggestSelect}) => {
 
     const handleResultClick = (result) => {
         // const location = result.geometry.location;
-        // onSuggestSelect([location.lat, location.lng]);
+        // selectedLocation([location.lat, location.lng]);
         onSuggestSelect(result.geometry.location, result.formatted_address);
     };
     
@@ -56,7 +56,7 @@ const LocationSearch = ({ onSuggestSelect}) => {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Enter Address or Postal Code"
+            placeholder="Search within City of Toronto"
             className='search-bar'
         />
 
