@@ -7,7 +7,7 @@ import access.manipulate.CrimeDataProcessor;
 import com.google.gson.JsonArray;
 import tech.tablesaw.api.Table;
 
-
+import java.util.ArrayList;
 
 
 /**
@@ -26,31 +26,32 @@ public class Usage {
         System.out.println(t.shape());
         CrimeDataProcessor processor = new CrimeDataProcessor();
         processor.setTable(t);
-        Table autoTheft = processor.filterBy("MCI_CATEGORY", "Auto Theft");
-        System.out.println(autoTheft.first(10));
         String[] names = processor.getColumnNames();
         for (String n : names){
             System.out.println(n);
         }
+        ArrayList<String> nei_columns = new ArrayList<>();
+        nei_columns.add("NEIGHBOURHOOD_140");
+        nei_columns.add("HOOD_140");
+        Table neighbourhood = processor.selectColumn(nei_columns);
+        System.out.println(neighbourhood.first(10));
 
 
         // CrimeDataProcessor
-        Table byYear = processor.filterByRange("OCC_YEAR", 2024, 2024);
-        Table byNeighbourhood = processor.filterBy("NEIGHBOURHOOD_158", "Guildwood");
-        System.out.println(byNeighbourhood.first(5));
+        Table byYear5 = processor.filterByRange("OCC_YEAR", 2019, 2024);
+        processor.setTable(byYear5);
+        Table agg5year = processor.aggregate("MCI_CATEGORY", "NEIGHBOURHOOD_140","HOOD_140","MCI_CATEGORY");
+        String total_5year = converter.tableToJson(agg5year);
+        String year_5_category = converter.changeJsonKeys(total_5year);
+        String path7 = "/Users/admin/Desktop/Github-Projects/safeTO/backend/app/src/main/resources/aggregates/five_year_total.json";
 
-        Table byType = processor.filterBy("MCI_CATEGORY", "Assault");
-        System.out.println(byType.first(5));
-
-        Table byPremises = processor.filterBy("PREMISES_TYPE", "Apartment");
-        System.out.println(byPremises.first(5));
 
         Table agg1 = processor.aggregate("MCI_CATEGORY", "OCC_YEAR");
         String total_by_year = converter.tableToJson(agg1);
         String year_total = converter.changeJsonKeys(total_by_year);
 
 
-        Table agg2 = processor.aggregate("MCI_CATEGORY", "OCC_YEAR","NEIGHBOURHOOD_158");
+        Table agg2 = processor.aggregate("MCI_CATEGORY", "OCC_YEAR","NEIGHBOURHOOD_140","HOOD_140");
         String by_y_n = converter.tableToJson(agg2);
         String year_neighbourhood = converter.changeJsonKeys(by_y_n);
 
@@ -60,7 +61,7 @@ public class Usage {
         String year_category = converter.changeJsonKeys(by_y_c);
 
         Table agg4 = processor.aggregate("MCI_CATEGORY",
-                "OCC_YEAR", "MCI_CATEGORY","NEIGHBOURHOOD_158");
+                "OCC_YEAR", "MCI_CATEGORY","NEIGHBOURHOOD_140", "HOOD_140");
         String by_y_c_n = converter.tableToJson(agg4);
         String year_category_neighbourhood = converter.changeJsonKeys(by_y_c_n);
 
@@ -69,24 +70,25 @@ public class Usage {
         String total_c = converter.tableToJson(agg5);
         String total_category = converter.changeJsonKeys(total_c);
 
-        Table agg6 = processor.aggregate("MCI_CATEGORY", "NEIGHBOURHOOD_158");
+        Table agg6 = processor.aggregate("MCI_CATEGORY", "NEIGHBOURHOOD_140","HOOD_140");
         String total_by_n = converter.tableToJson(agg6);
         String total_neighbourhood = converter.changeJsonKeys(total_by_n);
 
 //        Export the data to frontend/aggregates
         CrimeDataExporter exporter = new CrimeDataExporter();
-//        String path1 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/total_by_year.json";
-//        String path2 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/by_year_neighbourhood.json";
-//        String path3 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/by_year_category.json";
-//        String path4 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/by_year_category_neighbourhood.json";
-//        String path5 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/total_by_category.json";
-//        String path6 = "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/total_by_neighbourhood.json";
-//        exporter.writeToJson(year_total, path1);
-//        exporter.writeToJson(year_neighbourhood, path2);
-//        exporter.writeToJson(year_category, path3);
-//        exporter.writeToJson(year_category_neighbourhood, path4);
-//        exporter.writeToJson(total_category, path5);
-//        exporter.writeToJson(total_neighbourhood, path6);
+        String path1 = "/Users/admin/Desktop/Github-Projects/safeTO/backend/app/src/main/resources/aggregates/total_by_year.json";
+        String path2 = "/Users/admin/Desktop/Github-Projects/safeTO/backend/app/src/main/resources/aggregates/by_year_neighbourhood.json";
+        String path3 = "/Users/admin/Desktop/Github-Projects/safeTO/backend/app/src/main/resources/aggregates/by_year_category.json";
+        String path4 = "/Users/admin/Desktop/Github-Projects/safeTO/backend/app/src/main/resources/aggregates/by_year_category_neighbourhood.json";
+        String path5 = "/Users/admin/Desktop/Github-Projects/safeTO/backend/app/src/main/resources/aggregates/total_by_category.json";
+        String path6 = "/Users/admin/Desktop/Github-Projects/safeTO/backend/app/src/main/resources/aggregates/total_by_neighbourhood.json";
+        exporter.writeToJson(year_total, path1);
+        exporter.writeToJson(year_neighbourhood, path2);
+        exporter.writeToJson(year_category, path3);
+        exporter.writeToJson(year_category_neighbourhood, path4);
+        exporter.writeToJson(total_category, path5);
+        exporter.writeToJson(total_neighbourhood, path6);
+        exporter.writeToJson(year_5_category, path7);
 
 //        access.manipulate.CrimeDataPlotter plotter = new access.manipulate.CrimeDataPlotter();
 //        JFreeChart barplot1 = plotter.barPlot(agg1, "OCC_YEAR", "Count [MCI_CATEGORY]", "Total Crime by Year", "Year", "Count");

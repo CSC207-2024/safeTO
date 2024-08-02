@@ -15,7 +15,7 @@ public class CrimeDataConverter {
 
     private final String[] jsonKeys = {
             "EVENT_UNIQUE_ID", "OCC_YEAR", "OCC_MONTH", "OCC_DAY", "OCC_DOW", "OCC_HOUR",
-            "LAT_WGS84", "LONG_WGS84", "NEIGHBOURHOOD_158", "HOOD_158", "PREMISES_TYPE", "MCI_CATEGORY"
+            "LAT_WGS84", "LONG_WGS84", "NEIGHBOURHOOD_140", "HOOD_140", "PREMISES_TYPE", "MCI_CATEGORY"
     };
 
     /**
