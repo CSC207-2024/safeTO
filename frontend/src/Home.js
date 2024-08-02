@@ -4,6 +4,7 @@ import './App.css';
 import Profile from './Profile';
 import Map from './Map';
 import LocationSearch from './LocationSearch';
+import axios from 'axios';
 
 // Initial coordinates for Toronto
 const TorontoCoordinates = [43.651070, -79.347015];
@@ -21,7 +22,8 @@ const Home = () => {
         lastName: '',
         email: '',
         phoneNumber: '',
-        address: ''
+        address: '',
+        subscribed: false
     });
 
     // State for managing coordinates from map hover
@@ -39,14 +41,39 @@ const Home = () => {
 
     // Function to handle changes in user information inputs
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setUserInfo((prevInfo) => ({ ...prevInfo, [name]: value }));
+        const { name, value, type, checked } = e.target;
+        setUserInfo((prevInfo) => ({
+            ...prevInfo,
+            [name]: type === 'checkbox' ? checked : value
+        }));
     };
 
     // Function to toggle the editing state in the Profile component
-    const toggleEdit = () => {
+    const toggleEdit = async () => {
+        if (isEditing) {
+            try {
+                await axios.post('https://csc207-api.joefang.org', userInfo);
+                alert('Profile updated successfully');
+            } catch (error) {
+                console.error('Error updating profile:', error);
+            }
+        }
         setIsEditing((prevEdit) => !prevEdit);
     };
+
+    // Effect to fetch user profile data when component mounts
+    useEffect(() => {
+        const fetchUserProfile = async () => {
+            try {
+                const response = await axios.get('https://csc207-api.joefang.org');
+                setUserInfo(response.data);
+            } catch (error) {
+                console.error('Error fetching profile data:', error);
+            }
+        };
+
+        fetchUserProfile();
+    }, []);
 
     // Effect to set the initial view of the map to Toronto coordinates
     useEffect(() => {
