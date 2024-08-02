@@ -1,24 +1,24 @@
 {
   "attributes": [
     {
-      "MCI_CATEGORY": "Assault",
-      "INCIDENTS": 202445.0
-    },
-    {
       "MCI_CATEGORY": "Break and Enter",
-      "INCIDENTS": 72047.0
+      "INCIDENTS": 38437.0
     },
     {
-      "MCI_CATEGORY": "Auto Theft",
-      "INCIDENTS": 61159.0
-    },
-    {
-      "MCI_CATEGORY": "Theft Over",
-      "INCIDENTS": 12761.0
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 115339.0
     },
     {
       "MCI_CATEGORY": "Robbery",
-      "INCIDENTS": 34709.0
+      "INCIDENTS": 16603.0
+    },
+    {
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 44875.0
+    },
+    {
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 7677.0
     }
   ]
 }

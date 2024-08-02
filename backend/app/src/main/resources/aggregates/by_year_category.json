@@ -1,134 +1,14 @@
 {
   "attributes": [
     {
-      "OCC_YEAR": 2014,
-      "MCI_CATEGORY": "Assault",
-      "INCIDENTS": 16855.0
-    },
-    {
-      "OCC_YEAR": 2014,
-      "MCI_CATEGORY": "Break and Enter",
-      "INCIDENTS": 7216.0
-    },
-    {
-      "OCC_YEAR": 2014,
-      "MCI_CATEGORY": "Auto Theft",
-      "INCIDENTS": 3640.0
-    },
-    {
-      "OCC_YEAR": 2014,
-      "MCI_CATEGORY": "Theft Over",
-      "INCIDENTS": 1015.0
-    },
-    {
-      "OCC_YEAR": 2014,
-      "MCI_CATEGORY": "Robbery",
-      "INCIDENTS": 3757.0
-    },
-    {
-      "OCC_YEAR": 2015,
-      "MCI_CATEGORY": "Assault",
-      "INCIDENTS": 18160.0
-    },
-    {
-      "OCC_YEAR": 2015,
-      "MCI_CATEGORY": "Break and Enter",
-      "INCIDENTS": 6938.0
-    },
-    {
-      "OCC_YEAR": 2015,
-      "MCI_CATEGORY": "Theft Over",
-      "INCIDENTS": 1043.0
-    },
-    {
-      "OCC_YEAR": 2015,
-      "MCI_CATEGORY": "Robbery",
-      "INCIDENTS": 3534.0
-    },
-    {
-      "OCC_YEAR": 2015,
-      "MCI_CATEGORY": "Auto Theft",
-      "INCIDENTS": 3268.0
-    },
-    {
-      "OCC_YEAR": 2016,
-      "MCI_CATEGORY": "Robbery",
-      "INCIDENTS": 3777.0
-    },
-    {
-      "OCC_YEAR": 2016,
-      "MCI_CATEGORY": "Assault",
-      "INCIDENTS": 19072.0
-    },
-    {
-      "OCC_YEAR": 2016,
-      "MCI_CATEGORY": "Break and Enter",
-      "INCIDENTS": 6425.0
-    },
-    {
-      "OCC_YEAR": 2016,
-      "MCI_CATEGORY": "Auto Theft",
-      "INCIDENTS": 3343.0
-    },
-    {
-      "OCC_YEAR": 2016,
-      "MCI_CATEGORY": "Theft Over",
-      "INCIDENTS": 1044.0
-    },
-    {
-      "OCC_YEAR": 2017,
-      "MCI_CATEGORY": "Robbery",
-      "INCIDENTS": 4097.0
-    },
-    {
-      "OCC_YEAR": 2017,
-      "MCI_CATEGORY": "Assault",
-      "INCIDENTS": 19688.0
-    },
-    {
-      "OCC_YEAR": 2017,
-      "MCI_CATEGORY": "Break and Enter",
-      "INCIDENTS": 6932.0
-    },
-    {
-      "OCC_YEAR": 2017,
-      "MCI_CATEGORY": "Auto Theft",
-      "INCIDENTS": 3646.0
-    },
-    {
-      "OCC_YEAR": 2017,
-      "MCI_CATEGORY": "Theft Over",
-      "INCIDENTS": 1188.0
-    },
-    {
-      "OCC_YEAR": 2018,
-      "MCI_CATEGORY": "Break and Enter",
-      "INCIDENTS": 7654.0
-    },
-    {
-      "OCC_YEAR": 2018,
-      "MCI_CATEGORY": "Assault",
-      "INCIDENTS": 20043.0
-    },
-    {
-      "OCC_YEAR": 2018,
-      "MCI_CATEGORY": "Robbery",
-      "INCIDENTS": 3759.0
-    },
-    {
-      "OCC_YEAR": 2018,
-      "MCI_CATEGORY": "Theft Over",
-      "INCIDENTS": 1288.0
-    },
-    {
-      "OCC_YEAR": 2018,
-      "MCI_CATEGORY": "Auto Theft",
-      "INCIDENTS": 4811.0
-    },
-    {
       "OCC_YEAR": 2019,
       "MCI_CATEGORY": "Break and Enter",
       "INCIDENTS": 8573.0
+    },
+    {
+      "OCC_YEAR": 2019,
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 21086.0
     },
     {
       "OCC_YEAR": 2019,
@@ -137,13 +17,8 @@
     },
     {
       "OCC_YEAR": 2019,
-      "MCI_CATEGORY": "Assault",
-      "INCIDENTS": 21066.0
-    },
-    {
-      "OCC_YEAR": 2019,
       "MCI_CATEGORY": "Auto Theft",
-      "INCIDENTS": 5377.0
+      "INCIDENTS": 5379.0
     },
     {
       "OCC_YEAR": 2019,
@@ -152,8 +27,18 @@
     },
     {
       "OCC_YEAR": 2020,
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 5798.0
+    },
+    {
+      "OCC_YEAR": 2020,
       "MCI_CATEGORY": "Assault",
-      "INCIDENTS": 18385.0
+      "INCIDENTS": 18409.0
+    },
+    {
+      "OCC_YEAR": 2020,
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 2863.0
     },
     {
       "OCC_YEAR": 2020,
@@ -162,38 +47,28 @@
     },
     {
       "OCC_YEAR": 2020,
-      "MCI_CATEGORY": "Auto Theft",
-      "INCIDENTS": 5795.0
-    },
-    {
-      "OCC_YEAR": 2020,
-      "MCI_CATEGORY": "Robbery",
-      "INCIDENTS": 2864.0
-    },
-    {
-      "OCC_YEAR": 2020,
       "MCI_CATEGORY": "Theft Over",
       "INCIDENTS": 1212.0
     },
     {
       "OCC_YEAR": 2021,
-      "MCI_CATEGORY": "Assault",
-      "INCIDENTS": 19083.0
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 6634.0
     },
     {
       "OCC_YEAR": 2021,
-      "MCI_CATEGORY": "Auto Theft",
-      "INCIDENTS": 6621.0
+      "MCI_CATEGORY": "Assault",
+      "INCIDENTS": 19118.0
     },
     {
       "OCC_YEAR": 2021,
       "MCI_CATEGORY": "Break and Enter",
-      "INCIDENTS": 5723.0
+      "INCIDENTS": 5724.0
     },
     {
       "OCC_YEAR": 2021,
       "MCI_CATEGORY": "Robbery",
-      "INCIDENTS": 2288.0
+      "INCIDENTS": 2287.0
     },
     {
       "OCC_YEAR": 2021,
@@ -202,78 +77,78 @@
     },
     {
       "OCC_YEAR": 2022,
+      "MCI_CATEGORY": "Theft Over",
+      "INCIDENTS": 1452.0
+    },
+    {
+      "OCC_YEAR": 2022,
       "MCI_CATEGORY": "Break and Enter",
-      "INCIDENTS": 6083.0
+      "INCIDENTS": 6084.0
     },
     {
       "OCC_YEAR": 2022,
       "MCI_CATEGORY": "Assault",
-      "INCIDENTS": 21145.0
-    },
-    {
-      "OCC_YEAR": 2022,
-      "MCI_CATEGORY": "Theft Over",
-      "INCIDENTS": 1450.0
-    },
-    {
-      "OCC_YEAR": 2022,
-      "MCI_CATEGORY": "Robbery",
-      "INCIDENTS": 2933.0
+      "INCIDENTS": 21209.0
     },
     {
       "OCC_YEAR": 2022,
       "MCI_CATEGORY": "Auto Theft",
-      "INCIDENTS": 9837.0
+      "INCIDENTS": 9853.0
+    },
+    {
+      "OCC_YEAR": 2022,
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 2931.0
     },
     {
       "OCC_YEAR": 2023,
       "MCI_CATEGORY": "Assault",
-      "INCIDENTS": 23714.0
-    },
-    {
-      "OCC_YEAR": 2023,
-      "MCI_CATEGORY": "Robbery",
-      "INCIDENTS": 3129.0
+      "INCIDENTS": 23882.0
     },
     {
       "OCC_YEAR": 2023,
       "MCI_CATEGORY": "Auto Theft",
-      "INCIDENTS": 12229.0
+      "INCIDENTS": 12275.0
     },
     {
       "OCC_YEAR": 2023,
       "MCI_CATEGORY": "Break and Enter",
-      "INCIDENTS": 7619.0
+      "INCIDENTS": 7629.0
+    },
+    {
+      "OCC_YEAR": 2023,
+      "MCI_CATEGORY": "Robbery",
+      "INCIDENTS": 3134.0
     },
     {
       "OCC_YEAR": 2023,
       "MCI_CATEGORY": "Theft Over",
-      "INCIDENTS": 1711.0
+      "INCIDENTS": 1725.0
+    },
+    {
+      "OCC_YEAR": 2024,
+      "MCI_CATEGORY": "Auto Theft",
+      "INCIDENTS": 4936.0
     },
     {
       "OCC_YEAR": 2024,
       "MCI_CATEGORY": "Assault",
-      "INCIDENTS": 5234.0
-    },
-    {
-      "OCC_YEAR": 2024,
-      "MCI_CATEGORY": "Break and Enter",
-      "INCIDENTS": 1921.0
+      "INCIDENTS": 11635.0
     },
     {
       "OCC_YEAR": 2024,
       "MCI_CATEGORY": "Robbery",
-      "INCIDENTS": 848.0
+      "INCIDENTS": 1665.0
     },
     {
       "OCC_YEAR": 2024,
-      "MCI_CATEGORY": "Auto Theft",
-      "INCIDENTS": 2592.0
+      "MCI_CATEGORY": "Break and Enter",
+      "INCIDENTS": 3464.0
     },
     {
       "OCC_YEAR": 2024,
       "MCI_CATEGORY": "Theft Over",
-      "INCIDENTS": 346.0
+      "INCIDENTS": 824.0
     }
   ]
 }
