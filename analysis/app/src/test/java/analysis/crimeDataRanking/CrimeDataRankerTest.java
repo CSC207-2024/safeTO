@@ -21,7 +21,7 @@ class CrimeDataRankerTest {
         Table table = Table.create("Crime Data")
                 .addColumns(
                         StringColumn.create("MCI_CATEGORY", new String[]{"Assault", "Theft", "Assault", "Break and Enter", "Theft"}),
-                        StringColumn.create("NEIGHBOURHOOD_158", new String[]{"Downtown", "Midtown", "Downtown", "Uptown", "Midtown"})
+                        StringColumn.create("NEIGHBOURHOOD_140", new String[]{"Downtown", "Midtown", "Downtown", "Uptown", "Midtown"})
                 );
         processor.setTable(table);
 
@@ -34,9 +34,9 @@ class CrimeDataRankerTest {
         assertNotNull(result, "Resulting table should not be null.");
         assertEquals(3, result.rowCount(), "There should be 3 neighborhoods ranked.");
 
-        assertEquals("Downtown", result.stringColumn("NEIGHBOURHOOD_158").get(0), "Downtown should be ranked first.");
-        assertEquals("Midtown", result.stringColumn("NEIGHBOURHOOD_158").get(1), "Midtown should be ranked second.");
-        assertEquals("Uptown", result.stringColumn("NEIGHBOURHOOD_158").get(2), "Uptown should be ranked third.");
+        assertEquals("Downtown", result.stringColumn("NEIGHBOURHOOD_140").get(0), "Downtown should be ranked first.");
+        assertEquals("Midtown", result.stringColumn("NEIGHBOURHOOD_140").get(1), "Midtown should be ranked second.");
+        assertEquals("Uptown", result.stringColumn("NEIGHBOURHOOD_140").get(2), "Uptown should be ranked third.");
     }
 
     @Test
@@ -45,7 +45,7 @@ class CrimeDataRankerTest {
         assertNotNull(result, "Resulting table should not be null.");
         assertEquals(1, result.rowCount(), "There should be 1 neighborhood with Assault crimes.");
 
-        assertEquals("Downtown", result.stringColumn("NEIGHBOURHOOD_158").get(0), "Downtown should be ranked first for Assault.");
+        assertEquals("Downtown", result.stringColumn("NEIGHBOURHOOD_140").get(0), "Downtown should be ranked first for Assault.");
     }
 
     @Test
