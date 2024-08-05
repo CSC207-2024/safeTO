@@ -44,33 +44,42 @@ public class NeighborhoodCrimeRankingDemo {
         JsonObject jsonOutput = new JsonObject();
         jsonOutput.addProperty("neighborhood", neighborhood);
 
+        int totalNeighborhoods = table.stringColumn("NEIGHBOURHOOD_140").unique().size();
+
         if (specificCrime.isEmpty()) {
             // Rank neighborhoods by total crime and get the ranking of the specific neighborhood
             int ranking = ranker.getNeighborhoodRanking(neighborhood);
             if (ranking != -1) {
+                String safetyLevel = ranker.getSafetyLevel(ranking, totalNeighborhoods);
                 jsonOutput.addProperty("totalCrimeRanking", ranking);
+                jsonOutput.addProperty("safetyLevel", safetyLevel);
                 System.out.println("The ranking of neighborhood '" + neighborhood + "' by total crime is: " + ranking);
+                System.out.println("Safety level: " + safetyLevel);
             } else {
                 jsonOutput.addProperty("totalCrimeRanking", "Not found");
+                jsonOutput.addProperty("safetyLevel", "Not applicable");
                 System.out.println("The neighborhood '" + neighborhood + "' is not found in the ranking.");
             }
         } else {
             // Rank neighborhoods by specific crime and get the ranking of the specific neighborhood
             int ranking = ranker.getSpecificCrimeNeighborhoodRanking(specificCrime, neighborhood);
             if (ranking != -1) {
+                String safetyLevel = ranker.getSafetyLevel(ranking, totalNeighborhoods);
                 jsonOutput.addProperty("specificCrimeRanking", ranking);
                 jsonOutput.addProperty("crimeType", specificCrime);
+                jsonOutput.addProperty("safetyLevel", safetyLevel);
                 System.out.println("The ranking of neighborhood '" + neighborhood + "' by specific crime ('" + specificCrime + "') is: " + ranking);
+                System.out.println("Safety level: " + safetyLevel);
             } else {
                 jsonOutput.addProperty("specificCrimeRanking", "Not found");
                 jsonOutput.addProperty("crimeType", specificCrime);
+                jsonOutput.addProperty("safetyLevel", "Not applicable");
                 System.out.println("The neighborhood '" + neighborhood + "' is not found in the ranking for the specific crime ('" + specificCrime + "').");
             }
         }
-/*
         String jsonResult = gson.toJson(jsonOutput);
         System.out.println(jsonResult);
 
-        scanner.close();*/
+        scanner.close();
     }
 }
