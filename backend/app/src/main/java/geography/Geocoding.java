@@ -59,7 +59,7 @@ public class Geocoding {
     public static void main(String[] args) {
         Geocoding geocoding = new Geocoding();
         // Example usage: Replace "Bakery in Berlin" with any query of your choice
-        Place[] places = geocoding.queryNominatim("Bakery in Berlin");
+        Place[] places = geocoding.resolve("Bakery in Berlin");
 
         // Output the results
         if (places != null) {
