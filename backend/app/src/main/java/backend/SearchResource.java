@@ -14,25 +14,25 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import builder.RESTfulResponseBuilder;
-import geography.ReverseGeocoding;
+import geography.Geocoding;
 import gson.GsonSingleton;
 
-@Path("/lookup")
-public class LookupResource {
+@Path("/search")
+public class SearchResource {
     private static final Gson gson = GsonSingleton.getInstance();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response lookup(@QueryParam("lat") @DefaultValue("43.7182639") float latitude,
-            @QueryParam("long") @DefaultValue("-79.7077207") float longitude) {
-        Place place = ReverseGeocoding.resolve(latitude, longitude);
-        if (place != null) {
+    public Response search(@QueryParam("address") String query,
+            @QueryParam("limit") @DefaultValue("Toronto, ON, Canada") String limit) {
+        if (!query.endsWith(limit)) {
+            query += " | " + limit;
+        }
+        Place[] places = Geocoding.resolve(query);
+        if (places != null) {
             JsonObject response = new JsonObject();
-            response.add("_place", gson.toJsonTree(place));
-            response.addProperty("postalCode", place.getAddress().getPostcode());
-            response.addProperty("neighbourhood", place.getAddress().getNeighbourhood());
+            response.add("_places", gson.toJsonTree(places));
             JsonObject comments = new JsonObject();
-            comments.addProperty("is_neighbourhood_in_toronto_158", (String) null);
             response.add("_comments", comments);
             return Response.ok(
                     RESTfulResponseBuilder.create()
@@ -47,9 +47,8 @@ public class LookupResource {
                         .withOk(false)
                         .withMessage("Upstream API failed to respond")
                         .withData(String.format(
-                                "[Trace] Component: ReverseGeocoding.resolve(%f, %f)",
-                                latitude,
-                                longitude))
+                                "[Trace] Component: Geocoding.resolve(%s)",
+                                query))
                         .build())
                 .build();
     }

@@ -1,12 +1,12 @@
 import React, { useImperativeHandle, forwardRef, useEffect, useState, useRef } from 'react';
-import { MapContainer, TileLayer, GeoJSON, useMapEvents, Popup, Marker } from 'react-leaflet';
+import { MapContainer, TileLayer, GeoJSON, useMapEvents, Popup, Marker, Tooltip } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'esri-leaflet/dist/esri-leaflet';
 import L from 'leaflet';
 import LocationSearch from './LocationSearch';
 import { Icon } from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
-
+// import icon from 'frontend/public/images/marker.png'
 
 // Component to track mouse movements and update coordinates
 const HoverCoordinates = ({ setCoordinates }) => {
@@ -158,7 +158,11 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
       {/* Render Marker if markerCoordinates is set */}
       {markerCoordinates && (
-          <Marker position={markerCoordinates} icon={IconMarker} > </Marker>
+          <Marker position={markerCoordinates} icon={IconMarker} >
+            <Tooltip>
+              Click to view Stats
+            </Tooltip>          
+          </Marker>
       )}
 
     </MapContainer>

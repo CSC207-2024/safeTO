@@ -40,7 +40,7 @@ const Home = () => {
             const { lat, lng } = location;
             setMarkerCoordinates({ lat, lng }); // Set marker coordinates
             if (mapRef.current && mapRef.current.flyTo) {
-                mapRef.current.flyTo([lat, lng], 15); // Fly to the selected location with zoom level 15
+                mapRef.current.flyTo([lat, lng], 14); // Fly to the selected location with zoom level 15
             }
         }
         //alert(location);
@@ -55,8 +55,34 @@ const Home = () => {
         }));
     };
 
+
+    const validateName = (firstName, lastName) => {
+        // Basic name regex pattern
+        const namePattern = /^[A-Za-z]{2,}$/;
+        return namePattern.test(firstName) && namePattern.test(lastName);
+    };
+    const validateEmail = (email) => {
+        // Basic email regex pattern
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+    };
+
+    const validatePhoneNumber = (phoneNumber) => {
+        // Basic phone number regex pattern (e.g., (123) 456-7890)
+        const phonePattern = /^\d{10}$/;
+        return phonePattern.test(phoneNumber);
+    };
+
+    const validateAddress = (address) => {
+        // Basic address regex pattern (e.g., 123 Sample St, Toronto, A1A 1A1)
+        const addressPattern = /^\d+\s[A-z]+\s[A-z]+,\s[A-z]+,\s[A-Z]\d[A-Z]\s\d[A-Z]\d$/;
+        return addressPattern.test(address);
+    };
+
+
     // Function to toggle the editing state in the Profile component
     const toggleEdit = async () => {
+        let errorMsg = '';
         if (isEditing) {
             try {
                 await axios.post('https://csc207-api.joefang.org', userInfo);
@@ -64,8 +90,21 @@ const Home = () => {
             } catch (error) {
                 console.error('Error updating profile:', error);
             }
+
+            // Validation logic
+            errorMsg += validateName(userInfo.firstName, userInfo.lastName) ? '' : 'Invalid name format \n';
+            errorMsg += validateEmail(userInfo.email) ? '' : 'Invalid email format \n';
+            errorMsg += validatePhoneNumber(userInfo.phoneNumber) ? '' : 'Invalid phone number format\n';
+            errorMsg += validateAddress(userInfo.address) ? '' : 'Invalid address format\n';
+            
         }
-        setIsEditing((prevEdit) => !prevEdit);
+        if (errorMsg.length == 0) {
+            setIsEditing((prevEdit) => !prevEdit);
+        } else{
+            alert(errorMsg);
+        }
+        
+
     };
 
     // Effect to fetch user profile data when component mounts
