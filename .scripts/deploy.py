@@ -13,7 +13,7 @@ war_path = os.path.join(backend_dir, "app", "build", "libs", "ROOT.war")
 tomcat_path = os.getenv(
     "SAFETO_BINARY_PATH",
     (
-        "%USERPROFILE%/Desktop/apache-tomcat-10.1.26"
+        "{}\\Desktop\\apache-tomcat-10.1.26".format(os.environ["USERPROFILE"])
         if is_my_laptop
         else "/home/vixen-kite-celery/apache-tomcat-10.1.26"  # GCP server
     ),
@@ -21,6 +21,8 @@ tomcat_path = os.getenv(
 
 
 def main():
+    os.chdir(current_dir)
+
     # Sync with the codebase on GitHub
     subprocess.run(args=("git", "pull"))
 
