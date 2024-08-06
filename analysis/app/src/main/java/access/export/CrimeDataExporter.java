@@ -50,20 +50,5 @@ public class CrimeDataExporter implements Exportable {
     }
 
 
-    /**
-     * A method that exports the given JFreeChart object to an SVG file at the specified path.
-     * @param chart JFreeChart object to be exported.
-     * @param outputPath The path where the SVG output should be saved.
-     */
-    @Override
-    public void exportToSVG(JFreeChart chart, String outputPath) {
-        SVGGraphics2D svgGraphics2D = new SVGGraphics2D(800, 600);
-        chart.draw(svgGraphics2D, new java.awt.geom.Rectangle2D.Double(0, 0, 800, 600));
-        try {
-            SVGUtils.writeToSVG(new File(outputPath), svgGraphics2D.getSVGElement());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
     }
 }
