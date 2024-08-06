@@ -72,7 +72,10 @@
   border: none;
   border-radius: '5px';
   cursor: 'pointer';
+}
 
+.user-profile button:hover {
+  background-color: #0056b3;
 }
 
 .user-profile button:hover {
@@ -145,17 +148,6 @@
   cursor: pointer;
 }
 
-.modal-content {
-  top: 50%;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 .profile-input {
   display: block;
   width: 100%;
@@ -284,4 +276,24 @@
 .results-list li button:hover {
   background-color: #f0f0f0; /* Optional: Add a hover effect */
   padding: 10px; /* Add some padding for each list item */
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modal-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-button:hover {
+  background-color: #0056b3;
 }
