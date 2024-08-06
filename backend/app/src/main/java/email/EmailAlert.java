@@ -115,14 +115,41 @@ public class EmailAlert implements InterfaceEmail {
     }
 
     public static void main(String[] args) {
+        String templatePath = "safeTO/frontend/public/templates/monthlyReportEmail.html";
         EmailAlert emailAlert = new EmailAlert("<html><body><h1>{{title}}</h1><p>{{content}}</p></body></html>");
 
-        Map<String, String> map = emailAlert.parseInput("{title:Hello World,content:This is another test email}");
-        String body = emailAlert.formatEmailBody(map);
+        // Fetch users
+        List<User> users = fetchUsers(); //TODO: Implement this method to get users
 
-        emailAlert.sendEmail("safeTO <developers@csc207.joefang.org>",
-                "bilin.nong@mail.utoronto.ca", "Test Email", body);
+        for (User user : users) {
+            // Generate email content
+            Map<String, String> data = generateReportData(user); // Implement this method
+            String emailBody = emailAlert.formatEmailBody(data);
+
+            // Send email
+            emailAlert.sendEmail("safeTO <developers@csc207.joefang.org>",
+                    user.getEmail(), "Monthly Crime Report", emailBody);
+        }
+    }
+    private static String readTemplate(String path) {
+        try {
+            return new String(Files.readAllBytes(Paths.get(path)));
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to read template", e);
+        }
     }
 
+    private static List<User> fetchUsers() { // TODO: implement this method
+        // Fetch and return a list of users from your database
+        return List.of(); // Placeholder
+    }
+
+    private static Map<String, String> generateReportData(User user) {
+        // Generate and return the report data for the user
+        Map<String, String> data = new HashMap<>();
+        data.put("title", "Monthly Crime Report");
+        data.put("content", "Your customized report content here.");
+        return data;
+    }
 }
 

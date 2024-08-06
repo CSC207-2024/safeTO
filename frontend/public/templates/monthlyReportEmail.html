@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Crime Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .header h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #555;
+        }
+        .content {
+            margin-bottom: 20px;
+        }
+        .content h3 {
+            margin-bottom: 10px;
+        }
+        .content p {
+            margin: 10px 0;
+        }
+        .content .comparison {
+            margin-top: 20px;
+        }
+        .content .comparison table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .content .comparison table, th, td {
+            border: 1px solid #ddd;
+        }
+        .content .comparison th, .content .comparison td {
+            padding: 8px;
+            text-align: center;
+        }
+        .content .comparison th {
+            background-color: #f4f4f4;
+        }
+        .footer {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Monthly Crime Report</h1>
+            <h2>[Neighborhood Name] - [Month, Year]</h2>
+        </div>
+        <div class="content">
+            <h3>Dear [Recipient's Name],</h3>
+            <p>We hope this message finds you well. Please find below the monthly crime report for [Neighborhood Name] for the month of [Month, Year].</p>
+            <p>This report includes a comparison of crime rates and a bar plot illustrating different categories of crimes.</p>
+            <div class="comparison">
+                <h3>Crime Rate Comparison</h3>
+                <table>
+                    <tr>
+                        <th>Category</th>
+                        <th>This Month</th>
+                        <th>Last Month</th>
+                        <th>% Change</th>
+                    </tr>
+                    <!-- Repeat this row for each crime category -->
+                    <tr>
+                        <td>Theft</td>
+                        <td>[This Month's Count]</td>
+                        <td>[Last Month's Count]</td>
+                        <td>[Percentage Change]</td>
+                    </tr>
+                    <tr>
+                        <td>Assault</td>
+                        <td>[This Month's Count]</td>
+                        <td>[Last Month's Count]</td>
+                        <td>[Percentage Change]</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </table>
+            </div>
+            <div class="chart">
+                <h3>Crime Categories Bar Plot</h3>
+                <img src="[URL to the bar plot image]" alt="Bar Plot of Crime Categories" style="width: 100%; height: auto;">
+            </div>
+        </div>
+        <div class="footer">
+            <p>If you have any questions or need further information, please feel free to contact us.</p>
+            <p>Thank you for your attention.</p>
+            <p>Best regards,<br>The Safety Map Team</p>
+        </div>
+    </div>
+</body>
+</html>
