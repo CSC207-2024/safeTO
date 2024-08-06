@@ -54,6 +54,6 @@ def generate_annual_comparison(neighbourhood, year, data):
 
 
 # Example usage
-neighbourhood = 'Clairlea-Birchmount (120)'  # Retrieve this from user profile
+neighbourhood = 'Clairlea-Birchmount'  # Retrieve this from user profile
 year = 2023  # Retrieve this from user input
 generate_annual_comparison(neighbourhood, year, data)
