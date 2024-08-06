@@ -6,9 +6,22 @@ import com.resend.services.emails.model.CreateEmailResponse;
 import com.resend.services.emails.model.Email;
 import user.User;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 
@@ -75,6 +88,8 @@ public class EmailAlert implements InterfaceEmail {
         }
     }
 
+    private static final Logger logger = LoggerFactory.getLogger(EmailAlert.class);
+
     public static void main(String[] args) {
 
 
@@ -108,6 +123,9 @@ public class EmailAlert implements InterfaceEmail {
             emailAlert.sendEmail("safeTO <developers@csc207.joefang.org>",
                     user.getEmail(), "Monthly Crime Report", emailBody);
         }
+
+        // Log received user info (just an example, actual implementation might vary)
+        logger.info("Received user info: {}", userInfo);
     }
     private static String readTemplate(String path) {
         try {
@@ -149,6 +167,6 @@ public class EmailAlert implements InterfaceEmail {
     private static String generateReportContentForUser(User user) {
         // Implement this method to generate content based on user info
         // For example, you might use a Python script or another method to generate the content
-        return "Your customized report content here.";
+        return "Customized report content.";
     }
 }
