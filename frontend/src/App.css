@@ -208,17 +208,79 @@
   margin: 10px 0;
 }
 
+
+
+/* Container for the search input and button */
+.search-container {
+  position: relative; /* Ensure relative positioning for the container */
+  display: inline-block; /* Keep the input and button together */
+  width: 100%; /* Adjust width as needed */
+}
+
+/* Style for the search bar */
+.search-bar {
+  /* width: calc(100% - 110px); Adjust based on button width */
+  width: 80%; /* Adjust the width as needed */
+  padding: 10px;
+  font-size: 16px;
+  /* max-width: 85%; Responsive design: prevent overflowing on small screens */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+}
 .search-bar:focus {
   border-color: #007bff; /* Change the border color on focus */
   outline: none;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
+/* Style for the search button */
 .search-button {
   padding: 9px;
   font-size: 16px;
   width: 80px; /* Adjust the width as needed */
   max-width: 90%; /* Responsive design: prevent overflowing on small screens */
   margin: 0 10px;
-  
+}
+
+/* Container for the results list */
+.results-container {
+  position: absolute; /* Position the results absolutely */
+  top: 100%; /* Position just below the input/button */
+  left: 0;
+  width: 90%;
+  z-index: 1; /* Ensure it's above other content */
+  background-color: #fff; /* Background color */
+  border: 1px solid #ccc; /* Border to separate from other elements */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Shadow for elevation */
+}
+
+/* Style for the results list */
+.results-list {
+  max-height: 300px; /* Set a maximum height for the list */
+  overflow-y: auto; /* Enable vertical scrolling */
+  margin: 0;
+  padding: 0;
+  list-style-type: none; /* Remove default list styling */
+}
+
+/* Style for each list item */
+.results-list li {
+  padding: 8px; /* Add some padding for each list item */
+  border-bottom: 1px solid #ddd; /* Optional: Add a bottom border */
+}
+
+/* Style for the buttons inside list items */
+.results-list li button {
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  text-align: left;
+}
+
+/* Hover effect for list item buttons */
+.results-list li button:hover {
+  background-color: #f0f0f0; /* Optional: Add a hover effect */
 }

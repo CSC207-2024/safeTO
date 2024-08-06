@@ -5,6 +5,7 @@ import Profile from './Profile';
 import Map from './Map';
 import LocationSearch from './LocationSearch';
 import axios from 'axios';
+import { Marker } from 'react-leaflet';
 
 // Initial coordinates for Toronto
 const TorontoCoordinates = [43.651070, -79.347015];
@@ -29,14 +30,20 @@ const Home = () => {
     // State for managing coordinates from map hover
     const [coordinates, setCoordinates] = useState({ lat: null, lng: null });
 
+    // State for managing marker coordinates
+    const [markerCoordinates, setMarkerCoordinates] = useState(null);
+
+
     // Function to handle location selection from LocationSearch component
     const onSuggestSelect = (location) => {
         if (location) {
             const { lat, lng } = location;
+            setMarkerCoordinates({ lat, lng }); // Set marker coordinates
             if (mapRef.current && mapRef.current.flyTo) {
-                mapRef.current.flyTo([lat, lng], 13); // Fly to the selected location with zoom level 13
+                mapRef.current.flyTo([lat, lng], 15); // Fly to the selected location with zoom level 15
             }
         }
+        //alert(location);
     };
 
     // Function to handle changes in user information inputs
@@ -92,7 +99,13 @@ const Home = () => {
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
             {/* Map component with a reference and a function to set coordinates on hover */}
-            <Map ref={mapRef} setCoordinates={setCoordinates} />
+            <Map ref={mapRef} setCoordinates={setCoordinates}  >
+                {/* Render Marker if markerCoordinates is set */}
+                {markerCoordinates && (
+                    <Marker position={markerCoordinates} ></Marker>
+                )}
+            </Map>
+
             <div className="glassmorphism-header">
                 <h2>Welcome to <i className={"safe-text-color"}>safe</i><i className={"to-text-color"}>TO</i> <button class="btn" onClick={handleClick}>{showMessage ? 'ℹ Hide Message' : 'ℹ'} </button></h2>
                 {showMessage && (
@@ -103,6 +116,7 @@ const Home = () => {
                 
                 {/* LocationSearch component for searching locations */}
                 <LocationSearch onSuggestSelect={onSuggestSelect} />
+                
             </div>
             
             

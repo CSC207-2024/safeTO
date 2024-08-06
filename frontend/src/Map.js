@@ -30,6 +30,7 @@ const Map = forwardRef((props, ref) => {
 
   // State to track the currently hovered layer
   const [hoveredLayer, setHoveredLayer] = useState(null);
+  
 
   // Expose map methods to parent components
   useImperativeHandle(ref, () => ({
@@ -42,6 +43,7 @@ const Map = forwardRef((props, ref) => {
       if (mapRef.current) {
         mapRef.current.setView(coords, zoom);
       }
+      
     }
   }));
 
@@ -51,9 +53,10 @@ const Map = forwardRef((props, ref) => {
       .then((response) => response.json())
       .then((data) => setGeoJsonData(data)) // Set GeoJSON data
       .catch((error) => console.error('Error fetching GeoJSON data:', error));
-    if (mapRef.current) {
-      mapRef.current.setView([43.651070, -79.347015], 12); // Set initial view to Toronto with zoom level 16
-    }
+
+      if (mapRef.current) {
+        mapRef.current.setView([43.651070, -79.347015], 12); // Set initial view to Toronto with zoom level 16
+      }
   }, []);
 
   // Styles for GeoJSON features
@@ -80,9 +83,6 @@ const Map = forwardRef((props, ref) => {
 
     // Bind a popup to the layer
     layer.bindPopup(area.properties.Neighbourhood);
-    // layer.bindPopup(area.properties.Neighbourhood, {
-    //   className: 'leaflet-popup-custom' // Apply the custom class to the popup
-    // });
 
 
     layer.on({
@@ -145,12 +145,6 @@ const Map = forwardRef((props, ref) => {
 
       {/* Component to track mouse movements */}
       <HoverCoordinates setCoordinates={setCoordinates} />
-
-      {/* {LocationSearch.onSuggestSelect && (
-                <Marker position={LocationSearch.onSuggestSelect.result.geometry.location}>
-                    <Popup>Selected Location</Popup>
-                </Marker>
-      )} */}
 
     </MapContainer>
   );
