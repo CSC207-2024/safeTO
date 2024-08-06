@@ -11,7 +11,7 @@ is_my_laptop = os.environ.get("COMPUTERNAME") == "ARKG15"
 
 war_path = os.path.join(backend_dir, "app", "build", "libs", "ROOT.war")
 tomcat_path = os.getenv(
-    "SAFETO_BINARY_PATH",
+    "SAFETO_TOMCAT_PATH",
     (
         "{}\\Desktop\\apache-tomcat-10.1.26".format(os.environ["USERPROFILE"])
         if is_my_laptop
