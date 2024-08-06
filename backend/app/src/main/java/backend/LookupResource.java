@@ -1,5 +1,6 @@
 package backend;
 
+import jakarta.ws.rs.DefaultValue;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -22,7 +23,8 @@ public class LookupResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response lookup(@QueryParam("lat") float latitude, @QueryParam("long") float longitude) {
+    public Response lookup(@QueryParam("lat") @DefaultValue("43.7182639") float latitude,
+            @QueryParam("long") @DefaultValue("-79.7077207") float longitude) {
         Place place = ReverseGeocoding.resolve(latitude, longitude);
         if (place != null) {
             JsonObject response = new JsonObject();
