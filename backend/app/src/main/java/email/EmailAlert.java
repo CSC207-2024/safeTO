@@ -19,7 +19,7 @@ import java.nio.file.Paths;
 public class EmailAlert implements InterfaceEmail {
 
     private final String template;
-    private final String apiKey = "re_i1pt2D2k_FicY4UBY54YCiKFMjPQfNMwf";
+    private final String apiKey;
 
     /**
      * A public constructor that initializes the email template.
@@ -27,6 +27,10 @@ public class EmailAlert implements InterfaceEmail {
      */
     public EmailAlert(String template) {
         this.template = template;
+        this.apiKey = System.getenv("RESEND_API_KEY");
+        if (this.apiKey == null || this.apiKey.isEmpty()) {
+            throw new IllegalArgumentException("API key is not set.");
+        }
     }
 
     /**
@@ -113,7 +117,7 @@ public class EmailAlert implements InterfaceEmail {
     public static void main(String[] args) {
         EmailAlert emailAlert = new EmailAlert("<html><body><h1>{{title}}</h1><p>{{content}}</p></body></html>");
 
-        Map<String, String> map = emailAlert.parseInput("{title:Hello World,content:This is a test email}");
+        Map<String, String> map = emailAlert.parseInput("{title:Hello World,content:This is another test email}");
         String body = emailAlert.formatEmailBody(map);
 
         emailAlert.sendEmail("safeTO <developers@csc207.joefang.org>",
