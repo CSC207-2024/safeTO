@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Tooltip } from 'react-tippy';
 import 'react-tippy/dist/tippy.css';
 import './App.css';
@@ -12,7 +13,17 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
 
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
-    
+
+    // Function to handle data submission to the backend
+    const handleSave = async () => {
+        try {
+            await axios.post('https://csc207-api.joefang.org/userinfo', userInfo);
+            console.log('User info sent successfully');
+            closeModal();
+        } catch (error) {
+            console.error('Error sending user info:', error);
+        }
+    };
 
   return (
     <div>

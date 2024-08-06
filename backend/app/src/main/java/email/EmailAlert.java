@@ -119,7 +119,7 @@ public class EmailAlert implements InterfaceEmail {
 
             // Send email
             emailAlert.sendEmail("safeTO <developers@csc207.joefang.org>",
-                    user.getEmail(), "Monthly Crime Report", emailBody);
+                    user.getEmail(), "Annual Crime Report", emailBody);
         }
 
         // Log received user info (just an example, actual implementation might vary)
