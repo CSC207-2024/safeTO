@@ -23,16 +23,16 @@ public class SearchResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response lookup(@QueryParam("address") String query,
+    public Response search(@QueryParam("address") String query,
             @QueryParam("limit") @DefaultValue("Toronto, ON, Canada") String limit) {
+        if (!query.endsWith(limit)) {
+            query += " | " + limit;
+        }
         Place[] places = Geocoding.resolve(query);
-        if (place != null) {
+        if (places != null) {
             JsonObject response = new JsonObject();
-            response.add("_place", gson.toJsonTree(place));
-            response.addProperty("postalCode", place.getAddress().getPostcode());
-            response.addProperty("neighbourhood", place.getAddress().getNeighbourhood());
+            response.add("_places", gson.toJsonTree(places));
             JsonObject comments = new JsonObject();
-            comments.addProperty("is_neighbourhood_in_toronto_158", (String) null);
             response.add("_comments", comments);
             return Response.ok(
                     RESTfulResponseBuilder.create()
@@ -47,9 +47,8 @@ public class SearchResource {
                         .withOk(false)
                         .withMessage("Upstream API failed to respond")
                         .withData(String.format(
-                                "[Trace] Component: ReverseGeocoding.resolve(%f, %f)",
-                                latitude,
-                                longitude))
+                                "[Trace] Component: Geocoding.resolve(%s)",
+                                query))
                         .build())
                 .build();
     }
