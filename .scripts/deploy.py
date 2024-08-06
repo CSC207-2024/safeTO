@@ -51,6 +51,8 @@ if __name__ == "__main__":
         status = "error"
         message = str(err)
     finally:
+        print(f"status: {status}")
+        print(f"message: {message}")
         with open(
             os.path.join(current_dir, "deploy.log"), "a", encoding="utf-8"
         ) as fout:
