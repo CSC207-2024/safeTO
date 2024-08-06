@@ -28,6 +28,7 @@ const IconMarker = new Icon({
   iconUrl: icon
 });
 
+
 // Map component with forwardRef to allow parent components to control the map
 const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   // const { setCoordinates } = props;
@@ -141,6 +142,14 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
 
+  const [selectedRadius, setSelectedRadius] = useState('');
+  const [selectedThreshold, setSelectedThreshold] = useState('');
+
+  const handleChange = (event) => {
+    setSelectedRadius(event.target.value);
+    alert(`Selected radius: ${event.target.value}`);
+  };
+
   return (
     <div>
     <MapContainer center={position} zoom={12} style={{ height: '100vh', width: '100%' }} ref={mapRef}>
@@ -187,10 +196,35 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       overlayClassName="overlay">
         <button onClick={closeModal} className="close-button">x</button>
         <h2>Find more crime data at this place?</h2>
+
+        <div>
+          <label for="options" >Set the radius </label>
+          <select id="radius" name="options"  value={selectedRadius} onChange={handleChange} >
+            <option value="option50">50m</option>
+            <option value="option100">100m</option>
+            <option value="option200">200m</option>
+            <option value="option500">500m</option>
+            <option value="option1000">1000m</option>
+          </select> that incidents happened nearby; <br></br>
+
+          <label for="options" > To get probability that happens greater than </label>
+          <select id="options" name="options" value={selectedRadius} onChange={handleChange} >
+            <option value="option1">Once</option>
+            <option value="option2">Twice</option>
+            <option value="option3">3x</option>
+            {/* <option value="option4">4x</option> */}
+            <option value="option5">5x</option>
+            {/* <option value="option6">6x</option>
+            <option value="option7">7x</option>
+            <option value="option8">8x</option>
+            <option value="option9">9x</option> */}
+            <option value="option10">10x</option>
+          </select> 
+        </div>
+
         <div className="modal-buttons">
           <button className='modal-button'> Car Theft Data</button> 
           <button className='modal-button'> Break-In Data</button>
-
         </div>
         
       
