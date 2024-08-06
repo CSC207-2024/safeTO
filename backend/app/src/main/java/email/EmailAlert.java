@@ -4,6 +4,7 @@ import com.resend.Resend;
 import com.resend.services.emails.model.CreateEmailOptions;
 import com.resend.services.emails.model.CreateEmailResponse;
 import com.resend.services.emails.model.Email;
+import user.User;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -14,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
