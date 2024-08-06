@@ -84,6 +84,9 @@ const Home = () => {
     const toggleEdit = async () => {
         let errorMsg = '';
         if (isEditing) {
+            // Log user info
+            console.log('User Info being sent:', userInfo);
+
             try {
                 await axios.post('https://csc207-api.joefang.org', userInfo);
                 alert('Profile updated successfully');
@@ -96,30 +99,31 @@ const Home = () => {
             errorMsg += validateEmail(userInfo.email) ? '' : 'Invalid email format \n';
             errorMsg += validatePhoneNumber(userInfo.phoneNumber) ? '' : 'Invalid phone number format\n';
             errorMsg += validateAddress(userInfo.address) ? '' : 'Invalid address format\n';
-            
         }
-        if (errorMsg.length == 0) {
+
+        if (errorMsg.length === 0) {
             setIsEditing((prevEdit) => !prevEdit);
-        } else{
+        } else {
             alert(errorMsg);
         }
-        
-
     };
 
-    // Effect to fetch user profile data when component mounts
+    // function that send user info to backend
     useEffect(() => {
-        const fetchUserProfile = async () => {
+        const sendUserProfile = async () => {
             try {
-                const response = await axios.get('https://csc207-api.joefang.org');
-                setUserInfo(response.data);
+                await axios.post('https://csc207-api.joefang.org/user-profile', userInfo);
+                console.log('User profile sent successfully');
             } catch (error) {
-                console.error('Error fetching profile data:', error);
+                console.error('Error sending profile data:', error);
             }
         };
 
-        fetchUserProfile();
-    }, []);
+        if (userInfo) {
+            sendUserProfile();
+        }
+    }, [userInfo]);
+
 
     // Effect to set the initial view of the map to Toronto coordinates
     useEffect(() => {

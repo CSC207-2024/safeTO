@@ -9,5 +9,4 @@ import org.jfree.chart.JFreeChart;
 public interface Exportable {
     void writeToJson(Table table, String outputPath);
     void writeToJson(String jsonString, String outputPath);
-    void exportToSVG(JFreeChart chart, String outputPath);
 }
