@@ -4,8 +4,10 @@ import com.resend.Resend;
 import com.resend.services.emails.model.CreateEmailOptions;
 import com.resend.services.emails.model.CreateEmailResponse;
 import com.resend.services.emails.model.Email;
+import user.User;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
