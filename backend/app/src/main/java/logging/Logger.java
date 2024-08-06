@@ -29,7 +29,7 @@ import java.io.IOException;
 public class Logger {
     private static final String rootLoggerName = "backend";
     private static final String rootLoggerPrefix = rootLoggerName + ".";
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(rootLoggerName);
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getGlobal();
 
     static {
         try {

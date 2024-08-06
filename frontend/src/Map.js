@@ -102,6 +102,7 @@ const Map = forwardRef((props, ref) => {
 
 
       mouseover: (event) => {
+        console.log('mouseover')
         mouseInside = true; // Set flag to true when mouse enters
         event.target.setStyle(highlightStyle); // Highlight on hover
         
@@ -109,10 +110,12 @@ const Map = forwardRef((props, ref) => {
         
       },
       mouseout: (event) => {
+        console.log('mouseout')
         mouseInside = false; // Set flag to false when mouse leaves
         event.target.setStyle(defaultStyle); // Reset style only if highlight is not active
       },
       mousemove: (event) => {
+        console.log(`mousemove: ${mouseInside}`)
         if (mouseInside) {
           event.target.setStyle(highlightStyle); // Ensure highlight stays while mouse is inside
         } else {
