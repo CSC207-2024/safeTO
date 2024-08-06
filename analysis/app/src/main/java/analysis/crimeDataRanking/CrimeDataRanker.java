@@ -80,4 +80,24 @@ public class CrimeDataRanker {
         }
         return -1; // Not found
     }
+
+    /**
+     * Determines the safety level based on the ranking.
+     *
+     * @param ranking The ranking of the neighborhood.
+     * @param totalNeighborhoods The total number of neighborhoods.
+     * @return The safety level as a string.
+     */
+    public String getSafetyLevel(int ranking, int totalNeighborhoods) {
+        double percentile = (double) ranking / totalNeighborhoods;
+        if (percentile <= 0.25) {
+            return "Very Dangerous";
+        } else if (percentile <= 0.50) {
+            return "Moderately Dangerous";
+        } else if (percentile <= 0.75) {
+            return "Moderately Safe";
+        } else {
+            return "Very Safe";
+        }
+    }
 }
