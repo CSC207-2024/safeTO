@@ -13,7 +13,7 @@ war_path = os.path.join(backend_dir, "app", "build", "libs", "ROOT.war")
 tomcat_path = os.getenv(
     "SAFETO_BINARY_PATH",
     (
-        "%USERPROFILE%/Desktop/apache-tomcat-10.1.26"
+        "{}\\Desktop\\apache-tomcat-10.1.26".format(os.environ["USERPROFILE"])
         if is_my_laptop
         else "/home/vixen-kite-celery/apache-tomcat-10.1.26"  # GCP server
     ),
@@ -21,6 +21,8 @@ tomcat_path = os.getenv(
 
 
 def main():
+    os.chdir(current_dir)
+
     # Sync with the codebase on GitHub
     subprocess.run(args=("git", "pull"))
 
@@ -49,6 +51,8 @@ if __name__ == "__main__":
         status = "error"
         message = str(err)
     finally:
+        print(f"status: {status}")
+        print(f"message: {message}")
         with open(
             os.path.join(current_dir, "deploy.log"), "a", encoding="utf-8"
         ) as fout:

@@ -6,6 +6,7 @@ import access.manipulate.CrimeDataProcessor;
 import analysis.utils.GeoUtils;
 import com.google.gson.Gson;
 import tech.tablesaw.api.Row;
+import tech.tablesaw.api.Table;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -138,7 +139,7 @@ public class AutoTheftSafeCaseDemo {
             safeParkingLocationManager.addOrUpdateSafeLocation(randomLat, randomLon, randomProbability, randomRadius, randomThreshold);
         }
 
-        /*Table table = safeParkingLocationManager.getSafeLocationsTable();
+        Table table = safeParkingLocationManager.getSafeLocationsTable();
         System.out.println("Safe Parking Locations:");
         for (int i = 0; i < table.rowCount(); i++) {
             double lat = table.doubleColumn("Latitude").get(i);
@@ -149,6 +150,6 @@ public class AutoTheftSafeCaseDemo {
             int thresh = table.intColumn("Threshold").get(i);
             System.out.printf("Latitude: %.6f, Longitude: %.6f, Added Time: %s, Probability: %.4f%%, Radius: %d, Threshold: %d%n",
                     lat, lon, date, prob * 100, rad, thresh);
-        }*/
+        }
     }
 }
