@@ -6,7 +6,7 @@ import L from 'leaflet';
 import LocationSearch from './LocationSearch';
 import { Icon } from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
-
+// import icon from 'frontend/public/images/marker.png'
 
 // Component to track mouse movements and update coordinates
 const HoverCoordinates = ({ setCoordinates }) => {

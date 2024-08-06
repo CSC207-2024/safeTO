@@ -40,7 +40,7 @@ const Home = () => {
             const { lat, lng } = location;
             setMarkerCoordinates({ lat, lng }); // Set marker coordinates
             if (mapRef.current && mapRef.current.flyTo) {
-                mapRef.current.flyTo([lat, lng], 15); // Fly to the selected location with zoom level 15
+                mapRef.current.flyTo([lat, lng], 14); // Fly to the selected location with zoom level 15
             }
         }
         //alert(location);
