@@ -98,12 +98,18 @@ const Home = () => {
             errorMsg += validateAddress(userInfo.address) ? '' : 'Invalid address format\n';
             
         }
+
         if (errorMsg.length == 0) {
-            setIsEditing((prevEdit) => !prevEdit);
-        } else{
+            try {
+                await axios.post('https://csc207-api.joefang.org', userInfo);
+                alert('Profile updated successfully');
+                setIsEditing((prevEdit) => !prevEdit);
+            } catch (error) {
+                console.error('Error updating profile:', error);
+            }
+        } else {
             alert(errorMsg);
         }
-        
 
     };
 

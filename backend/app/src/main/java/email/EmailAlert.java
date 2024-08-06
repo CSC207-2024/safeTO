@@ -115,17 +115,38 @@ public class EmailAlert implements InterfaceEmail {
         }
     }
 
-    private static List<User> fetchUsers() { // TODO: implement this method
-        // Fetch and return a list of users from your database
-        return List.of(); // Placeholder
+    private static List<User> fetchUsers() {
+        // Placeholder implementation
+        List<User> users = new ArrayList<>();
+        try (Connection connection = DriverManager.getConnection("jdbc:yourdatabaseurl", "username", "password");
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("SELECT * FROM users")) {
+
+            while (resultSet.next()) {
+                User user = new User();
+                user.setEmail(resultSet.getString("email"));
+                user.setAddress(resultSet.getString("address"));
+                // Set other properties as needed
+                users.add(user);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 
     private static Map<String, String> generateReportData(User user) {
-        // Generate and return the report data for the user
         Map<String, String> data = new HashMap<>();
+        // Generate the report content based on the user's data
+        String reportContent = generateReportContentForUser(user);
         data.put("title", "Monthly Crime Report");
-        data.put("content", "Your customized report content here.");
+        data.put("content", reportContent);
         return data;
     }
-}
 
+    private static String generateReportContentForUser(User user) {
+        // Implement this method to generate content based on user info
+        // For example, you might use a Python script or another method to generate the content
+        return "Your customized report content here.";
+    }
+}
