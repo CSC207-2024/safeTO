@@ -171,4 +171,23 @@ public class CrimeDataProcessor implements Filterable, Aggregator {
         return df.summarize(colName, count).by(byColumns);
     }
 
+    /**
+     * Formats the neighbourhood column by removing the (ID).
+     * @param df
+     * @param columnName
+     */
+    public void formatNeighbourhoodColumn(Table df, String columnName) {
+        checkValidColumn(columnName);
+
+        StringColumn neighbourhoodColumn = df.stringColumn(columnName);
+        neighbourhoodColumn = neighbourhoodColumn.map(value -> {
+            if (value != null && value.contains(" (")) {
+                return value.substring(0, value.indexOf(" ("));
+            }
+            return value;
+        });
+        df.replaceColumn(columnName, neighbourhoodColumn);
+
+    }
+
 }
