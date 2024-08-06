@@ -99,12 +99,7 @@ const Home = () => {
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
             {/* Map component with a reference and a function to set coordinates on hover */}
-            <Map ref={mapRef} setCoordinates={setCoordinates}  >
-                {/* Render Marker if markerCoordinates is set */}
-                {markerCoordinates && (
-                    <Marker position={markerCoordinates} ></Marker>
-                )}
-            </Map>
+            <Map ref={mapRef} setCoordinates={setCoordinates} markerCoordinates={markerCoordinates}> </Map>
 
             <div className="glassmorphism-header">
                 <h2>Welcome to <i className={"safe-text-color"}>safe</i><i className={"to-text-color"}>TO</i> <button class="btn" onClick={handleClick}>{showMessage ? 'ℹ Hide Message' : 'ℹ'} </button></h2>

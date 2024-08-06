@@ -4,6 +4,8 @@ import 'leaflet/dist/leaflet.css';
 import 'esri-leaflet/dist/esri-leaflet';
 import L from 'leaflet';
 import LocationSearch from './LocationSearch';
+import { Icon } from 'leaflet';
+import icon from 'leaflet/dist/images/marker-icon.png';
 
 
 // Component to track mouse movements and update coordinates
@@ -17,9 +19,14 @@ const HoverCoordinates = ({ setCoordinates }) => {
   return null;
 };
 
+// Create the icon using Icon class from the leaflet.
+const IconMarker = new Icon({
+  iconUrl: icon
+});
+
 // Map component with forwardRef to allow parent components to control the map
-const Map = forwardRef((props, ref) => {
-  const { setCoordinates } = props;
+const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
+  // const { setCoordinates } = props;
   const position = [43.737207, -79.343448]; // Initial position for the map (Toronto)
   const mapRef = useRef(); // Reference to the map instance
 
@@ -148,6 +155,11 @@ const Map = forwardRef((props, ref) => {
 
       {/* Component to track mouse movements */}
       <HoverCoordinates setCoordinates={setCoordinates} />
+
+      {/* Render Marker if markerCoordinates is set */}
+      {markerCoordinates && (
+          <Marker position={markerCoordinates} icon={IconMarker} > </Marker>
+      )}
 
     </MapContainer>
   );

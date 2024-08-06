@@ -56,7 +56,6 @@ const LocationSearch = ({ onSuggestSelect}) => {
         setSelectedLocation([location.lat, location.lng]);
         onSuggestSelect(result.geometry.location, result.formatted_address);
         
-        // alert(selectedLocation);
     };
 
     

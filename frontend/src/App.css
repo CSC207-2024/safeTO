@@ -283,4 +283,5 @@
 /* Hover effect for list item buttons */
 .results-list li button:hover {
   background-color: #f0f0f0; /* Optional: Add a hover effect */
+  padding: 10px; /* Add some padding for each list item */
 }
