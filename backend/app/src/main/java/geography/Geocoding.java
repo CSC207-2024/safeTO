@@ -24,7 +24,7 @@ public class Geocoding {
     private static final Gson gson = GsonSingleton.getInstance();
     private static final Logger logger = Logger.getLogger(Geocoding.class.getName());
 
-    public Place[] resolve(String query) {
+    public static Place[] resolve(String query) {
         try {
             // Prepare the URL-encoded query string
             String url = String.format(NOMINATIM_URL, URLEncoder.encode(query, "UTF-8"));
@@ -57,9 +57,7 @@ public class Geocoding {
     }
 
     public static void main(String[] args) {
-        Geocoding geocoding = new Geocoding();
-        // Example usage: Replace "Bakery in Berlin" with any query of your choice
-        Place[] places = geocoding.resolve("Bakery in Berlin");
+        Place[] places = Geocoding.resolve("University of Toronto");
 
         // Output the results
         if (places != null) {
