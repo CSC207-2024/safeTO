@@ -5,7 +5,7 @@ import Profile from './Profile';
 import Map from './Map';
 import LocationSearch from './LocationSearch';
 import axios from 'axios';
-import { Marker } from 'react-leaflet';
+
 
 // Initial coordinates for Toronto
 const TorontoCoordinates = [43.651070, -79.347015];

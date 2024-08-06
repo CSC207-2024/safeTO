@@ -7,6 +7,10 @@ import LocationSearch from './LocationSearch';
 import { Icon } from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 // import icon from 'frontend/public/images/marker.png'
+import Modal from 'react-modal';
+
+// Configure the modal root element for accessibility
+Modal.setAppElement('#root');
 
 // Component to track mouse movements and update coordinates
 const HoverCoordinates = ({ setCoordinates }) => {
@@ -132,7 +136,13 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     });
   };
 
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => setModalIsOpen(true);
+  const closeModal = () => setModalIsOpen(false);
+
   return (
+    <div>
     <MapContainer center={position} zoom={12} style={{ height: '100vh', width: '100%' }} ref={mapRef}>
       {/* Tile layer for the map */}
       
@@ -158,14 +168,36 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
       {/* Render Marker if markerCoordinates is set */}
       {markerCoordinates && (
-          <Marker position={markerCoordinates} icon={IconMarker} >
+          <Marker position={markerCoordinates} icon={IconMarker} 
+            eventHandlers={{
+              dblclick: openModal,
+            }}>
             <Tooltip>
-              Click to view Stats
+              Double click to view Stats
             </Tooltip>          
           </Marker>
       )}
 
     </MapContainer>
+
+    <Modal
+      isOpen={modalIsOpen}
+      onRequestClose={closeModal}
+      className='modal-content'
+      overlayClassName="overlay">
+        <button onClick={closeModal} className="close-button">x</button>
+        <h2>Find more crime data at this place?</h2>
+        <div className="modal-buttons">
+          <button className='modal-button'> Car Theft Data</button> 
+          <button className='modal-button'> Break-In Data</button>
+
+        </div>
+        
+      
+    </Modal>
+
+    </div>
+
   );
 });
 
