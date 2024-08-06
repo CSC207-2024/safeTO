@@ -26,6 +26,7 @@ public class Usage {
         System.out.println(t.shape());
         CrimeDataProcessor processor = new CrimeDataProcessor();
         processor.setTable(t);
+        processor.formatNeighbourhoodColumn(t, "NEIGHBOURHOOD_140");
         String[] names = processor.getColumnNames();
         for (String n : names){
             System.out.println(n);
