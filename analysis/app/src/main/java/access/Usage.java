@@ -91,17 +91,6 @@ public class Usage {
         exporter.writeToJson(total_neighbourhood, path6);
         exporter.writeToJson(year_5_category, path7);
 
-//        access.manipulate.CrimeDataPlotter plotter = new access.manipulate.CrimeDataPlotter();
-//        JFreeChart barplot1 = plotter.barPlot(agg1, "OCC_YEAR", "Count [MCI_CATEGORY]", "Total Crime by Year", "Year", "Count");
-//        exporter.exportToSVG(barplot1, "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/total_by_year.svg");
-//        JFreeChart lineplot1 = plotter.linePlot(agg3, "OCC_YEAR", "Count [MCI_CATEGORY]","MCI_CATEGORY",
-//                "Total Crime by Year and Category", "Year", "Count");
-//        exporter.exportToSVG(lineplot1, "/Users/admin/Desktop/Github-Projects/safeTO/frontend/aggregates/by_year_category.svg");
-
-
-
-
-
     }
 
 }
