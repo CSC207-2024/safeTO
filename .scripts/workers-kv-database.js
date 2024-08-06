@@ -2,8 +2,20 @@ addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request));
 });
 
+/**
+ * @typedef {Object} AuthorizedUser
+ * @property {string} user - The username of the authorized user.
+ * @property {string} token - The authorization token.
+ * @property {string} [comment] - An optional comment associated with the user.
+ */
+
+/**
+ * @type {AuthorizedUser[]}
+ */
+const AUTHORIZED_USERS = env.AUTHORIZED_USERS;
+
 // Assuming env.AUTHORIZED_USERS is already a JavaScript list of objects
-const AUTH_TOKENS = new Set(env.AUTHORIZED_USERS.map(user => user.token));
+const AUTH_TOKENS = new Set(AUTHORIZED_USERS.map(user => user.token));
 
 // Main request handler
 async function handleRequest(request) {
