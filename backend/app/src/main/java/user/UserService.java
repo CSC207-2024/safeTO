@@ -1,11 +1,8 @@
 package user;
 
-import org.springframework.stereotype.Service;
+import java.util.Optional;
 
-@Service
-public class UserService {
-
-    public void saveUser(User user) {
-        // Implement saving logic here, e.g., save to a database
-    }
+public interface UserService {
+    void saveUser(User user);
+    Optional<User> getUserByEmail(String email);
 }

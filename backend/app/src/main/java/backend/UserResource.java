@@ -3,14 +3,17 @@ package backend;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-
-import user.UserService;
 import user.User;
+import user.UserService;
 
 @Path("/user")
 public class UserResource {
 
-    private final UserService userService = new UserService();
+    private final UserService userService;
+
+    public UserResource(UserService userService) {
+        this.userService = userService;
+    }
 
     @POST
     @Path("/userinfo")
@@ -20,11 +23,22 @@ public class UserResource {
         return Response.status(Response.Status.CREATED).build();
     }
 
+//    @GET
+//    @Path("/{id}")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Response getUser(@PathParam("id") int id) {
+//        User user = userService.getUser(id).orElse(null);
+//        if (user == null) {
+//            return Response.status(Response.Status.NOT_FOUND).build();
+//        }
+//        return Response.ok(user).build();
+//    }
+
     @GET
-    @Path("/{id}")
+    @Path("/by-email/{email}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getUser(@PathParam("id") int id) {
-        User user = userService.getUser(id);
+    public Response getUserByEmail(@PathParam("email") String email) {
+        User user = userService.getUserByEmail(email).orElse(null);
         if (user == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
