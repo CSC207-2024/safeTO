@@ -43,7 +43,7 @@ The API supports version history for each key, allowing users to track changes o
     - **key**: The specific key to retrieve.
   - **Optional**: None.
 - **Possible Responses**:
-  - **HTTP 200**: Successfully retrieved the latest visible version of the object.
+  - **HTTP 200**: `JSON: object` Successfully retrieved the latest visible version of the object.
   - **HTTP 404**: The specified key does not exist, or all versions of the object are marked as hidden.
   - **HTTP 400**: The request is missing the collection or key parameters.
   - **HTTP 405**: The request method is not allowed (e.g., if a POST request is sent).
@@ -104,7 +104,7 @@ The API supports version history for each key, allowing users to track changes o
     - **key**: The specific key for which the history is requested.
   - **Optional**: None.
 - **Possible Responses**:
-  - **HTTP 200**: Successfully retrieved the version history.
+  - **HTTP 200**: `JSON: {versions: [object], logs: []}` Successfully retrieved the version history.
   - **HTTP 404**: The specified key does not exist.
   - **HTTP 400**: The request is missing the collection or key parameters.
   - **HTTP 405**: The request method is not allowed.
@@ -124,7 +124,7 @@ The API supports version history for each key, allowing users to track changes o
   - **Optional**:
     - **cursor**: A cursor for pagination to retrieve more results.
 - **Possible Responses**:
-  - **HTTP 200**: Successfully listed the keys and their latest versions.
+  - **HTTP 200**: `JSON: {results: [{key: string, value: object}], cursor: string?, list_complete: boolean}` Successfully listed the keys and their latest versions.
   - **HTTP 400**: The request is missing the collection parameter.
   - **HTTP 405**: The request method is not allowed (e.g., if a POST request is sent).
 

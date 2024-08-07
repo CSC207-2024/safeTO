@@ -39,8 +39,24 @@ export default {
 	},
 }
 
+/**
+ * @param {string} collection 
+ * @param {string} key 
+ * @returns {string}
+ */
 function toPrimaryKey(collection, key) {
 	return `${collection}//${key}`
+}
+
+/**
+ * @param {string} string 
+ * @param {string} prefix 
+ * @returns {string}
+ */
+function removePrefix(string, prefix) {
+	if (string.startsWith(prefix)) {
+		return string.substring(prefix)
+	}
 }
 
 // Main request handler
@@ -290,7 +306,7 @@ async function handleList(params, username, request, env) {
 				// Return the latest visible version without _hidden property
 				const latestVersion = { ...visibleVersions[visibleVersions.length - 1] }
 				delete latestVersion._hidden
-				results.push({ key: name.replace(`${collection}//`, ''), value: latestVersion })
+				results.push({ key: removePrefix(name, `${collection}//`), value: latestVersion })
 			}
 		}
 	}
