@@ -40,17 +40,6 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.11.0'
     implementation 'org.jfree:jfreechart:1.5.5'
     implementation 'org.jfree:jfreesvg:3.4.3'
-
-    implementation files('lib/lib/guava-30.0-jre.jar')
-    implementation files('lib/lib/junit-jupiter-5.8.1.jar')
-    implementation files('lib/lib/junit-jupiter-api-5.8.1.jar')
-    implementation files('lib/lib/junit-jupiter-engine-5.8.1.jar')
-    implementation files('lib/lib/junit-jupiter-params-5.8.1.jar')
-    implementation files('lib/lib/junit-platform-commons-1.8.1.jar')
-    implementation files('lib/lib/junit-platform-engine-1.8.1.jar')
-    implementation files('lib/lib/opentest4j-1.2.0.jar')
-    implementation files('lib/lib/slf4j-api-1.7.30.jar')
-    implementation files('lib/lib/mockito-core-5.12.0.jar')
 }
 
 application {
@@ -69,6 +58,7 @@ jar {
             'Main-Class': application.mainClass.get()
         )
     }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
