@@ -29,7 +29,7 @@ export default {
 
 
 		function toPrimaryKey(collection, key) {
-			return `${collection}::${key}`;
+			return `${collection}/${key}`;
 		}
 
 		// Main request handler
