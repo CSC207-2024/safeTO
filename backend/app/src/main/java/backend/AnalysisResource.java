@@ -31,10 +31,10 @@ public class AnalysisResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/break-and-enter")
     public Response breakAndEnter(
-            @QueryParam("latitude") double latitude,
-            @QueryParam("longitude") double longitude,
-            @QueryParam("radius") int radius,
-            @QueryParam("threshold") int threshold) {
+            @QueryParam("latitude") @DefaultValue("43.6690207") double latitude,
+            @QueryParam("longitude") @DefaultValue("-79.3916043") double longitude,
+            @QueryParam("radius") @DefaultValue("200") int radius,
+            @QueryParam("threshold") @DefaultValue("5") int threshold) {
 
         String[] command = {
                 "java",
@@ -55,11 +55,11 @@ public class AnalysisResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/auto-theft")
     public Response autoTheft(
-            @QueryParam("latitude") double latitude,
-            @QueryParam("longitude") double longitude,
-            @QueryParam("radius") int radius,
-            @QueryParam("threshold") int threshold,
-            @QueryParam("earliestYear") int earliestYear) {
+            @QueryParam("latitude") @DefaultValue("43.6598045") double latitude,
+            @QueryParam("longitude") @DefaultValue("-79.3998783") double longitude,
+            @QueryParam("radius") @DefaultValue("200") int radius,
+            @QueryParam("threshold") @DefaultValue("5") int threshold,
+            @QueryParam("earliestYear") @DefaultValue("2021") int earliestYear) {
 
         String[] command = {
                 "java",
