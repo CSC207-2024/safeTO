@@ -5,7 +5,7 @@ import com.resend.services.emails.model.CreateEmailOptions;
 import com.resend.services.emails.model.CreateEmailResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import java.util.HashMap;
 import java.util.Map;
 
 public class EmailAlert implements InterfaceEmail {
@@ -17,7 +17,8 @@ public class EmailAlert implements InterfaceEmail {
 
     /**
      * A public constructor that initializes the email template and builder.
-     * @param template The email template in HTML format.
+     * 
+     * @param template     The email template in HTML format.
      * @param emailBuilder An EmailBuilder instance to build email parameters.
      */
     public EmailAlert(String template, EmailBuilder emailBuilder) {
@@ -31,6 +32,7 @@ public class EmailAlert implements InterfaceEmail {
 
     /**
      * Formats the email body using the provided template and parameters.
+     * 
      * @return The formatted email body.
      */
     public String formatEmailBody() {
@@ -44,10 +46,11 @@ public class EmailAlert implements InterfaceEmail {
 
     /**
      * Sends an email using the Resend service.
-     * @param from The sender's email address.
-     * @param to The recipient's email address.
+     * 
+     * @param from    The sender's email address.
+     * @param to      The recipient's email address.
      * @param subject The email subject.
-     * @param body The email body.
+     * @param body    The email body.
      */
     @Override
     public void sendEmail(String from, String to, String subject, String body) {
@@ -70,21 +73,23 @@ public class EmailAlert implements InterfaceEmail {
 
     public static void main(String[] args) {
 
-
-//      instantiate a new email builder and build parameters from map
+        // instantiate a new email builder and build parameters from map
         EmailBuilder builder = new EmailBuilder();
         builder.fromMap(new HashMap<>())
                 .setParameter("title", "Test Email")
                 .setParameter("content", "This is a new test email");
 
-        Map<String, Object> params = builder.build();
+        // Map<String, Object> params = builder.build();
 
-//      instantiate an email by putting in an html template (String), and parameters (Map)
-//      we used double curly brackets for placeholders
-        EmailAlert emailAlert = new EmailAlert("<html><body><h1>{{title}}</h1><p>{{content}}</p></body></html>", params);
-//      Method for formatting email body: replacing values into placeholders in template
+        // instantiate an email by putting in an html template (String), and parameters
+        // (Map)
+        // we used double curly brackets for placeholders
+        EmailAlert emailAlert = new EmailAlert("<html><body><h1>{{title}}</h1><p>{{content}}</p></body></html>",
+                builder);
+        // Method for formatting email body: replacing values into placeholders in
+        // template
         String body = emailAlert.formatEmailBody();
-//      Method for sending email
+        // Method for sending email
         emailAlert.sendEmail("safeTO <developers@csc207.joefang.org>",
                 "bilin.nong@mai.utoronto.ca",
                 "Test Email", body);
