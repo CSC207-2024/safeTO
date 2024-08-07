@@ -8,11 +8,13 @@ root_dir = os.path.dirname(current_dir)
 backend_dir = os.path.join(root_dir, "backend")
 analysis_dir = os.path.join(root_dir, "analysis")
 
-is_my_laptop = os.environ.get("COMPUTERNAME") == "ARKG15"
+is_my_laptop = os.getenv("COMPUTERNAME") == "ARKG15"
 
 war_path = os.path.join(backend_dir, "app", "build", "libs", "ROOT.war")
 jar_path = os.path.join(analysis_dir, "app", "build", "libs", "analysis.jar")
-SAFETO_ANALYSIS_PATH = "/home/vixen-kite-celery/safeto-analysis/analysis.jar"
+SAFETO_ANALYSIS_PATH = os.getenv(
+    "SAFETO_ANALYSIS_PATH", "/home/vixen-kite-celery/safeto-analysis/analysis.jar"
+)
 tomcat_path = os.getenv(
     "SAFETO_TOMCAT_PATH",
     (
