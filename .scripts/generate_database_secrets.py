@@ -22,7 +22,7 @@ for user in users:
     authorized_users.append(
         {
             "user": user,
-            "token": base64.urlsafe_b64encode(os.urandom(36)).decode(),
+            "token": "test-" + base64.urlsafe_b64encode(os.urandom(36)).decode(),
             "comment": "Purpose: Local Test",
         }
     )
@@ -30,7 +30,7 @@ for user in deployments:
     authorized_users.append(
         {
             "user": user,
-            "token": base64.urlsafe_b64encode(os.urandom(36)).decode(),
+            "token": "deploy-" + base64.urlsafe_b64encode(os.urandom(36)).decode(),
             "comment": "Purpose: Deployment",
         }
     )
