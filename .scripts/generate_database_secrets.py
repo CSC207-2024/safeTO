@@ -1,16 +1,12 @@
 import base64
+import json
 import os
-
-import toml
+import subprocess
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-output_path = os.path.join(current_dir, "database_secrets.toml")
-
-
-# Reference: <https://bit.ly/3SD0Eol>
-class InlineDict(dict, toml.decoder.InlineTableDict):
-    pass
-
+root_dir = os.path.dirname(current_dir)
+database_dir = os.path.join(root_dir, "database")
+output_path = os.path.join(current_dir, "database_secrets.json")
 
 users = (
     "joe.fang@mail.utoronto.ca",
@@ -24,28 +20,45 @@ deployments = ("gcp@joefang.org",)
 authorized_users = []
 for user in users:
     authorized_users.append(
-        InlineDict(
-            {
-                "user": user,
-                "token": base64.urlsafe_b64encode(os.urandom(36)).decode(),
-                "comment": "Purpose: Local Test",
-            }
-        )
+        {
+            "user": user,
+            "token": base64.urlsafe_b64encode(os.urandom(36)).decode(),
+            "comment": "Purpose: Local Test",
+        }
     )
 for user in deployments:
     authorized_users.append(
-        InlineDict(
-            {
-                "user": user,
-                "token": base64.urlsafe_b64encode(os.urandom(36)).decode(),
-                "comment": "Purpose: Deployment",
-            }
-        )
+        {
+            "user": user,
+            "token": base64.urlsafe_b64encode(os.urandom(36)).decode(),
+            "comment": "Purpose: Deployment",
+        }
     )
 
-with open(output_path, "w", encoding="utf-8") as fout:
-    toml.dump(
-        {"AUTHORIZED_USERS": authorized_users},
-        fout,
-        encoder=toml.TomlPreserveInlineDictEncoder(),
+
+def deploy(data: list[dict[str, str]]):
+    fragments = []
+
+    def convert_dict(data: dict[str, str]) -> str:
+        fragments = []
+        for key, value in data.items():
+            fragments.append(f"{key} = {json.dumps(value)}")
+        # print(fragments)
+        return "{{ {} }}".format(", ".join(fragments))
+
+    for part in data:
+        fragments.append(convert_dict(part))
+
+    result = "[ {} ]".format(", ".join(fragments))
+    print("len(result) =", len(result))
+    os.chdir(database_dir)
+    subprocess.run(
+        args=("wsl", "npx", "wrangler", "secret", "put", "AUTHORIZED_USERS"),
+        input=result.encode(),
     )
+    os.chdir(current_dir)
+
+
+deploy(authorized_users)
+with open(output_path, "w", encoding="utf-8") as fout:
+    json.dump(authorized_users, fout, indent=2)
