@@ -190,4 +190,7 @@ public class CrimeDataProcessor implements Filterable, Aggregator {
 
     }
 
+    public Table getTable() {
+        return df;
+    }
 }
