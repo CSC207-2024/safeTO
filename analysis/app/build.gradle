@@ -9,6 +9,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'org.springframework.boot' version '2.5.4'
 }
 
 repositories {
@@ -19,6 +20,17 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.4'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.4'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:2.5.4'
+    implementation 'org.springframework.boot:spring-boot-starter-security:2.5.4'
+    implementation 'org.springframework.boot:spring-boot-devtools:2.5.4'
+    implementation 'org.springframework:spring-context:5.3.9'
+    implementation 'org.springframework:spring-webmvc:5.3.9'
+    implementation 'org.springframework:spring-web:5.3.9'
+    implementation 'org.springframework:spring-core:5.3.9'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.4'
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
     testImplementation 'org.mockito:mockito-core:5.12.0'
@@ -43,9 +55,9 @@ dependencies {
 //    implementation name: 'slf4j-api-1.7.30'
 //    implementation name: 'tablesaw-core-0.43.1'
 //    implementation name: 'univocity-parsers-2.8.4'
-    implementation files('lib/lib/commons-math3-3.6.1.jar')
+//    implementation files('lib/lib/commons-math3-3.6.1.jar')
     implementation files('lib/lib/guava-30.0-jre.jar')
-    implementation files('lib/lib/jfreechart-1.5.5.jar')
+//    implementation files('lib/lib/jfreechart-1.5.5.jar')
     implementation files('lib/lib/junit-jupiter-5.8.1.jar')
     implementation files('lib/lib/junit-jupiter-api-5.8.1.jar')
     implementation files('lib/lib/junit-jupiter-engine-5.8.1.jar')
@@ -54,17 +66,15 @@ dependencies {
     implementation files('lib/lib/junit-platform-engine-1.8.1.jar')
     implementation files('lib/lib/opentest4j-1.2.0.jar')
     implementation files('lib/lib/slf4j-api-1.7.30.jar')
-    implementation files('lib/lib/tablesaw-core-0.43.1.jar')
-    implementation files('lib/lib/univocity-parsers-2.8.4.jar')
+//    implementation files('lib/lib/tablesaw-core-0.43.1.jar')
+//    implementation files('lib/lib/univocity-parsers-2.8.4.jar')
     implementation files('lib/lib/mockito-core-5.12.0.jar')
 }
 
 application {
-    // Define the main class for the application.
-    mainClass = 'analysis.App'
+    mainClass = 'analysis.com.example.crimeanalysis.CrimeAnalysisApplication'
 }
 
 tasks.named('test') {
-    // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
