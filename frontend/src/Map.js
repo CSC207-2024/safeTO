@@ -28,6 +28,14 @@ const IconMarker = new Icon({
   iconUrl: icon
 });
 
+const carTheftFucntion = () => {
+
+}
+
+const breakInFucntion = () => {
+
+}
+
 
 // Map component with forwardRef to allow parent components to control the map
 const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
@@ -207,7 +215,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
             <option value="option1000">1000m</option>
           </select> that incidents happened nearby; <br></br>
 
-          <label for="options" > To get probability that incident happens greater than </label>
+          <label for="options" > To get probability that incident would happen greater than </label>
           <select id="options" name="options" value={selectedRadius} onChange={handleChange} >
             <option value="option1">Once</option>
             <option value="option2">Twice</option>
@@ -234,8 +242,8 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
         </div>
 
         <div className="modal-buttons">
-          <button className='modal-button'> Car Theft Analysis</button> 
-          <button className='modal-button'> Break-In Analysis</button>
+          <button className='modal-button' onClick={carTheftFucntion} > Car Theft Analysis</button> 
+          <button className='modal-button' onClick={breakInFucntion} > Break-In Analysis</button>
         </div>
     </Modal>
 

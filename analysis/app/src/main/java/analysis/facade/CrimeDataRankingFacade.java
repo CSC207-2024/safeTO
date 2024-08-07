@@ -6,6 +6,9 @@ import access.manipulate.CrimeDataProcessor;
 import analysis.crimeDataRanking.*;
 import tech.tablesaw.api.Table;
 
+/**
+ * A facade class that provides a simplified interface to the crime data ranking system.
+ */
 public class CrimeDataRankingFacade {
     private final CrimeDataFetcher fetcher;
     private final CrimeDataConverter converter;
