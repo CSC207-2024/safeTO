@@ -13,6 +13,15 @@ addEventListener('fetch', event => {
  * @type {AuthorizedUser[]}
  */
 const AUTHORIZED_USERS = env.AUTHORIZED_USERS;
+const AUTHORIZED_USERS_SET = new Set(AUTHORIZED_USERS.map(obj => obj.token);
+const AUTHORIZED_USERS_MAP_TOKEN_TO_USER = new Map(AUTHORIZED_USERS.map(obj => [obj.token, obj.user])
+const RESTRICTED_KEYS = new Set(['_logs']);
+
+const KV = env.SAFETO; // the Workers KV binding name
+
+function toPrimaryKey(collection, key) {
+  return `${collection}::${key}`;
+}
 
 // Main request handler
 async function handleRequest(request) {
@@ -20,10 +29,10 @@ async function handleRequest(request) {
   const path = new URL(url).pathname.split('/').filter(Boolean);
 
   // Basic authentication check
-  const authHeader = request.headers.get('Authorization');
+  const authHeader = request.headers.get('authorization'); // format: authorization: Bearer <place_your_token_here>
   const token = authHeader && authHeader.split(' ')[1];
 
-  if (!AUTH_TOKENS.has(token)) {
+  if (!token || !AUTHORIZED_USERS_SET.has(token)) {
     return new Response('Unauthorized', { status: 401 });
   }
 
@@ -58,7 +67,8 @@ async function handleGet(params, method) {
     return new Response('Missing collection or key', { status: 400 });
   }
 
-  const data = await MY_KV_STORE.get(`${collection}:${key}`);
+  const primaryKey = toPrimaryKey(collection, key);
+  const data = await MY_KV_STORE.get(primaryKey);
 
   if (!data) {
     return new Response('Not Found', { status: 404 });
@@ -77,7 +87,7 @@ async function handleGet(params, method) {
 
   return new Response(JSON.stringify(responseObj), {
     headers: { 'Content-Type': 'application/json' },
-  });
+  }); // this is not RESTful at all...
 }
 
 // PUT function
@@ -92,13 +102,23 @@ async function handlePut(params, request, method, userToken) {
     return new Response('Missing collection or key', { status: 400 });
   }
 
+  if (RESTRICTED_KEYS.has(key) {
+    return new Response('Invalid key - unauthorized to modify this key', { status: 401});
+  }
+
   const newValue = await request.json();
 
   if (!newValue || typeof newValue !== 'object') {
     return new Response('Invalid payload', { status: 400 });
   }
 
-  const currentData = await MY_KV_STORE.get(`${collection}:${key}`);
+  const primaryKey = toPrimaryKey(collection, name);
+  if (newValue.hasOwnProperty('_hidden') {
+    // the _hidden is a reserved property. remove it if the user (un)intentially set it.
+    delete newValue._hidden;
+  }
+
+  const currentData = await MY_KV_STORE.get(primaryKey);
   const versionHistory = currentData ? JSON.parse(currentData) : { objects: [], _logs: [] };
 
   // Append new value with _hidden = false
@@ -107,12 +127,12 @@ async function handlePut(params, request, method, userToken) {
   // Log the operation
   const logEntry = {
     method: 'PUT',
-    user: userToken,  // Store the authenticated username
+    user: AUTHORIZED_USERS_MAP_TOKEN_TO_USER[userToken],  // Store the authenticated username without exposing the tokens to logs
     time: Date.now()  // Current time in UNIX timestamp
   };
   versionHistory._logs.push(logEntry);
 
-  await MY_KV_STORE.put(`${collection}:${key}`, JSON.stringify(versionHistory));
+  await KV.put(primaryKey, JSON.stringify(versionHistory));
 
   return new Response('Created', { status: 201 });
 }
@@ -129,7 +149,9 @@ async function handleDelete(params, method) {
     return new Response('Missing collection or key', { status: 400 });
   }
 
-  const currentData = await MY_KV_STORE.get(`${collection}:${key}`);
+  const primaryKey = toPrimaryKey(collection, key);
+
+  const currentData = await KV.get(primaryKey);
 
   if (!currentData) {
     return new Response('Not Found', { status: 404 });
@@ -141,12 +163,12 @@ async function handleDelete(params, method) {
   const updatedHistory = versionHistory.objects.map(version => ({ ...version, _hidden: true }));
   versionHistory.objects = updatedHistory;
 
-  await MY_KV_STORE.put(`${collection}:${key}`, JSON.stringify(versionHistory));
+  await KV.put(primaryKey, JSON.stringify(versionHistory));
 
   // Log the delete operation
   const logEntry = {
     method: 'DELETE',
-    user: userToken, // Store the authenticated username
+    user: AUTHORIZED_USERS_MAP_TOKEN_TO_USER[userToken], // Store the authenticated username
     time: Date.now()  // Current time in UNIX timestamp
   };
   versionHistory._logs.push(logEntry);
