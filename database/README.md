@@ -22,6 +22,10 @@ authorization: Bearer <put_your_api_key_here>
 
 Replace `<put_your_api_key_here>` with the actual API token sent to your email. **Do not store the token directly in your code.** Instead, set it as an environment variable named `SAFETO_DB_TOKEN`. If you suspect that your API key has been compromised, please contact us immediately at [i@joefang.org](mailto:i@joefang.org) for assistance in revoking and re-issuing your API key.
 
+## Version History and Deletion Mechanism
+
+The API supports version history for each key, allowing users to track changes over time. When a user updates a key using the `put` action, a new version is created and added to the version history. Each object in the version history includes a `_hidden` property that determines its visibility. To effectively "delete" a key, the API does not remove it from the database but rather marks all its versions as hidden. This approach ensures that the version history is maintained, allowing users to retrieve previous states if necessary. The use of the `_hidden` property provides a non-destructive way to manage data visibility while preserving the integrity of historical records.
+
 ## Endpoints
 
 ### Action: `get`
@@ -33,19 +37,16 @@ Replace `<put_your_api_key_here>` with the actual API token sent to your email. 
   GET /get/{collection}/{key}
   ```
 
+- **Parameters**:
+  - **Mandatory**:
+    - **collection**: The name of the collection.
+    - **key**: The specific key to retrieve.
+  - **Optional**: None.
 - **Possible Responses**:
-  - **HTTP 200**:
-    - **Description**: Successfully retrieved the latest visible version of the object.
-    - **Response Format**: Returns the object in JSON format, excluding the `_hidden` property.
-  - **HTTP 404**:
-    - **Description**: The specified key does not exist, or all versions of the object are marked as hidden.
-    - **Response Format**: An explanation message such as "Not Found".
-  - **HTTP 400**:
-    - **Description**: The request is missing the collection or key parameters.
-    - **Response Format**: An explanation message such as "Missing collection or key".
-  - **HTTP 405**:
-    - **Description**: The request method is not allowed (e.g., if a POST request is sent).
-    - **Response Format**: An explanation message such as "Method Not Allowed".
+  - **HTTP 200**: Successfully retrieved the latest visible version of the object.
+  - **HTTP 404**: The specified key does not exist, or all versions of the object are marked as hidden.
+  - **HTTP 400**: The request is missing the collection or key parameters.
+  - **HTTP 405**: The request method is not allowed (e.g., if a POST request is sent).
 
 ### Action: `put`
 
@@ -56,19 +57,17 @@ Replace `<put_your_api_key_here>` with the actual API token sent to your email. 
   PUT /put/{collection}/{key}
   ```
 
+- **Parameters**:
+  - **Mandatory**:
+    - **collection**: The name of the collection.
+    - **key**: The specific key to create or update.
+    - **Request Body**: A JSON object containing the value to be associated with the key.
+  - **Optional**: None.
 - **Possible Responses**:
-  - **HTTP 201**:
-    - **Description**: Successfully created or updated the object.
-    - **Response Format**: A confirmation message such as "Created".
-  - **HTTP 400**:
-    - **Description**: The request is missing the collection or key parameters, or the payload is invalid.
-    - **Response Format**: An explanation message, such as "Missing collection or key" or "Invalid payload".
-  - **HTTP 401**:
-    - **Description**: Attempted to modify a restricted key.
-    - **Response Format**: An explanation message such as "Invalid key - unauthorized to modify this key".
-  - **HTTP 405**:
-    - **Description**: The request method is not allowed (e.g., if a GET request is sent to this endpoint).
-    - **Response Format**: An explanation message such as "Method Not Allowed".
+  - **HTTP 201**: Successfully created or updated the object.
+  - **HTTP 400**: The request is missing the collection or key parameters, or the payload is invalid.
+  - **HTTP 401**: Attempted to modify a restricted key.
+  - **HTTP 405**: The request method is not allowed (e.g., if a GET request is sent to this endpoint).
 
 ### Action: `delete`
 
@@ -79,19 +78,16 @@ Replace `<put_your_api_key_here>` with the actual API token sent to your email. 
   DELETE /delete/{collection}/{key}
   ```
 
+- **Parameters**:
+  - **Mandatory**:
+    - **collection**: The name of the collection.
+    - **key**: The specific key to delete.
+  - **Optional**: None.
 - **Possible Responses**:
-  - **HTTP 204**:
-    - **Description**: Successfully deleted the key.
-    - **Response Format**: No content is returned.
-  - **HTTP 404**:
-    - **Description**: The specified key does not exist.
-    - **Response Format**: An explanation message such as "Not Found".
-  - **HTTP 400**:
-    - **Description**: The request is missing the collection or key parameters.
-    - **Response Format**: An explanation message such as "Missing collection or key".
-  - **HTTP 405**:
-    - **Description**: The request method is not allowed (e.g., if a PUT request is sent).
-    - **Response Format**: An explanation message such as "Method Not Allowed".
+  - **HTTP 204**: Successfully deleted the key.
+  - **HTTP 404**: The specified key does not exist.
+  - **HTTP 400**: The request is missing the collection or key parameters.
+  - **HTTP 405**: The request method is not allowed (e.g., if a PUT request is sent).
 
 ### Action: `history`
 
@@ -102,19 +98,16 @@ Replace `<put_your_api_key_here>` with the actual API token sent to your email. 
   GET /history/{collection}/{key}
   ```
 
+- **Parameters**:
+  - **Mandatory**:
+    - **collection**: The name of the collection.
+    - **key**: The specific key for which the history is requested.
+  - **Optional**: None.
 - **Possible Responses**:
-  - **HTTP 200**:
-    - **Description**: Successfully retrieved the version history.
-    - **Response Format**: A JSON object containing an array of visible versions and logs.
-  - **HTTP 404**:
-    - **Description**: The specified key does not exist.
-    - **Response Format**: An explanation message such as "Not Found".
-  - **HTTP 400**:
-    - **Description**: The request is missing the collection or key parameters.
-    - **Response Format**: An explanation message such as "Missing collection or key".
-  - **HTTP 405**:
-    - **Description**: The request method is not allowed.
-    - **Response Format**: An explanation message such as "Method Not Allowed".
+  - **HTTP 200**: Successfully retrieved the version history.
+  - **HTTP 404**: The specified key does not exist.
+  - **HTTP 400**: The request is missing the collection or key parameters.
+  - **HTTP 405**: The request method is not allowed.
 
 ### Action: `list`
 
@@ -125,16 +118,15 @@ Replace `<put_your_api_key_here>` with the actual API token sent to your email. 
   GET /list/{collection}?cursor={cursor}
   ```
 
+- **Parameters**:
+  - **Mandatory**:
+    - **collection**: The name of the collection.
+  - **Optional**:
+    - **cursor**: A cursor for pagination to retrieve more results.
 - **Possible Responses**:
-  - **HTTP 200**:
-    - **Description**: Successfully listed the keys and their latest versions.
-    - **Response Format**: A JSON object with the list of visible keys, their latest versions, and a cursor for pagination.
-  - **HTTP 400**:
-    - **Description**: The request is missing the collection parameter.
-    - **Response Format**: An explanation message such as "Missing collection".
-  - **HTTP 405**:
-    - **Description**: The request method is not allowed (e.g., if a POST request is sent).
-    - **Response Format**: An explanation message such as "Method Not Allowed".
+  - **HTTP 200**: Successfully listed the keys and their latest versions.
+  - **HTTP 400**: The request is missing the collection parameter.
+  - **HTTP 405**: The request method is not allowed (e.g., if a POST request is sent).
 
 ## Logging
 
@@ -144,3 +136,5 @@ The API automatically logs each operation for auditing purposes. Logs include th
 
 - The API restricts access to certain key names (e.g., `_logs`) to prevent unauthorized modifications.
 - Make sure to always handle responses according to the HTTP status codes indicated in each section.
+
+Feel free to reach out with any questions or for further assistance!
