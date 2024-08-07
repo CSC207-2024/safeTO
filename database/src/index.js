@@ -265,16 +265,21 @@ async function handleList(params, username, request, env) {
 		return new Response('Method Not Allowed', { status: 405 });
 	}
 
+	const url = new URL(request.url);
 	const collection = params[0];
+	const cursor = url.searchParams.get("cursor");
 
 	if (!collection) {
 		return new Response('Missing collection', { status: 400 });
 	}
 
-	const keys = await env.KV.list({ prefix: `${collection}//` });
+	const listOptions = { prefix: `${collection}//` };
+	if (cursor) listOptions.cursor = cursor;
+
+	const listResult = await env.KV.list(listOptions);
 	const results = [];
 
-	for (const { name } of keys.keys) {
+	for (const { name } of listResult.keys) {
 		const data = await env.KV.get(name, 'json');
 		if (data) {
 			const { objects } = data;
@@ -291,6 +296,8 @@ async function handleList(params, username, request, env) {
 	// Log the list operation
 	const logEntry = {
 		method: 'LIST',
+		collection,
+		cursor,
 		user: username,
 		time: Date.now()
 	};
@@ -301,7 +308,14 @@ async function handleList(params, username, request, env) {
 	logs._logs.push(logEntry);
 	await env.KV.put(logKey, JSON.stringify(logs));
 
-	return new Response(JSON.stringify(results), {
+	// Response with keys and cursor
+	const responsePayload = {
+		results,
+		cursor: listResult.cursor || null,
+		list_complete: listResult.list_complete
+	};
+
+	return new Response(JSON.stringify(responsePayload), {
 		headers: { 'Content-Type': 'application/json' },
 	});
 }
