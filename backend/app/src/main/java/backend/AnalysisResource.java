@@ -136,12 +136,11 @@ public class AnalysisResource {
             JsonElement parsedResult = gson.fromJson(outputString, JsonElement.class);
 
             responseData.add("result", parsedResult);
-
         } catch (Exception e) {
             return RESTfulResponseBuilder.create()
                     .withOk(false)
                     .withMessage("Error executing command: " + e.getMessage())
-                    .withData(null)
+                    .withData(responseData)
                     .build();
         }
         return RESTfulResponseBuilder.create()
