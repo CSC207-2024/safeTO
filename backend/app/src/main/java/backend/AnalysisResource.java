@@ -1,6 +1,5 @@
 package backend;
 
-import analysis.facade.CrimeAnalysisFacade;
 import builder.RESTfulResponseBuilder;
 
 import jakarta.ws.rs.*;
@@ -12,7 +11,15 @@ import java.io.InputStreamReader;
 
 @Path("/analysis")
 public class AnalysisResource {
-    private static final String ANALYSIS_JAR_PATH = "path/to/analysis.jar"; // Update this path as necessary
+    private static final String ANALYSIS_JAR_PATH;
+
+    static {
+        String analysisJarPath = System.getenv("SAFETO_ANALYSIS_PATH");
+        if (analysisJarPath == null) {
+            analysisJarPath = "/home/vixen-kite-celery/safeto-analysis/analysis.jar";
+        }
+        ANALYSIS_JAR_PATH = analysisJarPath;
+    }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
