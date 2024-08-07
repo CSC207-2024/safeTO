@@ -120,7 +120,6 @@ public class AnalysisResource {
         JsonObject responseData = new JsonObject();
         try {
             ProcessBuilder processBuilder = new ProcessBuilder(command);
-            processBuilder.redirectErrorStream(true); // Combine stderr and stdout
             Process process = processBuilder.start();
 
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
