@@ -26,6 +26,8 @@ dependencies {
     implementation 'com.google.guava:guava:31.1-jre'
     implementation 'tech.tablesaw:tablesaw-core:0.43.1'
     implementation 'com.google.code.gson:gson:2.11.0'
+    implementation 'org.jfree:jfreechart:1.5.5'
+    implementation 'org.jfree:jfreesvg:3.4.3'
 }
 
 application {
