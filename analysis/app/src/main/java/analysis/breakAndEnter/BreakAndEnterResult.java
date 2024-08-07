@@ -3,14 +3,28 @@ package analysis.breakAndEnter;
 import java.util.List;
 
 public class BreakAndEnterResult {
-    public int totalAggregatedData;
     public List<Incident> pastYearIncidents;
     public List<Incident> allKnownIncidents;
     public double probability;
     public String warning;
 
-    public BreakAndEnterResult(int totalAggregatedData, List<Incident> pastYearIncidents, List<Incident> allKnownIncidents, double probability, String warning) {
-        this.totalAggregatedData = totalAggregatedData;
+    public List<Incident> getPastYearIncidents() {
+        return pastYearIncidents;
+    }
+
+    public List<Incident> getAllKnownIncidents() {
+        return allKnownIncidents;
+    }
+
+    public double getProbability() {
+        return probability;
+    }
+
+    public String getWarning() {
+        return warning;
+    }
+
+    public BreakAndEnterResult(List<Incident> pastYearIncidents, List<Incident> allKnownIncidents, double probability, String warning) {
         this.pastYearIncidents = pastYearIncidents;
         this.allKnownIncidents = allKnownIncidents;
         this.probability = probability;

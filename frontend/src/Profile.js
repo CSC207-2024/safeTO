@@ -19,9 +19,9 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
   // Function to handle data submission to the backend
   const handleSave = async () => {
       try {
-          await axios.post('https://csc207-api.joefang.org/userinfo', userInfo);
-          console.log('User info sent successfully');
-          closeModal();
+        await axios.post(apiUrl, userInfo);
+        console.log('User info sent successfully');
+        closeModal();
       } catch (error) {
           console.error('Error sending user info:', error);
       }

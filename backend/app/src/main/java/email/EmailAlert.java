@@ -3,72 +3,57 @@ package email;
 import com.resend.Resend;
 import com.resend.services.emails.model.CreateEmailOptions;
 import com.resend.services.emails.model.CreateEmailResponse;
-import com.resend.services.emails.model.Email;
-
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.util.HashMap;
+import java.util.Map;
 
-
-
-/**
- * A public class that formats and sends email alerts.
- */
 public class EmailAlert implements InterfaceEmail {
-
 
     private final String template;
     private final String apiKey;
-    private final Map<String, Object> parameters;
+    private final EmailBuilder emailBuilder;
+    private static final Logger logger = LoggerFactory.getLogger(EmailAlert.class);
 
     /**
-     * A public constructor that initializes the email template.
-     * @param template The email template in HTML format.
+     * A public constructor that initializes the email template and builder.
+     * 
+     * @param template     The email template in HTML format.
+     * @param emailBuilder An EmailBuilder instance to build email parameters.
      */
-    public EmailAlert(String template, Map<String, Object> parameters) {
+    public EmailAlert(String template, EmailBuilder emailBuilder) {
         this.template = template;
-        this.parameters = parameters;
+        this.emailBuilder = emailBuilder;
         this.apiKey = System.getenv("RESEND_API_KEY");
         if (this.apiKey == null || this.apiKey.isEmpty()) {
             throw new IllegalArgumentException("API key is not set.");
         }
     }
 
-
-
     /**
-     * A public method that formats the email body.
-     * @return a String contains the formatted email body.
+     * Formats the email body using the provided template and parameters.
+     * 
+     * @return The formatted email body.
      */
     public String formatEmailBody() {
         String body = template;
+        Map<String, Object> parameters = emailBuilder.getParameters();
         for (Map.Entry<String, Object> entry : parameters.entrySet()) {
-            body = body.replace("{{" + entry.getKey() + "}}", (CharSequence) entry.getValue());
+            body = body.replace("{{" + entry.getKey() + "}}", entry.getValue().toString());
         }
         return body;
     }
 
     /**
-     * A public method that sends an email.
-     * @param from the sender's email address.
-     * @param to the recipient's email address.
-     * @param subject the email subject.
-     * @param body the email body.
+     * Sends an email using the Resend service.
+     * 
+     * @param from    The sender's email address.
+     * @param to      The recipient's email address.
+     * @param subject The email subject.
+     * @param body    The email body.
      */
     @Override
-    public void sendEmail(String from, String to, String subject, String body){
+    public void sendEmail(String from, String to, String subject, String body) {
         Resend resend = new Resend(apiKey);
 
         CreateEmailOptions request = CreateEmailOptions.builder()
@@ -79,92 +64,35 @@ public class EmailAlert implements InterfaceEmail {
                 .build();
 
         try {
-            CreateEmailResponse data = resend.emails().send(request);
-            System.out.println("Email sent successfully: " + data);
+            CreateEmailResponse response = resend.emails().send(request);
+            logger.info("Email sent successfully: {}", response);
         } catch (Exception e) {
-            System.err.println("Failed to send email: " + e.getMessage());
+            logger.error("Failed to send email: {}", e.getMessage());
         }
     }
 
-    private static final Logger logger = LoggerFactory.getLogger(EmailAlert.class);
-
     public static void main(String[] args) {
 
-
+        // instantiate a new email builder and build parameters from map
         EmailBuilder builder = new EmailBuilder();
         builder.fromMap(new HashMap<>())
                 .setParameter("title", "Test Email")
                 .setParameter("content", "This is a new test email");
 
-        Map<String, Object> params = builder.build();
+        // Map<String, Object> params = builder.build();
 
-
+        // instantiate an email by putting in an html template (String), and parameters
+        // (Map)
+        // we used double curly brackets for placeholders
         EmailAlert emailAlert = new EmailAlert("<html><body><h1>{{title}}</h1><p>{{content}}</p></body></html>",
-                params);
-
-
+                builder);
+        // Method for formatting email body: replacing values into placeholders in
+        // template
         String body = emailAlert.formatEmailBody();
+        // Method for sending email
+        emailAlert.sendEmail("safeTO <developers@csc207.joefang.org>",
+                "bilin.nong@mai.utoronto.ca",
+                "Test Email", body);
 
-        String templatePath = "safeTO/frontend/public/templates/monthlyReportEmail.html";
-        EmailAlert emailAlert = new EmailAlert("<html><body><h1>{{title}}</h1><p>{{content}}</p></body></html>");
-
-        // Fetch users
-        List<User> users = fetchUsers(); //TODO: Implement this method to get users
-
-
-        for (User user : users) {
-            // Generate email content
-            Map<String, String> data = generateReportData(user); // Implement this method
-            String emailBody = emailAlert.formatEmailBody(data);
-
-            // Send email
-            emailAlert.sendEmail("safeTO <developers@csc207.joefang.org>",
-                    user.getEmail(), "Annual Crime Report", emailBody);
-        }
-
-        // Log received user info (just an example, actual implementation might vary)
-        logger.info("Received user info: {}", userInfo);
-    }
-    private static String readTemplate(String path) {
-        try {
-            return new String(Files.readAllBytes(Paths.get(path)));
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to read template", e);
-        }
-    }
-
-    private static List<User> fetchUsers() {
-        // Placeholder implementation
-        List<User> users = new ArrayList<>();
-        try (Connection connection = DriverManager.getConnection("jdbc:yourdatabaseurl", "username", "password");
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT * FROM users")) {
-
-            while (resultSet.next()) {
-                User user = new User();
-                user.setEmail(resultSet.getString("email"));
-                user.setAddress(resultSet.getString("address"));
-                // Set other properties as needed
-                users.add(user);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return users;
-    }
-
-    private static Map<String, String> generateReportData(User user) {
-        Map<String, String> data = new HashMap<>();
-        // Generate the report content based on the user's data
-        String reportContent = generateReportContentForUser(user);
-        data.put("title", "Monthly Crime Report");
-        data.put("content", reportContent);
-        return data;
-    }
-
-    private static String generateReportContentForUser(User user) {
-        // Implement this method to generate content based on user info
-        // For example, you might use a Python script or another method to generate the content
-        return "Customized report content.";
     }
 }

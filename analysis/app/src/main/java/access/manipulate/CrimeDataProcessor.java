@@ -43,7 +43,7 @@ public class CrimeDataProcessor implements Filterable, Aggregator {
             if (df.columnNames().contains(column)) {
                 existingColumns.add(column);
             } else {
-                System.out.println("Column not found: " + column);
+                System.err.println("Column not found: " + column);
             }
         }
         return df.select(existingColumns.toArray(new String[0]));
@@ -173,6 +173,7 @@ public class CrimeDataProcessor implements Filterable, Aggregator {
 
     /**
      * Formats the neighbourhood column by removing the (ID).
+     * 
      * @param df
      * @param columnName
      */
@@ -190,4 +191,7 @@ public class CrimeDataProcessor implements Filterable, Aggregator {
 
     }
 
+    public Table getTable() {
+        return df;
+    }
 }
