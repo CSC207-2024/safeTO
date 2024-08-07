@@ -12,6 +12,5 @@ public class App extends ResourceConfig {
     public App() {
 
         packages("backend");
-        packages("user");
     }
 }

@@ -88,7 +88,7 @@ public class EmailAlert implements InterfaceEmail {
         }
     }
 
-    private static final Logger logger = LoggerFactory.getLogger(EmailAlert.class);
+//    private static final Logger logger = LoggerFactory.getLogger(EmailAlert.class);
 
     public static void main(String[] args) {
 
@@ -111,12 +111,12 @@ public class EmailAlert implements InterfaceEmail {
         EmailAlert emailAlert = new EmailAlert("<html><body><h1>{{title}}</h1><p>{{content}}</p></body></html>");
 
         // Fetch users
-        List<User> users = fetchUsers(); //TODO: Implement this method to get users
+//        List<User> users = fetchUsers(); //TODO: Implement this method to get users
 
 
         for (User user : users) {
             // Generate email content
-            Map<String, String> data = generateReportData(user); // Implement this method
+//            Map<String, String> data = generateReportData(user); // Implement this method
             String emailBody = emailAlert.formatEmailBody(data);
 
             // Send email
@@ -155,18 +155,18 @@ public class EmailAlert implements InterfaceEmail {
 //        return users;
 //    }
 
-    private static Map<String, String> generateReportData(User user) {
-        Map<String, String> data = new HashMap<>();
-        // Generate the report content based on the user's data
-        String reportContent = generateReportContentForUser(user);
-        data.put("title", "Monthly Crime Report");
-        data.put("content", reportContent);
-        return data;
-    }
+//    private static Map<String, String> generateReportData(User user) {
+//        Map<String, String> data = new HashMap<>();
+//        // Generate the report content based on the user's data
+//        String reportContent = generateReportContentForUser(user);
+//        data.put("title", "Monthly Crime Report");
+//        data.put("content", reportContent);
+//        return data;
+//    }
 
-    private static String generateReportContentForUser(User user) {
-        // Implement this method to generate content based on user info
-        // For example, you might use a Python script or another method to generate the content
-        return "Customized report content.";
-    }
-}
+//    private static String generateReportContentForUser(User user) {
+//        // Implement this method to generate content based on user info
+//        // For example, you might use a Python script or another method to generate the content
+//        return "Customized report content.";
+//    }
+//}

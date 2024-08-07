@@ -1,11 +1,14 @@
-package user;
+package backend;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import user.UserService;
+import user.User;
+
 @Path("/user")
-public class UserController {
+public class UserResource {
 
     private final UserService userService = new UserService();
 
