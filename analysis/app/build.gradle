@@ -72,9 +72,22 @@ dependencies {
 }
 
 application {
-    mainClass = 'analysis.com.example.crimeanalysis.CrimeAnalysisApplication'
+    mainClass = 'analysis.App'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+// Custom configuration for creating an Uber JAR
+jar {
+    archiveFileName.set('analysis.jar')
+    manifest {
+        attributes(
+            'Main-Class': application.mainClass.get()
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
