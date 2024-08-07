@@ -14,16 +14,18 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
 
-    // Function to handle data submission to the backend
-    const handleSave = async () => {
-        try {
-            await axios.post('https://csc207-api.joefang.org/userinfo', userInfo);
-            console.log('User info sent successfully');
-            closeModal();
-        } catch (error) {
-            console.error('Error sending user info:', error);
-        }
-    };
+  const apiUrl = 'https://csc207-api.joefang.org/user/userinfo';
+
+  // Function to handle data submission to the backend
+  const handleSave = async () => {
+      try {
+          await axios.post('https://csc207-api.joefang.org/userinfo', userInfo);
+          console.log('User info sent successfully');
+          closeModal();
+      } catch (error) {
+          console.error('Error sending user info:', error);
+      }
+  };
 
   return (
     <div>
