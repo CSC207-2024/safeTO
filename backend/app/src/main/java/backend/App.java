@@ -10,6 +10,7 @@ import jakarta.ws.rs.ApplicationPath;
 @ApplicationPath("/")
 public class App extends ResourceConfig {
     public App() {
+
         packages("backend");
     }
 }

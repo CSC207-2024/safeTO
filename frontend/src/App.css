@@ -130,6 +130,10 @@
   cursor: pointer;
 }
 
+.close-button:hover{
+  background-color: #a82330;
+}
+
 .save-button {
   padding: 10px 20px;
   background-color: #079cff;
@@ -139,6 +143,10 @@
   cursor: pointer;
 }
 
+.save-button:hover{
+  background-color:  #0c71b4;
+}
+
 .edit-button {
   padding: 10px 20px;
   background-color: #079cff;
@@ -146,6 +154,10 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.edit-button:hover{
+  background-color:  #0c71b4;
 }
 
 .profile-input {
@@ -298,3 +310,8 @@
   background-color: #0056b3;
 }
 
+.select-container {
+  margin: 10px;
+  line-height: 1.5;
+  
+}
