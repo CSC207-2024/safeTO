@@ -97,24 +97,6 @@ public class AnalysisResource {
         return Response.ok(result).build();
     }
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/list")
-    public Response list(@QueryParam("collection") String collection) {
-        // Logic to invoke the command to list entries in the collection
-        // Assuming the command to list looks like this
-        String[] command = {
-                "java",
-                "-jar",
-                ANALYSIS_JAR_PATH,
-                "list",
-                collection
-        };
-
-        String result = executeCommand(command);
-        return Response.ok(result).build();
-    }
-
     private String executeCommand(String[] command) {
         StringBuilder output = new StringBuilder();
         JsonObject responseData = new JsonObject();
