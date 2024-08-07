@@ -131,7 +131,7 @@ public class AnalysisResource {
 
             process.waitFor();
             String outputString = output.toString();
-            responseData.addProperty("_raw", outputString);
+            responseData.addProperty("_raw", outputString.substring(0, Math.min(outputString.length(), 160)));
             JsonElement parsedResult = gson.fromJson(outputString, JsonElement.class);
 
             responseData.add("result", parsedResult);
