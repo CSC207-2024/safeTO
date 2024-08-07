@@ -135,25 +135,25 @@ public class EmailAlert implements InterfaceEmail {
         }
     }
 
-    private static List<User> fetchUsers() {
-        // Placeholder implementation
-        List<User> users = new ArrayList<>();
-        try (Connection connection = DriverManager.getConnection("jdbc:yourdatabaseurl", "username", "password");
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT * FROM users")) {
-
-            while (resultSet.next()) {
-                User user = new User();
-                user.setEmail(resultSet.getString("email"));
-                user.setAddress(resultSet.getString("address"));
-                // Set other properties as needed
-                users.add(user);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return users;
-    }
+//    private static List<User> fetchUsers() {
+//        // Placeholder implementation
+//        List<User> users = new ArrayList<>();
+//        try (Connection connection = DriverManager.getConnection("jdbc:yourdatabaseurl", "username", "password");
+//             Statement statement = connection.createStatement();
+//             ResultSet resultSet = statement.executeQuery("SELECT * FROM users")) {
+//
+//            while (resultSet.next()) {
+//                User user = new User();
+//                user.setEmail(resultSet.getString("email"));
+//                user.setAddress(resultSet.getString("address"));
+//                // Set other properties as needed
+//                users.add(user);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return users;
+//    }
 
     private static Map<String, String> generateReportData(User user) {
         Map<String, String> data = new HashMap<>();
