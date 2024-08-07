@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * A facade class that provides a simplified interface to the break and enter analysis system.
+ */
 public class BreakAndEnterFacade {
 
     private final BreakAndEnterCalculator breakAndEnterCalculator;
