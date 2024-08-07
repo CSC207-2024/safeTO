@@ -78,6 +78,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     dashArray: '',
     fillOpacity: 0.7,
     fillColor: '#89CFEF' //Baby Blue
+    
   };
 
   const defaultStyle = {
@@ -114,22 +115,21 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
 
       mouseover: (event) => {
-        console.log('mouseover')
+        // console.log('mouseover')
         mouseInside = true; // Set flag to true when mouse enters
-        event.target.setStyle(highlightStyle); // Highlight on hover
-        
-        event.target.openPopup(); // Open the popup on mouseover
-        
+        // event.target.setStyle(highlightStyle); // Highlight on hover
       },
       mouseout: (event) => {
-        console.log('mouseout')
+        // console.log('mouseout')
         mouseInside = false; // Set flag to false when mouse leaves
-        event.target.setStyle(defaultStyle); // Reset style only if highlight is not active
+        // event.target.setStyle(defaultStyle); // Reset style only if highlight is not active
       },
       mousemove: (event) => {
-        console.log(`mousemove: ${mouseInside}`)
+        // console.log(`mousemove: ${mouseInside}`)
         if (mouseInside) {
           event.target.setStyle(highlightStyle); // Ensure highlight stays while mouse is inside
+          event.target.openPopup(); // Open the popup on mouseover
+
         } else {
           event.target.setStyle(defaultStyle);
         }
@@ -197,7 +197,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
         <button onClick={closeModal} className="close-button">x</button>
         <h2>Find more crime data at this place?</h2>
 
-        <div>
+        <div className='select-container'>
           <label for="options" >Set the radius </label>
           <select id="radius" name="options"  value={selectedRadius} onChange={handleChange} >
             <option value="option50">50m</option>
@@ -207,7 +207,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
             <option value="option1000">1000m</option>
           </select> that incidents happened nearby; <br></br>
 
-          <label for="options" > To get probability that happens greater than </label>
+          <label for="options" > To get probability that incident happens greater than </label>
           <select id="options" name="options" value={selectedRadius} onChange={handleChange} >
             <option value="option1">Once</option>
             <option value="option2">Twice</option>
@@ -219,15 +219,24 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
             <option value="option8">8x</option>
             <option value="option9">9x</option> */}
             <option value="option10">10x</option>
-          </select> 
+          </select>; <br></br>
+          
+          <label for="options" > </label>
+          (<i>Only for Break-In Analysis</i>) Since year
+          <select id="options" name="options" value={selectedRadius} onChange={handleChange} >
+          {Array.from({ length: 11 }, (_, index) => (
+            <option key={index} value={ (new Date().getFullYear()) - index}>
+              {2024 - index}
+            </option>
+          ))}
+          </select>; <br></br>
+
         </div>
 
         <div className="modal-buttons">
-          <button className='modal-button'> Car Theft Data</button> 
-          <button className='modal-button'> Break-In Data</button>
+          <button className='modal-button'> Car Theft Analysis</button> 
+          <button className='modal-button'> Break-In Analysis</button>
         </div>
-        
-      
     </Modal>
 
     </div>
