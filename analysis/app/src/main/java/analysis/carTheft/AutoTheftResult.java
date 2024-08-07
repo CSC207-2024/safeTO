@@ -3,7 +3,6 @@ package analysis.carTheft;
 import java.util.List;
 
 public class AutoTheftResult {
-    public int totalAggregatedData;
     public List<Incident> pastYearIncidents;
     public List<Incident> allKnownIncidents;
     public double probability;
@@ -11,8 +10,31 @@ public class AutoTheftResult {
     public String warning;
     public List<SafeParkingSpot> safeParkingSpots;
 
-    public AutoTheftResult(int totalAggregatedData, List<Incident> pastYearIncidents, List<Incident> allKnownIncidents, double probability, String probabilityMessage, String warning, List<SafeParkingSpot> safeParkingSpots) {
-        this.totalAggregatedData = totalAggregatedData;
+    public List<Incident> getPastYearIncidents() {
+        return pastYearIncidents;
+    }
+
+    public List<Incident> getAllKnownIncidents() {
+        return allKnownIncidents;
+    }
+
+    public double getProbability() {
+        return probability;
+    }
+
+    public String getProbabilityMessage() {
+        return probabilityMessage;
+    }
+
+    public String getWarning() {
+        return warning;
+    }
+
+    public List<SafeParkingSpot> getSafeParkingSpots() {
+        return safeParkingSpots;
+    }
+
+    public AutoTheftResult(List<Incident> pastYearIncidents, List<Incident> allKnownIncidents, double probability, String probabilityMessage, String warning, List<SafeParkingSpot> safeParkingSpots) {
         this.pastYearIncidents = pastYearIncidents;
         this.allKnownIncidents = allKnownIncidents;
         this.probability = probability;

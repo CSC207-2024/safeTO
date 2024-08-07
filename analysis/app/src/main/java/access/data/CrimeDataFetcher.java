@@ -12,7 +12,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-
 /**
  * A public class implements InterfaceDataFetcher It is responsible for
  * fetching JSON format data from a specified API.
@@ -20,7 +19,7 @@ import java.io.FileWriter;
 public class CrimeDataFetcher implements InterfaceDataFetcher {
     private final HttpClient httpClient = HttpClient.newHttpClient();
     private final String BASE_API_URL = "https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/Major_Crime_Indicators_Open_Data/FeatureServer/0/query?outFields=EVENT_UNIQUE_ID,OCC_DATE,OCC_YEAR,OCC_MONTH,OCC_DAY,OCC_DOY,OCC_DOW,OCC_HOUR,DIVISION,LOCATION_TYPE,PREMISES_TYPE,UCR_CODE,UCR_EXT,OFFENCE,MCI_CATEGORY,HOOD_140,NEIGHBOURHOOD_140,LONG_WGS84,LAT_WGS84,REPORT_DATE&outSR=4326&f=json";
-    private final String CACHE_DIR = "../cache/";
+    private final String CACHE_DIR = CacheDirectory.getCacheDir();
 
     /**
      * Constructs a CrimeDataFetcher.
@@ -56,23 +55,23 @@ public class CrimeDataFetcher implements InterfaceDataFetcher {
                     // ensure it is properly formatted for URL
                     String apiUrl = BASE_API_URL + "&where=" + URLEncoder.encode(whereClause, StandardCharsets.UTF_8)
                             + "&resultOffset=" + offset + "&resultRecordCount=2000";
-                    String cacheFileName = CACHE_DIR + year + "_" + offset + ".json";
+                    File cacheFile = new File(CACHE_DIR, String.format("%s_%s.json", year, offset));
                     JsonObject jsonResponse;
 
-                    if (new File(cacheFileName).exists()) {
-                        jsonResponse = gson.fromJson(new FileReader(cacheFileName), JsonObject.class);
+                    if (cacheFile.exists()) {
+                        jsonResponse = gson.fromJson(new FileReader(cacheFile), JsonObject.class);
                     } else {
                         HttpResponse<String> response = httpClient.send(HttpRequest.newBuilder()
-                                        .GET()
-                                        .uri(URI.create(apiUrl))
-                                        .setHeader("user-agent", "safeTO <analysis@csc207.joefang.org>")
-                                        .setHeader("accept", "application/json")
-                                        .build(),
+                                .GET()
+                                .uri(URI.create(apiUrl))
+                                .setHeader("user-agent", "safeTO <analysis@csc207.joefang.org>")
+                                .setHeader("accept", "application/json")
+                                .build(),
                                 HttpResponse.BodyHandlers.ofString());
 
                         jsonResponse = gson.fromJson(response.body(), JsonObject.class);
 
-                        try (FileWriter writer = new FileWriter(cacheFileName)) {
+                        try (FileWriter writer = new FileWriter(cacheFile)) {
                             gson.toJson(jsonResponse, writer);
                         }
                     }
@@ -104,7 +103,7 @@ public class CrimeDataFetcher implements InterfaceDataFetcher {
             throw new RuntimeException(e);
         }
 
-        System.out.println("Total aggregated data: " + aggregatedData.size());
+        System.err.println("Total aggregated data: " + aggregatedData.size());
         return aggregatedData;
     }
 }

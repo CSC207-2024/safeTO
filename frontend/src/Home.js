@@ -74,8 +74,8 @@ const Home = () => {
     };
 
     const validateAddress = (address) => {
-        // Basic address regex pattern (e.g., 123 Sample St, Toronto, A1A 1A1)
-        const addressPattern = /^\d+\s[A-z]+\s[A-z]+,\s[A-z]+,\s[A-Z]\d[A-Z]\s\d[A-Z]\d$/;
+        // Improved address regex pattern (e.g., 123 Sample St, Toronto, A1A 1A1)
+        const addressPattern = /^\d+\s([A-z]+\s?)+,\s[A-z]+,\s[A-Z]\d[A-Z]\s\d[A-Z]\d$/;
         return addressPattern.test(address);
     };
 

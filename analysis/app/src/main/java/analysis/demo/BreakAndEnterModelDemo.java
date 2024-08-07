@@ -1,8 +1,12 @@
-package analysis.breakAndEnter;
+package analysis.demo;
 
 import access.convert.CrimeDataConverter;
 import access.data.CrimeDataFetcher;
 import access.manipulate.CrimeDataProcessor;
+import analysis.breakAndEnter.BreakAndEnterCalculator;
+import analysis.breakAndEnter.BreakAndEnterData;
+import analysis.breakAndEnter.BreakAndEnterIncidentFetcher;
+import analysis.breakAndEnter.BreakAndEnterResult;
 import analysis.utils.GeoUtils;
 import com.google.gson.Gson;
 
@@ -11,30 +15,44 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * A demo class for analyzing and displaying break and enter data within a specified radius.
+ * A demo class for analyzing and displaying break and enter data within a
+ * specified radius.
  */
 public class BreakAndEnterModelDemo {
 
     /**
-     * The main method that runs the demo for analyzing and displaying break and enter data.
+     * The main method that runs the demo for analyzing and displaying break and
+     * enter data.
      *
-     * @param args Command-line arguments (not used).
+     * @param args Command-line arguments (latitude, longitude, radius, threshold).
      */
     public static void main(String[] args) {
-        CrimeDataFetcher fetcher = new CrimeDataFetcher();
-        CrimeDataConverter converter = new CrimeDataConverter();
-        CrimeDataProcessor processor = new CrimeDataProcessor();
-
-        BreakAndEnterIncidentFetcher breakAndEnterIncidentFetcher = new BreakAndEnterIncidentFetcher(fetcher, converter, processor);
-        BreakAndEnterCalculator breakAndEnterCalculator = new BreakAndEnterCalculator(breakAndEnterIncidentFetcher);
-
         double latitude = 43.8062893908425;
         double longitude = -79.1803868891903;
         int radius = 200;
         int threshold = 3; // Set threshold
 
+        if (args.length == 4) {
+            latitude = Double.parseDouble(args[0]);
+            longitude = Double.parseDouble(args[1]);
+            radius = Integer.parseInt(args[2]);
+            threshold = Integer.parseInt(args[3]);
+        } else if (args.length != 0) {
+            System.err.println("Usage: java BreakAndEnterModelDemo <latitude> <longitude> <radius> <threshold>");
+            System.exit(1);
+        }
+
+        CrimeDataFetcher fetcher = new CrimeDataFetcher();
+        CrimeDataConverter converter = new CrimeDataConverter();
+        CrimeDataProcessor processor = new CrimeDataProcessor();
+
+        BreakAndEnterIncidentFetcher breakAndEnterIncidentFetcher = new BreakAndEnterIncidentFetcher(fetcher, converter,
+                processor);
+        BreakAndEnterCalculator breakAndEnterCalculator = new BreakAndEnterCalculator(breakAndEnterIncidentFetcher);
+
         // Get break and enter data for the past year
-        List<BreakAndEnterData> pastYearData = breakAndEnterCalculator.getCrimeDataWithinRadiusPastYear(latitude, longitude, radius);
+        List<BreakAndEnterData> pastYearData = breakAndEnterCalculator.getCrimeDataWithinRadiusPastYear(latitude,
+                longitude, radius);
         pastYearData.sort(Comparator.comparing(BreakAndEnterData::getOccYear)
                 .thenComparing(BreakAndEnterData::getOccMonth)
                 .thenComparing(BreakAndEnterData::getOccDay)); // Sort by date
@@ -60,35 +78,38 @@ public class BreakAndEnterModelDemo {
         }
 
         // Calculate the average annual rate of incidents
-        double lambda = breakAndEnterCalculator.calculateAnnualAverageIncidents(allData); // Use the average annual rate of incidents as the λ value
+        double lambda = breakAndEnterCalculator.calculateAnnualAverageIncidents(allData); // Use the average annual rate
+                                                                                          // of incidents as the λ value
         double probability = breakAndEnterCalculator.calculatePoissonProbability(lambda, threshold);
 
         // Create warning message
         String warning = probability > 0.15 ? "Don't live here!" : "Safe to live here!";
 
-        // Print formatted output
-        System.out.println("Total aggregated data: " + allData.size());
-        System.out.println("All Break and Enter in the past year within the radius:");
+        // Print the results
+        System.err.println("All Break and Enter in the past year within the radius:");
         int index = 1;
         for (BreakAndEnterResult.Incident incident : pastYearIncidents) {
-            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, incident.occurDate, incident.distance);
+            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, incident.occurDate,
+                    incident.distance);
         }
-        System.out.println("ALL known Break and Enter within the radius:");
+
+        System.err.println("ALL known Break and Enter within the radius:");
         index = 1;
         for (BreakAndEnterResult.Incident incident : allKnownIncidents) {
-            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, incident.occurDate, incident.distance);
+            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, incident.occurDate,
+                    incident.distance);
         }
-        System.out.printf("Based on past data, within %dm of radius, there's a %.2f%% chance that break and enters happen more than %d time(s) within a year.%n", radius, probability * 100, threshold);
-        System.out.println(warning);
 
-        // Create result object for JSON output
-        BreakAndEnterResult breakAndEnterResult = new BreakAndEnterResult(allData.size(), pastYearIncidents, allKnownIncidents, probability, warning);
+        System.out.printf(
+                "Based on past data, within %dm of radius, there's a %.2f%% chance that break and enters happen more than %d time(s) within a year.%n",
+                radius, probability * 100, threshold);
+        System.err.println(warning);
 
-        // Convert result to JSON
+        // Create and print JSON result
+        BreakAndEnterResult result = new BreakAndEnterResult(pastYearIncidents, allKnownIncidents, probability,
+                warning);
         Gson gson = new Gson();
-        String jsonResult = gson.toJson(breakAndEnterResult);
-
-        // Print JSON result
-        System.out.println(jsonResult);
+        String jsonResult = gson.toJson(result);
+        System.err.println(jsonResult);
     }
 }
