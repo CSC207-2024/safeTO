@@ -14,7 +14,7 @@ public class App {
             System.err
                     .println(
                             "Usage for Auto Theft: auto_theft <latitude> <longitude> <radius> <threshold> <earliestYear>");
-            System.err.println("Usage for Ranking: type3 <neighborhood> [<specificCrime>]");
+            System.err.println("Usage for Ranking: ranking <neighborhood> [<specificCrime>]");
             return;
         }
 
@@ -49,9 +49,9 @@ public class App {
             AutoTheftResult result = facade.analyzeAutoTheft(latitude, longitude, radius, threshold, earliestYear);
             System.err.println("Auto Theft Result:");
             System.out.println(gson.toJson(result));
-        } else if ("type3".equals(type)) {
+        } else if ("ranking".equals(type)) {
             if (args.length < 2 || args.length > 3) {
-                System.out.println("Usage for Ranking: type3 <neighborhood> [<specificCrime>]");
+                System.out.println("Usage for Ranking: ranking <neighborhood> [<specificCrime>]");
                 return;
             }
             String neighborhood = args[1];
@@ -65,7 +65,7 @@ public class App {
             System.err
                     .println(
                             "Usage for Auto Theft: auto_theft <latitude> <longitude> <radius> <threshold> <earliestYear>");
-            System.err.println("Usage for Ranking: type3 <neighborhood> [<specificCrime>]");
+            System.err.println("Usage for Ranking: ranking <neighborhood> [<specificCrime>]");
         }
     }
 }
