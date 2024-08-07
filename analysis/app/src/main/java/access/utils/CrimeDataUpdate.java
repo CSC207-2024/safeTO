@@ -36,11 +36,11 @@ public class CrimeDataUpdate {
         Table newDataTable = getNewDataAsTable();
 
         // Print the updated table
-        System.out.println("Updated Table:");
-        System.out.println(updatedTable.print());
+        System.err.println("Updated Table:");
+        System.err.println(updatedTable.print());
 
         // Print the new data table
-        System.out.println("New Data Table:");
-        System.out.println(newDataTable.print());
+        System.err.println("New Data Table:");
+        System.err.println(newDataTable.print());
     }
 }

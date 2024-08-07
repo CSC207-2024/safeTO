@@ -26,11 +26,12 @@ public class NeighborhoodCrimeRankingDemo2 {
             jsonOutput.addProperty("safetyLevel", result.getSafetyLevel());
 
             // Print the results
-            System.out.println("The ranking of neighborhood '" + result.getNeighborhood() + "' by total crime is: " + result.getRanking());
-            System.out.println("Safety level: " + result.getSafetyLevel());
+            System.err.println("The ranking of neighborhood '" + result.getNeighborhood() + "' by total crime is: "
+                    + result.getRanking());
+            System.err.println("Safety level: " + result.getSafetyLevel());
 
             String jsonResult = gson.toJson(jsonOutput);
-            System.out.println(jsonResult);
+            System.err.println(jsonResult);
         } catch (Exception e) {
             e.printStackTrace();
         }

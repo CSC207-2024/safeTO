@@ -12,7 +12,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-
 /**
  * A public class implements InterfaceDataFetcher It is responsible for
  * fetching JSON format data from a specified API.
@@ -63,11 +62,11 @@ public class CrimeDataFetcher implements InterfaceDataFetcher {
                         jsonResponse = gson.fromJson(new FileReader(cacheFileName), JsonObject.class);
                     } else {
                         HttpResponse<String> response = httpClient.send(HttpRequest.newBuilder()
-                                        .GET()
-                                        .uri(URI.create(apiUrl))
-                                        .setHeader("user-agent", "safeTO <analysis@csc207.joefang.org>")
-                                        .setHeader("accept", "application/json")
-                                        .build(),
+                                .GET()
+                                .uri(URI.create(apiUrl))
+                                .setHeader("user-agent", "safeTO <analysis@csc207.joefang.org>")
+                                .setHeader("accept", "application/json")
+                                .build(),
                                 HttpResponse.BodyHandlers.ofString());
 
                         jsonResponse = gson.fromJson(response.body(), JsonObject.class);
@@ -104,7 +103,7 @@ public class CrimeDataFetcher implements InterfaceDataFetcher {
             throw new RuntimeException(e);
         }
 
-        System.out.println("Total aggregated data: " + aggregatedData.size());
+        System.err.println("Total aggregated data: " + aggregatedData.size());
         return aggregatedData;
     }
 }

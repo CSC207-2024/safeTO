@@ -28,16 +28,14 @@ public class NeighborhoodCrimeRankingDemo1 {
         // Create an instance of CrimeDataRanker
         CrimeDataRanker ranker = new CrimeDataRanker(processor);
 
-
-
-
         Gson gson = new Gson();
         JsonObject jsonOutput = new JsonObject();
         jsonOutput.addProperty("neighborhood", neighborhood);
 
         int totalNeighborhoods = table.stringColumn("NEIGHBOURHOOD_140").unique().size();
 
-        // Rank neighborhoods by specific crime and get the ranking of the specific neighborhood
+        // Rank neighborhoods by specific crime and get the ranking of the specific
+        // neighborhood
         int ranking = ranker.getSpecificCrimeNeighborhoodRanking(specificCrime, neighborhood);
         String safetyLevel;
         if (ranking != -1) {
@@ -45,17 +43,19 @@ public class NeighborhoodCrimeRankingDemo1 {
             jsonOutput.addProperty("specificCrimeRanking", ranking);
             jsonOutput.addProperty("crimeType", specificCrime);
             jsonOutput.addProperty("safetyLevel", safetyLevel);
-            System.out.println("The ranking of neighborhood '" + neighborhood + "' by specific crime ('" + specificCrime + "') is: " + ranking);
-            System.out.println("Safety level: " + safetyLevel);
+            System.err.println("The ranking of neighborhood '" + neighborhood + "' by specific crime ('" + specificCrime
+                    + "') is: " + ranking);
+            System.err.println("Safety level: " + safetyLevel);
         } else {
             safetyLevel = "Not applicable";
             jsonOutput.addProperty("specificCrimeRanking", "Not found");
             jsonOutput.addProperty("crimeType", specificCrime);
             jsonOutput.addProperty("safetyLevel", safetyLevel);
-            System.out.println("The neighborhood '" + neighborhood + "' is not found in the ranking for the specific crime ('" + specificCrime + "').");
+            System.err.println("The neighborhood '" + neighborhood
+                    + "' is not found in the ranking for the specific crime ('" + specificCrime + "').");
         }
 
         String jsonResult = gson.toJson(jsonOutput);
-        System.out.println(jsonResult);
+        System.err.println(jsonResult);
     }
 }

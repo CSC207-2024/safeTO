@@ -3,9 +3,7 @@ package analysis.facade;
 import analysis.breakAndEnter.BreakAndEnterResult;
 import analysis.carTheft.AutoTheftResult;
 import analysis.crimeDataRanking.NeighborhoodCrimeRankingResult;
-import org.springframework.stereotype.Service;
 
-@Service
 public class CrimeAnalysisFacade {
 
     private final BreakAndEnterFacade breakAndEnterFacade;
@@ -22,7 +20,8 @@ public class CrimeAnalysisFacade {
         return breakAndEnterFacade.analyze(latitude, longitude, radius, threshold);
     }
 
-    public AutoTheftResult analyzeAutoTheft(double latitude, double longitude, int radius, int threshold, int earliestYear) {
+    public AutoTheftResult analyzeAutoTheft(double latitude, double longitude, int radius, int threshold,
+            int earliestYear) {
         return autoTheftFacade.analyze(latitude, longitude, radius, threshold, earliestYear);
     }
 
