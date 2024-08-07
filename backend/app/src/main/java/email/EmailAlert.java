@@ -69,21 +69,25 @@ public class EmailAlert implements InterfaceEmail {
     }
 
     public static void main(String[] args) {
-        String template = "<html><body><h1>{{title}}</h1><p>{{content}}</p></body></html>";
+
+
+//      instantiate a new email builder and build parameters from map
         EmailBuilder builder = new EmailBuilder();
-        builder.setParameter("title", "Test Email")
+        builder.fromMap(new HashMap<>())
+                .setParameter("title", "Test Email")
                 .setParameter("content", "This is a new test email");
 
-        EmailAlert emailAlert = new EmailAlert(template, builder);
+        Map<String, Object> params = builder.build();
 
-        // Example user list and email sending logic
-        // List<User> users = fetchUsers(); // Implement user fetching if needed
+//      instantiate an email by putting in an html template (String), and parameters (Map)
+//      we used double curly brackets for placeholders
+        EmailAlert emailAlert = new EmailAlert("<html><body><h1>{{title}}</h1><p>{{content}}</p></body></html>", params);
+//      Method for formatting email body: replacing values into placeholders in template
+        String body = emailAlert.formatEmailBody();
+//      Method for sending email
+        emailAlert.sendEmail("safeTO <developers@csc207.joefang.org>",
+                "bilin.nong@mai.utoronto.ca",
+                "Test Email", body);
 
-        // For demonstration, using a static email list
-        String[] emailAddresses = {"zhangyiyun178@gmail.com", "yiyunzhang957@gmail.com"};
-        for (String email : emailAddresses) {
-            String emailBody = emailAlert.formatEmailBody();
-            emailAlert.sendEmail("safeTO <developers@csc207.joefang.org>", email, "Annual Crime Report", emailBody);
-        }
     }
 }
