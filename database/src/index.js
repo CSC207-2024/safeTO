@@ -30,7 +30,7 @@ export default {
 			AUTHORIZED_USERS_SET,
 			AUTHORIZED_USERS_MAP_TOKEN_TO_USER,
 			RESTRICTED_KEYS,
-			KV
+			KV,
 		};
 
 		return await handleRequest(request, apiEnv);
@@ -42,37 +42,42 @@ function toPrimaryKey(collection, key) {
 }
 
 // Main request handler
-async function handleRequest(request, apiEnv) {
+async function handleRequest(request, env) {
 	const url = new URL(request.url);
 	const path = url.pathname.split('/').filter(Boolean);
 
 	// Basic authentication check
 	const authHeader = request.headers.get('authorization'); // format: authorization: Bearer <place_your_token_here>
-	const token = authHeader && authHeader.split(' ')[1];
 
-	if (!token || !apiEnv.AUTHORIZED_USERS_SET.has(token)) {
+	if (!authHeader) {
+		return new Response('Unauthorized', { status: 401 });
+	}
+
+	const token = authHeader.split(' ')[1];
+
+	if (!token || !env.AUTHORIZED_USERS_SET.has(token)) {
 		return new Response('Unauthorized', { status: 401 });
 	}
 
 	// Look up the username associated with the token
-	const username = apiEnv.AUTHORIZED_USERS_MAP_TOKEN_TO_USER.get(token);
+	const username = env.AUTHORIZED_USERS_MAP_TOKEN_TO_USER.get(token);
 
 	// Determine action based on request path
 	const action = path[0];
 
 	switch (action) {
 		case 'get':
-			return await handleGet(path.slice(1), username, request, apiEnv);
+			return await handleGet(path.slice(1), username, request, env);
 		case 'put':
-			return await handlePut(path.slice(1), username, request, apiEnv);
+			return await handlePut(path.slice(1), username, request, env);
 		case 'delete':
-			return await handleDelete(path.slice(1), username, request, apiEnv);
+			return await handleDelete(path.slice(1), username, request, env);
 		case 'history':
-			return await handleHistory(path.slice(1), username, request, apiEnv);
+			return await handleHistory(path.slice(1), username, request, env);
 		case 'log':
-			return await handleLog(path.slice(1), username, request, apiEnv);
+			return await handleLog(path.slice(1), username, request, env);
 		case 'list':
-			return await handleList(path.slice(1), username, request, apiEnv);
+			return await handleList(path.slice(1), username, request, env);
 		default:
 			return new Response('Method Not Allowed', { status: 405 });
 	}
@@ -80,7 +85,7 @@ async function handleRequest(request, apiEnv) {
 
 
 // GET function
-async function handleGet(params, username, request, apiEnv) {
+async function handleGet(params, _username, request, env) {
 	if (request.method !== 'GET') {
 		return new Response('Method Not Allowed', { status: 405 });
 	}
@@ -92,7 +97,7 @@ async function handleGet(params, username, request, apiEnv) {
 	}
 
 	const primaryKey = toPrimaryKey(collection, key);
-	const data = await apiEnv.KV.get(primaryKey, 'json');
+	const data = await env.KV.get(primaryKey, 'json');
 
 	if (!data) {
 		return new Response('Not Found', { status: 404 });
@@ -110,12 +115,13 @@ async function handleGet(params, username, request, apiEnv) {
 	delete responseObj._hidden;
 
 	return new Response(JSON.stringify(responseObj), {
+		status: 200,
 		headers: { 'Content-Type': 'application/json' },
 	});
 }
 
 // PUT function
-async function handlePut(params, username, request, apiEnv) {
+async function handlePut(params, username, request, env) {
 	if (request.method !== 'PUT') {
 		return new Response('Method Not Allowed', { status: 405 });
 	}
@@ -126,7 +132,7 @@ async function handlePut(params, username, request, apiEnv) {
 		return new Response('Missing collection or key', { status: 400 });
 	}
 
-	if (apiEnv.RESTRICTED_KEYS.has(key)) {
+	if (env.RESTRICTED_KEYS.has(key)) {
 		return new Response('Invalid key - unauthorized to modify this key', { status: 401 });
 	}
 
@@ -143,7 +149,7 @@ async function handlePut(params, username, request, apiEnv) {
 		delete newValue._hidden;
 	}
 
-	const currentData = await apiEnv.KV.get(primaryKey, 'json');
+	const currentData = await env.KV.get(primaryKey, 'json');
 	const versionHistory = currentData || { objects: [], _logs: [] };
 
 	// Append new value with _hidden = false
@@ -157,13 +163,13 @@ async function handlePut(params, username, request, apiEnv) {
 	};
 	versionHistory._logs.push(logEntry);
 
-	await apiEnv.KV.put(primaryKey, JSON.stringify(versionHistory));
+	await env.KV.put(primaryKey, JSON.stringify(versionHistory));
 
 	return new Response('Created', { status: 201 });
 }
 
 // DELETE function
-async function handleDelete(params, username, request, apiEnv) {
+async function handleDelete(params, username, request, env) {
 	if (request.method !== 'DELETE') {
 		return new Response('Method Not Allowed', { status: 405 });
 	}
@@ -176,7 +182,7 @@ async function handleDelete(params, username, request, apiEnv) {
 
 	const primaryKey = toPrimaryKey(collection, key);
 
-	const currentData = await apiEnv.KV.get(primaryKey, 'json');
+	const currentData = await env.KV.get(primaryKey, 'json');
 
 	if (!currentData) {
 		return new Response('Not Found', { status: 404 });
@@ -187,7 +193,6 @@ async function handleDelete(params, username, request, apiEnv) {
 	// Mark all versions as hidden
 	versionHistory.objects = versionHistory.objects.map(version => ({ ...version, _hidden: true }));
 
-	await apiEnv.KV.put(primaryKey, JSON.stringify(versionHistory));
 
 	// Log the delete operation
 	const logEntry = {
@@ -196,13 +201,13 @@ async function handleDelete(params, username, request, apiEnv) {
 		time: Date.now() // Current time in UNIX timestamp
 	};
 	versionHistory._logs.push(logEntry);
-	await apiEnv.KV.put(toPrimaryKey(collection, '_logs'), JSON.stringify(versionHistory));
 
+	await env.KV.put(primaryKey, JSON.stringify(versionHistory));
 	return new Response('Deleted', { status: 204 });
 }
 
 // HISTORY function
-async function handleHistory(params, username, request, apiEnv) {
+async function handleHistory(params, _username, request, env) {
 	if (request.method !== 'GET') {
 		return new Response('Method Not Allowed', { status: 405 });
 	}
@@ -214,7 +219,7 @@ async function handleHistory(params, username, request, apiEnv) {
 	}
 
 	const primaryKey = toPrimaryKey(collection, key);
-	const data = await apiEnv.KV.get(primaryKey, 'json');
+	const data = await env.KV.get(primaryKey, 'json');
 
 	if (!data) {
 		return new Response('Not Found', { status: 404 });
@@ -229,7 +234,7 @@ async function handleHistory(params, username, request, apiEnv) {
 }
 
 // LOG function
-async function handleLog(params, username, request, apiEnv) {
+async function handleLog(params, _username, request, env) {
 	if (request.method !== 'POST') {
 		return new Response('Method Not Allowed', { status: 405 });
 	}
@@ -241,7 +246,7 @@ async function handleLog(params, username, request, apiEnv) {
 	}
 
 	const primaryKey = toPrimaryKey(collection, key);
-	const currentData = await apiEnv.KV.get(primaryKey, 'json');
+	const currentData = await env.KV.get(primaryKey, 'json');
 
 	if (!currentData) {
 		return new Response('Not Found', { status: 404 });
@@ -255,7 +260,7 @@ async function handleLog(params, username, request, apiEnv) {
 }
 
 // LIST function
-async function handleList(params, username, request, apiEnv) {
+async function handleList(params, username, request, env) {
 	if (request.method !== 'GET') {
 		return new Response('Method Not Allowed', { status: 405 });
 	}
@@ -266,11 +271,11 @@ async function handleList(params, username, request, apiEnv) {
 		return new Response('Missing collection', { status: 400 });
 	}
 
-	const keys = await apiEnv.KV.list({ prefix: `${collection}//` });
+	const keys = await env.KV.list({ prefix: `${collection}//` });
 	const results = [];
 
 	for (const { name } of keys.keys) {
-		const data = await apiEnv.KV.get(name, 'json');
+		const data = await env.KV.get(name, 'json');
 		if (data) {
 			const { objects } = data;
 			const visibleVersions = objects.filter(version => !version._hidden);
@@ -291,10 +296,10 @@ async function handleList(params, username, request, apiEnv) {
 	};
 
 	const logKey = toPrimaryKey(collection, '_logs');
-	const logData = await apiEnv.KV.get(logKey, 'json');
+	const logData = await env.KV.get(logKey, 'json');
 	const logs = logData || { objects: [], _logs: [] };
 	logs._logs.push(logEntry);
-	await apiEnv.KV.put(logKey, JSON.stringify(logs));
+	await env.KV.put(logKey, JSON.stringify(logs));
 
 	return new Response(JSON.stringify(results), {
 		headers: { 'Content-Type': 'application/json' },
