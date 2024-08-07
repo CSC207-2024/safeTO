@@ -55,11 +55,11 @@ public class CrimeDataFetcher implements InterfaceDataFetcher {
                     // ensure it is properly formatted for URL
                     String apiUrl = BASE_API_URL + "&where=" + URLEncoder.encode(whereClause, StandardCharsets.UTF_8)
                             + "&resultOffset=" + offset + "&resultRecordCount=2000";
-                    String cacheFileName = CACHE_DIR + year + "_" + offset + ".json";
+                    File cacheFile = new File(CACHE_DIR, String.format("%s_%s.json", year, offset));
                     JsonObject jsonResponse;
 
-                    if (new File(cacheFileName).exists()) {
-                        jsonResponse = gson.fromJson(new FileReader(cacheFileName), JsonObject.class);
+                    if (cacheFile.exists()) {
+                        jsonResponse = gson.fromJson(new FileReader(cacheFile), JsonObject.class);
                     } else {
                         HttpResponse<String> response = httpClient.send(HttpRequest.newBuilder()
                                 .GET()
@@ -71,7 +71,7 @@ public class CrimeDataFetcher implements InterfaceDataFetcher {
 
                         jsonResponse = gson.fromJson(response.body(), JsonObject.class);
 
-                        try (FileWriter writer = new FileWriter(cacheFileName)) {
+                        try (FileWriter writer = new FileWriter(cacheFile)) {
                             gson.toJson(jsonResponse, writer);
                         }
                     }
