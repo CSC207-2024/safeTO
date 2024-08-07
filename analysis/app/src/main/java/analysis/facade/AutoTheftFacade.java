@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * A facade class that provides a simplified interface to the auto theft analysis system.
+ */
 public class AutoTheftFacade {
 
     private final AutoTheftCalculator autoTheftCalculator;

@@ -4,6 +4,9 @@ import analysis.breakAndEnter.BreakAndEnterResult;
 import analysis.carTheft.AutoTheftResult;
 import analysis.crimeDataRanking.NeighborhoodCrimeRankingResult;
 
+/**
+ * A facade class that provides a simplified interface to the crime analysis system.
+ */
 public class CrimeAnalysisFacade {
 
     private final BreakAndEnterFacade breakAndEnterFacade;
