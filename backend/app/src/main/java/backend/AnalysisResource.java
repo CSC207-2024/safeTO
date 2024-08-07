@@ -9,9 +9,15 @@ import jakarta.ws.rs.core.Response;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import gson.GsonSingleton;
+
 @Path("/analysis")
 public class AnalysisResource {
     private static final String ANALYSIS_JAR_PATH;
+    private static final Gson gson = GsonSingleton.getInstance();
 
     static {
         String analysisJarPath = System.getenv("SAFETO_ANALYSIS_PATH");
@@ -111,6 +117,7 @@ public class AnalysisResource {
 
     private String executeCommand(String[] command) {
         StringBuilder output = new StringBuilder();
+        JsonObject responseData = new JsonObject();
         try {
             ProcessBuilder processBuilder = new ProcessBuilder(command);
             processBuilder.redirectErrorStream(true); // Combine stderr and stdout
@@ -124,6 +131,12 @@ public class AnalysisResource {
             }
 
             process.waitFor();
+            String outputString = output.toString();
+            responseData.addProperty("_raw", outputString);
+            JsonElement parsedResult = gson.fromJson(outputString, JsonElement.class);
+
+            responseData.add("result", parsedResult);
+
         } catch (Exception e) {
             return RESTfulResponseBuilder.create()
                     .withOk(false)
@@ -133,7 +146,7 @@ public class AnalysisResource {
         }
         return RESTfulResponseBuilder.create()
                 .withMessage("Command executed successfully")
-                .withData(output.toString())
+                .withData(responseData)
                 .build();
     }
 }
