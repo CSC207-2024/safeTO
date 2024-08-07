@@ -115,7 +115,7 @@ async function handlePut(params, request, method, userToken) {
 		return new Response('Missing collection or key', { status: 400 });
 	}
 
-	if (RESTRICTED_KEYS.has(key) {
+	if (RESTRICTED_KEYS.has(key)) {
 		return new Response('Invalid key - unauthorized to modify this key', { status: 401 });
 	}
 
@@ -126,7 +126,7 @@ async function handlePut(params, request, method, userToken) {
 	}
 
 	const primaryKey = toPrimaryKey(collection, name);
-	if (newValue.hasOwnProperty('_hidden') {
+	if (newValue.hasOwnProperty('_hidden')) {
 		// the _hidden is a reserved property. remove it if the user (un)intentially set it.
 		delete newValue._hidden;
 	}
