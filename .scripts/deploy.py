@@ -40,9 +40,8 @@ def main():
     subprocess.run(args=("gradlew.bat" if is_my_laptop else "./gradlew", "build"))
     os.chdir(current_dir)
 
-    if not is_my_laptop:
-        # Copy build result to the deploy folder
-        shutil.copyfile(jar_path, SAFETO_ANALYSIS_PATH)
+    # Copy build result to the deploy folder
+    shutil.copyfile(jar_path, SAFETO_ANALYSIS_PATH)
 
     # Gradle build - backend
     os.chdir(backend_dir)
