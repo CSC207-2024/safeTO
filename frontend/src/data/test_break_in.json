@@ -1,0 +1,535 @@
+{
+    "ok": true,
+    "message": "Command executed successfully",
+    "data": {
+      "_raw": "{\"pastYearIncidents\":[{\"occurDate\":\"2023-December-15\",\"distance\":157.2840690338466},{\"occurDate\":\"2023-November-23\",\"distance\":64.23764572552567},{\"occurDate\":\"",
+      "result": {
+        "pastYearIncidents": [
+          {
+            "occurDate": "2023-December-15",
+            "distance": 157.284069033847
+          },
+          {
+            "occurDate": "2023-November-23",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2023-November-23",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2024-April-30",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2024-April-30",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2024-February-8",
+            "distance": 82.8814216653609
+          },
+          {
+            "occurDate": "2024-January-27",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2024-June-21",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2024-March-13",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2024-March-22",
+            "distance": 186.89985905755
+          },
+          {
+            "occurDate": "2024-May-6",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2024-May-9",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2024-May-13",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2024-May-15",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2024-May-29",
+            "distance": 64.2376457255257
+          }
+        ],
+        "allKnownIncidents": [
+          {
+            "occurDate": "2014-January-2",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2014-July-16",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2014-March-12",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2014-November-25",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2015-December-7",
+            "distance": 96.0275306978329
+          },
+          {
+            "occurDate": "2015-December-7",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2015-December-13",
+            "distance": 96.0275306978329
+          },
+          {
+            "occurDate": "2015-January-10",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2015-January-16",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2015-July-26",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2015-July-30",
+            "distance": 96.0275306978329
+          },
+          {
+            "occurDate": "2015-March-21",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2015-May-29",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2015-September-2",
+            "distance": 82.8814216653609
+          },
+          {
+            "occurDate": "2016-April-22",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2016-December-5",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2016-December-23",
+            "distance": 96.0275306978329
+          },
+          {
+            "occurDate": "2016-December-27",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2016-February-15",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2016-January-2",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2016-June-3",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2016-June-27",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2016-March-11",
+            "distance": 186.89985905755
+          },
+          {
+            "occurDate": "2016-May-10",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2016-November-4",
+            "distance": 96.0275306978329
+          },
+          {
+            "occurDate": "2017-August-10",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2017-January-6",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2017-June-6",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2017-November-18",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2017-September-21",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2018-April-4",
+            "distance": 157.284069033847
+          },
+          {
+            "occurDate": "2018-April-8",
+            "distance": 157.284069033847
+          },
+          {
+            "occurDate": "2018-August-21",
+            "distance": 157.284069033847
+          },
+          {
+            "occurDate": "2018-December-23",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2018-December-25",
+            "distance": 157.284069033847
+          },
+          {
+            "occurDate": "2018-February-15",
+            "distance": 157.284069033847
+          },
+          {
+            "occurDate": "2018-July-8",
+            "distance": 82.8814216653609
+          },
+          {
+            "occurDate": "2018-November-12",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2018-September-12",
+            "distance": 82.8814216653609
+          },
+          {
+            "occurDate": "2018-September-16",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2019-April-2",
+            "distance": 82.8814216653609
+          },
+          {
+            "occurDate": "2019-April-17",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2019-December-3",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2019-December-31",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2019-February-15",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2019-July-5",
+            "distance": 96.0275306978329
+          },
+          {
+            "occurDate": "2019-October-5",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2019-October-22",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2019-October-22",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2019-September-7",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2019-September-15",
+            "distance": 157.284069033847
+          },
+          {
+            "occurDate": "2020-April-9",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2020-April-9",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2020-April-17",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2020-April-21",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2020-April-24",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2020-April-30",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2020-December-3",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2020-February-17",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2020-February-18",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2020-January-8",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2020-January-10",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2020-July-1",
+            "distance": 96.0275306978329
+          },
+          {
+            "occurDate": "2020-July-7",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2020-June-8",
+            "distance": 96.0275306978329
+          },
+          {
+            "occurDate": "2020-June-27",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2020-March-20",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2020-May-4",
+            "distance": 186.89985905755
+          },
+          {
+            "occurDate": "2020-May-9",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2020-October-9",
+            "distance": 82.8814216653609
+          },
+          {
+            "occurDate": "2021-April-7",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2021-December-11",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2021-February-27",
+            "distance": 82.8814216653609
+          },
+          {
+            "occurDate": "2021-January-21",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2021-January-29",
+            "distance": 96.0275306978329
+          },
+          {
+            "occurDate": "2021-July-16",
+            "distance": 157.284069033847
+          },
+          {
+            "occurDate": "2021-July-26",
+            "distance": 96.0275306978329
+          },
+          {
+            "occurDate": "2021-June-13",
+            "distance": 157.284069033847
+          },
+          {
+            "occurDate": "2021-June-14",
+            "distance": 82.8814216653609
+          },
+          {
+            "occurDate": "2021-March-4",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2021-March-6",
+            "distance": 96.0275306978329
+          },
+          {
+            "occurDate": "2021-March-17",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2021-November-6",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2022-February-22",
+            "distance": 82.8814216653609
+          },
+          {
+            "occurDate": "2022-July-14",
+            "distance": 157.284069033847
+          },
+          {
+            "occurDate": "2022-July-14",
+            "distance": 157.284069033847
+          },
+          {
+            "occurDate": "2022-July-28",
+            "distance": 96.0275306978329
+          },
+          {
+            "occurDate": "2022-March-22",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2022-November-20",
+            "distance": 82.8814216653609
+          },
+          {
+            "occurDate": "2023-December-15",
+            "distance": 157.284069033847
+          },
+          {
+            "occurDate": "2023-February-9",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2023-February-17",
+            "distance": 96.0275306978329
+          },
+          {
+            "occurDate": "2023-February-27",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2023-January-1",
+            "distance": 186.89985905755
+          },
+          {
+            "occurDate": "2023-January-3",
+            "distance": 186.89985905755
+          },
+          {
+            "occurDate": "2023-January-5",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2023-January-7",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2023-January-23",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2023-January-25",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2023-July-25",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2023-May-17",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2023-November-23",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2023-November-23",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2024-April-30",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2024-April-30",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2024-February-8",
+            "distance": 82.8814216653609
+          },
+          {
+            "occurDate": "2024-January-27",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2024-June-21",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2024-March-13",
+            "distance": 155.000784743416
+          },
+          {
+            "occurDate": "2024-March-22",
+            "distance": 186.89985905755
+          },
+          {
+            "occurDate": "2024-May-6",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2024-May-9",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2024-May-13",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2024-May-15",
+            "distance": 64.2376457255257
+          },
+          {
+            "occurDate": "2024-May-29",
+            "distance": 64.2376457255257
+          }
+        ],
+        "probability": 0.948272373642005,
+        "warning": "Don't live here!"
+      }
+    }
+  }

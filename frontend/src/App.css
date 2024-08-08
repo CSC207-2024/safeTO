@@ -315,3 +315,41 @@
   line-height: 1.5;
   
 }
+
+.analysis-results {
+  margin-top: 30px;
+  max-height: 400px; /* Adjust height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 1rem; /* Add some padding */
+  border: 2px solid #ddd; /* Optional: Add a border */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  background-color: #f9f9f9; /* Optional: Add a background color */
+}
+
+
+
+.scrollable-table-container {
+  max-height: 300px; /* Adjust height as needed */
+  overflow-y: auto;
+  margin-bottom: 16px;
+}
+
+.scrollable-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.scrollable-table th, .scrollable-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.scrollable-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.red-text {
+  color: blue;
+}
