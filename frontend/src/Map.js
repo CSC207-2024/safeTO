@@ -390,7 +390,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
           </div>
           
           <label for="year-select" > </label>
-          3. (<i>Only for Break-In Analysis</i>) Since year
+          3. (<i>Only for Break-In Analysis</i>) Since year &nbsp;
           <select id="year-select" name="year" value={selectedYear} onChange={handleYearChange} >
           {Array.from({ length: 11 }, (_, index) => (
             <option key={index} value={ (new Date().getFullYear()) - index}>
