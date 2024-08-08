@@ -452,14 +452,20 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {analysisResults.allKnownIncidents
-                    .sort((a, b) => a.distance - b.distance) // Sort by distance in ascending order
-                    .map((incident, index) => (
-                      <tr key={index}>
-                        <td>{incident.occurDate}</td>
-                        <td>{incident.distance.toFixed(1)}</td>
+                  {analysisResults.allKnownIncidents && Array.isArray(analysisResults.allKnownIncidents) && analysisResults.allKnownIncidents.length > 0 ? (
+                      analysisResults.allKnownIncidents
+                          .sort((a, b) => a.distance - b.distance) // Sort by distance in ascending order
+                          .map((incident, index) => (
+                              <tr key={index}>
+                                <td>{incident.occurDate}</td>
+                                <td>{incident.distance.toFixed(1)}</td>
+                              </tr>
+                          ))
+                  ) : (
+                      <tr>
+                        <td colSpan="2">No incidents to display</td>
                       </tr>
-                  ))}
+                  )}
                 </tbody>
               </table>
             </div>
