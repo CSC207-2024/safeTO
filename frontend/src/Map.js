@@ -161,7 +161,6 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   
 
   const handleRadiusChange = (e) => {
-    // console.log(e.target);
     // console.log(e.target.value, selectedRadius);
     setSelectedRadius(e.target.value);
     // console.log(e.target.value, selectedRadius);
@@ -216,7 +215,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       // Handle success (e.g., update UI or state)
     } catch (error) {
       console.error('Error:', error);
-      // Handle error
+      // Handle error interact
     }
 
     console.log(data);
