@@ -80,7 +80,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
           <h2>Neighbourhood: &nbsp; {neighbourhood}</h2>
           <p>Statistics and details about {neighbourhood}.</p>
           {/* TODO: add detail */}
-          <img src={'/images/histogram.png'} alt={neighbourhood}
+          <img src={'////images/histogram.png'} alt={neighbourhood}
                className="neighbourhood-image"/>
         </div>
       </div>
@@ -212,9 +212,9 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     console.log('Selected Year:', selectedYear);
 
     // for debug
-    console.log(testCarTheftData.data.result);
-    setAnalysisResults(testCarTheftData.data.result);
-    console.log(analysisResults);
+    // console.log(testCarTheftData.data.result);
+    // setAnalysisResults(testCarTheftData.data.result);
+    // console.log(analysisResults);
 
   }, [selectedYear]);
   
@@ -261,7 +261,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     url.searchParams.append('radius', parseInt(selectedRadius));
     url.searchParams.append('threshold', parseInt(selectedThreshold));
 
-    if (analysisType === 'breakIn') {
+    if (analysisType === 'carTheft') {
       url.searchParams.append('year', parseInt(selectedYear));
     }
 
@@ -391,7 +391,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
           </div>
           
           <label for="year-select" > </label>
-          3. (<i>Only for Break-In Analysis</i>) Since year &nbsp;
+          3. (<i>Only for Car Theft Analysis</i>) Since year &nbsp;
           <select id="year-select" name="year" value={selectedYear} onChange={handleYearChange} >
           {Array.from({ length: 11 }, (_, index) => (
             <option key={index} value={ (new Date().getFullYear()) - index}>
