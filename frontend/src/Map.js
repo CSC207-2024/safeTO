@@ -76,17 +76,17 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       <div className={overlayClassName}>
         <div className={className}>
           <button onClick={closeModalTwo} className="close-button">x</button>
-        
+
           <h2>Neighbourhood: &nbsp; {neighbourhood}</h2>
           <p>Statistics and details about {neighbourhood}.</p>
-
           {/* TODO: add detail */}
+          <img src={'/images/histogram.png'} alt={neighbourhood}
+               className="neighbourhood-image"/>
         </div>
       </div>
     );
   };
 
-  
 
   // Expose map methods to parent components
   useImperativeHandle(ref, () => ({
