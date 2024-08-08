@@ -181,7 +181,14 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
   const sendToBackend = async (analysisType) => {
     
-    const data = {
+    const carTheftData = {
+      radius: selectedRadius,
+      threshold: selectedThreshold,
+      // year: selectedYear,
+      analysisType: analysisType
+    };
+
+    const breakInData = {
       radius: selectedRadius,
       threshold: selectedThreshold,
       year: selectedYear,
@@ -189,14 +196,22 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     };
 
     try {
-      const response = await fetch('https://csc207-api.joefang.org', {
+
+      const response = '';
+      (analysisType == 'carTheft')?
+      response = await fetch('https://csc207-api.joefang.org/break-and-enter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
-        
-      });
+        body: JSON.stringify(carTheftData)
+      }): await fetch('https://csc207-api.joefang.org/auto-theft', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(breakInData)
+      })
 
       if (response.ok) {
         const result = await response.json();
@@ -211,7 +226,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       // Handle error
     }
 
-    console.log(data);
+    console.log(carTheftData, breakInData);
   };
 
   const carTheftFunction = () => {
