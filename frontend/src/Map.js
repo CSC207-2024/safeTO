@@ -208,6 +208,8 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     }
 
     url.searchParams.append('analysisType', analysisType);
+    
+    console.log(url, url.searchParams);
 
     try {
       // Perform the GET request with the constructed URL
