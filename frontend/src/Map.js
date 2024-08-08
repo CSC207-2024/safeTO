@@ -28,15 +28,6 @@ const IconMarker = new Icon({
   iconUrl: icon
 });
 
-const carTheftFucntion = () => {
-
-}
-
-const breakInFucntion = () => {
-
-}
-
-
 // Map component with forwardRef to allow parent components to control the map
 const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   // const { setCoordinates } = props;
@@ -150,13 +141,103 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
 
-  const [selectedRadius, setSelectedRadius] = useState('');
-  const [selectedThreshold, setSelectedThreshold] = useState('');
 
-  const handleChange = (event) => {
-    setSelectedRadius(event.target.value);
-    alert(`Selected radius: ${event.target.value}`);
+  // Variables to store user selected parameters
+  const [selectedRadius, setSelectedRadius] = useState('50m');
+  const [selectedThreshold, setSelectedThreshold] = useState('1x');
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    console.log('Selected Radius:', selectedRadius);
+  }, [selectedRadius]);
+
+  useEffect(() => {
+    console.log('Selected Threshold:', selectedThreshold);
+  }, [selectedThreshold]);
+
+  useEffect(() => {
+    console.log('Selected Year:', selectedYear);
+  }, [selectedYear]);
+  
+
+  const handleRadiusChange = (e) => {
+    // console.log(e.target);
+    // console.log(e.target.value, selectedRadius);
+    setSelectedRadius(e.target.value);
+    // console.log(e.target.value, selectedRadius);
+
   };
+
+  const handleThresholdChange = (e) => {
+    setSelectedThreshold(e.target.value);
+    // console.log(e.target.value, selectedThreshold);
+
+  };
+
+  const handleYearChange = (e) => {
+    setSelectedYear(e.target.value);
+    // console.log(e.target.value, selectedYear);
+  };
+
+  const sendToBackend = async (analysisType) => {
+    
+    const carTheftData = {
+      radius: selectedRadius,
+      threshold: selectedThreshold,
+      // year: selectedYear,
+      analysisType: analysisType
+    };
+
+    const breakInData = {
+      radius: selectedRadius,
+      threshold: selectedThreshold,
+      year: selectedYear,
+      analysisType: analysisType
+    };
+
+    try {
+
+      const response = '';
+      (analysisType == 'carTheft')?
+      response = await fetch('https://csc207-api.joefang.org/break-and-enter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(carTheftData)
+      }): await fetch('https://csc207-api.joefang.org/auto-theft', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(breakInData)
+      })
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log(result);
+        // Handle success
+      } else {
+        console.error('Error:', response.statusText);
+        // Handle error
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle error
+    }
+
+    console.log(carTheftData, breakInData);
+  };
+
+  const carTheftFunction = () => {
+    sendToBackend('carTheft');
+    
+  };
+
+  const breakInFunction = () => {
+    sendToBackend('breakIn');
+  };
+
 
   return (
     <div>
@@ -206,32 +287,32 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
         <h2>Find more crime data at this place?</h2>
 
         <div className='select-container'>
-          <label for="options" >Set the radius </label>
-          <select id="radius" name="options"  value={selectedRadius} onChange={handleChange} >
-            <option value="option50">50m</option>
-            <option value="option100">100m</option>
-            <option value="option200">200m</option>
-            <option value="option500">500m</option>
-            <option value="option1000">1000m</option>
+          <label for="radius-select" >Set the radius </label>
+          <select id="radius-select" name="radius"  value={selectedRadius} onChange={handleRadiusChange} >
+            <option value="50">50m</option>
+            <option value="100">100m</option>
+            <option value="200">200m</option>
+            <option value="500">500m</option>
+            <option value="1000">1000m</option>
           </select> that incidents happened nearby; <br></br>
 
-          <label for="options" > To get probability that incident would happen greater than </label>
-          <select id="options" name="options" value={selectedRadius} onChange={handleChange} >
-            <option value="option1">Once</option>
-            <option value="option2">Twice</option>
-            <option value="option3">3x</option>
+          <label for="threshold-select" > To get probability that incident would happen greater than </label>
+          <select id="threshold-select" name="threshold" value={selectedThreshold} onChange={handleThresholdChange} >
+            <option value="1x">Once</option>
+            <option value="2x">Twice</option>
+            <option value="3x">3x</option>
             {/* <option value="option4">4x</option> */}
-            <option value="option5">5x</option>
+            <option value="5x">5x</option>
             {/* <option value="option6">6x</option>
             <option value="option7">7x</option>
             <option value="option8">8x</option>
             <option value="option9">9x</option> */}
-            <option value="option10">10x</option>
+            <option value="10x">10x</option>
           </select>; <br></br>
           
-          <label for="options" > </label>
+          <label for="year-select" > </label>
           (<i>Only for Break-In Analysis</i>) Since year
-          <select id="options" name="options" value={selectedRadius} onChange={handleChange} >
+          <select id="year-select" name="year" value={selectedYear} onChange={handleYearChange} >
           {Array.from({ length: 11 }, (_, index) => (
             <option key={index} value={ (new Date().getFullYear()) - index}>
               {2024 - index}
@@ -242,8 +323,8 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
         </div>
 
         <div className="modal-buttons">
-          <button className='modal-button' onClick={carTheftFucntion} > Car Theft Analysis</button> 
-          <button className='modal-button' onClick={breakInFucntion} > Break-In Analysis</button>
+          <button className='modal-button' onClick={carTheftFunction} > Car Theft Analysis</button> 
+          <button className='modal-button' onClick={breakInFunction} > Break-In Analysis</button>
         </div>
     </Modal>
 
