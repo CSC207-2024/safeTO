@@ -163,7 +163,8 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   const handleRadiusChange = (e) => {
     // console.log(e.target.value, selectedRadius);
     setSelectedRadius(e.target.value);
-    // console.log(e.target.value, selectedRadius);
+    // console.log(e.target.value, selectedRadius);\
+    //fake change2
 
   };
 
