@@ -6,6 +6,7 @@ public class BreakAndEnterResult {
     public List<Incident> pastYearIncidents;
     public List<Incident> allKnownIncidents;
     public double probability;
+    public String probabilityMessage;
     public String warning;
 
     public List<Incident> getPastYearIncidents() {
@@ -20,14 +21,19 @@ public class BreakAndEnterResult {
         return probability;
     }
 
+    public String getProbabilityMessage() {
+        return probabilityMessage;
+    }
+
     public String getWarning() {
         return warning;
     }
 
-    public BreakAndEnterResult(List<Incident> pastYearIncidents, List<Incident> allKnownIncidents, double probability, String warning) {
+    public BreakAndEnterResult(List<Incident> pastYearIncidents, List<Incident> allKnownIncidents, double probability, String probabilityMessage, String warning) {
         this.pastYearIncidents = pastYearIncidents;
         this.allKnownIncidents = allKnownIncidents;
         this.probability = probability;
+        this.probabilityMessage = probabilityMessage;
         this.warning = warning;
     }
 
