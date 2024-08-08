@@ -199,13 +199,13 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
       const response = '';
       (analysisType == 'carTheft')?
-      response = await fetch('https://csc207-api.joefang.org/break-and-enter', {
+      response = await fetch('https://csc207-api.joefang.org/analysis/break-and-enter ', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(carTheftData)
-      }): await fetch('https://csc207-api.joefang.org/auto-theft', {
+      }): await fetch('https://csc207-api.joefang.org/analysis/auto-theft', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

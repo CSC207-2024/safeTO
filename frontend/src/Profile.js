@@ -22,7 +22,6 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
         await axios.post(apiUrl, userInfo);
         console.log('User info sent successfully');
         closeModal();
-
       } catch (error) {
           console.error('Error sending user info:', error);
       }
@@ -100,7 +99,7 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
                     Subscribe to monthly crime reports
                 </label>
                 <p></p>
-                <button onClick={toggleEdit} className="save-button">Save</button>
+                <button onClick={handleSave} className="save-button">Save</button>
             </div>
         ) : (
             <div>
