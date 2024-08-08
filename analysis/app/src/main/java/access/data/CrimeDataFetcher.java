@@ -17,14 +17,20 @@ import java.io.FileWriter;
  * fetching JSON format data from a specified API.
  */
 public class CrimeDataFetcher implements InterfaceDataFetcher {
-    private final HttpClient httpClient = HttpClient.newHttpClient();
-    private final String BASE_API_URL = "https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/Major_Crime_Indicators_Open_Data/FeatureServer/0/query?outFields=EVENT_UNIQUE_ID,OCC_DATE,OCC_YEAR,OCC_MONTH,OCC_DAY,OCC_DOY,OCC_DOW,OCC_HOUR,DIVISION,LOCATION_TYPE,PREMISES_TYPE,UCR_CODE,UCR_EXT,OFFENCE,MCI_CATEGORY,HOOD_140,NEIGHBOURHOOD_140,LONG_WGS84,LAT_WGS84,REPORT_DATE&outSR=4326&f=json";
-    private final String CACHE_DIR = CacheDirectory.getCacheDir();
+    private static final HttpClient httpClient = HttpClient.newHttpClient();
+    private static final String BASE_API_URL = "https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/Major_Crime_Indicators_Open_Data/FeatureServer/0/query?outFields=EVENT_UNIQUE_ID,OCC_DATE,OCC_YEAR,OCC_MONTH,OCC_DAY,OCC_DOY,OCC_DOW,OCC_HOUR,DIVISION,LOCATION_TYPE,PREMISES_TYPE,UCR_CODE,UCR_EXT,OFFENCE,MCI_CATEGORY,HOOD_140,NEIGHBOURHOOD_140,LONG_WGS84,LAT_WGS84,REPORT_DATE&outSR=4326&f=json";
+    private static final String CACHE_DIR = CacheDirectory.getCacheDir();
+    private static final JsonArray cachedAggregatedData;
+
+    static {
+        createCacheDir();
+        cachedAggregatedData = initializeAggregatedData();
+    }
 
     /**
      * Constructs a CrimeDataFetcher.
      */
-    public CrimeDataFetcher() {
+    private static void createCacheDir() {
         File cacheDir = new File(CACHE_DIR);
         if (!cacheDir.exists()) {
             cacheDir.mkdir();
@@ -39,8 +45,11 @@ public class CrimeDataFetcher implements InterfaceDataFetcher {
      * @throws RuntimeException wrapping a JSONException if parsing of the received
      *                          JSON data fails.
      */
-
     public JsonArray fetchData() {
+        return cachedAggregatedData;
+    }
+
+    private static JsonArray initializeAggregatedData() {
         JsonArray aggregatedData = new JsonArray();
         Gson gson = new Gson();
 
