@@ -22,6 +22,7 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
         await axios.post(apiUrl, userInfo);
         console.log('User info sent successfully');
         closeModal();
+
       } catch (error) {
           console.error('Error sending user info:', error);
       }
