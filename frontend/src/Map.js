@@ -411,7 +411,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
         {analysisResults && (
           <div className='analysis-results'>
             <h3>Analysis Results</h3>
-            <p>Crime Probability: {analysisResults?analysisResults.probability.toFixed(2):'N/A'}</p>
+            <p>Crime Probability: {analysisResults?analysisResults.probability.toFixed(2):0}</p>
             <p>Message: {analysisResults.probabilityMessage}</p>
             <h2><i className='warning-text'>{analysisResults.warning}</i></h2>
             <h4>Past Year Incidents</h4>
