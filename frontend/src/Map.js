@@ -154,7 +154,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
     layer.on({
 
-      //on click to show neighbourhood stats 
+      //on click to show neighbourhood stats
       // onclick: () => {
       //   openModalTwo(area.properties.Neighbourhood);
       //   console.log(area.properties.Neighbourhood);
@@ -271,11 +271,13 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
     try {
       // Perform the GET request with the constructed URL
+      console.log('mark1');
       const response = await axios.get(url.toString(), {
         headers: {
           'Content-Type': 'application/json'
         }
       });
+      console.log('mark2');
 
       // Log the response status for debugging
       console.log('Response Status:', response.status);
@@ -290,7 +292,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       const result = response.data;
       console.log('Response Data:', result);
       setAnalysisResults(result);
-      // alert(result);
+      console.log('mark3');
 
       // Handle success (e.g., update UI or state)
     } catch (error) {
