@@ -181,52 +181,45 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
   const sendToBackend = async (analysisType) => {
     
-    const carTheftData = {
+    // Define data based on analysisType
+    const data = {
       radius: selectedRadius,
       threshold: selectedThreshold,
-      // year: selectedYear,
+      year: analysisType === 'breakIn' ? selectedYear : undefined, // Include year only for 'breakIn'
       analysisType: analysisType
     };
 
-    const breakInData = {
-      radius: selectedRadius,
-      threshold: selectedThreshold,
-      year: selectedYear,
-      analysisType: analysisType
-    };
+    // Define the URL based on analysisType
+    const url = analysisType === 'carTheft'
+      ? 'https://csc207-api.joefang.org/analysis/auto-theft'
+      : 'https://csc207-api.joefang.org/analysis/break-and-enter';
+
 
     try {
-
-      const response = '';
-      (analysisType == 'carTheft')?
-      response = await fetch('https://csc207-api.joefang.org/analysis/break-and-enter ', {
+      // Perform the fetch request
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(carTheftData)
-      }): await fetch('https://csc207-api.joefang.org/analysis/auto-theft', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(breakInData)
-      })
+        body: JSON.stringify(data)
+      });
 
-      if (response.ok) {
-        const result = await response.json();
-        console.log(result);
-        // Handle success
-      } else {
-        console.error('Error:', response.statusText);
-        // Handle error
+      // Check if the response is okay
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
+
+      // Parse the response JSON
+      const result = await response.json();
+      console.log(result);
+      // Handle success (e.g., update UI or state)
     } catch (error) {
       console.error('Error:', error);
       // Handle error
     }
 
-    console.log(carTheftData, breakInData);
+    console.log(data);
   };
 
   const carTheftFunction = () => {
@@ -298,16 +291,16 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
           <label for="threshold-select" > To get probability that incident would happen greater than </label>
           <select id="threshold-select" name="threshold" value={selectedThreshold} onChange={handleThresholdChange} >
-            <option value="1x">Once</option>
-            <option value="2x">Twice</option>
-            <option value="3x">3x</option>
+            <option value="1">Once</option>
+            <option value="2">Twice</option>
+            <option value="3">3x</option>
             {/* <option value="option4">4x</option> */}
-            <option value="5x">5x</option>
+            <option value="5">5x</option>
             {/* <option value="option6">6x</option>
             <option value="option7">7x</option>
             <option value="option8">8x</option>
             <option value="option9">9x</option> */}
-            <option value="10x">10x</option>
+            <option value="10">10x</option>
           </select>; <br></br>
           
           <label for="year-select" > </label>
