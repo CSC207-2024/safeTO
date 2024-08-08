@@ -350,6 +350,35 @@
   font-weight: bold;
 }
 
-.red-text {
+.warning-text {
   color: blue;
+}
+
+.popup-button {
+  background-color: #007BFF; /* Blue background */
+  width: 100%;
+  margin-top: 0px;
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 5px; /* Padding for the button */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline from text */
+  display: inline-block; /* Inline-block for proper spacing */
+  font-size: 12px; /* Font size */
+  font-weight: bold; /* Bold text */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+.popup-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.popup-button:active {
+  background-color: #004085; /* Even darker blue when clicked */
+}
+
+.popup-button:focus {
+  outline: none; /* Remove outline on focus */
 }
