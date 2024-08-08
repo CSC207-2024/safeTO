@@ -1,24 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-
-# Load the JSON file into a DataFrame
-file_path = '../resources/aggregates/by_year_category_neighbourhood.json'
-
-# Load JSON data directly into a DataFrame
-data = pd.read_json(file_path)
-
-# Check the loaded data
-print(data.head())
-
-# Extract the 'attributes' key and convert it into a DataFrame
-if 'attributes' in data:
-    # Flatten the nested structure
-    data = pd.json_normalize(data['attributes'])
-else:
-    raise ValueError("Expected 'attributes' key in the JSON data")
-
-# Check columns in the DataFrame
-print(data.columns)
+import base64
+from io import BytesIO
+import sys
 
 
 # Function to generate plots for a specific year and neighbourhood
@@ -31,7 +15,8 @@ def generate_annual_comparison(neighbourhood, year, data):
     previous_year_data = filtered_data[filtered_data['OCC_YEAR'] == (year - 1)]
 
     # Function to plot and save data
-    def plot_and_save(data, year, file_suffix):
+    def plot_and_encode(data, year, file_suffix):
+        buf = BytesIO()
         plt.figure(figsize=(10, 6))
         if not data.empty:
             category_counts = data.groupby('MCI_CATEGORY')['INCIDENTS'].sum()
@@ -41,19 +26,46 @@ def generate_annual_comparison(neighbourhood, year, data):
             plt.title(f'{year} Incidents in {neighbourhood}')
             plt.xticks(rotation=45)
             plt.tight_layout()
-            plt.savefig(f'annual_report_{year}_{file_suffix}.png')
+            plt.savefig(buf, format='png')
             plt.close()
+            buf.seek(0)
+            encoded_image = base64.b64encode(buf.read()).decode('utf-8')
+            buf.close()
+            return encoded_image
         else:
-            print(f"No data available for {year}")
+            return None
 
-    # Plot for the specified year
-    plot_and_save(current_year_data, year, 'current_year')
+    # Get Base64 strings for both plots
+    chart_base64 = plot_and_encode(current_year_data, year, 'current_year')
+    chart_base64_prev = plot_and_encode(previous_year_data, year - 1, 'previous_year')
 
-    # Plot for the previous year
-    plot_and_save(previous_year_data, year - 1, 'previous_year')
+    return chart_base64, chart_base64_prev
 
 
-# Example usage
-neighbourhood = 'Clairlea-Birchmount'  # Retrieve this from user profile
-year = 2023  # Retrieve this from user input
-generate_annual_comparison(neighbourhood, year, data)
+def main(neighbourhood, year, file_path):
+    # Load the JSON file into a DataFrame
+    data = pd.read_json(file_path)
+
+    # Check the loaded data
+    print(data.head())
+
+    # Extract the 'attributes' key and convert it into a DataFrame
+    if 'attributes' in data:
+        # Flatten the nested structure
+        data = pd.json_normalize(data['attributes'])
+    else:
+        raise ValueError("Expected 'attributes' key in the JSON data")
+
+    # Check columns in the DataFrame
+    print(data.columns)
+
+    # Generate comparison plots
+    generate_annual_comparison(neighbourhood, year, data)
+
+
+# The script can now be called with the parameters for neighbourhood and year
+if __name__ == "__main__":
+    neighbourhood = sys.argv[1]  # Neighbourhood name
+    year = int(sys.argv[2])  # Year
+    file_path = '../resources/aggregates/by_year_category_neighbourhood.json'
+    main(neighbourhood, year, file_path)
