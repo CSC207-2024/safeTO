@@ -80,7 +80,7 @@ public class EmailBuilder {
      * @return a map of email body parameters.
      */
     public Map<String, Object> build() {
-        return parameters;
+        return this.parameters;
     }
 
 
