@@ -9,6 +9,9 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 // import icon from 'frontend/public/images/marker.png'
 import Modal from 'react-modal';
 import axios from 'axios';
+// Import the JSON file
+import testCarTheftData from './/data/test_car_theft.json'; 
+import testBreakInData from './/data/test_break_in.json';
 
 // Configure the modal root element for accessibility
 Modal.setAppElement('#root');
@@ -29,6 +32,7 @@ const IconMarker = new Icon({
   iconUrl: icon
 });
 
+
 // Map component with forwardRef to allow parent components to control the map
 const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   // const { setCoordinates } = props;
@@ -42,6 +46,9 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
   // State to track the currently hovered layer
   const [hoveredLayer, setHoveredLayer] = useState(null);
+
+  // State variables for analysis results
+  const [analysisResults, setAnalysisResults] = useState(null);
   
 
   // Expose map methods to parent components
@@ -158,6 +165,13 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
   useEffect(() => {
     console.log('Selected Year:', selectedYear);
+
+    //TODO: 
+
+    console.log(testCarTheftData.data.result);
+    setAnalysisResults(testBreakInData.data.result);
+    console.log(analysisResults);
+
   }, [selectedYear]);
   
 
@@ -209,7 +223,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
     url.searchParams.append('analysisType', analysisType);
     
-    console.log(url, url.searchParams);
+    console.log('Check url:', url, url.searchParams);
 
     try {
       // Perform the GET request with the constructed URL
@@ -219,14 +233,21 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
         }
       });
 
+      // Log the response status for debugging
+      console.log('Response Status:', response.status);
+
+
       // Check if the response is okay
       if (response.status !== 200) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
       // Handle the response data
-      const result = response.data;
-      console.log(result);
+      const result = response.json();
+      console.log('Response Data:', result);
+      setAnalysisResults(result);
+      // alert(result);
+
       // Handle success (e.g., update UI or state)
     } catch (error) {
       console.error('Error:', error);
@@ -234,10 +255,12 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     }
 
     // Debugging
-    console.log(url.toString());
+    // setAnalysisResults(await axios.get('https://csc207-api.joefang.org/analysis/auto-theft'));
+    console.log('Request URL:', url.toString());
   };
 
   const carTheftFunction = () => {
+    alert(analysisResults);
     sendToBackend('carTheft');
     
   };
@@ -245,6 +268,8 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   const breakInFunction = () => {
     sendToBackend('breakIn');
   };
+
+  
 
 
   return (
@@ -314,7 +339,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
             value={selectedThreshold}
             onChange={handleThresholdChange}
           /> 
-          <p>Selected value: {selectedThreshold} (<i>1 for extremely strict and 10 be the least strict) </i></p>
+          <p>Selected value: {selectedThreshold} (<i>Note: 1 for most strict and 10 for the least strict) </i></p>
           
           <label for="year-select" > </label>
           (<i>Only for Break-In Analysis</i>) Since year
@@ -332,6 +357,55 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
           <button className='modal-button' onClick={carTheftFunction} > Car Theft Analysis</button> 
           <button className='modal-button' onClick={breakInFunction} > Break-In Analysis</button>
         </div>
+
+        {/* Analysis results */}
+        {analysisResults && (
+          <div className='analysis-results'>
+            <h3>Analysis Results</h3>
+            <p>Crime Probability: {analysisResults.probability.toFixed(2)}</p>
+            <p>Message: {analysisResults.probabilityMessage}</p>
+            <i className='red-text'>{analysisResults.warning}</i>
+            <h4>Past Year Incidents</h4>
+            <div className='scrollable-table-container'>
+              <table className='scrollable-table'>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Distance (m)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {analysisResults.pastYearIncidents.map((incident, index) => (
+                    <tr key={index}>
+                      <td>{incident.occurDate}</td>
+                      <td>{incident.distance.toFixed(1)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <h4>All Known Incidents</h4>
+            <div className='scrollable-table-container'>
+              <table className='scrollable-table'>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Distance (m)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {analysisResults.allKnownIncidents.map((incident, index) => (
+                    <tr key={index}>
+                      <td>{incident.occurDate}</td>
+                      <td>{incident.distance.toFixed(1)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
     </Modal>
 
     </div>
@@ -340,3 +414,4 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 });
 
 export default Map;
+

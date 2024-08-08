@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "message": "Command executed successfully",
+  "data": {
+    "_raw": "{\"pastYearIncidents\":[{\"occurDate\":\"2024-February-9\",\"distance\":53.777131136222174},{\"occurDate\":\"2024-June-15\",\"distance\":53.777131136222174},{\"occurDate\":\"202",
+    "result": {
+      "pastYearIncidents": [
+        {
+          "occurDate": "2024-February-9",
+          "distance": 53.7771311362222
+        },
+        {
+          "occurDate": "2024-June-15",
+          "distance": 53.7771311362222
+        },
+        {
+          "occurDate": "2024-June-30",
+          "distance": 53.7771311362222
+        },
+        {
+          "occurDate": "2024-May-6",
+          "distance": 53.7771311362222
+        }
+      ],
+      "allKnownIncidents": [
+        {
+          "occurDate": "2021-April-13",
+          "distance": 163.779002780993
+        },
+        {
+          "occurDate": "2022-November-15",
+          "distance": 53.7771311362222
+        },
+        {
+          "occurDate": "2023-May-8",
+          "distance": 53.7771311362222
+        },
+        {
+          "occurDate": "2024-February-9",
+          "distance": 53.7771311362222
+        },
+        {
+          "occurDate": "2024-June-15",
+          "distance": 53.7771311362222
+        },
+        {
+          "occurDate": "2024-June-30",
+          "distance": 53.7771311362222
+        },
+        {
+          "occurDate": "2024-May-6",
+          "distance": 53.7771311362222
+        }
+      ],
+      "probability": 0.522121655511276,
+      "probabilityMessage": "Based on past data, within 200m of radius, there's a 52.2122% chance that auto thefts happen more than 1 time(s) within a year.",
+      "warning": "WARNING: Don't park here!",
+      "safeParkingSpots": []
+    }
+  }
+}
