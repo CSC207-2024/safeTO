@@ -30,23 +30,39 @@ public class AutoTheftFacade {
     }
 
     public AutoTheftResult analyze(double latitude, double longitude, int radius, int threshold, int earliestYear) {
+        long start = System.currentTimeMillis();
         List<AutoTheftData> pastYearData = autoTheftCalculator.getCrimeDataWithinRadiusPastYear(latitude, longitude, radius);
-        List<AutoTheftData> allKnownData = autoTheftCalculator.getCrimeDataWithinRadius(latitude, longitude, radius, earliestYear);
+        long curr = System.currentTimeMillis();
+        System.err.println("getCrimeDataWithinRadiusPastYear" + (curr - start) / 1000);
 
+        start = curr;
+        List<AutoTheftData> allKnownData = autoTheftCalculator.getCrimeDataWithinRadius(latitude, longitude, radius, earliestYear);
+        curr = System.currentTimeMillis();
+        System.err.println("getCrimeDataWithinRadius" + (curr - start) / 1000);
+
+        start = curr;
         pastYearData.sort(Comparator.comparing(AutoTheftData::getOccYear)
                 .thenComparing(AutoTheftData::getOccMonth)
                 .thenComparing(AutoTheftData::getOccDay));
+        curr = System.currentTimeMillis();
+        System.err.println("pastYearData.sort" + (curr - start) / 1000);
 
+        start = curr;
         allKnownData.sort(Comparator.comparing(AutoTheftData::getOccYear)
                 .thenComparing(AutoTheftData::getOccMonth)
                 .thenComparing(AutoTheftData::getOccDay));
+        curr = System.currentTimeMillis();
+        System.err.println("allKnownData.sort" + (curr - start) / 1000);
 
+        start = curr;
         List<AutoTheftResult.Incident> pastYearIncidents = new ArrayList<>();
         for (AutoTheftData data : pastYearData) {
             double distance = GeoUtils.calculateDistance(latitude, longitude, data.getLatitude(), data.getLongitude());
             String occurDate = data.getOccYear() + "-" + data.getOccMonth() + "-" + data.getOccDay();
             pastYearIncidents.add(new AutoTheftResult.Incident(occurDate, distance));
         }
+        curr = System.currentTimeMillis();
+        System.err.println("pastYearIncidents" + (curr - start) / 1000);
 
         List<AutoTheftResult.Incident> allKnownIncidents = new ArrayList<>();
         for (AutoTheftData data : allKnownData) {
