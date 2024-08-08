@@ -55,8 +55,9 @@ public class BreakAndEnterFacade {
         double lambda = breakAndEnterCalculator.calculateAnnualAverageIncidents(allKnownData);
         double probability = breakAndEnterCalculator.calculatePoissonProbability(lambda, threshold);
 
-        String warning = probability > 0.15 ? "Don't live here!" : "Safe to live here!";
+        String probabilityMessage = String.format("Based on past data, within %dm of radius, there's a %.1f%% chance that break and enters happen more than %d time(s) within a year.", radius, probability * 100, threshold);
+        String warning = probability > 0.15 ? "WARNING: Don't live here!" : "Safe to live here!";
 
-        return new BreakAndEnterResult(pastYearIncidents, allKnownIncidents, probability, warning);
+        return new BreakAndEnterResult(pastYearIncidents, allKnownIncidents, probability, probabilityMessage, warning);
     }
 }
