@@ -197,7 +197,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
   // Variables to store user selected parameters
   const [selectedRadius, setSelectedRadius] = useState('50m');
-  const [selectedThreshold, setSelectedThreshold] = useState('1x');
+  const [selectedThreshold, setSelectedThreshold] = useState('5');
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
 
   useEffect(() => {
@@ -365,7 +365,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
         <h2>Find more crime data at this place?</h2>
 
         <div className='select-container'>
-          <label for="radius-select" >Set the radius </label>
+          <label for="radius-select" >1. Set the radius </label>
           <select id="radius-select" name="radius"  value={selectedRadius} onChange={handleRadiusChange} >
             <option value="50">50m</option>
             <option value="100">100m</option>
@@ -374,20 +374,23 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
             <option value="1000">1000m</option>
           </select> that incidents happened nearby; <br></br>
 
-          <label for="threshold-select" > How strict do you want the probability calculation to be: </label>
-          <input
-            type="range"
-            id="threshold-select"
-            name="thresold"
-            min="1"
-            max="10"
-            value={selectedThreshold}
-            onChange={handleThresholdChange}
-          /> 
-          <p>Selected value: {selectedThreshold} (<i>Note: 1 for most strict and 10 for the least strict) </i></p>
+          <div className="range-container">
+            <label htmlFor="threshold-select">2. How strict do you want the probability calculation to be: </label>
+            <input
+              type="range"
+              id="threshold-select"
+              name="threshold"
+              min="1"
+              max="10"
+              value={selectedThreshold}
+              onChange={handleThresholdChange}
+              className="range-input"
+            />
+            <p className="range-text">&nbsp;  Selected value: {selectedThreshold} (<i>Note: 1 for most strict and 10 for the least strict)</i></p>
+          </div>
           
           <label for="year-select" > </label>
-          (<i>Only for Break-In Analysis</i>) Since year
+          3. (<i>Only for Break-In Analysis</i>) Since year
           <select id="year-select" name="year" value={selectedYear} onChange={handleYearChange} >
           {Array.from({ length: 11 }, (_, index) => (
             <option key={index} value={ (new Date().getFullYear()) - index}>
