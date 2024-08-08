@@ -1,25 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Load the JSON file into a DataFrame
-file_path = '../resources/aggregates/by_year_category_neighbourhood.json'
-
-# Load JSON data directly into a DataFrame
-data = pd.read_json(file_path)
-
-# Check the loaded data
-print(data.head())
-
-# Extract the 'attributes' key and convert it into a DataFrame
-if 'attributes' in data:
-    # Flatten the nested structure
-    data = pd.json_normalize(data['attributes'])
-else:
-    raise ValueError("Expected 'attributes' key in the JSON data")
-
-# Check columns in the DataFrame
-print(data.columns)
-
 
 # Function to generate plots for a specific year and neighbourhood
 def generate_annual_comparison(neighbourhood, year, data):
@@ -53,7 +34,31 @@ def generate_annual_comparison(neighbourhood, year, data):
     plot_and_save(previous_year_data, year - 1, 'previous_year')
 
 
-# Example usage
-neighbourhood = 'Clairlea-Birchmount'  # Retrieve this from user profile
-year = 2023  # Retrieve this from user input
-generate_annual_comparison(neighbourhood, year, data)
+def main(neighbourhood, year, file_path):
+    # Load the JSON file into a DataFrame
+    data = pd.read_json(file_path)
+
+    # Check the loaded data
+    print(data.head())
+
+    # Extract the 'attributes' key and convert it into a DataFrame
+    if 'attributes' in data:
+        # Flatten the nested structure
+        data = pd.json_normalize(data['attributes'])
+    else:
+        raise ValueError("Expected 'attributes' key in the JSON data")
+
+    # Check columns in the DataFrame
+    print(data.columns)
+
+    # Generate comparison plots
+    generate_annual_comparison(neighbourhood, year, data)
+
+
+# The script can now be called with the parameters for neighbourhood and year
+if __name__ == "__main__":
+    import sys
+    neighbourhood = sys.argv[1]  # Neighbourhood name
+    year = int(sys.argv[2])  # Year
+    file_path = '../resources/aggregates/by_year_category_neighbourhood.json'
+    main(neighbourhood, year, file_path)
