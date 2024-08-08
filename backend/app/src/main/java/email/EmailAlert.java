@@ -46,7 +46,8 @@ public class EmailAlert implements InterfaceEmail {
     }
 
 
-    private void runPythonScript(String neighbourhood, String year) {
+    private String[] runPythonScript(String neighbourhood, String year) {
+        String[] result = new String[2];
         try {
             ProcessBuilder pb = new ProcessBuilder("python3", "generate_annual_report.py", neighbourhood, year);
             pb.redirectErrorStream(true);
@@ -54,8 +55,12 @@ public class EmailAlert implements InterfaceEmail {
 
             try (BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
                 String line;
+                int index = 0;
                 while ((line = in.readLine()) != null) {
-                    System.out.println(line);
+                    if (index < result.length) {
+                        result[index] = line;
+                        index++;
+                    }
                 }
             }
 
@@ -66,7 +71,9 @@ public class EmailAlert implements InterfaceEmail {
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
+        return result;
     }
+
 
     /**
      * Sends an email using the Resend service.
@@ -126,11 +133,11 @@ public class EmailAlert implements InterfaceEmail {
                 "            <p>This report includes a comparison of crime rates and two bar plots illustrating different categories of crimes.</p>\n" +
                 "            <div class=\"chart\">\n" +
                 "                <h3>Crime Categories Bar Plot</h3>\n" +
-                "                <img src=\"{{chartUrl}}\" alt=\"Bar Plot of Crime Categories\" style=\"width: 100%; height: auto;\">\n" +
+                "                <img src=\"data:image/png;base64,{{chartBase64}}\" alt=\"Bar Plot of Crime Categories\" style=\"width: 100%; height: auto;\">\n" +
                 "            </div>\n" +
                 "            <div class=\"chart\">\n" +
                 "                <h3>Crime Categories Bar Plot - Previous Year</h3>\n" +
-                "                <img src=\"{{chartUrl2}}\" alt=\"Bar Plot of Crime Categories - Previous Year\" style=\"width: 100%; height: auto;\">\n" +
+                "                <img src=\"data:image/png;base64,{{chartBase64Prev}}\" alt=\"Bar Plot of Crime Categories - Previous Year\" style=\"width: 100%; height: auto;\">\n" +
                 "            </div>\n" +
                 "        </div>\n" +
                 "        <div class=\"footer\">\n" +
@@ -143,14 +150,17 @@ public class EmailAlert implements InterfaceEmail {
                 "</html>";
 
 
+        String chartBase64 = callPythonScriptForChartBase64();
+        String chartBase64Prev = callPythonScriptForChartBase64Prev();
+
 //      instantiate a new email builder and build parameters from map
         EmailBuilder builder = new EmailBuilder();
         builder.fromMap(new HashMap<>())
                 .setParameter("neighborhood", "Clairlea-Birchmount")
                 .setParameter("year", "2023")
                 .setParameter("recipientName", "Joe")
-                .setParameter("chartUrl", "http://example.com/bar-plot.png")
-                .setParameter("chartUrl2", "http://example.com/bar-plot-previous-year.png");
+                .setParameter("chartUrl", chartBase64)
+                .setParameter("chartUrl2", chartBase64Prev);
 
 //        Map<String, Object> params = builder.build();
 
