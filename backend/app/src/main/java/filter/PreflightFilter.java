@@ -17,6 +17,7 @@ public class PreflightFilter implements ContainerRequestFilter {
             requestContext.abortWith(Response.noContent()
                     .header("Access-Control-Allow-Origin", Constants.ALLOWED_ORIGIN)
                     .header("Access-Control-Allow-Methods", Constants.ALLOWED_METHODS)
+                    .header("Access-Control-Allow-Headers", Constants.ALLOWED_HEADERS)
                     .header("Access-Control-Max-Age", "86400")
                     .build());
         }
