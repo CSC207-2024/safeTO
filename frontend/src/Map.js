@@ -8,6 +8,7 @@ import { Icon } from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 // import icon from 'frontend/public/images/marker.png'
 import Modal from 'react-modal';
+import axios from 'axios';
 
 // Configure the modal root element for accessibility
 Modal.setAppElement('#root');
@@ -181,43 +182,57 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     
     // Define data based on analysisType
     const data = {
-      radius: selectedRadius,
-      threshold: selectedThreshold,
-      year: analysisType === 'breakIn' ? selectedYear : undefined, // Include year only for 'breakIn'
+      latitude: parseFloat(markerCoordinates.lat),
+      longitude: parseFloat(markerCoordinates.lng),
+      radius: parseInt(selectedRadius),
+      threshold: parseInt(selectedThreshold),
+      year: analysisType === 'breakIn' ? parseInt(selectedYear) : undefined, // Include year only for 'breakIn'
       analysisType: analysisType
     };
 
-    // Define the URL based on analysisType
-    const url = analysisType === 'carTheft'
-      ? 'https://csc207-api.joefang.org/analysis/auto-theft'
-      : 'https://csc207-api.joefang.org/analysis/break-and-enter';
+    // Initialize the URL object
+    const baseUrl = analysisType === 'carTheft'
+    ? 'https://csc207-api.joefang.org/analysis/auto-theft'
+    : 'https://csc207-api.joefang.org/analysis/break-and-enter';
 
+    const url = new URL(baseUrl);
+
+    // Add query parameters to URL
+    url.searchParams.append('latitude', parseFloat(markerCoordinates.lat));
+    url.searchParams.append('longitude', parseFloat(markerCoordinates.lng));
+    url.searchParams.append('radius', parseInt(selectedRadius));
+    url.searchParams.append('threshold', parseInt(selectedThreshold));
+
+    if (analysisType === 'breakIn') {
+      url.searchParams.append('year', parseInt(selectedYear));
+    }
+
+    url.searchParams.append('analysisType', analysisType);
 
     try {
-      // Perform the fetch request
-      const response = await fetch(url, {
-        method: 'POST',
+      // Perform the GET request with the constructed URL
+      const response = await axios.get(url.toString(), {
         headers: {
           'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
+        }
       });
 
       // Check if the response is okay
-      if (!response.ok) {
+      if (response.status !== 200) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
-      // Parse the response JSON
-      const result = await response.json();
+      // Handle the response data
+      const result = response.data;
       console.log(result);
       // Handle success (e.g., update UI or state)
     } catch (error) {
       console.error('Error:', error);
-      // Handle error interact
+      // Handle error interactively
     }
 
-    console.log(data);
+    // Debugging
+    console.log(url.toString());
   };
 
   const carTheftFunction = () => {
@@ -287,19 +302,17 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
             <option value="1000">1000m</option>
           </select> that incidents happened nearby; <br></br>
 
-          <label for="threshold-select" > To get probability that incident would happen greater than </label>
-          <select id="threshold-select" name="threshold" value={selectedThreshold} onChange={handleThresholdChange} >
-            <option value="1">Once</option>
-            <option value="2">Twice</option>
-            <option value="3">3x</option>
-            {/* <option value="option4">4x</option> */}
-            <option value="5">5x</option>
-            {/* <option value="option6">6x</option>
-            <option value="option7">7x</option>
-            <option value="option8">8x</option>
-            <option value="option9">9x</option> */}
-            <option value="10">10x</option>
-          </select>; <br></br>
+          <label for="threshold-select" > How strict do you want the probability calculation to be: </label>
+          <input
+            type="range"
+            id="threshold-select"
+            name="thresold"
+            min="1"
+            max="10"
+            value={selectedThreshold}
+            onChange={handleThresholdChange}
+          /> 
+          <p>Selected value: {selectedThreshold} (<i>1 for extremely strict and 10 be the least strict) </i></p>
           
           <label for="year-select" > </label>
           (<i>Only for Break-In Analysis</i>) Since year
