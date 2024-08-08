@@ -27,6 +27,11 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
       }
   };
 
+    const handleSaveAndToggleEdit = () => {
+        toggleEdit();
+        handleSave();
+    };
+
   return (
     <div>
       <Tooltip title="Profile" position="bottom" trigger="mouseenter">
@@ -99,7 +104,7 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
                     Subscribe to monthly crime reports
                 </label>
                 <p></p>
-                <button onClick={handleSave} className="save-button">Save</button>
+                <button onClick={handleSaveAndToggleEdit} className="save-button">Save</button>
             </div>
         ) : (
             <div>
