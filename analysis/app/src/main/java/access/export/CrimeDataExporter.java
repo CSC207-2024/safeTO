@@ -1,11 +1,7 @@
 package access.export;
 
 import access.convert.CrimeDataConverter;
-import org.jfree.chart.JFreeChart;
-import org.jfree.graphics2d.svg.SVGGraphics2D;
-import org.jfree.graphics2d.svg.SVGUtils;
 import tech.tablesaw.api.*;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 

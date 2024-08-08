@@ -1,7 +1,7 @@
 package access.export;
 
 import tech.tablesaw.api.Table;
-import org.jfree.chart.JFreeChart;
+
 
 /**
  * An interface for exporting objects.

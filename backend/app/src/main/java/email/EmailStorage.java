@@ -6,7 +6,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 /**
  * This class is responsible for storing and retrieving email addresses from the
@@ -17,14 +17,14 @@ public class EmailStorage {
     private static final String API_TOKEN = System.getenv("SAFETO_DB_TOKEN");
 
     private HttpClient client;
-    private ObjectMapper objectMapper;
+    private Gson gson;
 
     /**
      * Constructor for the EmailStorage class.
      */
     public EmailStorage() {
         this.client = HttpClient.newHttpClient();
-        this.objectMapper = new ObjectMapper();
+        this.gson = new Gson();
     }
 
     /**
@@ -41,7 +41,7 @@ public class EmailStorage {
             Map<String, String> data = new HashMap<>();
             data.put("email", email);
 
-            String json = objectMapper.writeValueAsString(data);
+            String json = gson.toJson(data);
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(uri)
                     .header("Content-Type", "application/json")
@@ -50,7 +50,7 @@ public class EmailStorage {
                     .build();
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-//          request was successful if status code is 201
+            // request was successful if status code is 201
             return response.statusCode() == 201;
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,7 +78,7 @@ public class EmailStorage {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             if (response.statusCode() == 200) {
-                Map<String, String> data = objectMapper.readValue(response.body(), Map.class);
+                Map<String, String> data = gson.fromJson(response.body(), Map.class);
                 return data.get("email");
             } else if (response.statusCode() == 404) {
                 System.out.println("Email not found for user: " + userId);
