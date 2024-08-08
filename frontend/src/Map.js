@@ -211,11 +211,10 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   useEffect(() => {
     console.log('Selected Year:', selectedYear);
 
-    //TODO: 
-
-    console.log(testCarTheftData.data.result);
-    setAnalysisResults(testBreakInData.data.result);
-    console.log(analysisResults);
+    // for debug
+    // console.log(testCarTheftData.data.result);
+    // setAnalysisResults(testBreakInData.data.result);
+    // console.log(analysisResults);
 
   }, [selectedYear]);
   
@@ -266,7 +265,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       url.searchParams.append('year', parseInt(selectedYear));
     }
 
-    url.searchParams.append('analysisType', analysisType);
+    // url.searchParams.append('analysisType', analysisType);
     
     console.log('Check url:', url, url.searchParams);
 
@@ -288,7 +287,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       }
 
       // Handle the response data
-      const result = response.json();
+      const result = response.data;
       console.log('Response Data:', result);
       setAnalysisResults(result);
       // alert(result);
@@ -305,7 +304,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   };
 
   const carTheftFunction = () => {
-    alert(analysisResults);
+    // alert(analysisResults);
     sendToBackend('carTheft');
     
   };
