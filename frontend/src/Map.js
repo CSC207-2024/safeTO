@@ -409,7 +409,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
             <h3>Analysis Results</h3>
             <p>Crime Probability: {analysisResults.probability.toFixed(2)}</p>
             <p>Message: {analysisResults.probabilityMessage}</p>
-            <i className='warning-text'>{analysisResults.warning}</i>
+            <h2><i className='warning-text'>{analysisResults.warning}</i></h2>
             <h4>Past Year Incidents</h4>
             <div className='scrollable-table-container'>
               <table className='scrollable-table'>
@@ -420,11 +420,13 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {analysisResults.pastYearIncidents.map((incident, index) => (
-                    <tr key={index}>
-                      <td>{incident.occurDate}</td>
-                      <td>{incident.distance.toFixed(1)}</td>
-                    </tr>
+                  {analysisResults.pastYearIncidents
+                    .sort((a, b) => a.distance - b.distance) // Sort by distance in ascending order
+                    .map((incident, index) => (
+                      <tr key={index}>
+                        <td>{incident.occurDate}</td>
+                        <td>{incident.distance.toFixed(1)}</td>
+                      </tr>
                   ))}
                 </tbody>
               </table>
@@ -440,11 +442,13 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {analysisResults.allKnownIncidents.map((incident, index) => (
-                    <tr key={index}>
-                      <td>{incident.occurDate}</td>
-                      <td>{incident.distance.toFixed(1)}</td>
-                    </tr>
+                  {analysisResults.allKnownIncidents
+                    .sort((a, b) => a.distance - b.distance) // Sort by distance in ascending order
+                    .map((incident, index) => (
+                      <tr key={index}>
+                        <td>{incident.occurDate}</td>
+                        <td>{incident.distance.toFixed(1)}</td>
+                      </tr>
                   ))}
                 </tbody>
               </table>
