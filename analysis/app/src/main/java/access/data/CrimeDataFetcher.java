@@ -44,6 +44,7 @@ public class CrimeDataFetcher implements InterfaceDataFetcher {
         JsonArray aggregatedData = new JsonArray();
         Gson gson = new Gson();
 
+        long start = System.currentTimeMillis();
         try {
             // iterate over 2014 to 2024
             for (int year = 2014; year <= 2024; year++) {
@@ -103,7 +104,9 @@ public class CrimeDataFetcher implements InterfaceDataFetcher {
             throw new RuntimeException(e);
         }
 
+        long curr = System.currentTimeMillis();
         System.err.println("Total aggregated data: " + aggregatedData.size());
+        System.err.println("fetchData: " + (curr - start) / 1000.0);
         return aggregatedData;
     }
 }
