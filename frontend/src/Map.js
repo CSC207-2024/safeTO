@@ -212,9 +212,9 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     console.log('Selected Year:', selectedYear);
 
     // for debug
-    // console.log(testCarTheftData.data.result);
-    // setAnalysisResults(testBreakInData.data.result);
-    // console.log(analysisResults);
+    console.log(testCarTheftData.data.result);
+    setAnalysisResults(testCarTheftData.data.result);
+    console.log(analysisResults);
 
   }, [selectedYear]);
   
