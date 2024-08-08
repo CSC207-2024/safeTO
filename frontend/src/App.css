@@ -382,3 +382,19 @@
 .popup-button:focus {
   outline: none; /* Remove outline on focus */
 }
+
+.range-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically (if needed) */
+  width: 100%;
+}
+
+.range-input {
+  width: 80%; /* Adjust width as needed */
+  max-width: 90%; /* Optional: limit maximum width */
+  margin-left: 10px; /* Space between the slider and text */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
