@@ -16,6 +16,7 @@ import testBreakInData from './/data/test_break_in.json';
 // Configure the modal root element for accessibility
 Modal.setAppElement('#root');
 
+
 // Component to track mouse movements and update coordinates
 const HoverCoordinates = ({ setCoordinates }) => {
   useMapEvents({
@@ -49,6 +50,42 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
   // State variables for analysis results
   const [analysisResults, setAnalysisResults] = useState(null);
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [isModalTwoOpen, setModalTwoOpen] = useState(false);
+  const [selectedNeighbourhood, setSelectedNeighbourhood] = useState(null);
+
+  const openModal = () => setModalIsOpen(true);
+  const closeModal = () => setModalIsOpen(false);
+
+  const openModalTwo = (neighbourhood) => {
+    setSelectedNeighbourhood(neighbourhood);
+    setModalTwoOpen(true);
+  };
+
+  const closeModalTwo = () => {
+    setModalTwoOpen(false);
+    setSelectedNeighbourhood(null);
+  };
+
+  // ModalTwo Component
+  const ModalTwo = ({ show, onClose, className, overlayClassName, neighbourhood }) => {
+    if (!show) return null;
+
+    return (
+      <div className={overlayClassName}>
+        <div className={className}>
+          <button onClick={closeModalTwo} className="close-button">x</button>
+        
+          <h2>Neighbourhood: &nbsp; {neighbourhood}</h2>
+          <p>Statistics and details about {neighbourhood}.</p>
+
+          {/* TODO: add detail */}
+        </div>
+      </div>
+    );
+  };
+
   
 
   // Expose map methods to parent components
@@ -101,33 +138,47 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   const onEachArea = (area, layer) => {
     let mouseInside = false; // Flag to check if mouse is inside
 
-    // Bind a popup to the layer
-    layer.bindPopup(area.properties.Neighbourhood);
+    // Create a button element for the popup content
+    const button = document.createElement('button');
+    button.innerText = 'View Stats';
+    button.className = 'popup-button';
+    button.onclick = () => openModalTwo(area.properties.Neighbourhood);
 
+    // Create the popup content with the button
+    const popupContent = document.createElement('div');
+    popupContent.innerHTML = `<p>Neighbourhood: <strong>${area.properties.Neighbourhood}</strong></p>`;
+    popupContent.appendChild(button);
+
+    // Bind the popup to the layer with the generated content
+    layer.bindPopup(popupContent);
 
     layer.on({
 
-      //TODO 
-      // //on click to show stats image
-      // click: (event) => {
-      //   const imageUrl = '/demo_stats.png'; // Assuming imageUrl is a property in the GeoJSON data
-      //   const popupContent = `
-      //     <div>
-      //       <h3>${area.properties.Neighbourhood}</h3>
-      //       <img src="${imageUrl}" alt="${"Car Theft Rate"}" style="width: auto; height: auto;" />
-      //     </div>
-      //   `;
-      //   event.target.bindPopup(popupContent).openPopup(); // Show the popup with image
+      //on click to show neighbourhood stats 
+      // onclick: () => {
+      //   openModalTwo(area.properties.Neighbourhood);
+      //   console.log(area.properties.Neighbourhood);
+
+      //   // Use setTimeout to ensure the popup is fully rendered before adding event listener
+      //   // setTimeout(() => {
+      //   //   const button = document.getElementById(`view-stats-${area.properties.Neighbourhood}`);
+      //   //   if (button) {
+      //   //     button.addEventListener('click', () => {
+      //   //       openModalTwo(area.properties.Neighbourhood);
+      //   //       console.log(area.properties.Neighbourhood);
+      //   //     });
+      //   //   }
+      //   // }, 100);
       // },
 
 
       mouseover: (event) => {
         // console.log('mouseover')
         mouseInside = true; // Set flag to true when mouse enters
-        // event.target.setStyle(highlightStyle); // Highlight on hover
+        event.target.setStyle(highlightStyle); // Highlight on hover
       },
       mouseout: (event) => {
-        // console.log('mouseout')
+        console.log('mouseout')
         mouseInside = false; // Set flag to false when mouse leaves
         // event.target.setStyle(defaultStyle); // Reset style only if highlight is not active
       },
@@ -143,12 +194,6 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       }
     });
   };
-
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  const openModal = () => setModalIsOpen(true);
-  const closeModal = () => setModalIsOpen(false);
-
 
   // Variables to store user selected parameters
   const [selectedRadius, setSelectedRadius] = useState('50m');
@@ -268,7 +313,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   const breakInFunction = () => {
     sendToBackend('breakIn');
   };
-
+  
   
 
 
@@ -364,7 +409,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
             <h3>Analysis Results</h3>
             <p>Crime Probability: {analysisResults.probability.toFixed(2)}</p>
             <p>Message: {analysisResults.probabilityMessage}</p>
-            <i className='red-text'>{analysisResults.warning}</i>
+            <i className='warning-text'>{analysisResults.warning}</i>
             <h4>Past Year Incidents</h4>
             <div className='scrollable-table-container'>
               <table className='scrollable-table'>
@@ -407,6 +452,14 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
           </div>
         )}
     </Modal>
+    <ModalTwo
+        className='modal-content'
+        overlayClassName="overlay"
+        show={isModalTwoOpen}
+        onClose={closeModalTwo}
+        neighbourhood={selectedNeighbourhood}
+
+      />
 
     </div>
 
