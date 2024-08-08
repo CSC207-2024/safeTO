@@ -162,20 +162,18 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
   const handleRadiusChange = (e) => {
     // console.log(e.target.value, selectedRadius);
-    setSelectedRadius(e.target.value);
-    // console.log(e.target.value, selectedRadius);\
-    //fake change2
-
+    setSelectedRadius(parseInt(e.target.value));
+    // console.log(e.target.value, selectedRadius);
   };
 
   const handleThresholdChange = (e) => {
-    setSelectedThreshold(e.target.value);
+    setSelectedThreshold(parseInt(e.target.value));
     // console.log(e.target.value, selectedThreshold);
 
   };
 
   const handleYearChange = (e) => {
-    setSelectedYear(e.target.value);
+    setSelectedYear(parseInt(e.target.value));
     // console.log(e.target.value, selectedYear);
   };
 
