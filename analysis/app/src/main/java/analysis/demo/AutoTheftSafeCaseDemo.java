@@ -4,12 +4,11 @@ import access.convert.CrimeDataConverter;
 import access.data.CrimeDataFetcher;
 import access.manipulate.CrimeDataProcessor;
 import analysis.carTheft.*;
-import analysis.utils.GeoUtils;
+import analysis.facade.AutoTheftFacade;
 import com.google.gson.Gson;
-import tech.tablesaw.api.Row;
+import tech.tablesaw.api.Table;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -49,92 +48,31 @@ public class AutoTheftSafeCaseDemo {
         CrimeDataConverter converter = new CrimeDataConverter();
         CrimeDataProcessor processor = new CrimeDataProcessor();
 
-        AutoTheftIncidentFetcher autoTheftIncidentFetcher = new AutoTheftIncidentFetcher(fetcher, converter, processor);
-        AutoTheftCalculator autoTheftCalculator = new AutoTheftCalculator(autoTheftIncidentFetcher);
-        SafeParkingLocationManager safeParkingLocationManager = SafeParkingLocationManager.getInstance();
+        List<AutoTheftData> autoTheftDataList = fetchAutoTheftData(fetcher, converter, processor);
+        AutoTheftFacade autoTheftFacade = new AutoTheftFacade(autoTheftDataList, SafeParkingLocationManager.getInstance());
 
-        // Get auto theft data for the past year
-        List<AutoTheftData> pastYearData = autoTheftCalculator.getCrimeDataWithinRadiusPastYear(latitude, longitude,
-                radius);
-        pastYearData.sort(Comparator.comparing(AutoTheftData::getOccYear)
-                .thenComparing(AutoTheftData::getOccMonth)
-                .thenComparing(AutoTheftData::getOccDay)); // Sort by date
-
-        List<AutoTheftResult.Incident> pastYearIncidents = new ArrayList<>();
-        for (AutoTheftData data : pastYearData) {
-            double distance = GeoUtils.calculateDistance(latitude, longitude, data.getLatitude(), data.getLongitude());
-            String occurDate = data.getOccYear() + "-" + data.getOccMonth() + "-" + data.getOccDay();
-            pastYearIncidents.add(new AutoTheftResult.Incident(occurDate, distance));
-        }
-
-        // Get all auto theft data within the radius from the specified earliest year
-        List<AutoTheftData> allData = autoTheftCalculator.getCrimeDataWithinRadius(latitude, longitude, radius,
-                earliestYear);
-        allData.sort(Comparator.comparing(AutoTheftData::getOccYear)
-                .thenComparing(AutoTheftData::getOccMonth)
-                .thenComparing(AutoTheftData::getOccDay));
-
-        List<AutoTheftResult.Incident> allKnownIncidents = new ArrayList<>();
-        for (AutoTheftData data : allData) {
-            double distance = GeoUtils.calculateDistance(latitude, longitude, data.getLatitude(), data.getLongitude());
-            String occurDate = data.getOccYear() + "-" + data.getOccMonth() + "-" + data.getOccDay();
-            allKnownIncidents.add(new AutoTheftResult.Incident(occurDate, distance));
-        }
-
-        // Calculate the average annual rate of incidents
-        double lambda = autoTheftCalculator.calculateAnnualAverageIncidents(allData); // Use the average annual rate of
-                                                                                      // incidents as the λ value
-        double probability = autoTheftCalculator.calculatePoissonProbability(lambda, threshold);
-
-        // Create probability message
-        String probabilityMessage = String.format(
-                "Based on past data, within %dm of radius, there's a %.4f%% chance that auto thefts happen more than %d time(s) within a year.",
-                radius, probability * 100, threshold);
-
-        // Create warning message
-        String warning = probability > 0.15 ? "WARNING: Don't park here!" : "Safe to park here!";
-
-        List<SafeParkingSpot> safeSpotsList = new ArrayList<>();
-
-        if (probability > 0.15) {
-            // Find nearby safe parking spots
-            List<Row> safeSpots = safeParkingLocationManager.getNearbySafeLocations(latitude, longitude, radius, 3,
-                    threshold);
-            for (Row spot : safeSpots) {
-                double spotLat = spot.getDouble("Latitude");
-                double spotLon = spot.getDouble("Longitude");
-                String date = spot.getDateTime("Added Time").toLocalDate().toString();
-                double spotProbability = spot.getDouble("Probability");
-                int spotRadius = spot.getInt("Radius");
-                int spotThreshold = spot.getInt("Threshold");
-
-                double spotDistance = GeoUtils.calculateDistance(latitude, longitude, spotLat, spotLon);
-                safeSpotsList.add(new SafeParkingSpot(spotLat, spotLon, spotDistance, date, spotProbability, spotRadius,
-                        spotThreshold));
-            }
-        }
+        // Analyze auto theft data
+        AutoTheftResult result = autoTheftFacade.analyze(latitude, longitude, radius, threshold, earliestYear);
 
         // Print the results
         System.err.println("All Auto Theft in the past year within the radius:");
         int index = 1;
-        for (AutoTheftResult.Incident incident : pastYearIncidents) {
-            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, incident.occurDate,
-                    incident.distance);
+        for (AutoTheftResult.Incident incident : result.getPastYearIncidents()) {
+            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, incident.occurDate, incident.distance);
         }
 
         System.err.println("ALL known Auto Theft within the radius:");
         index = 1;
-        for (AutoTheftResult.Incident incident : allKnownIncidents) {
-            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, incident.occurDate,
-                    incident.distance);
+        for (AutoTheftResult.Incident incident : result.getAllKnownIncidents()) {
+            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, incident.occurDate, incident.distance);
         }
 
-        System.err.println(probabilityMessage);
-        System.err.println(warning);
+        System.err.println(result.getProbabilityMessage());
+        System.err.println(result.getWarning());
 
-        if (probability <= 0.15) {
+        if (result.getProbability() <= 0.15) {
             // Allow user to add current location to safe parking locations if it's safe
-            safeParkingLocationManager.addOrUpdateSafeLocation(latitude, longitude, probability, radius, threshold);
+            SafeParkingLocationManager.getInstance().addOrUpdateSafeLocation(latitude, longitude, result.getProbability(), radius, threshold);
         }
 
         // Simulate adding 5 safe locations
@@ -145,33 +83,51 @@ public class AutoTheftSafeCaseDemo {
             double randomProbability = random.nextDouble() * 0.1; // random probability between 0 and 0.1
             int randomRadius = 200;
             int randomThreshold = random.nextInt(10) + 1; // random threshold between 1 and 10
-            safeParkingLocationManager.addOrUpdateSafeLocation(randomLat, randomLon, randomProbability, randomRadius,
-                    randomThreshold);
+            SafeParkingLocationManager.getInstance().addOrUpdateSafeLocation(randomLat, randomLon, randomProbability, randomRadius, randomThreshold);
         }
 
-        /*
-         * Table table = safeParkingLocationManager.getSafeLocationsTable();
-         * System.err.println("Safe Parking Locations:");
-         * for (int i = 0; i < table.rowCount(); i++) {
-         * double lat = table.doubleColumn("Latitude").get(i);
-         * double lon = table.doubleColumn("Longitude").get(i);
-         * String date =
-         * table.dateTimeColumn("Added Time").get(i).toLocalDate().toString();
-         * double prob = table.doubleColumn("Probability").get(i);
-         * int rad = table.intColumn("Radius").get(i);
-         * int thresh = table.intColumn("Threshold").get(i);
-         * System.out.
-         * printf("Latitude: %.6f, Longitude: %.6f, Added Time: %s, Probability: %.4f%%, Radius: %d, Threshold: %d%n"
-         * ,
-         * lat, lon, date, prob * 100, rad, thresh);
-         * }
-         */
-
         // Create and print JSON result
-        AutoTheftResult result = new AutoTheftResult(pastYearIncidents, allKnownIncidents, probability,
-                probabilityMessage, warning, safeSpotsList);
         Gson gson = new Gson();
         String jsonResult = gson.toJson(result);
         System.err.println(jsonResult);
+    }
+
+    private static List<AutoTheftData> fetchAutoTheftData(CrimeDataFetcher fetcher, CrimeDataConverter converter, CrimeDataProcessor processor) {
+        List<AutoTheftData> autoTheftDataList = new ArrayList<>();
+        Table table = converter.jsonToTable(fetcher.fetchData());
+
+        if (table == null) {
+            return autoTheftDataList;
+        }
+
+        processor.setTable(table);
+        Table filteredTable = processor.filterBy("MCI_CATEGORY", "Auto Theft");
+
+        for (int i = 0; i < filteredTable.rowCount(); i++) {
+            try {
+                String eventUniqueId = getStringValue(filteredTable, "EVENT_UNIQUE_ID", i);
+                int occYear = filteredTable.intColumn("OCC_YEAR").get(i);
+                String occMonth = getStringValue(filteredTable, "OCC_MONTH", i);
+                int occDay = filteredTable.intColumn("OCC_DAY").get(i);
+                double latitude = filteredTable.doubleColumn("LAT_WGS84").get(i);
+                double longitude = filteredTable.doubleColumn("LONG_WGS84").get(i);
+
+                AutoTheftData autoTheftData = new AutoTheftData(
+                        eventUniqueId, occYear, occMonth, occDay, "Auto Theft", latitude, longitude);
+                autoTheftDataList.add(autoTheftData);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return autoTheftDataList;
+    }
+
+    private static String getStringValue(Table table, String columnName, int rowIndex) {
+        if (table.column(columnName) instanceof tech.tablesaw.api.TextColumn) {
+            return table.textColumn(columnName).get(rowIndex);
+        } else {
+            return table.stringColumn(columnName).get(rowIndex);
+        }
     }
 }

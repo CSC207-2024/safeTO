@@ -5,7 +5,6 @@ import analysis.carTheft.AutoTheftResult;
 import analysis.crimeDataRanking.NeighborhoodCrimeRankingResult;
 import analysis.facade.CrimeAnalysisFacade;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.util.List;
 

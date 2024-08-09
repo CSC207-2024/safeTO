@@ -1,7 +1,6 @@
 package analysis.carTheft;
 
 import analysis.interfaces.CrimeCalculatorInterface;
-import analysis.interfaces.IncidentFetcherInterface;
 import analysis.utils.GeoUtils;
 
 import java.time.LocalDate;
@@ -13,15 +12,15 @@ import java.util.*;
  */
 public class AutoTheftCalculator implements CrimeCalculatorInterface<AutoTheftData> {
 
-    private final IncidentFetcherInterface<AutoTheftData> autoTheftIncidentFetcher;
+    private final List<AutoTheftData> autoTheftDataList;
 
     /**
-     * Constructs an AutoTheftCalculator with the specified incident fetcher.
+     * Constructs an AutoTheftCalculator with the specified incident data list.
      *
-     * @param autoTheftIncidentFetcher The fetcher for auto theft incidents.
+     * @param autoTheftDataList The list of auto theft incidents.
      */
-    public AutoTheftCalculator(IncidentFetcherInterface<AutoTheftData> autoTheftIncidentFetcher) {
-        this.autoTheftIncidentFetcher = autoTheftIncidentFetcher;
+    public AutoTheftCalculator(List<AutoTheftData> autoTheftDataList) {
+        this.autoTheftDataList = autoTheftDataList;
     }
 
     /**
@@ -91,7 +90,6 @@ public class AutoTheftCalculator implements CrimeCalculatorInterface<AutoTheftDa
      */
     @Override
     public List<AutoTheftData> getCrimeDataWithinRadius(double lat, double lon, double radius) {
-        List<AutoTheftData> autoTheftDataList = autoTheftIncidentFetcher.fetchCrimeData();
         return filterDataByRadius(lat, lon, radius, autoTheftDataList);
     }
 
@@ -106,7 +104,6 @@ public class AutoTheftCalculator implements CrimeCalculatorInterface<AutoTheftDa
      */
     @Override
     public List<AutoTheftData> getCrimeDataWithinRadiusPastYear(double lat, double lon, double radius) {
-        List<AutoTheftData> autoTheftDataList = autoTheftIncidentFetcher.fetchCrimeData();
         List<AutoTheftData> pastYearData = filterDataByYear(autoTheftDataList);
         return filterDataByRadius(lat, lon, radius, pastYearData);
     }
@@ -122,7 +119,6 @@ public class AutoTheftCalculator implements CrimeCalculatorInterface<AutoTheftDa
      * @return A list of auto theft data within the specified radius that occurred from the specified year onwards.
      */
     public List<AutoTheftData> getCrimeDataWithinRadius(double lat, double lon, double radius, int earliestYear) {
-        List<AutoTheftData> autoTheftDataList = autoTheftIncidentFetcher.fetchCrimeData();
         List<AutoTheftData> filteredData = filterDataByEarliestYear(autoTheftDataList, earliestYear);
         return filterDataByRadius(lat, lon, radius, filteredData);
     }

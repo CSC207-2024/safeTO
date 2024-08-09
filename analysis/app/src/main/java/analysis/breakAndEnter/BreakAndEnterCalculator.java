@@ -1,7 +1,6 @@
 package analysis.breakAndEnter;
 
 import analysis.interfaces.CrimeCalculatorInterface;
-import analysis.interfaces.IncidentFetcherInterface;
 import analysis.utils.GeoUtils;
 
 import java.time.LocalDate;
@@ -13,15 +12,15 @@ import java.util.*;
  */
 public class BreakAndEnterCalculator implements CrimeCalculatorInterface<BreakAndEnterData> {
 
-    private final IncidentFetcherInterface<BreakAndEnterData> breakAndEnterIncidentFetcher;
+    private final List<BreakAndEnterData> breakAndEnterDataList;
 
     /**
-     * Constructs a BreakAndEnterCalculator with the specified incident fetcher.
+     * Constructs a BreakAndEnterCalculator with the specified incident data.
      *
-     * @param breakAndEnterIncidentFetcher The fetcher for break and enter incidents.
+     * @param breakAndEnterDataList The list of break and enter incidents.
      */
-    public BreakAndEnterCalculator(IncidentFetcherInterface<BreakAndEnterData> breakAndEnterIncidentFetcher) {
-        this.breakAndEnterIncidentFetcher = breakAndEnterIncidentFetcher;
+    public BreakAndEnterCalculator(List<BreakAndEnterData> breakAndEnterDataList) {
+        this.breakAndEnterDataList = breakAndEnterDataList;
     }
 
     /**
@@ -30,7 +29,6 @@ public class BreakAndEnterCalculator implements CrimeCalculatorInterface<BreakAn
      * @param lat The latitude of the center point.
      * @param lon The longitude of the center point.
      * @param radius The radius in meters within which to filter the data.
-     * @param data The list of break and enter data to filter.
      * @return A filtered list of break and enter data within the specified radius.
      */
     private List<BreakAndEnterData> filterDataByRadius(double lat, double lon, double radius, List<BreakAndEnterData> data) {
@@ -73,7 +71,6 @@ public class BreakAndEnterCalculator implements CrimeCalculatorInterface<BreakAn
      */
     @Override
     public List<BreakAndEnterData> getCrimeDataWithinRadius(double lat, double lon, double radius) {
-        List<BreakAndEnterData> breakAndEnterDataList = breakAndEnterIncidentFetcher.fetchCrimeData();
         return filterDataByRadius(lat, lon, radius, breakAndEnterDataList);
     }
 
@@ -88,7 +85,6 @@ public class BreakAndEnterCalculator implements CrimeCalculatorInterface<BreakAn
      */
     @Override
     public List<BreakAndEnterData> getCrimeDataWithinRadiusPastYear(double lat, double lon, double radius) {
-        List<BreakAndEnterData> breakAndEnterDataList = breakAndEnterIncidentFetcher.fetchCrimeData();
         List<BreakAndEnterData> pastYearData = filterDataByYear(breakAndEnterDataList);
         return filterDataByRadius(lat, lon, radius, pastYearData);
     }
