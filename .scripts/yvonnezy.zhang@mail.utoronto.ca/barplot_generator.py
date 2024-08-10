@@ -1,6 +1,7 @@
 # The generated bar plots are moved to frontend folder
 import json
 import os
+import re
 import sys
 
 import matplotlib.pyplot as plt
@@ -8,7 +9,6 @@ import pandas as pd
 from constants import by_year_category_neighbourhood_path, root_dir
 
 output_dir = os.path.join(root_dir, "frontend", "public", "neighbourhood_plots")
-import re
 
 # Compile the regex pattern to match non-alphanumeric characters
 non_alphanumeric = re.compile(r"[^A-Za-z0-9]")
