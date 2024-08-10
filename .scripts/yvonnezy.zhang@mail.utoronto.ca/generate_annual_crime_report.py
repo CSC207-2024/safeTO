@@ -1,24 +1,11 @@
 import base64
 import json
-import os
 import sys
 from io import BytesIO
 
 import matplotlib.pyplot as plt
 import pandas as pd
-
-current_dir = os.path.dirname(os.path.abspath(__file__))
-root_dir = os.path.dirname(os.path.dirname(current_dir))
-file_path = os.path.join(
-    root_dir,
-    "backend",
-    "app",
-    "src",
-    "main",
-    "resources",
-    "aggregates",
-    "by_year_category_neighbourhood.json",
-)
+from constants import by_year_category_neighbourhood_path
 
 
 # Function to generate plots for a specific year and neighbourhood
@@ -70,7 +57,7 @@ def main():
     year = int(sys.argv[2], base=10)  # Year
 
     # Load the JSON file into a DataFrame
-    data = pd.read_json(file_path)
+    data = pd.read_json(by_year_category_neighbourhood_path)
 
     # Check the loaded data
     print(data.head(), file=sys.stderr)
