@@ -11,7 +11,7 @@ describe('Cloudflare Workers KV API', () => {
 		AUTHORIZED_USERS: JSON.stringify([{ user: 'testUser', token }]),
 		AUTHORIZED_USERS_SET: new Set([token]),
 		AUTHORIZED_USERS_MAP_TOKEN_TO_USER: new Map([[token, 'testUser']]),
-		KV: {
+		SAFETO: {
 			get: async (key) => {
 				// Mock get behavior based on the key
 				if (key === 'collection//key') {
