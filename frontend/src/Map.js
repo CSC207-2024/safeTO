@@ -285,7 +285,9 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
           'Content-Type': 'application/json'
         }
       });
+      //add for debug
       console.log('mark2');
+      console.log('Response result: ', response);
 
       // Log the response status for debugging
       console.log('Response Status:', response.status);
@@ -297,7 +299,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       }
 
       // Handle the response data
-      const result = response.data.result;
+      const result = response.data;
       console.log('Response Data:', result);
       setAnalysisResults(result);
       console.log('mark3');
