@@ -14,18 +14,30 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
 
+
+
   const apiUrl = 'https://csc207-api.joefang.org/user/userinfo';
 
   // Function to handle data submission to the backend
-  const handleSave = async () => {
-      try {
-        await axios.post(apiUrl, userInfo);
-        console.log('User info sent successfully');
-        closeModal();
-      } catch (error) {
-          console.error('Error sending user info:', error);
-      }
-  };
+    const handleSave = async () => {
+        // Format the userInfo object
+        const formattedUserInfo = {
+            firstName: userInfo.firstName.trim(),
+            lastName: userInfo.lastName.trim(),
+            email: userInfo.email.trim(),
+            phoneNumber: userInfo.phoneNumber.trim(),
+            address: userInfo.address.trim(),
+            subscribed: userInfo.subscribed,
+        };
+
+        try {
+            await axios.post(apiUrl, formattedUserInfo);
+            console.log('User info sent successfully');
+            closeModal();
+        } catch (error) {
+            console.error('Error sending user info:', error);
+        }
+    };
 
     const handleSaveAndToggleEdit = () => {
         toggleEdit();
