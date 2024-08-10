@@ -301,7 +301,9 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       // Handle the response data
       const result = response.data.data.result;
       console.log('Response Data:', result);
-      setAnalysisResults(result);
+      if (result !== undefined) {
+        setAnalysisResults(result);
+      }
       console.log('mark3');
 
       // Handle success (e.g., update UI or state)
