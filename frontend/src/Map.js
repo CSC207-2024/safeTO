@@ -72,6 +72,8 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   const ModalTwo = ({ show, onClose, className, overlayClassName, neighbourhood }) => {
     if (!show) return null;
 
+    const imagePath = `/neighbourhood_plots/${neighbourhood.replace(/ /g, '_')}.png`;
+
     return (
         <div className={overlayClassName}>
           <div className={className}>
@@ -79,7 +81,11 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
             <h2>Neighbourhood: &nbsp; {neighbourhood}</h2>
             <p>Statistics and details about {neighbourhood}.</p>
-            <img src={`/neighbourhood_plots/${neighbourhood}.png`} alt={neighbourhood} className="neighbourhood-image"/>
+            <img
+                src={imagePath}
+                alt={neighbourhood}
+                className="neighbourhood-image"
+            />
           </div>
         </div>
     );
