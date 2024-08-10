@@ -1,4 +1,5 @@
 import base64
+import json
 import os
 import sys
 from io import BytesIO
@@ -58,7 +59,12 @@ def generate_annual_comparison(
     return chart_base64, chart_base64_prev
 
 
-def main(neighbourhood: str, year: int, file_path: str):
+def main():
+    assert len(sys.argv) >= 3, "missing parameters"
+
+    neighbourhood = sys.argv[1]  # Neighbourhood name
+    year = int(sys.argv[2], base=10)  # Year
+
     # Load the JSON file into a DataFrame
     data = pd.read_json(file_path)
 
@@ -76,11 +82,17 @@ def main(neighbourhood: str, year: int, file_path: str):
     print(data.columns, file=sys.stderr)
 
     # Generate comparison plots
-    generate_annual_comparison(neighbourhood, year, data)
+    chart_base64, chart_base64_prev = generate_annual_comparison(
+        neighbourhood, year, data
+    )
+    json.dump(
+        {"curr": chart_base64, "prev": chart_base64_prev},
+        sys.stdout,
+        indent=None,
+        separators=(",", ":"),
+    )
 
 
 # The script can now be called with the parameters for neighbourhood and year
 if __name__ == "__main__":
-    neighbourhood = sys.argv[1]  # Neighbourhood name
-    year = int(sys.argv[2])  # Year
-    main(neighbourhood, year, file_path)
+    main()
