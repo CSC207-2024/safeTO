@@ -84,7 +84,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
           <button onClick={onClose} className="close-button">x</button>
 
           <h2>Neighbourhood: &nbsp; {neighbourhood}</h2>
-          <p>Statistics and details about {neighbourhood}.</p>
+          <p>Crime statistics and details about {neighbourhood}.</p>
           <img
             src={imagePath}
             alt={neighbourhood}
@@ -297,7 +297,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       }
 
       // Handle the response data
-      const result = response.data;
+      const result = response.data.result;
       console.log('Response Data:', result);
       setAnalysisResults(result);
       console.log('mark3');
