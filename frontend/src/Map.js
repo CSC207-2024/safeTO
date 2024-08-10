@@ -10,7 +10,7 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import Modal from 'react-modal';
 import axios from 'axios';
 // Import the JSON file
-import testCarTheftData from './/data/test_car_theft.json'; 
+import testCarTheftData from './/data/test_car_theft.json';
 import testBreakInData from './/data/test_break_in.json';
 
 // Configure the modal root element for accessibility
@@ -68,26 +68,30 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     setSelectedNeighbourhood(null);
   };
 
+  const normalizeNeighborhood = (neighborhood) => {
+    return neighborhood.replace(/[^A-Za-z0-9]/g, '_')
+  }
+
   // ModalTwo Component
   const ModalTwo = ({ show, onClose, className, overlayClassName, neighbourhood }) => {
     if (!show) return null;
 
-    const imagePath = `/neighbourhood_plots/${neighbourhood.replace(/ /g, '_')}.png`;
+    const imagePath = `/neighbourhood_plots/${normalizeNeighborhood(neighbourhood)}.png`;
 
     return (
-        <div className={overlayClassName}>
-          <div className={className}>
-            <button onClick={onClose} className="close-button">x</button>
+      <div className={overlayClassName}>
+        <div className={className}>
+          <button onClick={onClose} className="close-button">x</button>
 
-            <h2>Neighbourhood: &nbsp; {neighbourhood}</h2>
-            <p>Statistics and details about {neighbourhood}.</p>
-            <img
-                src={imagePath}
-                alt={neighbourhood}
-                className="neighbourhood-image"
-            />
-          </div>
+          <h2>Neighbourhood: &nbsp; {neighbourhood}</h2>
+          <p>Statistics and details about {neighbourhood}.</p>
+          <img
+            src={imagePath}
+            alt={neighbourhood}
+            className="neighbourhood-image"
+          />
         </div>
+      </div>
     );
   };
 
@@ -103,7 +107,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       if (mapRef.current) {
         mapRef.current.setView(coords, zoom);
       }
-      
+
     }
   }));
 
@@ -114,9 +118,9 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       .then((data) => setGeoJsonData(data)) // Set GeoJSON data
       .catch((error) => console.error('Error fetching GeoJSON data:', error));
 
-      if (mapRef.current) {
-        mapRef.current.setView([43.651070, -79.347015], 12); // Set initial view to Toronto with zoom level 16
-      }
+    if (mapRef.current) {
+      mapRef.current.setView([43.651070, -79.347015], 12); // Set initial view to Toronto with zoom level 16
+    }
   }, []);
 
   // Styles for GeoJSON features
@@ -126,7 +130,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     dashArray: '',
     fillOpacity: 0.7,
     fillColor: '#89CFEF' //Baby Blue
-    
+
   };
 
   const defaultStyle = {
@@ -221,7 +225,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     // console.log(analysisResults);
 
   }, [selectedYear]);
-  
+
 
   const handleRadiusChange = (e) => {
     // console.log(e.target.value, selectedRadius);
@@ -241,7 +245,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   };
 
   const sendToBackend = async (analysisType) => {
-    
+
     // Define data based on analysisType
     const data = {
       latitude: parseFloat(markerCoordinates.lat),
@@ -254,8 +258,8 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
     // Initialize the URL object
     const baseUrl = analysisType === 'carTheft'
-    ? 'https://csc207-api.joefang.org/analysis/auto-theft'
-    : 'https://csc207-api.joefang.org/analysis/break-and-enter';
+      ? 'https://csc207-api.joefang.org/analysis/auto-theft'
+      : 'https://csc207-api.joefang.org/analysis/break-and-enter';
 
     const url = new URL(baseUrl);
 
@@ -270,7 +274,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     }
 
     // url.searchParams.append('analysisType', analysisType);
-    
+
     console.log('Check url:', url, url.searchParams);
 
     try {
@@ -312,66 +316,66 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   const carTheftFunction = () => {
     // alert(analysisResults);
     sendToBackend('carTheft');
-    
+
   };
 
   const breakInFunction = () => {
     sendToBackend('breakIn');
   };
-  
-  
+
+
 
 
   return (
     <div>
-    <MapContainer center={position} zoom={12} style={{ height: '100vh', width: '100%' }} ref={mapRef}>
-      {/* Tile layer for the map */}
-      
-      {/* Default Layer */}
-      <TileLayer
-        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
-        attribution='&copy; <a href="https://www.esri.com/">Esri</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        opacity={0.6}
+      <MapContainer center={position} zoom={12} style={{ height: '100vh', width: '100%' }} ref={mapRef}>
+        {/* Tile layer for the map */}
+
+        {/* Default Layer */}
+        <TileLayer
+          url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
+          attribution='&copy; <a href="https://www.esri.com/">Esri</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          opacity={0.6}
 
         //Satellite Layer
         // url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
         // attribution='&copy; <a href="https://www.esri.com/">Esri</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         // opacity={0.6}
-      />
-      
-      {/* Render GeoJSON data if available */}
-      {geoJsonData && (
-        <GeoJSON data={geoJsonData} style={defaultStyle} onEachFeature={onEachArea} />
-      )}
+        />
 
-      {/* Component to track mouse movements */}
-      <HoverCoordinates setCoordinates={setCoordinates} />
+        {/* Render GeoJSON data if available */}
+        {geoJsonData && (
+          <GeoJSON data={geoJsonData} style={defaultStyle} onEachFeature={onEachArea} />
+        )}
 
-      {/* Render Marker if markerCoordinates is set */}
-      {markerCoordinates && (
-          <Marker position={markerCoordinates} icon={IconMarker} 
+        {/* Component to track mouse movements */}
+        <HoverCoordinates setCoordinates={setCoordinates} />
+
+        {/* Render Marker if markerCoordinates is set */}
+        {markerCoordinates && (
+          <Marker position={markerCoordinates} icon={IconMarker}
             eventHandlers={{
               dblclick: openModal,
             }}>
             <Tooltip>
               Double click to view Stats
-            </Tooltip>          
+            </Tooltip>
           </Marker>
-      )}
+        )}
 
-    </MapContainer>
+      </MapContainer>
 
-    <Modal
-      isOpen={modalIsOpen}
-      onRequestClose={closeModal}
-      className='modal-content'
-      overlayClassName="overlay">
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className='modal-content'
+        overlayClassName="overlay">
         <button onClick={closeModal} className="close-button">x</button>
         <h2>Find more crime data at this place?</h2>
 
         <div className='select-container'>
           <label for="radius-select" >1. Set the radius </label>
-          <select id="radius-select" name="radius"  value={selectedRadius} onChange={handleRadiusChange} >
+          <select id="radius-select" name="radius" value={selectedRadius} onChange={handleRadiusChange} >
             <option value="50">50m</option>
             <option value="100">100m</option>
             <option value="200">200m</option>
@@ -393,21 +397,21 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
             />
             <p className="range-text">&nbsp;  Selected value: {selectedThreshold} (<i>Note: 1 for most strict and 10 for the least strict)</i></p>
           </div>
-          
+
           <label for="year-select" > </label>
           3. (<i>Only for Car Theft Analysis</i>) Since year &nbsp;
           <select id="year-select" name="year" value={selectedYear} onChange={handleYearChange} >
-          {Array.from({ length: 11 }, (_, index) => (
-            <option key={index} value={ (new Date().getFullYear()) - index}>
-              {2024 - index}
-            </option>
-          ))}
+            {Array.from({ length: 11 }, (_, index) => (
+              <option key={index} value={(new Date().getFullYear()) - index}>
+                {2024 - index}
+              </option>
+            ))}
           </select>; <br></br>
 
         </div>
 
         <div className="modal-buttons">
-          <button className='modal-button' onClick={carTheftFunction} > Car Theft Analysis</button> 
+          <button className='modal-button' onClick={carTheftFunction} > Car Theft Analysis</button>
           <button className='modal-button' onClick={breakInFunction} > Break-In Analysis</button>
         </div>
 
@@ -415,7 +419,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
         {analysisResults && (
           <div className='analysis-results'>
             <h3>Analysis Results</h3>
-            <p>Crime Probability: {analysisResults.probability?analysisResults.probability.toFixed(2):0}</p>
+            <p>Crime Probability: {analysisResults.probability ? analysisResults.probability.toFixed(2) : 0}</p>
             <p>Message: {analysisResults.probabilityMessage}</p>
             <h2><i className='warning-text'>{analysisResults.warning}</i></h2>
             <h4>Past Year Incidents</h4>
@@ -429,18 +433,18 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
                 </thead>
                 <tbody>
                   {analysisResults.pastYearIncidents && Array.isArray(analysisResults.pastYearIncidents) && analysisResults.pastYearIncidents.length > 0 ? (
-                      analysisResults.pastYearIncidents
-                          .sort((a, b) => a.distance - b.distance) // Sort by distance in ascending order
-                          .map((incident, index) => (
-                              <tr key={index}>
-                                <td>{incident.occurDate}</td>
-                                <td>{incident.distance.toFixed(1)}</td>
-                              </tr>
-                          ))
-                  ): (
-                      <tr>
-                        <td colSpan="2">No incidents to display</td>
-                      </tr>
+                    analysisResults.pastYearIncidents
+                      .sort((a, b) => a.distance - b.distance) // Sort by distance in ascending order
+                      .map((incident, index) => (
+                        <tr key={index}>
+                          <td>{incident.occurDate}</td>
+                          <td>{incident.distance.toFixed(1)}</td>
+                        </tr>
+                      ))
+                  ) : (
+                    <tr>
+                      <td colSpan="2">No incidents to display</td>
+                    </tr>
                   )}
                 </tbody>
               </table>
@@ -457,26 +461,26 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
                 </thead>
                 <tbody>
                   {analysisResults.allKnownIncidents && Array.isArray(analysisResults.allKnownIncidents) && analysisResults.allKnownIncidents.length > 0 ? (
-                      analysisResults.allKnownIncidents
-                          .sort((a, b) => a.distance - b.distance) // Sort by distance in ascending order
-                          .map((incident, index) => (
-                              <tr key={index}>
-                                <td>{incident.occurDate}</td>
-                                <td>{incident.distance.toFixed(1)}</td>
-                              </tr>
-                          ))
+                    analysisResults.allKnownIncidents
+                      .sort((a, b) => a.distance - b.distance) // Sort by distance in ascending order
+                      .map((incident, index) => (
+                        <tr key={index}>
+                          <td>{incident.occurDate}</td>
+                          <td>{incident.distance.toFixed(1)}</td>
+                        </tr>
+                      ))
                   ) : (
-                      <tr>
-                        <td colSpan="2">No incidents to display</td>
-                      </tr>
+                    <tr>
+                      <td colSpan="2">No incidents to display</td>
+                    </tr>
                   )}
                 </tbody>
               </table>
             </div>
           </div>
         )}
-    </Modal>
-    <ModalTwo
+      </Modal>
+      <ModalTwo
         className='modal-content'
         overlayClassName="overlay"
         show={isModalTwoOpen}
