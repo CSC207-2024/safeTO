@@ -73,17 +73,15 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     if (!show) return null;
 
     return (
-      <div className={overlayClassName}>
-        <div className={className}>
-          <button onClick={closeModalTwo} className="close-button">x</button>
+        <div className={overlayClassName}>
+          <div className={className}>
+            <button onClick={onClose} className="close-button">x</button>
 
-          <h2>Neighbourhood: &nbsp; {neighbourhood}</h2>
-          <p>Statistics and details about {neighbourhood}.</p>
-          {/* TODO: add detail */}
-          <img src={'////images/histogram.png'} alt={neighbourhood}
-               className="neighbourhood-image"/>
+            <h2>Neighbourhood: &nbsp; {neighbourhood}</h2>
+            <p>Statistics and details about {neighbourhood}.</p>
+            <img src={`/neighbourhood_plots/${neighbourhood}.png`} alt={neighbourhood} className="neighbourhood-image"/>
+          </div>
         </div>
-      </div>
     );
   };
 

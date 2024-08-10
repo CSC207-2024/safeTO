@@ -1,3 +1,4 @@
+# The generated bar plots are moved to frontend folder
 import json
 import os
 import matplotlib.pyplot as plt
