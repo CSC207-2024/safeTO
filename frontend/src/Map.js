@@ -299,7 +299,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       }
 
       // Handle the response data
-      const result = response.data;
+      const result = response.data.data.result;
       console.log('Response Data:', result);
       setAnalysisResults(result);
       console.log('mark3');
