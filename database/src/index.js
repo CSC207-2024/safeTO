@@ -291,7 +291,8 @@ async function handleList(params, username, request, env) {
         return new Response('Missing collection', { status: 400 })
     }
 
-    const listOptions = { prefix: `${collection}//` }
+    const collectionPrefix = `${collection}//`
+    const listOptions = { prefix: collectionPrefix }
     if (cursor) listOptions.cursor = cursor
 
     const listResult = await env.KV.list(listOptions)
@@ -306,7 +307,7 @@ async function handleList(params, username, request, env) {
                 // Return the latest visible version without _hidden property
                 const latestVersion = { ...visibleVersions[visibleVersions.length - 1] }
                 delete latestVersion._hidden
-                results.push({ key: removePrefix(name, `${collection}//`), value: latestVersion })
+                results.push({ key: removePrefix(name, collectionPrefix), value: latestVersion })
             }
         }
     }
