@@ -405,3 +405,24 @@
   margin-top: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+/* Spinner styles */
+.loading-spinner {
+  border: 8px solid rgba(0, 0, 0, 0.1); /* Light grey border */
+  border-top: 8px solid #3498db; /* Blue border */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto; /* Center the spinner */
+}
+
+/* Keyframes for the spinning animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
