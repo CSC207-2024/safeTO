@@ -59,6 +59,10 @@ def generate_annual_comparison(
     return chart_base64, chart_base64_prev
 
 
+def as_data_url(encoded: str, type: str = "image/png") -> str:
+    return "data:{};base64,{}".format(type, encoded)
+
+
 def main():
     assert len(sys.argv) >= 3, "missing parameters"
 
@@ -86,8 +90,8 @@ def main():
         neighbourhood, year, data
     )
     json.dump(
-        {"curr": chart_base64, "prev": chart_base64_prev},
-        sys.stdout,
+        {"curr": as_data_url(chart_base64), "prev": as_data_url(chart_base64_prev)},
+        sys.stdout,  # Check out <https://bit.ly/46JN9cs>
         indent=None,
         separators=(",", ":"),
     )
