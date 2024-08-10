@@ -55,6 +55,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   const [isModalTwoOpen, setModalTwoOpen] = useState(false);
   const [selectedNeighbourhood, setSelectedNeighbourhood] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [elapsedTime, setElapsedTime] = useState(0);
 
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
@@ -250,6 +251,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   const sendToBackend = async (analysisType) => {
 
     setIsLoading(true); // Set loading to true when the request starts
+    setElapsedTime(0);  // Reset timer
 
     // Define data based on analysisType
     const data = {
@@ -327,6 +329,19 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     // setAnalysisResults(await axios.get('https://csc207-api.joefang.org/analysis/auto-theft'));
     console.log('Request URL:', url.toString());
   };
+
+  // Timer effect
+  useEffect(() => {
+    let timer;
+    if (isLoading) {
+      timer = setInterval(() => {
+        setElapsedTime((prevTime) => prevTime + 1);
+      }, 1000);
+    } else {
+      clearInterval(timer);
+    }
+    return () => clearInterval(timer);
+  }, [isLoading]);
 
   const carTheftFunction = () => {
     // alert(analysisResults);
@@ -431,7 +446,10 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
         </div>
 
         {isLoading ? (
-            <div className="loading-spinner"></div> // Spinner element
+            <div className="loading-container">
+              <div className="loading-spinner"></div>
+              <p>Loading... {elapsedTime} seconds</p>
+            </div>
         ) : (
             analysisResults && (
                 <div className='analysis-results'>
