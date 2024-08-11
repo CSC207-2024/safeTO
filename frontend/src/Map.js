@@ -616,7 +616,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
                 <div className='analysis-results'>
                   <h3>Analysis Results</h3>
                   <p>Crime Probability: No data.</p>
-                  <p>Message: No data.</p>
+                  <p>Message: Based on the <i>location, probability threshold, year</i> you selected, there is no data from Toronto Police Service Database. Try to set different parameters.</p>
                   <h2><i className='warning-text'></i></h2>
                   <h4>Past Year Incidents</h4>
                   <div className='scrollable-table-container'>
