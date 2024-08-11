@@ -1,6 +1,6 @@
 # [safeTO](https://csc207.joefang.org/) - A Comprehensive Community Safety Website for Torontonians
 
-> [Design Document](https://bit.ly/4dHA8SZ)
+> Check out our [Design Document](https://bit.ly/4dHA8SZ) on Google Docs!
 
 ## Deployment
 
@@ -71,7 +71,7 @@ Our usecase demo is available at [analysis](analysis/app/src/main/java/analysis)
 
 ## Contact
 
-Team name: Stack Underflow
+> Team name: `Stack Underflow`
 
 * Joe Fang [`@MinecraftFuns`](https://github.com/MinecraftFuns) <joe.fang@mail.utoronto.ca>
 * Minghe Ma [`@mhnwa`](https://github.com/mhnwa) <minghe.ma@mail.utoronto.ca>
@@ -82,9 +82,9 @@ Team name: Stack Underflow
 
 ## Some Revisions to Blueprint
 
-1. In `User.java` class, change `names` from `list<String>` to `firstName`, `lastName`;
-2. In `User.java` class, change `userID` from `long` to `String`, in order to accommodate alphanumeric username;
-3. In `User.java` class, change `notificationPreferences` from `List<String>` to `Map<String, Boolean>`;
-4. In `User.java` class, change `homeLocation`, elements of `savedLocations` from `Location` to `SimpleLocation`;
-5. In `User.java` class, change `contacts` from `list<long>` to `list<String>`;
-6. In `Location.java` class, apply regular expression to Canadian postcodes;
+1. In the `User.java` class, change `names` from `List<String>` to `firstName`, `lastName`;
+2. In the `User.java` class, change `userID` from `long` to `String` in order to accommodate alphanumeric usernames;
+3. In the `User.java` class, change `notificationPreferences` from `List<String>` to `Map<String, Boolean>`;
+4. In the `User.java` class, change `homeLocation` and the elements of `savedLocations` from `Location` to `SimpleLocation`;
+5. In the `User.java` class, change `contacts` from `List<long>` to `List<String>`;
+6. In the `Location.java` class, apply a regular expression to Canadian postcodes;
