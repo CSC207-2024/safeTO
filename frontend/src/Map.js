@@ -54,9 +54,13 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isModalTwoOpen, setModalTwoOpen] = useState(false);
   const [selectedNeighbourhood, setSelectedNeighbourhood] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [elapsedTime, setElapsedTime] = useState(0);
 
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
+
+
 
   const openModalTwo = (neighbourhood) => {
     setSelectedNeighbourhood(neighbourhood);
@@ -82,18 +86,22 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       <div className={overlayClassName}>
         <div className={className}>
           <button onClick={onClose} className="close-button">x</button>
-
+          <button onClick={showNeighbourhoodRanking} className="ranking-button">See Rankings</button>
           <h2>Neighbourhood: &nbsp; {neighbourhood}</h2>
-          <p>Statistics and details about {neighbourhood}.</p>
+          <p>Crime statistics and details about <i>{neighbourhood}</i>.</p>
           <img
-            src={imagePath}
-            alt={neighbourhood}
-            className="neighbourhood-image"
+              src={imagePath}
+              alt={neighbourhood}
+              className="neighbourhood-image"
           />
         </div>
       </div>
     );
   };
+
+  const showNeighbourhoodRanking = () => {
+
+  }
 
 
   // Expose map methods to parent components
@@ -246,6 +254,9 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
   const sendToBackend = async (analysisType) => {
 
+    setIsLoading(true); // Set loading to true when the request starts
+    setElapsedTime(0);  // Reset timer
+
     // Define data based on analysisType
     const data = {
       latitude: parseFloat(markerCoordinates.lat),
@@ -285,10 +296,13 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
           'Content-Type': 'application/json'
         }
       });
+      //add for debug
       console.log('mark2');
+      console.log('Response result: ', response);
 
       // Log the response status for debugging
       console.log('Response Status:', response.status);
+
 
 
       // Check if the response is okay
@@ -297,21 +311,41 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       }
 
       // Handle the response data
-      const result = response.data;
+      const result = response.data.data.result;
       console.log('Response Data:', result);
-      setAnalysisResults(result);
+
+      if (result !== undefined) {
+        setAnalysisResults(result);
+      } else {
+        setAnalysisResults(null);
+      }
       console.log('mark3');
 
       // Handle success (e.g., update UI or state)
     } catch (error) {
       console.error('Error:', error);
       // Handle error interactively
+    } finally {
+      setIsLoading(false); // Set loading to false when the request is finished
     }
 
     // Debugging
     // setAnalysisResults(await axios.get('https://csc207-api.joefang.org/analysis/auto-theft'));
     console.log('Request URL:', url.toString());
   };
+
+  // Timer effect
+  useEffect(() => {
+    let timer;
+    if (isLoading) {
+      timer = setInterval(() => {
+        setElapsedTime((prevTime) => prevTime + 1);
+      }, 1000);
+    } else {
+      clearInterval(timer);
+    }
+    return () => clearInterval(timer);
+  }, [isLoading]);
 
   const carTheftFunction = () => {
     // alert(analysisResults);
@@ -415,71 +449,79 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
           <button className='modal-button' onClick={breakInFunction} > Break-In Analysis</button>
         </div>
 
-        {/* Analysis results */}
-        {analysisResults && (
-          <div className='analysis-results'>
-            <h3>Analysis Results</h3>
-            <p>Crime Probability: {analysisResults.probability ? analysisResults.probability.toFixed(2) : 0}</p>
-            <p>Message: {analysisResults.probabilityMessage}</p>
-            <h2><i className='warning-text'>{analysisResults.warning}</i></h2>
-            <h4>Past Year Incidents</h4>
-            <div className='scrollable-table-container'>
-              <table className='scrollable-table'>
-                <thead>
-                  <tr>
-                    <th>Date</th>
-                    <th>Distance (m)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {analysisResults.pastYearIncidents && Array.isArray(analysisResults.pastYearIncidents) && analysisResults.pastYearIncidents.length > 0 ? (
-                    analysisResults.pastYearIncidents
-                      .sort((a, b) => a.distance - b.distance) // Sort by distance in ascending order
-                      .map((incident, index) => (
-                        <tr key={index}>
-                          <td>{incident.occurDate}</td>
-                          <td>{incident.distance.toFixed(1)}</td>
-                        </tr>
-                      ))
-                  ) : (
-                    <tr>
-                      <td colSpan="2">No incidents to display</td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
+        {isLoading ? (
+            <div className="loading-container">
+              <div className="loading-spinner"></div>
+              <p>Loading... {elapsedTime} seconds</p>
             </div>
-
-            <h4>All Known Incidents</h4>
-            <div className='scrollable-table-container'>
-              <table className='scrollable-table'>
-                <thead>
-                  <tr>
-                    <th>Date</th>
-                    <th>Distance (m)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {analysisResults.allKnownIncidents && Array.isArray(analysisResults.allKnownIncidents) && analysisResults.allKnownIncidents.length > 0 ? (
-                    analysisResults.allKnownIncidents
-                      .sort((a, b) => a.distance - b.distance) // Sort by distance in ascending order
-                      .map((incident, index) => (
-                        <tr key={index}>
-                          <td>{incident.occurDate}</td>
-                          <td>{incident.distance.toFixed(1)}</td>
-                        </tr>
-                      ))
-                  ) : (
-                    <tr>
-                      <td colSpan="2">No incidents to display</td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-          </div>
+        ) : (
+            analysisResults && (
+                <div className='analysis-results'>
+                  <h3>Analysis Results</h3>
+                  <p>Crime Probability: {analysisResults.probability ? analysisResults.probability.toFixed(2) : 0}</p>
+                  <p>Message: {analysisResults.probabilityMessage}</p>
+                  <h2><i className='warning-text'>{analysisResults.warning}</i></h2>
+                  <h4>Past Year Incidents</h4>
+                  <div className='scrollable-table-container'>
+                    <table className='scrollable-table'>
+                      <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Distance (m)</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      {analysisResults.pastYearIncidents && Array.isArray(analysisResults.pastYearIncidents) && analysisResults.pastYearIncidents.length > 0 ? (
+                          analysisResults.pastYearIncidents
+                              .sort((a, b) => a.distance - b.distance) // Sort by distance in ascending order
+                              .map((incident, index) => (
+                                  <tr key={index}>
+                                    <td>{incident.occurDate}</td>
+                                    <td>{incident.distance.toFixed(1)}</td>
+                                  </tr>
+                              ))
+                      ) : (
+                          <tr>
+                            <td colSpan="2">No incidents to display</td>
+                          </tr>
+                      )}
+                      </tbody>
+                    </table>
+                  </div>
+                  <h4>All Known Incidents</h4>
+                  <div className='scrollable-table-container'>
+                    <table className='scrollable-table'>
+                      <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Distance (m)</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      {analysisResults.allKnownIncidents && Array.isArray(analysisResults.allKnownIncidents) && analysisResults.allKnownIncidents.length > 0 ? (
+                          analysisResults.allKnownIncidents
+                              .sort((a, b) => a.distance - b.distance) // Sort by distance in ascending order
+                              .map((incident, index) => (
+                                  <tr key={index}>
+                                    <td>{incident.occurDate}</td>
+                                    <td>{incident.distance.toFixed(1)}</td>
+                                  </tr>
+                              ))
+                      ) : (
+                          <tr>
+                            <td colSpan="2">No incidents to display</td>
+                          </tr>
+                      )}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+            )
         )}
+
+
       </Modal>
+
       <ModalTwo
         className='modal-content'
         overlayClassName="overlay"
