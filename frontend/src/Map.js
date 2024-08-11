@@ -130,7 +130,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     const baseUrl= 'https://csc207-api.joefang.org/analysis/ranking';
     const url = new URL(baseUrl);
     // Add query parameters to URL
-    url.searchParams.append('neighbourhood', normalizeNeighborhood(selectedNeighbourhood));
+    url.searchParams.append('neighbourhood', selectedNeighbourhood);
     url.searchParams.append('specificCrime', selectedCrimeType);
 
     console.log('Check url:', url, url.searchParams);
@@ -156,7 +156,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       }
 
       // Handle the response data
-      const result = response.data;
+      const result = response.data.data;
       console.log('Response Data:', result);
 
       if (result !== undefined) {
