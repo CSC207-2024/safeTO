@@ -123,6 +123,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
                 <p>Loading... {elapsedTime} seconds</p>
               </div>
           ) : (
+              // TODO: add css style
               <div className="results">
                 {rankingResult ? (
                     <div>
@@ -139,7 +140,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     );
   };
 
-  const showNeighbourhoodRanking = async () => {
+  const showNeighbourhoodRanking = async (neigh) => {
 
     setIsLoadingRanking(true); // Set loading to true when the request starts
     setElapsedTime(0);  // Reset timer
@@ -550,7 +551,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
               <p>Loading... {elapsedTime} seconds</p>
             </div>
         ) : (
-            analysisResults && (
+            analysisResults ? (
                 <div className='analysis-results'>
                   <h3>Analysis Results</h3>
                   <p>Crime Probability: {analysisResults.probability ? analysisResults.probability.toFixed(2) : 0}</p>
@@ -611,6 +612,45 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
                     </table>
                   </div>
                 </div>
+            ) : (
+                <div className='analysis-results'>
+                  <h3>Analysis Results</h3>
+                  <p>Crime Probability: No data.</p>
+                  <p>Message: No data.</p>
+                  <h2><i className='warning-text'></i></h2>
+                  <h4>Past Year Incidents</h4>
+                  <div className='scrollable-table-container'>
+                    <table className='scrollable-table'>
+                      <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Distance (m)</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td colSpan="2">No incidents to display</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <h4>All Known Incidents</h4>
+                  <div className='scrollable-table-container'>
+                    <table className='scrollable-table'>
+                      <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Distance (m)</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td colSpan="2">No incidents to display</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
             )
         )}
 
@@ -618,11 +658,11 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       </Modal>
 
       <ModalTwo
-        className='modal-content'
-        overlayClassName="overlay"
-        show={isModalTwoOpen}
-        onClose={closeModalTwo}
-        neighbourhood={selectedNeighbourhood}
+          className='modal-content'
+          overlayClassName="overlay"
+          show={isModalTwoOpen}
+          onClose={closeModalTwo}
+          neighbourhood={selectedNeighbourhood}
 
       />
 
