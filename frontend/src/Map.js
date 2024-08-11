@@ -50,12 +50,15 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
   // State variables for analysis results
   const [analysisResults, setAnalysisResults] = useState(null);
+  const [rankingResult, setRankingResult] = useState(null);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isModalTwoOpen, setModalTwoOpen] = useState(false);
   const [selectedNeighbourhood, setSelectedNeighbourhood] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
+  // Variables to store user selected parameters
+  const [selectedCrimeType, setSelectedCrimeType] = useState('Assault');
 
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
@@ -76,6 +79,12 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     return neighborhood.replace(/[^A-Za-z0-9]/g, '_')
   }
 
+  const handleCrimeChange = (e) => {
+    // console.log(e.target.value, selectedRadius);
+    setSelectedCrimeType(e.target.value);
+    // console.log(e.target.value, selectedRadius);
+  };
+
   // ModalTwo Component
   const ModalTwo = ({ show, onClose, className, overlayClassName, neighbourhood }) => {
     if (!show) return null;
@@ -86,7 +95,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       <div className={overlayClassName}>
         <div className={className}>
           <button onClick={onClose} className="close-button">x</button>
-          <button onClick={showNeighbourhoodRanking} className="ranking-button">See Rankings</button>
+
           <h2>Neighbourhood: &nbsp; {neighbourhood}</h2>
           <p>Crime statistics and details about <i>{neighbourhood}</i>.</p>
           <img
@@ -94,13 +103,80 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
               alt={neighbourhood}
               className="neighbourhood-image"
           />
+          <p>&nbsp;Do you want to see the its ranking in a specific crime type? </p>
+          <div className='select-container'>
+            <label for="crime-select">Please select Crime Type </label>
+            <select id="crime-select" name="crimeType" value={selectedCrimeType} onChange={handleCrimeChange}>
+              <option value="Assault">Assault</option>
+              <option value="Auto Theft">Auto Theft</option>
+              <option value="Break and Enter">Break and Enter</option>
+              <option value="Robbery">Robbery</option>
+              <option value="Theft Over">Theft Over</option>
+            </select>, and click <button onClick={showNeighbourhoodRanking} className="ranking-button">See
+            Rankings</button>
+          </div>
         </div>
+
       </div>
     );
   };
 
-  const showNeighbourhoodRanking = () => {
+  const showNeighbourhoodRanking = async () => {
 
+    setIsLoading(true); // Set loading to true when the request starts
+    setElapsedTime(0);  // Reset timer
+
+    // Initialize the URL object
+    const baseUrl= 'https://csc207-api.joefang.org/analysis/ranking';
+    const url = new URL(baseUrl);
+    // Add query parameters to URL
+    url.searchParams.append('neighbourhood', normalizeNeighborhood(selectedNeighbourhood));
+    url.searchParams.append('specificCrime', selectedCrimeType);
+
+    console.log('Check url:', url, url.searchParams);
+
+    try {
+      // Perform the GET request with the constructed URL
+      console.log('mark1');
+      const response = await axios.get(url.toString(), {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      //add for debug
+      console.log('mark2');
+      console.log('Response result: ', response);
+
+      // Log the response status for debugging
+      console.log('Response Status:', response.status);
+
+      // Check if the response is okay
+      if (response.status !== 200) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      // Handle the response data
+      const result = response.data;
+      console.log('Response Data:', result);
+
+      if (result !== undefined) {
+        setRankingResult(result);
+      } else {
+        setRankingResult(null);
+      }
+      console.log('mark3');
+
+      // Handle success (e.g., update UI or state)
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle error interactively
+    } finally {
+      setIsLoading(false); // Set loading to false when the request is finished
+    }
+
+    // Debugging
+    // setAnalysisResults(await axios.get('https://csc207-api.joefang.org/analysis/auto-theft'));
+    console.log('Request URL:', url.toString());
   }
 
 
@@ -170,24 +246,6 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
     layer.on({
 
-      //on click to show neighbourhood stats
-      // onclick: () => {
-      //   openModalTwo(area.properties.Neighbourhood);
-      //   console.log(area.properties.Neighbourhood);
-
-      //   // Use setTimeout to ensure the popup is fully rendered before adding event listener
-      //   // setTimeout(() => {
-      //   //   const button = document.getElementById(`view-stats-${area.properties.Neighbourhood}`);
-      //   //   if (button) {
-      //   //     button.addEventListener('click', () => {
-      //   //       openModalTwo(area.properties.Neighbourhood);
-      //   //       console.log(area.properties.Neighbourhood);
-      //   //     });
-      //   //   }
-      //   // }, 100);
-      // },
-
-
       mouseover: (event) => {
         // console.log('mouseover')
         mouseInside = true; // Set flag to true when mouse enters
@@ -234,6 +292,11 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
   }, [selectedYear]);
 
+  useEffect(() => {
+    console.log('Selected Crime Type:', selectedCrimeType);
+    console.log('Selected Neighbourhood:', selectedNeighbourhood);
+  }, [selectedCrimeType]);
+
 
   const handleRadiusChange = (e) => {
     // console.log(e.target.value, selectedRadius);
@@ -244,13 +307,13 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   const handleThresholdChange = (e) => {
     setSelectedThreshold(parseInt(e.target.value));
     // console.log(e.target.value, selectedThreshold);
-
   };
 
   const handleYearChange = (e) => {
     setSelectedYear(parseInt(e.target.value));
     // console.log(e.target.value, selectedYear);
   };
+
 
   const sendToBackend = async (analysisType) => {
 
