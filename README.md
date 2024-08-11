@@ -1,5 +1,6 @@
 # [safeTO](https://csc207.joefang.org/) - A Comprehensive Community Safety Website for Torontonians
 
+> [Design Document](https://bit.ly/4dHA8SZ)
 
 ## Deployment
 
