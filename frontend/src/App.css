@@ -11,7 +11,7 @@
   position: absolute;
   top: 0;
   left: 50%;
-  z-index: 1000;
+  z-index: 500;
   transform: translate(-50%, 0);
 
   background: rgba(255, 255, 255, 0.66);
@@ -52,7 +52,6 @@
   display: block;
   font-weight: bold;
 }
-
 .user-profile input {
   width: 100%;
   padding: 5px;
@@ -183,6 +182,7 @@
   background: white;
   width: 80%;
   max-width: 500px;
+  z-index: 1000; /* High z-index to be above everything */
 }
 .overlay {
   position: fixed;

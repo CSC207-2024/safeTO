@@ -50,12 +50,13 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
   // State variables for analysis results
   const [analysisResults, setAnalysisResults] = useState(null);
-  const [rankingResult, setRankingResult] = useState(null);
+  const [rankingResult, setRankingResult] = useState({});
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isModalTwoOpen, setModalTwoOpen] = useState(false);
   const [selectedNeighbourhood, setSelectedNeighbourhood] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingRanking, setIsLoadingRanking] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
   // Variables to store user selected parameters
   const [selectedCrimeType, setSelectedCrimeType] = useState('Assault');
@@ -115,6 +116,23 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
             </select>, and click <button onClick={showNeighbourhoodRanking} className="ranking-button">See
             Rankings</button>
           </div>
+
+          {isLoadingRanking ? (
+              <div className="loading-container">
+                <div className="loading-spinner"></div>
+                <p>Loading... {elapsedTime} seconds</p>
+              </div>
+          ) : (
+              <div className="results">
+                {rankingResult ? (
+                    <div>
+                      {/* TODO Render ranking result here */}
+                    </div>
+                ) : (
+                    <div>No results found</div>
+                )}
+              </div>
+          )}
         </div>
 
       </div>
@@ -123,14 +141,14 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
   const showNeighbourhoodRanking = async () => {
 
-    setIsLoading(true); // Set loading to true when the request starts
+    setIsLoadingRanking(true); // Set loading to true when the request starts
     setElapsedTime(0);  // Reset timer
 
     // Initialize the URL object
     const baseUrl= 'https://csc207-api.joefang.org/analysis/ranking';
     const url = new URL(baseUrl);
     // Add query parameters to URL
-    url.searchParams.append('neighbourhood', normalizeNeighborhood(selectedNeighbourhood));
+    url.searchParams.append('neighbourhood', selectedNeighbourhood);
     url.searchParams.append('specificCrime', selectedCrimeType);
 
     console.log('Check url:', url, url.searchParams);
@@ -156,7 +174,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       }
 
       // Handle the response data
-      const result = response.data;
+      const result = response.data.data;
       console.log('Response Data:', result);
 
       if (result !== undefined) {
@@ -171,7 +189,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       console.error('Error:', error);
       // Handle error interactively
     } finally {
-      setIsLoading(false); // Set loading to false when the request is finished
+      setIsLoadingRanking(false); // Set loading to false when the request is finished
     }
 
     // Debugging
@@ -409,6 +427,20 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     }
     return () => clearInterval(timer);
   }, [isLoading]);
+
+  // Timer effect
+  useEffect(() => {
+    let timer;
+    if (isLoadingRanking) {
+      timer = setInterval(() => {
+        setElapsedTime((prevTime) => prevTime + 1);
+      }, 1000);
+    } else {
+      clearInterval(timer);
+    }
+    return () => clearInterval(timer);
+  }, [isLoadingRanking]);
+
 
   const carTheftFunction = () => {
     // alert(analysisResults);
