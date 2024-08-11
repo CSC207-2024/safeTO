@@ -86,18 +86,22 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       <div className={overlayClassName}>
         <div className={className}>
           <button onClick={onClose} className="close-button">x</button>
-
+          <button onClick={showNeighbourhoodRanking} className="ranking-button">See Rankings</button>
           <h2>Neighbourhood: &nbsp; {neighbourhood}</h2>
-          <p>Crime statistics and details about {neighbourhood}.</p>
+          <p>Crime statistics and details about <i>{neighbourhood}</i>.</p>
           <img
-            src={imagePath}
-            alt={neighbourhood}
-            className="neighbourhood-image"
+              src={imagePath}
+              alt={neighbourhood}
+              className="neighbourhood-image"
           />
         </div>
       </div>
     );
   };
+
+  const showNeighbourhoodRanking = () => {
+
+  }
 
 
   // Expose map methods to parent components

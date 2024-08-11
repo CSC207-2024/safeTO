@@ -439,3 +439,20 @@
   font-size: 16px;
   color: #555;
 }
+
+
+/*See Ranking Button*/
+.ranking-button {
+  position: absolute;
+  right: 8%;
+  padding: 10px 10px;
+  background-color: #079cff;
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ranking-button:hover{
+  background-color:  #0c71b4;
+}
