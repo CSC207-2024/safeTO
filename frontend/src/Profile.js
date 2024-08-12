@@ -197,7 +197,7 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit, setUserIn
                         checked={userInfo.subscribed}
                         onChange={handleInputChange}
                     />
-                    Subscribe to monthly crime reports
+                    Subscribe to yearly crime reports
                 </label>
                 <p></p>
                 <button onClick={handleSaveAndToggleEdit} className="save-button">Save</button>
