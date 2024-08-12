@@ -8,15 +8,32 @@ import Modal from 'react-modal';
 
 Modal.setAppElement('#root');
 
-const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
+const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit, setUserInfo }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const [isLoginMode, setIsLoginMode] = useState(false);
+  const [isSignUpMode, setIsSignUpMode] = useState(false);
+
 
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
 
+  const handleLoginClick = () => {
+      setIsLoginMode(true);
+      setIsSignUpMode(false);
+      openModal();
+  };
+
+  const handleSignUpClick = () => {
+      setIsSignUpMode(true);
+      setIsLoginMode(false);
+      openModal();
+  };
 
 
-  const apiUrl = 'https://csc207-api.joefang.org/user/userinfo';
+
+
+    const apiUrl = 'https://csc207-api.joefang.org/user/userinfo';
 
   // Function to handle data submission to the backend
     const handleSave = async () => {
@@ -39,6 +56,24 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
         }
     };
 
+    const handleLogin = async () => {
+        try {
+            const response = await axios.post(`${apiUrl}/login`, { identifier: userInfo.identifier.trim() });
+            if (response.data) {
+                // Handle successful login, e.g., update userInfo state with retrieved data
+                setUserInfo(response.data);
+                setIsLoginMode(false); // Exit login mode after successful login
+                closeModal();
+            } else {
+                alert('User not found. Please sign up.');
+            }
+        } catch (error) {
+            console.error('Login failed:', error);
+            alert('Login failed. Please try again.');
+        }
+    };
+
+
     const handleSaveAndToggleEdit = () => {
         toggleEdit();
         handleSave();
@@ -54,7 +89,56 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit }) => {
           onClick={openModal}
         />
       </Tooltip>
-      <Modal
+
+        <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            contentLabel="Profile"
+            className='modal-content'
+            overlayClassName="overlay"
+        >
+            <button onClick={closeModal} className="close-button">x</button>
+            <h2>{isLoginMode ? 'Log In' : isSignUpMode ? 'Sign Up' : 'User Profile'}</h2>
+
+            {isLoginMode ? (
+                <div>
+                    <input
+                        type="text"
+                        name="identifier"
+                        value={userInfo.identifier || ''}
+                        onChange={handleInputChange}
+                        placeholder="Email or User ID"
+                        className='profile-input'
+                    />
+                    <button onClick={handleLogin} className="save-button">Log In</button>
+                </div>
+            ) : isSignUpMode ? (
+                // Reuse the existing sign-up form logic here
+                // For example:
+                <div>
+                    <input
+                        type="text"
+                        name="firstName"
+                        value={userInfo.firstName}
+                        onChange={handleInputChange}
+                        placeholder="First Name"
+                        className='profile-input'
+                    />
+                    {/* Other fields */}
+                    <button onClick={handleSaveAndToggleEdit} className="save-button">Sign Up</button>
+                </div>
+            ) : (
+                // Existing profile display or edit form logic here
+                <div>
+                    <p><strong>First Name:</strong> {userInfo.firstName}</p>
+                    {/* Other fields */}
+                    <button onClick={toggleEdit} className="edit-button">Edit</button>
+                </div>
+            )}
+        </Modal>
+
+
+        <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Profile"
