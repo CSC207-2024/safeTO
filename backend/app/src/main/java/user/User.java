@@ -29,7 +29,7 @@ public class User {
      * @param location  the user's location
      */
     public User(String userID, String firstName, String lastName, String email, String phoneNumber, String address, boolean subscribed, SimpleLocation location) {
-        this,userID = userID
+        this.userID = userID
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -51,7 +51,7 @@ public class User {
     }
 
     /**
-     * Set the user's first name.
+     * Set the user's user ID.
      *
      * @param userID the user ID for the user
      */
