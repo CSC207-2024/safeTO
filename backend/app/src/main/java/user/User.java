@@ -7,47 +7,46 @@ import location.SimpleLocation;
  */
 public class User {
 
-    private String userID;
+    private int id;
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
     private String address;
+    private String password;
     private boolean subscribed;
-    private SimpleLocation location;
 
-    /**
-     * Constructs a new User.
-     *
-     * @param userID the user's user ID
-     * @param firstName the user's first name
-     * @param lastName  the user's last name
-     * @param email     the user's email address
-     * @param phoneNumber the user's phone number
-     * @param address the user's address
-     * @param subscribed the user's subscription status
-     * @param location  the user's location
-     */
-    public User(String userID, String firstName, String lastName, String email, String phoneNumber, String address, boolean subscribed, SimpleLocation location) {
-        this.userID = userID
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-        this.subscribed = subscribed;
-        this.location = location;
-    }
+//    /**
+//     * Constructs a new User.
+//     *
+//     * @param userID the user's user ID
+//     * @param firstName the user's first name
+//     * @param lastName  the user's last name
+//     * @param email     the user's email address
+//     * @param phoneNumber the user's phone number
+//     * @param address the user's address
+//     * @param subscribed the user's subscription status
+//     * @param location  the user's location
+//     */
+//    public User(String userID, String firstName, String lastName, String email, String phoneNumber, String address, boolean subscribed, SimpleLocation location) {
+//        this,userID = userID
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.email = email;
+//        this.phoneNumber = phoneNumber;
+//        this.address = address;
+//        this.subscribed = subscribed;
+//        this.location = location;
+//    }
 
-    // Getters and Setters
 
     /**
      * Gets the user's user ID.
      *
      * @return the user's user ID
      */
-    public String getUserID() {
-        return userID;
+    public int getId() {
+        return id;
     }
 
     /**
@@ -55,8 +54,8 @@ public class User {
      *
      * @param userID the user ID for the user
      */
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
@@ -167,21 +166,21 @@ public class User {
         this.subscribed = subscribed;
     }
 
-    /**
-     * Gets the user's location.
-     *
-     * @return the user's location
-     */
-    public SimpleLocation getLocation() {
-        return location;
-    }
-
-    /**
-     * Sets the user's location.
-     *
-     * @param location the new location for the user
-     */
-    public void setLocation(SimpleLocation location) {
-        this.location = location;
-    }
+//    /**
+//     * Gets the user's location.
+//     *
+//     * @return the user's location
+//     */
+//    public SimpleLocation getLocation() {
+//        return location;
+//    }
+//
+//    /**
+//     * Sets the user's location.
+//     *
+//     * @param location the new location for the user
+//     */
+//    public void setLocation(SimpleLocation location) {
+//        this.location = location;
+//    }
 }

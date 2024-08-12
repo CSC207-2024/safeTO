@@ -27,6 +27,7 @@ const Home = () => {
         subscribed: false
     });
 
+
     // State for managing coordinates from map hover
     const [coordinates, setCoordinates] = useState({ lat: null, lng: null });
 
@@ -54,6 +55,24 @@ const Home = () => {
             [name]: type === 'checkbox' ? checked : value
         }));
     };
+
+    const [isLoginMode, setIsLoginMode] = useState(false);
+    const [isSignUpMode, setIsSignUpMode] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+
+    const handleLoginClick = () => {
+        setIsLoginMode(true);
+        setIsSignUpMode(false);
+        setModalIsOpen(true);
+    };
+
+    const handleSignUpClick = () => {
+        setIsSignUpMode(true);
+        setIsLoginMode(false);
+        setModalIsOpen(true);
+    };
+
 
 
     const validateName = (firstName, lastName) => {
@@ -142,18 +161,28 @@ const Home = () => {
             
             
             {/* Profile component for displaying and editing user information */}
-            <div style={{ position: 'absolute', top: 20, right: 20, zIndex: 1000 }}>
+            <div style={{position: 'absolute', top: 20, right: 20, zIndex: 1000}}>
+                <button onClick={handleLoginClick} className="profile-button">Log In</button>
+                <button onClick={handleSignUpClick} className="profile-button">Sign Up</button>
                 <Profile
                     userInfo={userInfo}
                     isEditing={isEditing}
                     handleInputChange={handleInputChange}
                     toggleEdit={toggleEdit}
+                    handleLoginClick={handleLoginClick}
+                    handleSignUpClick={handleSignUpClick}
+                    setUserInfo={setUserInfo}
+                    isLoginMode={isLoginMode}
+                    isSignUpMode={isSignUpMode}
+                    modalIsOpen={modalIsOpen}
+                    setModalIsOpen={setModalIsOpen}
                 />
+
             </div>
 
             {/* Display hovered coordinates if available */}
             {coordinates.lat && coordinates.lng && (
-                <div style={{ position: 'absolute', bottom: 20, left: 20, zIndex: 500, backgroundColor: 'white', padding: '10px', borderRadius: '5px' }}>
+                <div style={{position: 'absolute', bottom: 20, left: 20, zIndex: 1000, backgroundColor: 'white', padding: '10px', borderRadius: '5px' }}>
                     Hovered Coordinates: ({coordinates.lat}, {coordinates.lng})
                 </div>
             )}
