@@ -127,7 +127,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
               <div className="results">
                 {rankingResult ? (
                     <div>
-                      {/* TODO Render ranking result here */}
+                      <p> Based on the TPS database, the "{selectedCrimeType}" ranking in {selectedNeighbourhood} is {rankingResult.ranking}. The safety level is {rankingResult.safetyLevel}. </p>
                     </div>
                 ) : (
                     <div>No results found</div>
@@ -184,6 +184,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
         setRankingResult(null);
       }
       console.log('mark3');
+      console.log('Ranking Message: ', rankingResult);
 
       // Handle success (e.g., update UI or state)
     } catch (error) {
