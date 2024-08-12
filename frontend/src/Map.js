@@ -83,6 +83,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   const handleCrimeChange = (e) => {
     // console.log(e.target.value, selectedRadius);
     setSelectedCrimeType(e.target.value);
+    setRankingResult(null);
     // console.log(e.target.value, selectedRadius);
   };
 
@@ -107,7 +108,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
           <div className='select-container'>
             <p>Do you want to see the its ranking in a specific crime type? </p>
-            <p>Please select Crime Type
+            <p>Please select Crime Type &nbsp;
               <select id="crime-select" name="crimeType" value={selectedCrimeType} onChange={handleCrimeChange}>
                 <option value="Assault">Assault</option>
                 <option value="Auto Theft">Auto Theft</option>
