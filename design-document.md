@@ -49,7 +49,7 @@
 
 - **Email:** <yvonnezy.zhang@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
-  - *placeholder*
+  - Email alert feature
   - *placeholder*
 - **Significant Pull Request:**
   - [PR #126: *placeholder*](https://github.com/Yiyun95788/project/pull/126)
