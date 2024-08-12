@@ -4,9 +4,9 @@ import analysis.carTheft.*;
 import access.convert.CrimeDataConverter;
 import access.data.CrimeDataFetcher;
 import access.manipulate.CrimeDataProcessor;
-import analysis.interfaces.IncidentFetcherInterface;
 import analysis.utils.GeoUtils;
 import tech.tablesaw.api.Row;
+import tech.tablesaw.api.Table;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -25,22 +25,63 @@ public class AutoTheftFacade {
         CrimeDataFetcher fetcher = new CrimeDataFetcher();
         CrimeDataConverter converter = new CrimeDataConverter();
         CrimeDataProcessor processor = new CrimeDataProcessor();
-        IncidentFetcherInterface<AutoTheftData> incidentFetcher = new AutoTheftIncidentFetcher(fetcher, converter,
-                processor);
-        this.autoTheftCalculator = new AutoTheftCalculator(incidentFetcher);
+        List<AutoTheftData> autoTheftDataList = fetchAutoTheftData(fetcher, converter, processor);
+        this.autoTheftCalculator = new AutoTheftCalculator(autoTheftDataList);
         this.safeParkingLocationManager = SafeParkingLocationManager.getInstance();
+    }
+
+    public AutoTheftFacade(List<AutoTheftData> autoTheftDataList, SafeParkingLocationManager safeParkingLocationManager) {
+        this.autoTheftCalculator = new AutoTheftCalculator(autoTheftDataList);
+        this.safeParkingLocationManager = safeParkingLocationManager;
+    }
+
+    private List<AutoTheftData> fetchAutoTheftData(CrimeDataFetcher fetcher, CrimeDataConverter converter, CrimeDataProcessor processor) {
+        List<AutoTheftData> autoTheftDataList = new ArrayList<>();
+        Table table = converter.jsonToTable(fetcher.fetchData());
+
+        if (table == null) {
+            return autoTheftDataList;
+        }
+
+        processor.setTable(table);
+        Table filteredTable = processor.filterBy("MCI_CATEGORY", "Auto Theft");
+
+        for (int i = 0; i < filteredTable.rowCount(); i++) {
+            try {
+                String eventUniqueId = getStringValue(filteredTable, "EVENT_UNIQUE_ID", i);
+                int occYear = filteredTable.intColumn("OCC_YEAR").get(i);
+                String occMonth = getStringValue(filteredTable, "OCC_MONTH", i);
+                int occDay = filteredTable.intColumn("OCC_DAY").get(i);
+                double latitude = filteredTable.doubleColumn("LAT_WGS84").get(i);
+                double longitude = filteredTable.doubleColumn("LONG_WGS84").get(i);
+
+                AutoTheftData autoTheftData = new AutoTheftData(
+                        eventUniqueId, occYear, occMonth, occDay, "Auto Theft", latitude, longitude);
+                autoTheftDataList.add(autoTheftData);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return autoTheftDataList;
+    }
+
+    private String getStringValue(Table table, String columnName, int rowIndex) {
+        if (table.column(columnName) instanceof tech.tablesaw.api.TextColumn) {
+            return table.textColumn(columnName).get(rowIndex);
+        } else {
+            return table.stringColumn(columnName).get(rowIndex);
+        }
     }
 
     public AutoTheftResult analyze(double latitude, double longitude, int radius, int threshold, int earliestYear) {
         long start = System.currentTimeMillis();
-        List<AutoTheftData> pastYearData = autoTheftCalculator.getCrimeDataWithinRadiusPastYear(latitude, longitude,
-                radius);
+        List<AutoTheftData> pastYearData = autoTheftCalculator.getCrimeDataWithinRadiusPastYear(latitude, longitude, radius);
         long curr = System.currentTimeMillis();
         System.err.println("getCrimeDataWithinRadiusPastYear: " + (curr - start) / 1000.0);
 
         start = curr;
-        List<AutoTheftData> allKnownData = autoTheftCalculator.getCrimeDataWithinRadius(latitude, longitude, radius,
-                earliestYear);
+        List<AutoTheftData> allKnownData = autoTheftCalculator.getCrimeDataWithinRadius(latitude, longitude, radius, earliestYear);
         curr = System.currentTimeMillis();
         System.err.println("getCrimeDataWithinRadius: " + (curr - start) / 1000.0);
 
@@ -95,8 +136,7 @@ public class AutoTheftFacade {
 
         List<SafeParkingSpot> safeSpotsList = new ArrayList<>();
         if (probability > 0.15) {
-            List<Row> safeSpots = safeParkingLocationManager.getNearbySafeLocations(latitude, longitude, radius, 3,
-                    threshold);
+            List<Row> safeSpots = safeParkingLocationManager.getNearbySafeLocations(latitude, longitude, radius, 3, threshold);
             for (Row spot : safeSpots) {
                 double spotLat = spot.getDouble("Latitude");
                 double spotLon = spot.getDouble("Longitude");
@@ -106,12 +146,10 @@ public class AutoTheftFacade {
                 int spotThreshold = spot.getInt("Threshold");
 
                 double spotDistance = GeoUtils.calculateDistance(latitude, longitude, spotLat, spotLon);
-                safeSpotsList.add(new SafeParkingSpot(spotLat, spotLon, spotDistance, date, spotProbability, spotRadius,
-                        spotThreshold));
+                safeSpotsList.add(new SafeParkingSpot(spotLat, spotLon, spotDistance, date, spotProbability, spotRadius, spotThreshold));
             }
         }
 
-        return new AutoTheftResult(pastYearIncidents, allKnownIncidents, probability, probabilityMessage, warning,
-                safeSpotsList);
+        return new AutoTheftResult(pastYearIncidents, allKnownIncidents, probability, probabilityMessage, warning, safeSpotsList);
     }
 }

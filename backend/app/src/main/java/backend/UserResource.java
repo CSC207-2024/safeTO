@@ -23,25 +23,27 @@ public class UserResource {
         return Response.status(Response.Status.CREATED).build();
     }
 
-//    @GET
-//    @Path("/{id}")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Response getUser(@PathParam("id") int id) {
-//        User user = userService.getUser(id).orElse(null);
-//        if (user == null) {
-//            return Response.status(Response.Status.NOT_FOUND).build();
-//        }
-//        return Response.ok(user).build();
-//    }
-
     @GET
-    @Path("/by-email/{email}")
+    @Path("/{userID}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getUserByEmail(@PathParam("email") String email) {
-        User user = userService.getUserByEmail(email).orElse(null);
+    public Response getUser(@PathParam("userID") String userID) {
+        User user = userService.getUserByUserID(userID).orElse(null);
         if (user == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
         return Response.ok(user).build();
+    }
+
+
+    @GET
+    @Path("/{userID}/email")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getEmailByUserID(@PathParam("userID") String userID) {
+        Optional<String> emailOpt = userService.getEmailByUserID(userID);
+        if (emailOpt.isPresent()) {
+            return Response.ok(emailOpt.get()).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 }

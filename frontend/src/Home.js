@@ -108,23 +108,6 @@ const Home = () => {
         }
     };
 
-    // function that send user info to backend
-    useEffect(() => {
-        const sendUserProfile = async () => {
-            try {
-                await axios.post('https://csc207-api.joefang.org/user-profile', userInfo);
-                console.log('User profile sent successfully');
-            } catch (error) {
-                console.error('Error sending profile data:', error);
-            }
-        };
-
-        if (userInfo) {
-            sendUserProfile();
-        }
-    }, [userInfo]);
-
-
     // Effect to set the initial view of the map to Toronto coordinates
     useEffect(() => {
         if (mapRef.current && mapRef.current.setView) {
@@ -170,7 +153,7 @@ const Home = () => {
 
             {/* Display hovered coordinates if available */}
             {coordinates.lat && coordinates.lng && (
-                <div style={{ position: 'absolute', bottom: 20, left: 20, zIndex: 1000, backgroundColor: 'white', padding: '10px', borderRadius: '5px' }}>
+                <div style={{ position: 'absolute', bottom: 20, left: 20, zIndex: 500, backgroundColor: 'white', padding: '10px', borderRadius: '5px' }}>
                     Hovered Coordinates: ({coordinates.lat}, {coordinates.lng})
                 </div>
             )}

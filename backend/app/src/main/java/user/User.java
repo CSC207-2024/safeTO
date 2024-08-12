@@ -7,6 +7,7 @@ import location.SimpleLocation;
  */
 public class User {
 
+    private String userID;
     private String firstName;
     private String lastName;
     private String email;
@@ -18,6 +19,7 @@ public class User {
     /**
      * Constructs a new User.
      *
+     * @param userID the user's user ID
      * @param firstName the user's first name
      * @param lastName  the user's last name
      * @param email     the user's email address
@@ -26,7 +28,8 @@ public class User {
      * @param subscribed the user's subscription status
      * @param location  the user's location
      */
-    public User(String firstName, String lastName, String email, String phoneNumber, String address, boolean subscribed, SimpleLocation location) {
+    public User(String userID, String firstName, String lastName, String email, String phoneNumber, String address, boolean subscribed, SimpleLocation location) {
+        this.userID = userID
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -37,6 +40,24 @@ public class User {
     }
 
     // Getters and Setters
+
+    /**
+     * Gets the user's user ID.
+     *
+     * @return the user's user ID
+     */
+    public String getUserID() {
+        return userID;
+    }
+
+    /**
+     * Set the user's user ID.
+     *
+     * @param userID the user ID for the user
+     */
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
 
     /**
      * Gets the user's first name.

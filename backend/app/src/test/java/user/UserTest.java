@@ -15,9 +15,20 @@ public class UserTest {
     public void setUp() {
         SimpleLocation location = new SimpleLocation(43.6532, -79.3832);
         user = new User(
-                "John", "Doe", "john.doe@example.com", "123-456-7890", "123 Elm Street",
+                "testUserID123", "John", "Doe", "john.doe@example.com", "123-456-7890", "123 Elm Street",
                 true, location
         );
+    }
+
+    @Test
+    public void testGetUserID() {
+        assertEquals("testUserID123", user.getUserID(), "UserID should be testUserID123");
+    }
+
+    @Test
+    public void testSetUserID() {
+        user.setUserID("newUserID456");
+        assertEquals("newUserID456", user.getUserID(), "UserID should be updated to newUserID456");
     }
 
     @Test

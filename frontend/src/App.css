@@ -11,7 +11,7 @@
   position: absolute;
   top: 0;
   left: 50%;
-  z-index: 1000;
+  z-index: 500;
   transform: translate(-50%, 0);
 
   background: rgba(255, 255, 255, 0.66);
@@ -52,7 +52,6 @@
   display: block;
   font-weight: bold;
 }
-
 .user-profile input {
   width: 100%;
   padding: 5px;
@@ -64,15 +63,16 @@
   background-color: #007bff;
   color: white;
   padding: 5px 10px;
- 
-  position: 'absolute';
-  top: 10;
-  right: 10;
-  padding: '10px 20px';
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
   border: none;
-  border-radius: '5px';
-  cursor: 'pointer';
+  border-radius: 5px;
+  cursor: pointer;
 }
+
 
 .user-profile button:hover {
   background-color: #0056b3;
@@ -182,6 +182,7 @@
   background: white;
   width: 80%;
   max-width: 500px;
+  z-index: 1000; /* High z-index to be above everything */
 }
 .overlay {
   position: fixed;
@@ -404,4 +405,53 @@
   border-radius: 8px;
   margin-top: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Spinner styles */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.loading-spinner {
+  border: 8px solid rgba(0, 0, 0, 0.1); /* Light grey border */
+  border-top: 8px solid #3498db; /* Blue border */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-container p {
+  font-size: 16px;
+  color: #555;
+}
+
+
+/*See Ranking Button*/
+.ranking-button {
+
+  padding: 4px 10px;
+  background-color: #079cff;
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ranking-button:hover{
+  background-color:  #0c71b4;
 }

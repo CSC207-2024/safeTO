@@ -12,8 +12,7 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
 
-//    private final Map<Integer, User> userDatabase = new HashMap<>();
-    private final Map<String, User> emailDatabase = new HashMap<>();
+    private final Map<Integer, User> UserDatabase = new HashMap<>();
 
     /**
      * Saves a user to the in-memory database.
@@ -22,26 +21,35 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void saveUser(User user) {
-        emailDatabase.put(user.getEmail(), user);
-        printEmailDatabase();
+        UserDatabase.put(user.getUserID(), user);
+        printUserDatabase();
     }
 
     /**
-     * Retrieves a user by their email address.
+     * Retrieves a user by their user ID.
      *
-     * @param email the email address of the user
+     * @param userID the email address of the user
      * @return an Optional containing the user if found, or an empty Optional if not found
      */
     @Override
-    public Optional<User> getUserByEmail(String email) {
-        return Optional.ofNullable(emailDatabase.get(email));
+    public Optional<User> getUserByUserID(String userID) {
+        Optional.ofNullable(UserDatabase.get(userID));
     }
 
     /**
-     * Prints the current state of the email database to the console.
+     * Retrieves a user by their user ID and then gets the email.
+     *
+     * @param userID the user ID of the user
+     * @return an Optional containing the user's email if found, or an empty Optional if not found
      */
-    public void printEmailDatabase() {
-        System.out.println(emailDatabase);
+    @Override
+    public Optional<String> getEmailByUserID(String userID) {
+        User user = UserDatabase.get(userID);
+        if (user != null) {
+            return Optional.of(user.getEmail());
+        } else {
+            return Optional.empty();
+        }
     }
 
 }

@@ -86,11 +86,13 @@ public class CrimeDataRanker {
      *
      * @param ranking The ranking of the neighborhood.
      * @param totalNeighborhoods The total number of neighborhoods.
-     * @return The safety level as a string.
+     * @return The safety level as a string, return "No ranking available" when ranking == -1
      */
     public String getSafetyLevel(int ranking, int totalNeighborhoods) {
         double percentile = (double) ranking / totalNeighborhoods;
-        if (percentile <= 0.25) {
+        if (ranking == -1){
+            return "No ranking available";
+        } else if (percentile <= 0.25) {
             return "Very Dangerous";
         } else if (percentile <= 0.50) {
             return "Moderately Dangerous";

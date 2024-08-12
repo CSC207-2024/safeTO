@@ -13,8 +13,22 @@ import com.google.gson.Gson;
  * SafeTo database.
  */
 public class EmailStorage {
-    private static final String API_URL = "http://localhost:8787";
-    private static final String API_TOKEN = System.getenv("SAFETO_DB_TOKEN");
+    private static final String API_URL;
+    private static final String API_TOKEN;
+
+    static {
+        String apiUrl = System.getenv("SAFETO_DB_ENDPOINT");
+        if (apiUrl == null) {
+            apiUrl = "https://csc207-db.joefang.org/";
+        }
+        API_URL = apiUrl;
+
+        String apiToken = System.getenv("SAFETO_DB_TOKEN");
+        if (apiToken == null) {
+            throw new IllegalStateException("API token must be provided via the SAFETO_DB_TOKEN environment variable.");
+        }
+        API_TOKEN = apiToken;
+    }
 
     private HttpClient client;
     private Gson gson;

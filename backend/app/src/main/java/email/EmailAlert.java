@@ -204,34 +204,34 @@ public class EmailAlert implements InterfaceEmail {
                 "</body>\n" +
                 "</html>";
 
-        String neighbourhood = "Clairlea-Birchmount";
-        String year = "2023";
-        String previousYear = "2022";
-//        String chartBase64 = callPythonScriptForChartBase64(neighbourhood, year);
-//        String chartBase64Prev = callPythonScriptForChartBase64Prev(neighbourhood, previousYear);
-//
-//        // instantiate a new email builder and build parameters from map
-//        EmailBuilder builder = new EmailBuilder();
-//        builder.fromMap(new HashMap<>())
-//                .setParameter("neighborhood", "Clairlea-Birchmount")
-//                .setParameter("year", "2023")
-//                .setParameter("recipientName", "Joe")
-//                .setParameter("chartUrl", chartBase64)
-//                .setParameter("chartUrl2", chartBase64Prev);
-//
-//        // Map<String, Object> params = builder.build();
-//
-//        // instantiate an email by putting in an html template (String), and parameters
-//        // (Map)
-//        // we used double curly brackets for placeholders
-//        EmailAlert emailAlert = new EmailAlert(template, builder);
-//        // Method for formatting email body: replacing values into placeholders in
-//        // template
-//        String body = emailAlert.formatEmailBody();
-//        // Method for sending email
-//        emailAlert.sendEmail("safeTO <developers@csc207.joefang.org>",
-//                "bilin.nong@mai.utoronto.ca",
-//                "Test Email", body);
+//        String neighbourhood = "Clairlea-Birchmount";
+//        String year = "2023";
+//        String previousYear = "2022";
+        String chartBase64 = callPythonScriptForChartBase64(neighbourhood, year);
+        String chartBase64Prev = callPythonScriptForChartBase64Prev(neighbourhood, previousYear);
+
+        // instantiate a new email builder and build parameters from map
+        EmailBuilder builder = new EmailBuilder();
+        builder.fromMap(new HashMap<>())
+                .setParameter("neighborhood", "Clairlea-Birchmount")
+                .setParameter("year", "2023")
+                .setParameter("recipientName", user.getFirstName())
+                .setParameter("chartUrl", chartBase64)
+                .setParameter("chartUrl2", chartBase64Prev);
+
+        // Map<String, Object> params = builder.build();
+
+        // instantiate an email by putting in an html template (String), and parameters
+        // (Map)
+        // we used double curly brackets for placeholders
+        EmailAlert emailAlert = new EmailAlert(template, builder);
+        // Method for formatting email body: replacing values into placeholders in
+        // template
+        String body = emailAlert.formatEmailBody();
+        // Method for sending email
+        emailAlert.sendEmail("safeTO <developers@csc207.joefang.org>",
+                "bilin.nong@mai.utoronto.ca",
+                "Test Email", body);
 
     }
 }
