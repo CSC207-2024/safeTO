@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mappers/../mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.mapper.UserMapper">
+
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user (first_name, last_name,email, phone_number, address,password)
+        VALUES (#{firstName}, #{lastName}, #{email}, #{phoneNumber}, #{address},#{password})
+    </insert>
+    <select id="findByEmail" resultType="com.demo.pojo.RegisterUser">
+        SELECT * FROM user WHERE email = #{email}
+    </select>
+
+</mapper>
