@@ -50,7 +50,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
 
   // State variables for analysis results
   const [analysisResults, setAnalysisResults] = useState(null);
-  const [rankingResult, setRankingResult] = useState({});
+  const [rankingResult, setRankingResult] = useState(null);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isModalTwoOpen, setModalTwoOpen] = useState(false);
@@ -104,17 +104,18 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
               alt={neighbourhood}
               className="neighbourhood-image"
           />
-          <p>&nbsp;Do you want to see the its ranking in a specific crime type? </p>
+
           <div className='select-container'>
-            <label for="crime-select">Please select Crime Type </label>
-            <select id="crime-select" name="crimeType" value={selectedCrimeType} onChange={handleCrimeChange}>
-              <option value="Assault">Assault</option>
-              <option value="Auto Theft">Auto Theft</option>
-              <option value="Break and Enter">Break and Enter</option>
-              <option value="Robbery">Robbery</option>
-              <option value="Theft Over">Theft Over</option>
-            </select>, and click <button onClick={showNeighbourhoodRanking} className="ranking-button">See
-            Rankings</button>
+            <p>Do you want to see the its ranking in a specific crime type? </p>
+            <p>Please select Crime Type
+              <select id="crime-select" name="crimeType" value={selectedCrimeType} onChange={handleCrimeChange}>
+                <option value="Assault">Assault</option>
+                <option value="Auto Theft">Auto Theft</option>
+                <option value="Break and Enter">Break and Enter</option>
+                <option value="Robbery">Robbery</option>
+                <option value="Theft Over">Theft Over</option>
+              </select>, and click <button onClick={showNeighbourhoodRanking} className="ranking-button">See
+                Rankings</button></p>
           </div>
 
           {isLoadingRanking ? (
@@ -124,13 +125,17 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
               </div>
           ) : (
               // TODO: add css style
-              <div className="results">
+              <div className="ranking-results">
                 {rankingResult ? (
                     <div>
-                      <p> Based on the TPS database, the "{selectedCrimeType}" ranking in {selectedNeighbourhood} is {rankingResult.ranking}. The safety level is {rankingResult.safetyLevel}. </p>
+                      {rankingResult.ranking && rankingResult.safetyLevel ? (
+                          <p> Based on the TPS database, the "{selectedCrimeType}" ranking in {selectedNeighbourhood} is {rankingResult.ranking}. The safety level is {rankingResult.safetyLevel}. </p>
+                      ) : (
+                          <div> <p>No results found. </p></div>
+                      )}
                     </div>
                 ) : (
-                    <div>No results found</div>
+                    <div><p> </p></div>
                 )}
               </div>
           )}
@@ -141,6 +146,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
   };
 
   const showNeighbourhoodRanking = async (neigh) => {
+
 
     setIsLoadingRanking(true); // Set loading to true when the request starts
     setElapsedTime(0);  // Reset timer
@@ -175,7 +181,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
       }
 
       // Handle the response data
-      const result = response.data.data;
+      const result = response.data.data.result;
       console.log('Response Data:', result);
 
       if (result !== undefined) {
