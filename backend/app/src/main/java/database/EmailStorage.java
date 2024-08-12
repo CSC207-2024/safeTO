@@ -1,4 +1,4 @@
-package email;
+package database;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -12,7 +12,7 @@ import com.google.gson.Gson;
  * This class is responsible for storing and retrieving email addresses from the
  * SafeTo database.
  */
-public class EmailStorage {
+public class EmailStorage implements StorageInterface {
     private static final String API_URL;
     private static final String API_TOKEN;
 
@@ -49,6 +49,7 @@ public class EmailStorage {
      * @param email      The email address to store.
      * @return True if the email was stored successfully, false otherwise.
      */
+    @Override
     public boolean storeEmail(String collection, String userId, String email) {
         try {
             URI uri = new URI(API_URL + "/put/" + collection + "/" + userId);
