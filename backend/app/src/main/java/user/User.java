@@ -50,7 +50,7 @@ public class User {
     }
 
     /**
-     * Set the user's first name.
+     * Set the user's user ID.
      *
      * @param userID the user ID for the user
      */
