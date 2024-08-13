@@ -125,12 +125,12 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
                 <p>Loading... {elapsedTime} seconds</p>
               </div>
           ) : (
-              // TODO: add css style
+              // DONETODO: add css style
               <div className="ranking-results">
                 {rankingResult ? (
                     <div>
                       {rankingResult.ranking && rankingResult.safetyLevel ? (
-                          <p> Based on the TPS database, the "{selectedCrimeType}" ranking in {selectedNeighbourhood} is {rankingResult.ranking}. The safety level is {rankingResult.safetyLevel}. </p>
+                          <p> Based on the TPS database, the "{selectedCrimeType}" ranking in {selectedNeighbourhood} is <i>{rankingResult.ranking}</i>. The safety level is <i>{rankingResult.safetyLevel}</i>. </p>
                       ) : (
                           <div> <p>No results found. </p></div>
                       )}
