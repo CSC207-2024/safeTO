@@ -24,7 +24,9 @@ public class CrimeDataRankingFacade {
     private void fetchAndConvertData() {
         Table table = converter.jsonToTable(fetcher.fetchData());
         processor.setTable(table);
+        processor.formatNeighbourhoodColumn(processor.getTable(), "NEIGHBOURHOOD_140");
     }
+
 
     public NeighborhoodCrimeRankingResult getNeighborhoodRanking(String neighborhood, String specificCrime) {
         CrimeDataRanker ranker = new CrimeDataRanker(processor);
