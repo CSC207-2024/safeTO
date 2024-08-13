@@ -19,11 +19,6 @@ public class UserService {
     private UserMapper userMapper;
     private Resend resend;
 
-    public UserService() {
-        // Initialize Resend
-        this.resend = new Resend("re_2JAQs3zj_4VTR4Ppb1Gp7V6a9EHJqnGfJ"); // Replace with actual API key
-    }
-
 
     public RegisterUser registerUser(RegisterUser user) {
         // generate a random password
@@ -80,4 +75,15 @@ public class UserService {
             e.printStackTrace();
         }
     }
+
+    public static void main(String[] args) {
+        String apiKey = System.getenv("RESEND_API_KEY");
+
+        if (apiKey == null || apiKey.isEmpty()) {
+            throw new IllegalArgumentException("API key is not set in the environment variables.");
+        }
+
+        Resend resend = new Resend(apiKey);
+    }
+
 }

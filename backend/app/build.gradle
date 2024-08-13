@@ -45,5 +45,5 @@ tasks.named('test') {
 }
 
 war {
-    archiveFileName = 'ROOT.war'
+    archiveFileName = 'safeTO-1.0-.war'
 }
