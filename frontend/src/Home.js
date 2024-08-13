@@ -150,7 +150,7 @@ const Home = () => {
                 <h2>Welcome to <i className={"safe-text-color"}>safe</i><i className={"to-text-color"}>TO</i> <button class="btn" onClick={handleClick}>{showMessage ? 'ℹ Hide Message' : 'ℹ'} </button></h2>
                 {showMessage && (
                     <p >
-                    A Community Safety Website: Get real-time alerts on ongoing crime incidents and view crime data on an interactive map.
+                    A Community Safety Website: To view crime data on an interactive map.
                     </p>
                 )}
                 
