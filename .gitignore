@@ -28,5 +28,6 @@ replay_pid*
 
 *.DS_Store
 *.csv
+*.zshrc
 
 node_modules/
