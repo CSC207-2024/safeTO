@@ -9,7 +9,8 @@
 
 ## Overview
 
-*placeholder*
+*Following the completion of Phase 1, our team continued to advance the project by enhancing several key aspects. We implemented a more sophisticated user interface design, adopted more reliable and effective data analysis methods, and transitioned from file-based data storage to a robust database system for improved data persistence. 
+Adhering closely to our initial blueprint, we built the website in a coherent and structured manner. However, through collaborative discussions and iterative revisions, we refined our approach to achieve better solutions and overall project outcomes. This ongoing development process allowed us to address challenges effectively and optimize the project's functionality and user experience.*
 
 ---
 
@@ -29,11 +30,13 @@
 
 - **Email:** <minghe.ma@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
-  - *placeholder*
-  - *placeholder*
+  - *fulfill interactive panels*
+  - *pass parameters to server and get back json results*
 - **Significant Pull Request:**
-  - [PR #124: *placeholder*](https://github.com/mhnwa/project/pull/124)
-    - *placeholder*
+  - [PR #69: *add panel to show location-based search crime data*](https://github.com/CSC207-2024/safeTO/pull/69)
+    - *When a user searches for an address and double-clicks on the marker, a popup window will appear, allowing the user to select two or three parameters. Based on the chosen parameters, the popup will display relevant crime data.*
+  - [PR #70: *add neighbourhood-based search modal window*](https://github.com/CSC207-2024/safeTO/pull/70)
+    - *When a user clicks on a neighborhood, a popup window will present a bar plot depicting crime data from the past five years. This visualization will include a ranking of crime types, providing insights into the prevalence of different crimes within the selected area.*
 
 ### 3. Bilin Nong [`@Bilin22`](https://github.com/Bilin22)
 
