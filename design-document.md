@@ -3,7 +3,7 @@
 ## Submission
 
 **Team Name:** `Stack Underflow`  
-**Submission Date:** August 13, 2024
+**Submission Date:** August 15, 2024
 
 ---
 
@@ -108,5 +108,7 @@ The database automatically logs each operation for tracking and auditing purpose
 
 ## Summary of Test Coverage
 
-- *placeholder*
-- *placeholder*
+- *Frontend: We conducted thorough testing of our frontend functionality by systematically evaluating each feature. For the regex functionality, we tested various invalid inputs to ensure robust error handling. In the case of restricted regions, we checked at least 30 locations outside the City of Toronto to verify proper boundary enforcement. For neighborhoods or locations with no available data, we ensured that a clear and informative message is generated. These tests helped us validate the accuracy and reliability of our frontend components.*
+
+
+- *Backend:*
