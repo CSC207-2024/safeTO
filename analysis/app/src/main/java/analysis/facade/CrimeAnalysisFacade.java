@@ -24,7 +24,7 @@ public class CrimeAnalysisFacade {
     }
 
     public AutoTheftResult analyzeAutoTheft(double latitude, double longitude, int radius, int threshold,
-            int earliestYear) {
+                                            int earliestYear) {
         return autoTheftFacade.analyze(latitude, longitude, radius, threshold, earliestYear);
     }
 
