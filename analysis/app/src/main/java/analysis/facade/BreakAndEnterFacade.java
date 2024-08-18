@@ -20,13 +20,27 @@ public class BreakAndEnterFacade {
 
     private final BreakAndEnterCalculator breakAndEnterCalculator;
 
-    // Constructor now accepts an InterfaceDataFetcher
+    /**
+     * Constructs a BreakAndEnterFacade with the specified data fetcher, converter,
+     * and processor.
+     *
+     * @param dataFetcher The data fetcher for retrieving crime data.
+     * @param converter The converter for transforming data formats.
+     * @param processor The processor for manipulating crime data.
+     */
     public BreakAndEnterFacade(InterfaceDataFetcher dataFetcher, CrimeDataConverter converter, CrimeDataProcessor processor) {
         List<BreakAndEnterData> breakAndEnterData = fetchAndProcessData(dataFetcher, converter, processor);
         this.breakAndEnterCalculator = new BreakAndEnterCalculator(breakAndEnterData);
     }
 
-
+    /**
+     * Fetches and processes break and enter data from the data source.
+     *
+     * @param fetcher The data fetcher.
+     * @param converter The data converter.
+     * @param processor The data processor.
+     * @return A list of BreakAndEnterData objects.
+     */
     private List<BreakAndEnterData> fetchAndProcessData(InterfaceDataFetcher fetcher, CrimeDataConverter converter, CrimeDataProcessor processor) {
         List<BreakAndEnterData> breakAndEnterDataList = new ArrayList<>();
         JsonArray data = fetcher.fetchData();
@@ -64,6 +78,14 @@ public class BreakAndEnterFacade {
         return breakAndEnterDataList;
     }
 
+    /**
+     * Helper method to retrieve string values from a Table row.
+     *
+     * @param table The table containing data.
+     * @param columnName The column name.
+     * @param rowIndex The row index.
+     * @return The string value.
+     */
     private String getStringValue(Table table, String columnName, int rowIndex) {
         if (table.column(columnName) instanceof TextColumn) {
             return table.textColumn(columnName).get(rowIndex);
@@ -72,6 +94,15 @@ public class BreakAndEnterFacade {
         }
     }
 
+    /**
+     * Analyzes break and enter data within a specified radius.
+     *
+     * @param latitude The latitude of the location.
+     * @param longitude The longitude of the location.
+     * @param radius The radius in meters to search for crime data.
+     * @param threshold The threshold for determining the safety level.
+     * @return A BreakAndEnterResult containing the analysis results.
+     */
     public BreakAndEnterResult analyze(double latitude, double longitude, int radius, int threshold) {
         List<BreakAndEnterData> pastYearData = breakAndEnterCalculator.getCrimeDataWithinRadiusPastYear(latitude, longitude, radius);
         List<BreakAndEnterData> allKnownData = breakAndEnterCalculator.getCrimeDataWithinRadius(latitude, longitude, radius);

@@ -47,13 +47,13 @@ public class AutoTheftSafeCaseDemo {
         System.err.println("All Auto Theft in the past year within the radius:");
         int index = 1;
         for (AutoTheftResult.Incident incident : result.getPastYearIncidents()) {
-            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, incident.occurDate, incident.distance);
+            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, incident.getOccurDate(), incident.getDistance());
         }
 
         System.err.println("ALL known Auto Theft within the radius:");
         index = 1;
         for (AutoTheftResult.Incident incident : result.getAllKnownIncidents()) {
-            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, incident.occurDate, incident.distance);
+            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, incident.getOccurDate(), incident.getDistance());
         }
 
         System.err.println(result.getProbabilityMessage());

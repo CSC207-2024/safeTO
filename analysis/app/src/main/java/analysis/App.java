@@ -6,14 +6,27 @@ import analysis.crimeDataRanking.NeighborhoodCrimeRankingResult;
 import analysis.facade.CrimeAnalysisFacade;
 import com.google.gson.Gson;
 
+/**
+ * The main application class for analyzing crime data.
+ * It supports analyzing break and enter data, auto theft data, and ranking neighborhoods based on crime data.
+ *
+ * Usage:
+ * - Break and Enter: break_enter <latitude> <longitude> <radius> <threshold>
+ * - Auto Theft: auto_theft <latitude> <longitude> <radius> <threshold> <earliestYear>
+ * - Ranking: ranking <neighborhood> [<specificCrime>]
+ */
 public class App {
+
+    /**
+     * The main method that runs the application.
+     *
+     * @param args Command-line arguments specifying the type of analysis and relevant parameters.
+     */
     public static void main(String[] args) {
         if (args.length < 2) {
             System.err.println("Insufficient arguments provided.");
             System.err.println("Usage for Break and Enter: break_enter <latitude> <longitude> <radius> <threshold>");
-            System.err
-                    .println(
-                            "Usage for Auto Theft: auto_theft <latitude> <longitude> <radius> <threshold> <earliestYear>");
+            System.err.println("Usage for Auto Theft: auto_theft <latitude> <longitude> <radius> <threshold> <earliestYear>");
             System.err.println("Usage for Ranking: ranking <neighborhood> [<specificCrime>]");
             return;
         }
@@ -24,8 +37,7 @@ public class App {
 
         if ("break_enter".equals(type)) {
             if (args.length != 5) {
-                System.err
-                        .println("Usage for Break and Enter: break_enter <latitude> <longitude> <radius> <threshold>");
+                System.err.println("Usage for Break and Enter: break_enter <latitude> <longitude> <radius> <threshold>");
                 return;
             }
             double latitude = Double.parseDouble(args[1]);
@@ -37,8 +49,7 @@ public class App {
             System.out.println(gson.toJson(result));
         } else if ("auto_theft".equals(type)) {
             if (args.length != 6) {
-                System.err.println(
-                        "Usage for Auto Theft: auto_theft <latitude> <longitude> <radius> <threshold> <earliestYear>");
+                System.err.println("Usage for Auto Theft: auto_theft <latitude> <longitude> <radius> <threshold> <earliestYear>");
                 return;
             }
             double latitude = Double.parseDouble(args[1]);
@@ -62,9 +73,7 @@ public class App {
         } else {
             System.err.println("Invalid type or missing parameters.");
             System.err.println("Usage for Break and Enter: break_enter <latitude> <longitude> <radius> <threshold>");
-            System.err
-                    .println(
-                            "Usage for Auto Theft: auto_theft <latitude> <longitude> <radius> <threshold> <earliestYear>");
+            System.err.println("Usage for Auto Theft: auto_theft <latitude> <longitude> <radius> <threshold> <earliestYear>");
             System.err.println("Usage for Ranking: ranking <neighborhood> [<specificCrime>]");
         }
     }

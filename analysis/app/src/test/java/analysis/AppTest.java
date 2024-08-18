@@ -92,59 +92,54 @@ class AppTest {
 
     @Test
     void analyzeNeighborhoodCrimeRankingSpecificCrimeTest() {
-        // Mock CrimeAnalysisFacade
+        // Mock the CrimeAnalysisFacade
         CrimeAnalysisFacade mockFacade = mock(CrimeAnalysisFacade.class);
 
-        // Mock the result to return the expected data
-        NeighborhoodCrimeRankingResult mockResult = mock(NeighborhoodCrimeRankingResult.class);
-        when(mockResult.getNeighborhood()).thenReturn("Maple Leaf (29)");
-        when(mockResult.getRanking()).thenReturn(130);
-        when(mockResult.getCrimeType()).thenReturn("Assault");
-        when(mockResult.getSafetyLevel()).thenReturn("Very Safe");
+        // Prepare a mock result for a specific crime (Assault) in the neighborhood "Maple Leaf"
+        NeighborhoodCrimeRankingResult mockResult = new NeighborhoodCrimeRankingResult(
+                "Maple Leaf", 130, "Very Safe", "Assault");
 
-        // Set up the mockFacade to return the mockResult
-        when(mockFacade.getNeighborhoodRanking(eq("Maple Leaf (29)"), eq("Assault"))).thenReturn(mockResult);
+        // Configure the mockFacade to return the mockResult when the method is called with specific parameters
+        when(mockFacade.getNeighborhoodRanking("Maple Leaf", "Assault")).thenReturn(mockResult);
 
-        // Execute the test
-        NeighborhoodCrimeRankingResult result = mockFacade.getNeighborhoodRanking("Maple Leaf (29)", "Assault");
+        // Execute the test by calling the method with the expected parameters
+        NeighborhoodCrimeRankingResult result = mockFacade.getNeighborhoodRanking("Maple Leaf", "Assault");
 
         // Verify the result
-        assertNotNull(result);
-        assertEquals("Maple Leaf (29)", result.getNeighborhood());
-        assertEquals(130, result.getRanking());
-        assertEquals("Assault", result.getCrimeType());
-        assertEquals("Very Safe", result.getSafetyLevel());
+        assertNotNull(result, "The result should not be null.");
+        assertEquals("Maple Leaf", result.getNeighborhood(), "The neighborhood should be 'Maple Leaf'.");
+        assertEquals(130, result.getRanking(), "The ranking should be 130.");
+        assertEquals("Assault", result.getCrimeType(), "The crime type should be 'Assault'.");
+        assertEquals("Very Safe", result.getSafetyLevel(), "The safety level should be 'Very Safe'.");
 
-        // Verify that the mock was called with the expected arguments
-        verify(mockFacade, times(1)).getNeighborhoodRanking("Maple Leaf (29)", "Assault");
+        // Verify that the mockFacade was called with the correct arguments exactly once
+        verify(mockFacade, times(1)).getNeighborhoodRanking("Maple Leaf", "Assault");
     }
 
     @Test
     void analyzeNeighborhoodCrimeRankingTotalCrimeTest() {
-        // Mock CrimeAnalysisFacade
+        // Mock the CrimeAnalysisFacade
         CrimeAnalysisFacade mockFacade = mock(CrimeAnalysisFacade.class);
 
-        // Mock the result to return the expected data
-        NeighborhoodCrimeRankingResult mockResult = mock(NeighborhoodCrimeRankingResult.class);
-        when(mockResult.getNeighborhood()).thenReturn("Willowdale East (51)");
-        when(mockResult.getRanking()).thenReturn(25);
-        when(mockResult.getCrimeType()).thenReturn("Total Crime");
-        when(mockResult.getSafetyLevel()).thenReturn("Very Dangerous");
+        // Prepare a mock result for total crime in the neighborhood "Willowdale East"
+        NeighborhoodCrimeRankingResult mockResult = new NeighborhoodCrimeRankingResult(
+                "Willowdale East", 25, "Very Dangerous", "Total Crime");
 
-        // Set up the mockFacade to return the mockResult
-        when(mockFacade.getNeighborhoodRanking(eq("Willowdale East (51)"), eq(""))).thenReturn(mockResult);
+        // Configure the mockFacade to return the mockResult when the method is called with the specified neighborhood and no specific crime
+        when(mockFacade.getNeighborhoodRanking("Willowdale East", null)).thenReturn(mockResult);
 
-        // Execute the test
-        NeighborhoodCrimeRankingResult result = mockFacade.getNeighborhoodRanking("Willowdale East (51)", "");
+        // Execute the test by calling the method with the expected parameters
+        NeighborhoodCrimeRankingResult result = mockFacade.getNeighborhoodRanking("Willowdale East", null);
 
         // Verify the result
-        assertNotNull(result);
-        assertEquals("Willowdale East (51)", result.getNeighborhood());
-        assertEquals(25, result.getRanking());
-        assertEquals("Total Crime", result.getCrimeType());
-        assertEquals("Very Dangerous", result.getSafetyLevel());
+        assertNotNull(result, "The result should not be null.");
+        assertEquals("Willowdale East", result.getNeighborhood(), "The neighborhood should be 'Willowdale East'.");
+        assertEquals(25, result.getRanking(), "The ranking should be 25.");
+        assertEquals("Total Crime", result.getCrimeType(), "The crime type should be 'Total Crime'.");
+        assertEquals("Very Dangerous", result.getSafetyLevel(), "The safety level should be 'Very Dangerous'.");
 
-        // Verify that the mock was called with the expected arguments
-        verify(mockFacade, times(1)).getNeighborhoodRanking("Willowdale East (51)", "");
+        // Verify that the mockFacade was called with the correct arguments exactly once
+        verify(mockFacade, times(1)).getNeighborhoodRanking("Willowdale East", null);
     }
+
 }

@@ -24,6 +24,16 @@ public class AutoTheftCalculator implements CrimeCalculatorInterface<AutoTheftDa
     }
 
     /**
+     * Returns the occurrence year of a auto theft data item.
+     *
+     * @param item The auto theft data item.
+     * @return The occurrence year.
+     */
+    @Override
+    public int getYear(AutoTheftData item) {
+        return item.getOccYear();
+    }
+    /**
      * Filters a list of auto theft data by a specified radius from a given point.
      *
      * @param lat The latitude of the center point.
@@ -33,10 +43,7 @@ public class AutoTheftCalculator implements CrimeCalculatorInterface<AutoTheftDa
      * @return A filtered list of auto theft data within the specified radius.
      */
 
-    @Override
-    public int getYear(AutoTheftData item) {
-        return item.getOccYear();
-    }
+
     private List<AutoTheftData> filterDataByRadius(double lat, double lon, double radius, List<AutoTheftData> data) {
         List<AutoTheftData> filteredData = new ArrayList<>();
         for (AutoTheftData item : data) {
