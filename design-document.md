@@ -66,7 +66,7 @@ Adhering closely to our initial blueprint, we built the website in a coherent an
   - Switching Output to JSON Format
   - Adherence to Clean Architecture Principles: Use of Interfaces for Dependency Inversion
 - **Significant Pull Request:**
-  - [PR #100](https://github.com/larryzhuly/project/pull/100)
+  - [PR #100: *Some key Clean Architecture update](https://github.com/CSC207-2024/safeTO/pull/100)
     - This pull request represents a significant contribution to the team's project as it involved a comprehensive refactor of the codebase to improve maintainability, usability, and integration with the front end. The PR applies the CrimeAnalysisFacade  to each demo, making the demos more representative. The refactor also aligned the code with clean architecture principles by using interfaces to decouple core logic from specific implementations, enhancing testability and scalability.
 
 
