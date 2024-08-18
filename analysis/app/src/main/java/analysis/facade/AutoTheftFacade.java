@@ -19,16 +19,31 @@ import java.util.List;
  */
 public class AutoTheftFacade {
 
-    private final CrimeCalculatorInterface autoTheftCalculator;
+    private final CrimeCalculatorInterface<AutoTheftData> autoTheftCalculator;
     private final SafeParkingLocationManager safeParkingLocationManager;
 
-    // Constructor that accepts data fetcher, converter, and processor
+    /**
+     * Constructs an AutoTheftFacade with the specified data fetcher, converter,
+     * and processor.
+     *
+     * @param dataFetcher The data fetcher for retrieving crime data.
+     * @param converter The converter for transforming data formats.
+     * @param processor The processor for manipulating crime data.
+     */
     public AutoTheftFacade(InterfaceDataFetcher dataFetcher, CrimeDataConverter converter, CrimeDataProcessor processor) {
         List<AutoTheftData> autoTheftDataList = fetchAutoTheftData(dataFetcher, converter, processor);
         this.autoTheftCalculator = new AutoTheftCalculator(autoTheftDataList);
         this.safeParkingLocationManager = SafeParkingLocationManager.getInstance();
     }
 
+    /**
+     * Fetches and processes auto theft data from the data source.
+     *
+     * @param fetcher The data fetcher.
+     * @param converter The data converter.
+     * @param processor The data processor.
+     * @return A list of AutoTheftData objects.
+     */
     private List<AutoTheftData> fetchAutoTheftData(InterfaceDataFetcher fetcher, CrimeDataConverter converter, CrimeDataProcessor processor) {
         List<AutoTheftData> autoTheftDataList = new ArrayList<>();
         Table table = converter.jsonToTable(fetcher.fetchData());
@@ -60,6 +75,14 @@ public class AutoTheftFacade {
         return autoTheftDataList;
     }
 
+    /**
+     * Helper method to retrieve string values from a Table row.
+     *
+     * @param table The table containing data.
+     * @param columnName The column name.
+     * @param rowIndex The row index.
+     * @return The string value.
+     */
     private String getStringValue(Table table, String columnName, int rowIndex) {
         if (table.column(columnName) instanceof tech.tablesaw.api.TextColumn) {
             return table.textColumn(columnName).get(rowIndex);
@@ -68,6 +91,16 @@ public class AutoTheftFacade {
         }
     }
 
+    /**
+     * Analyzes auto theft data within a specified radius and time frame.
+     *
+     * @param latitude The latitude of the location.
+     * @param longitude The longitude of the location.
+     * @param radius The radius in meters to search for crime data.
+     * @param threshold The threshold for determining the safety level.
+     * @param earliestYear The earliest year of crime data to consider.
+     * @return An AutoTheftResult containing the analysis results.
+     */
     public AutoTheftResult analyze(double latitude, double longitude, int radius, int threshold, int earliestYear) {
         long start = System.currentTimeMillis();
         List<AutoTheftData> pastYearData = autoTheftCalculator.getCrimeDataWithinRadiusPastYear(latitude, longitude, radius);

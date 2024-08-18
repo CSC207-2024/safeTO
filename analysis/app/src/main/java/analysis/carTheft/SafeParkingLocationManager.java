@@ -1,7 +1,6 @@
 package analysis.carTheft;
 
 import tech.tablesaw.api.*;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Collectors;
-
 import analysis.utils.GeoUtils;
 
 /**
@@ -54,11 +52,11 @@ public class SafeParkingLocationManager {
     /**
      * Adds or updates a safe parking location based on given criteria.
      *
-     * @param latitude   The latitude of the location.
-     * @param longitude  The longitude of the location.
+     * @param latitude    The latitude of the location.
+     * @param longitude   The longitude of the location.
      * @param probability The calculated probability.
-     * @param radius     The radius used for calculation.
-     * @param threshold  The threshold used for calculation.
+     * @param radius      The radius used for calculation.
+     * @param threshold   The threshold used for calculation.
      */
     public void addOrUpdateSafeLocation(double latitude, double longitude, double probability, int radius, int threshold) {
         boolean updated = false;
@@ -88,7 +86,7 @@ public class SafeParkingLocationManager {
     }
 
     /**
-     * Saves the table to a CSV file.
+     * Saves the table of safe locations to a CSV file.
      */
     private void saveToFile() {
         safeLocations.write().csv("safe_parking_locations.csv");
@@ -97,11 +95,11 @@ public class SafeParkingLocationManager {
     /**
      * Finds nearby safe parking locations within a given radius.
      *
-     * @param latitude  The latitude of the center point.
-     * @param longitude The longitude of the center point.
-     * @param radius    The radius in meters.
-     * @param numSuggestions Number of suggestions to return.
-     * @param threshold The threshold to filter.
+     * @param latitude      The latitude of the center point.
+     * @param longitude     The longitude of the center point.
+     * @param radius        The radius in meters.
+     * @param numSuggestions The number of suggestions to return.
+     * @param threshold     The threshold to filter.
      * @return A list of rows representing safe parking locations within the radius.
      */
     public List<Row> getNearbySafeLocations(double latitude, double longitude, double radius, int numSuggestions, int threshold) {

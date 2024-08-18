@@ -5,8 +5,19 @@ import analysis.facade.CrimeAnalysisFacade;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+/**
+ * A demo class for analyzing and displaying the crime ranking of a neighborhood
+ * based on total crime data.
+ */
 public class NeighborhoodCrimeRankingDemo2 {
 
+    /**
+     * The main method that runs the demo for analyzing and displaying the crime
+     * ranking of a neighborhood based on total crime data.
+     *
+     * @param args Command-line argument to specify the neighborhood.
+     *             If no arguments are provided, the default is "Willowdale East".
+     */
     public static void main(String[] args) {
         // Default neighborhood
         String neighborhood = "Willowdale East";

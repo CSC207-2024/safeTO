@@ -14,7 +14,14 @@ public class CrimeDataRankingFacade {
     private final CrimeDataConverter converter;
     private final CrimeDataProcessor processor;
 
-    // Updated constructor to accept interfaces
+    /**
+     * Constructs a CrimeDataRankingFacade with the specified data fetcher, converter,
+     * and processor.
+     *
+     * @param dataFetcher The data fetcher for retrieving crime data.
+     * @param converter The converter for transforming data formats.
+     * @param processor The processor for manipulating crime data.
+     */
     public CrimeDataRankingFacade(InterfaceDataFetcher dataFetcher, CrimeDataConverter converter, CrimeDataProcessor processor) {
         this.fetcher = dataFetcher;
         this.converter = converter;
@@ -22,12 +29,22 @@ public class CrimeDataRankingFacade {
         fetchAndConvertData();
     }
 
+    /**
+     * Fetches and converts crime data.
+     */
     private void fetchAndConvertData() {
         Table table = converter.jsonToTable(fetcher.fetchData());
         processor.setTable(table);
         processor.formatNeighbourhoodColumn(processor.getTable(), "NEIGHBOURHOOD_140");
     }
 
+    /**
+     * Retrieves the ranking of a neighborhood based on total or specific crime.
+     *
+     * @param neighborhood The name of the neighborhood.
+     * @param specificCrime The specific crime type to consider (or null for total crime).
+     * @return A NeighborhoodCrimeRankingResult containing the ranking and safety level.
+     */
     public NeighborhoodCrimeRankingResult getNeighborhoodRanking(String neighborhood, String specificCrime) {
         CrimeDataRanker ranker = new CrimeDataRanker(processor);
         int totalNeighborhoods = processor.getTable().stringColumn("NEIGHBOURHOOD_140").unique().size();

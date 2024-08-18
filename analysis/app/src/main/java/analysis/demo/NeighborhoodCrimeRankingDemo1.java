@@ -5,8 +5,19 @@ import analysis.facade.CrimeAnalysisFacade;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+/**
+ * A demo class for analyzing and displaying the crime ranking of a neighborhood
+ * based on a specific crime type.
+ */
 public class NeighborhoodCrimeRankingDemo1 {
 
+    /**
+     * The main method that runs the demo for analyzing and displaying the crime
+     * ranking of a neighborhood based on a specific crime type.
+     *
+     * @param args Command-line arguments to specify the neighborhood and crime type.
+     *             If no arguments are provided, the defaults are "Maple Leaf" and "Assault".
+     */
     public static void main(String[] args) {
         // Default parameters
         String neighborhood = "Maple Leaf";

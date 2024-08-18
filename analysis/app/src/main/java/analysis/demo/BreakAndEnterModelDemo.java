@@ -42,13 +42,13 @@ public class BreakAndEnterModelDemo {
         System.err.println("All Break and Enter in the past year within the radius:");
         int index = 1;
         for (BreakAndEnterResult.Incident incident : result.getPastYearIncidents()) {
-            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, incident.occurDate, incident.distance);
+            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, incident.getOccurDate(), incident.getDistance());
         }
 
         System.err.println("ALL known Break and Enter within the radius:");
         index = 1;
         for (BreakAndEnterResult.Incident incident : result.getAllKnownIncidents()) {
-            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, incident.occurDate, incident.distance);
+            System.out.printf("#%d, occur date: %s, distance from you: %.2f meters%n", index++, incident.getOccurDate(), incident.getDistance());
         }
 
         // Print probability message and warning

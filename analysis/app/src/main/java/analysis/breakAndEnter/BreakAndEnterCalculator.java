@@ -23,10 +23,17 @@ public class BreakAndEnterCalculator implements CrimeCalculatorInterface<BreakAn
         this.breakAndEnterDataList = breakAndEnterDataList;
     }
 
+    /**
+     * Returns the occurrence year of a break and enter data item.
+     *
+     * @param item The break and enter data item.
+     * @return The occurrence year.
+     */
     @Override
-    public int getYear(BreakAndEnterData  item) {
+    public int getYear(BreakAndEnterData item) {
         return item.getOccYear();
     }
+
     /**
      * Filters a list of break and enter data by a specified radius from a given point.
      *
