@@ -62,11 +62,13 @@ Adhering closely to our initial blueprint, we built the website in a coherent an
 
 - **Email:** <liangyu.zhu@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
-  - *placeholder*
-  - *placeholder*
+  - Encapsulation and Simplification using the Facade Pattern
+  - Switching Output to JSON Format
+  - Adherence to Clean Architecture Principles: Use of Interfaces for Dependency Inversion
 - **Significant Pull Request:**
-  - [PR #127: *placeholder*](https://github.com/larryzhuly/project/pull/127)
-    - *placeholder*
+  - [PR #100](https://github.com/larryzhuly/project/pull/100)
+    - This pull request represents a significant contribution to the team's project as it involved a comprehensive refactor of the codebase to improve maintainability, usability, and integration with the front end. The PR applies the CrimeAnalysisFacade  to each demo, making the demos more representative. The refactor also aligned the code with clean architecture principles by using interfaces to decouple core logic from specific implementations, enhancing testability and scalability.
+
 
 ---
 
