@@ -1,5 +1,9 @@
 package analysis.demo;
 
+import access.convert.CrimeDataConverter;
+import access.data.CrimeDataFetcher;
+import access.data.InterfaceDataFetcher;
+import access.manipulate.CrimeDataProcessor;
 import analysis.breakAndEnter.BreakAndEnterResult;
 import analysis.facade.BreakAndEnterFacade;
 import com.google.gson.Gson;
@@ -33,7 +37,12 @@ public class BreakAndEnterModelDemo {
             System.exit(1);
         }
 
-        BreakAndEnterFacade facade = new BreakAndEnterFacade();
+        InterfaceDataFetcher dataFetcher = new CrimeDataFetcher(); // or any other implementation
+        CrimeDataConverter converter = new CrimeDataConverter();
+        CrimeDataProcessor processor = new CrimeDataProcessor();
+
+// Pass these instances to the BreakAndEnterFacade
+        BreakAndEnterFacade facade = new BreakAndEnterFacade(dataFetcher, converter, processor);
 
         // Analyze break and enter data
         BreakAndEnterResult result = facade.analyze(latitude, longitude, radius, threshold);

@@ -2,14 +2,12 @@ package analysis.demo;
 
 import access.convert.CrimeDataConverter;
 import access.data.CrimeDataFetcher;
+import access.data.InterfaceDataFetcher;
 import access.manipulate.CrimeDataProcessor;
 import analysis.carTheft.*;
 import analysis.facade.AutoTheftFacade;
 import com.google.gson.Gson;
-import tech.tablesaw.api.Table;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -44,12 +42,13 @@ public class AutoTheftSafeCaseDemo {
             System.exit(1);
         }
 
-        CrimeDataFetcher fetcher = new CrimeDataFetcher();
+        // Instantiate using interfaces and the refactored constructor
+        InterfaceDataFetcher fetcher = new CrimeDataFetcher();
         CrimeDataConverter converter = new CrimeDataConverter();
         CrimeDataProcessor processor = new CrimeDataProcessor();
 
-        List<AutoTheftData> autoTheftDataList = fetchAutoTheftData(fetcher, converter, processor);
-        AutoTheftFacade autoTheftFacade = new AutoTheftFacade(autoTheftDataList, SafeParkingLocationManager.getInstance());
+        // Pass dependencies to the facade
+        AutoTheftFacade autoTheftFacade = new AutoTheftFacade(fetcher, converter, processor);
 
         // Analyze auto theft data
         AutoTheftResult result = autoTheftFacade.analyze(latitude, longitude, radius, threshold, earliestYear);
@@ -90,44 +89,5 @@ public class AutoTheftSafeCaseDemo {
         Gson gson = new Gson();
         String jsonResult = gson.toJson(result);
         System.err.println(jsonResult);
-    }
-
-    private static List<AutoTheftData> fetchAutoTheftData(CrimeDataFetcher fetcher, CrimeDataConverter converter, CrimeDataProcessor processor) {
-        List<AutoTheftData> autoTheftDataList = new ArrayList<>();
-        Table table = converter.jsonToTable(fetcher.fetchData());
-
-        if (table == null) {
-            return autoTheftDataList;
-        }
-
-        processor.setTable(table);
-        Table filteredTable = processor.filterBy("MCI_CATEGORY", "Auto Theft");
-
-        for (int i = 0; i < filteredTable.rowCount(); i++) {
-            try {
-                String eventUniqueId = getStringValue(filteredTable, "EVENT_UNIQUE_ID", i);
-                int occYear = filteredTable.intColumn("OCC_YEAR").get(i);
-                String occMonth = getStringValue(filteredTable, "OCC_MONTH", i);
-                int occDay = filteredTable.intColumn("OCC_DAY").get(i);
-                double latitude = filteredTable.doubleColumn("LAT_WGS84").get(i);
-                double longitude = filteredTable.doubleColumn("LONG_WGS84").get(i);
-
-                AutoTheftData autoTheftData = new AutoTheftData(
-                        eventUniqueId, occYear, occMonth, occDay, "Auto Theft", latitude, longitude);
-                autoTheftDataList.add(autoTheftData);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        return autoTheftDataList;
-    }
-
-    private static String getStringValue(Table table, String columnName, int rowIndex) {
-        if (table.column(columnName) instanceof tech.tablesaw.api.TextColumn) {
-            return table.textColumn(columnName).get(rowIndex);
-        } else {
-            return table.stringColumn(columnName).get(rowIndex);
-        }
     }
 }

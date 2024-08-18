@@ -53,11 +53,11 @@ public class AutoTheftUnsafeCaseDemo {
         CrimeDataConverter converter = new CrimeDataConverter();
         CrimeDataProcessor processor = new CrimeDataProcessor();
 
-        List<AutoTheftData> autoTheftDataList = fetchAutoTheftData(fetcher, converter, processor);
-        AutoTheftFacade autoTheftFacade = new AutoTheftFacade(autoTheftDataList, SafeParkingLocationManager.getInstance());
+        AutoTheftFacade autoTheftFacade = new AutoTheftFacade(fetcher, converter, processor);
 
         // Analyze auto theft data
         AutoTheftResult result = autoTheftFacade.analyze(latitude, longitude, radius, threshold, earliestYear);
+
 
         // Print the results
         System.err.println("All Auto Theft in the past year within the radius:");

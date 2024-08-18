@@ -1,8 +1,8 @@
 package analysis.facade;
 
 import analysis.breakAndEnter.*;
+import access.data.InterfaceDataFetcher;
 import access.convert.CrimeDataConverter;
-import access.data.CrimeDataFetcher;
 import access.manipulate.CrimeDataProcessor;
 import analysis.utils.GeoUtils;
 import com.google.gson.JsonArray;
@@ -20,15 +20,14 @@ public class BreakAndEnterFacade {
 
     private final BreakAndEnterCalculator breakAndEnterCalculator;
 
-    public BreakAndEnterFacade() {
-        CrimeDataFetcher fetcher = new CrimeDataFetcher();
-        CrimeDataConverter converter = new CrimeDataConverter();
-        CrimeDataProcessor processor = new CrimeDataProcessor();
-        List<BreakAndEnterData> breakAndEnterData = fetchAndProcessData(fetcher, converter, processor);
+    // Constructor now accepts an InterfaceDataFetcher
+    public BreakAndEnterFacade(InterfaceDataFetcher dataFetcher, CrimeDataConverter converter, CrimeDataProcessor processor) {
+        List<BreakAndEnterData> breakAndEnterData = fetchAndProcessData(dataFetcher, converter, processor);
         this.breakAndEnterCalculator = new BreakAndEnterCalculator(breakAndEnterData);
     }
 
-    private List<BreakAndEnterData> fetchAndProcessData(CrimeDataFetcher fetcher, CrimeDataConverter converter, CrimeDataProcessor processor) {
+
+    private List<BreakAndEnterData> fetchAndProcessData(InterfaceDataFetcher fetcher, CrimeDataConverter converter, CrimeDataProcessor processor) {
         List<BreakAndEnterData> breakAndEnterDataList = new ArrayList<>();
         JsonArray data = fetcher.fetchData();
         if (data == null) {

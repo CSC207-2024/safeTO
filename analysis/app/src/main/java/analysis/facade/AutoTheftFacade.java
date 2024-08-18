@@ -2,8 +2,9 @@ package analysis.facade;
 
 import analysis.carTheft.*;
 import access.convert.CrimeDataConverter;
-import access.data.CrimeDataFetcher;
+import access.data.InterfaceDataFetcher;
 import access.manipulate.CrimeDataProcessor;
+import analysis.interfaces.CrimeCalculatorInterface;
 import analysis.utils.GeoUtils;
 import tech.tablesaw.api.Row;
 import tech.tablesaw.api.Table;
@@ -18,24 +19,17 @@ import java.util.List;
  */
 public class AutoTheftFacade {
 
-    private final AutoTheftCalculator autoTheftCalculator;
+    private final CrimeCalculatorInterface autoTheftCalculator;
     private final SafeParkingLocationManager safeParkingLocationManager;
 
-    public AutoTheftFacade() {
-        CrimeDataFetcher fetcher = new CrimeDataFetcher();
-        CrimeDataConverter converter = new CrimeDataConverter();
-        CrimeDataProcessor processor = new CrimeDataProcessor();
-        List<AutoTheftData> autoTheftDataList = fetchAutoTheftData(fetcher, converter, processor);
+    // Constructor that accepts data fetcher, converter, and processor
+    public AutoTheftFacade(InterfaceDataFetcher dataFetcher, CrimeDataConverter converter, CrimeDataProcessor processor) {
+        List<AutoTheftData> autoTheftDataList = fetchAutoTheftData(dataFetcher, converter, processor);
         this.autoTheftCalculator = new AutoTheftCalculator(autoTheftDataList);
         this.safeParkingLocationManager = SafeParkingLocationManager.getInstance();
     }
 
-    public AutoTheftFacade(List<AutoTheftData> autoTheftDataList, SafeParkingLocationManager safeParkingLocationManager) {
-        this.autoTheftCalculator = new AutoTheftCalculator(autoTheftDataList);
-        this.safeParkingLocationManager = safeParkingLocationManager;
-    }
-
-    private List<AutoTheftData> fetchAutoTheftData(CrimeDataFetcher fetcher, CrimeDataConverter converter, CrimeDataProcessor processor) {
+    private List<AutoTheftData> fetchAutoTheftData(InterfaceDataFetcher fetcher, CrimeDataConverter converter, CrimeDataProcessor processor) {
         List<AutoTheftData> autoTheftDataList = new ArrayList<>();
         Table table = converter.jsonToTable(fetcher.fetchData());
 
