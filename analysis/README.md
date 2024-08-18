@@ -12,20 +12,16 @@ Note:
 The `BreakAndEnterModelDemo` is a designed to analyze and display break and enter crime data within a specified radius around a given location. The purpose of this application is to help users determine the safety of a location based on historical break and enter crime data.
 
 ## Features
-- Fetches break and enter crime data for the past year and displays it.
-- Fetches all known break and enter crime data within the specified radius.
-- Calculates the average annual rate of incidents.
-- Uses the Poisson distribution to estimate the probability of break and enter incidents exceeding a specified threshold.
-- Provides a recommendation based on the calculated probability.
+- Fetch Data: Uses the CrimeAnalysisFacade to fetch and analyze all known break and enter crime data within the specified radius.
+- Incident Rate Calculation: Calculates the average annual rate of break and enter incidents in the area.
+- Probability Estimation: Employs the Poisson distribution to estimate the probability of break and enter incidents exceeding a user-defined threshold.
+- Safety Recommendation: Provides a recommendation based on the calculated probability, helping users decide whether a location is safe to live in.
 
 ## Structure
 The project consists of the following key files:
-- **BreakAndEnterModelDemo.java**: The main class for running the demo.
-- **BreakAndEnterCalculator.java**: Class for calculating break and enter-related data.
-- **BreakAndEnterData.java**: Class representing break and enter crime data.
-- **BreakAndEnterIncidentFetcher.java**: Class for fetching break and enter crime data.
-- **CrimeDataFetcher.java**, **CrimeDataConverter.java**, **CrimeDataProcessor.java**: Supporting classes for data fetching, conversion, and processing.
-- **GeoUtils.java**: Utility class for geographical calculations.
+- BreakAndEnterModelDemo.java: The main class for running the demo.
+- CrimeAnalysisFacade.java: A facade class to simplify crime analysis operations.
+
 
 ## How it Works
 1. **Fetch Data**: The application fetches break and enter crime data from a specified source. The fetched data is converted and processed to filter relevant records.
@@ -50,7 +46,7 @@ The `AutoTheftSafeCaseDemo` is designed to analyze and display auto theft crime 
 In this demo, the location is preset and tested as a safe location. Users can choose to share this location and benefit other users who are currently at a nearby unsafe parking spots,seeking safer spaces to avoid auto thefts.
   
 ## Features
-- Fetches auto theft crime data for the past year and displays it.
+- Fetch Data: Uses the CrimeAnalysisFacade to fetch and process crime data.
 - Fetches all known auto theft crime data within the specified radius. The earliest year of thefts can be chosen by users, from 2014 to 2024.
 - Calculates the average annual rate of incidents.
 - Uses the Poisson distribution to estimate the probability of auto theft incidents exceeding a specified threshold.
@@ -60,13 +56,9 @@ In this demo, the location is preset and tested as a safe location. Users can ch
 
 ## Structure
 The project consists of the following key files:
-- **AutoTheftSafeCaseDemo.java**: The main class for running the demo.
-- **AutoTheftCalculator.java**: Class for calculating auto theft-related data.
-- **AutoTheftData.java**: Class representing auto theft crime data.
-- **AutoTheftIncidentFetcher.java**: Class for fetching auto theft crime data.
-- **CrimeDataFetcher.java**, **CrimeDataConverter.java**, **CrimeDataProcessor.java**: Supporting classes for data fetching, conversion, and processing.
-- **GeoUtils.java**: Utility class for geographical calculations.
-- **SafeParkingLocationManager.java**: Class for managing safe parking locations.
+- AutoTheftSafeCaseDemo.java: The main class for running the demo.
+- CrimeAnalysisFacade.java: A facade class to simplify crime analysis operations.
+- SafeParkingLocationManager.java: Manages safe parking locations.
 
 ## How it Works
 1. **Fetch Data**: The application fetches auto theft crime data from a specified source. The fetched data is converted and processed to filter relevant records.
@@ -84,7 +76,6 @@ The sample output includes:
 - The calculated probability of auto theft incidents exceeding the specified threshold.
 - A recommendation based on the probability.
 
-**- Enter yes to share the location.**
 
 ------------------------------------------------------------------------
 # AutoTheftUnsafeCaseDemo
@@ -93,7 +84,7 @@ The sample output includes:
 The `AutoTheftUnsafeCaseDemo` is designed to analyze and display auto theft crime data within a specified radius around a given location. The application also suggests alternative safe parking spots as the current location is preset to be unsafe based on historical auto theft crime data.
 
 ## Features
-- Fetches auto theft crime data for the past year and displays it.
+- Fetch Data: Uses the CrimeAnalysisFacade to fetch and process crime data.
 - Fetches all known auto theft crime data within the specified radius. The earliest year of thefts can be chosen by users, from 2014 to 2024.
 
 - Calculates the average annual rate of incidents.
@@ -103,13 +94,10 @@ The `AutoTheftUnsafeCaseDemo` is designed to analyze and display auto theft crim
 
 ## Structure
 The project consists of the following key files:
-- **AutoTheftUnsafeCaseDemo.java**: The main class for running the demo.
-- **AutoTheftCalculator.java**: Class for calculating auto theft-related data.
-- **AutoTheftData.java**: Class representing auto theft crime data.
-- **AutoTheftIncidentFetcher.java**: Class for fetching auto theft crime data.
-- **CrimeDataFetcher.java**, **CrimeDataConverter.java**, **CrimeDataProcessor.java**: Supporting classes for data fetching, conversion, and processing.
-- **GeoUtils.java**: Utility class for geographical calculations.
-- **SafeParkingLocationManager.java**: Class for managing safe parking locations.
+
+AutoTheftUnsafeCaseDemo.java: The main class for running the demo.
+CrimeAnalysisFacade.java: A facade class to simplify crime analysis operations.
+SafeParkingLocationManager.java: Manages safe parking locations.
 
 ## How it Works
 1. **Fetch Data**: The application fetches auto theft crime data from a specified source. The fetched data is converted and processed to filter relevant records.
@@ -142,32 +130,34 @@ The `NeighborhoodCrimeRankingDemo` is designed to rank neighborhoods based on cr
 - Provides the ranking of a specified neighborhood by total crimes or a specific crime type.
 
 ## Structure
-The project consists of the following key files:
-- **NeighborhoodCrimeRankingDemo.java**: The main class for running the demo.
-- **CrimeDataRanker.java**: Class for ranking neighborhoods based on crime data.
-- **CrimeDataFetcher.java**, **CrimeDataConverter.java**, **CrimeDataProcessor.java**: Supporting classes for data fetching, conversion, and processing.
+The project includes two demos for neighborhood crime ranking:
+
+1.NeighborhoodCrimeRankingDemo1.java:
+Allows ranking of neighborhoods based on a specific crime type.
+Uses a flexible approach where the user can specify the neighborhood and crime type through command-line arguments.
+
+2.NeighborhoodCrimeRankingDemo2.java:
+Focuses on ranking neighborhoods by total crimes.
+Uses the CrimeAnalysisFacade to simplify the process of fetching and analyzing crime data.
 
 ## How it Works
-1. **Fetch Data**: The application fetches crime data from a specified source.
-2. **Convert Data**: The fetched data is converted into a Table format for further processing.
-3. **Process Data**: The data is processed to prepare it for ranking.
-4. **Rank Neighborhoods**: The application ranks neighborhoods by either total crimes or a specific crime type.
-5. **Get Ranking**: The application retrieves and displays the ranking of a specified neighborhood.
+NeighborhoodCrimeRankingDemo1.java:
+- Fetch Data: Uses the CrimeAnalysisFacade to fetch and analyze crime data.
+- Rank Neighborhood: Ranks the specified neighborhood by total crimes.
+- Rank Neighborhood: Ranks the specified neighborhood based on the provided crime type using CrimeDataRanker.
+- If no arguments are provided, the demo uses default values:Neighborhood: "Maple Leaf" Specific Crime: "Assault"
+- Output Results: Outputs the ranking and safety level of the neighborhood in JSON format.
 
+NeighborhoodCrimeRankingDemo2.java:
+- Fetch Data: Uses the CrimeAnalysisFacade to fetch and analyze crime data.
+- Rank Neighborhood: Ranks the specified neighborhood by total crimes.
+- If no argument is provided, the demo uses the default neighborhood: "Willowdale East".
+- Output Results: Outputs the ranking and safety level of the neighborhood in JSON format.
 ## Sample Output
 The sample output includes:
 - The ranking of a neighborhood by total crimes.
 - The ranking of a neighborhood by a specific type of crime.
-
-When running the application, you could enter inputs as following when asked to enter neighborhood name and crime type:
-
-```
-Enter the neighborhood name: Don Valley Village
-Enter the specific crime type (leave blank for total crime ranking): Assault
-
-```
-The ranking of neighborhood 'Don Valley Village' by specific crime ('Assault') will be displayed.
-Leave it blank to get the ranking by total crimes.
+- The safety level of the neighborhood.
 
 
 ----------------------------------------------------------------------------------

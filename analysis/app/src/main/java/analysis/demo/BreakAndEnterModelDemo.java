@@ -1,13 +1,8 @@
 package analysis.demo;
 
-import access.convert.CrimeDataConverter;
-import access.data.CrimeDataFetcher;
-import access.data.InterfaceDataFetcher;
-import access.manipulate.CrimeDataProcessor;
 import analysis.breakAndEnter.BreakAndEnterResult;
-import analysis.facade.BreakAndEnterFacade;
+import analysis.facade.CrimeAnalysisFacade;
 import com.google.gson.Gson;
-
 
 /**
  * A demo class for analyzing and displaying break and enter data within a
@@ -37,15 +32,11 @@ public class BreakAndEnterModelDemo {
             System.exit(1);
         }
 
-        InterfaceDataFetcher dataFetcher = new CrimeDataFetcher(); // or any other implementation
-        CrimeDataConverter converter = new CrimeDataConverter();
-        CrimeDataProcessor processor = new CrimeDataProcessor();
+        // Create an instance of CrimeAnalysisFacade
+        CrimeAnalysisFacade facade = new CrimeAnalysisFacade();
 
-// Pass these instances to the BreakAndEnterFacade
-        BreakAndEnterFacade facade = new BreakAndEnterFacade(dataFetcher, converter, processor);
-
-        // Analyze break and enter data
-        BreakAndEnterResult result = facade.analyze(latitude, longitude, radius, threshold);
+        // Analyze break and enter data using the facade
+        BreakAndEnterResult result = facade.analyzeBreakAndEnter(latitude, longitude, radius, threshold);
 
         // Print the results
         System.err.println("All Break and Enter in the past year within the radius:");

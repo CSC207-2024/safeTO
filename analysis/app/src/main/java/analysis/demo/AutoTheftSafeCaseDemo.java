@@ -1,24 +1,21 @@
 package analysis.demo;
 
-import access.convert.CrimeDataConverter;
-import access.data.CrimeDataFetcher;
-import access.data.InterfaceDataFetcher;
-import access.manipulate.CrimeDataProcessor;
-import analysis.carTheft.*;
-import analysis.facade.AutoTheftFacade;
+import analysis.carTheft.AutoTheftResult;
+import analysis.facade.CrimeAnalysisFacade;
+import analysis.carTheft.SafeParkingLocationManager;
 import com.google.gson.Gson;
 
 import java.util.Random;
 
 /**
  * A demo class for analyzing and displaying auto theft data within a specified
- * radius.
+ * radius and determining if the location is safe for parking.
  */
 public class AutoTheftSafeCaseDemo {
 
     /**
      * The main method that runs the demo for analyzing and displaying auto theft
-     * data within a specified radius.
+     * data within a specified radius and determining if the location is safe for parking.
      *
      * @param args Command-line arguments (latitude, longitude, radius, threshold,
      *             earliestYear).
@@ -42,16 +39,9 @@ public class AutoTheftSafeCaseDemo {
             System.exit(1);
         }
 
-        // Instantiate using interfaces and the refactored constructor
-        InterfaceDataFetcher fetcher = new CrimeDataFetcher();
-        CrimeDataConverter converter = new CrimeDataConverter();
-        CrimeDataProcessor processor = new CrimeDataProcessor();
-
-        // Pass dependencies to the facade
-        AutoTheftFacade autoTheftFacade = new AutoTheftFacade(fetcher, converter, processor);
-
-        // Analyze auto theft data
-        AutoTheftResult result = autoTheftFacade.analyze(latitude, longitude, radius, threshold, earliestYear);
+        // Use CrimeAnalysisFacade to analyze auto theft data
+        CrimeAnalysisFacade facade = new CrimeAnalysisFacade();
+        AutoTheftResult result = facade.analyzeAutoTheft(latitude, longitude, radius, threshold, earliestYear);
 
         // Print the results
         System.err.println("All Auto Theft in the past year within the radius:");
@@ -69,9 +59,11 @@ public class AutoTheftSafeCaseDemo {
         System.err.println(result.getProbabilityMessage());
         System.err.println(result.getWarning());
 
+        // Directly use SafeParkingLocationManager for safe parking location management
         if (result.getProbability() <= 0.15) {
-            // Allow user to add current location to safe parking locations if it's safe
+            // Add current location to safe parking locations if it's safe
             SafeParkingLocationManager.getInstance().addOrUpdateSafeLocation(latitude, longitude, result.getProbability(), radius, threshold);
+            System.err.println("Location added to safe parking locations.");
         }
 
         // Simulate adding 5 safe locations
@@ -82,6 +74,8 @@ public class AutoTheftSafeCaseDemo {
             double randomProbability = random.nextDouble() * 0.1; // random probability between 0 and 0.1
             int randomRadius = 200;
             int randomThreshold = random.nextInt(10) + 1; // random threshold between 1 and 10
+
+            // Add the simulated safe locations
             SafeParkingLocationManager.getInstance().addOrUpdateSafeLocation(randomLat, randomLon, randomProbability, randomRadius, randomThreshold);
         }
 
