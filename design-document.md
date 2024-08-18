@@ -42,11 +42,13 @@ Adhering closely to our initial blueprint, we built the website in a coherent an
 
 - **Email:** <bilin.nong@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
-  - *placeholder*
-  - *placeholder*
+  - *implement email alert (initial version), and email builder class for building email body text.*
+  - *implement class and interface that are responsible for storing user emails in `safeTO`database.*
 - **Significant Pull Request:**
-  - [PR #125: *placeholder*](https://github.com/Bilin22/project/pull/125)
-    - *placeholder*
+  - [PR #65: *feat(email): add class to store user email to safeTO db*](https://github.com/CSC207-2024/safeTO/pull/65)
+    - *add email storage class that save user email along with userid.*
+  - [PR #42: *fix: add Email Builder class*](https://github.com/CSC207-2024/safeTO/pull/42)
+    - *add email builder class for building email body text from parameters including `JsonObject`, `String`, and `HashMap`.*
 
 ### 4. Yiyun Zhang [`@Yiyun95788`](https://github.com/Yiyun95788)
 
