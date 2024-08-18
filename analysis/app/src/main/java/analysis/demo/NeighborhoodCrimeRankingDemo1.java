@@ -1,61 +1,52 @@
 package analysis.demo;
 
-import access.data.CrimeDataFetcher;
-import access.convert.CrimeDataConverter;
-import access.manipulate.CrimeDataProcessor;
-import analysis.crimeDataRanking.CrimeDataRanker;
+import analysis.crimeDataRanking.NeighborhoodCrimeRankingResult;
+import analysis.facade.CrimeAnalysisFacade;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import tech.tablesaw.api.Table;
 
 public class NeighborhoodCrimeRankingDemo1 {
 
     public static void main(String[] args) {
-        // Predefined parameters
-        String neighborhood = "Maple Leaf (29)";
+        // Default parameters
+        String neighborhood = "Maple Leaf";
         String specificCrime = "Assault";
 
-        CrimeDataFetcher fetcher = new CrimeDataFetcher();
-        CrimeDataConverter converter = new CrimeDataConverter();
-        CrimeDataProcessor processor = new CrimeDataProcessor();
-
-        // Fetch and convert data
-        JsonArray data = fetcher.fetchData();
-        Table table = converter.jsonToTable(data);
-        processor.setTable(table);
-
-        // Create an instance of CrimeDataRanker
-        CrimeDataRanker ranker = new CrimeDataRanker(processor);
-
-        Gson gson = new Gson();
-        JsonObject jsonOutput = new JsonObject();
-        jsonOutput.addProperty("neighborhood", neighborhood);
-
-        int totalNeighborhoods = table.stringColumn("NEIGHBOURHOOD_140").unique().size();
-
-        // Rank neighborhoods by specific crime and get the ranking of the specific
-        // neighborhood
-        int ranking = ranker.getSpecificCrimeNeighborhoodRanking(specificCrime, neighborhood);
-        String safetyLevel;
-        if (ranking != -1) {
-            safetyLevel = ranker.getSafetyLevel(ranking, totalNeighborhoods);
-            jsonOutput.addProperty("specificCrimeRanking", ranking);
-            jsonOutput.addProperty("crimeType", specificCrime);
-            jsonOutput.addProperty("safetyLevel", safetyLevel);
-            System.err.println("The ranking of neighborhood '" + neighborhood + "' by specific crime ('" + specificCrime
-                    + "') is: " + ranking);
-            System.err.println("Safety level: " + safetyLevel);
-        } else {
-            safetyLevel = "Not applicable";
-            jsonOutput.addProperty("specificCrimeRanking", "Not found");
-            jsonOutput.addProperty("crimeType", specificCrime);
-            jsonOutput.addProperty("safetyLevel", safetyLevel);
-            System.err.println("The neighborhood '" + neighborhood
-                    + "' is not found in the ranking for the specific crime ('" + specificCrime + "').");
+        // Check if command-line arguments are provided to override defaults
+        if (args.length == 2) {
+            neighborhood = args[0];
+            specificCrime = args[1];
+        } else if (args.length != 0) {
+            System.err.println("Usage: java NeighborhoodCrimeRankingDemo1 <neighborhood> <specificCrime>");
+            System.exit(1);
         }
 
-        String jsonResult = gson.toJson(jsonOutput);
-        System.err.println(jsonResult);
+        try {
+            // Create an instance of CrimeAnalysisFacade
+            CrimeAnalysisFacade facade = new CrimeAnalysisFacade();
+
+            // Fetch the ranking result using the facade
+            NeighborhoodCrimeRankingResult result = facade.getNeighborhoodRanking(neighborhood, specificCrime);
+
+            // Prepare JSON output
+            Gson gson = new Gson();
+            JsonObject jsonOutput = new JsonObject();
+            jsonOutput.addProperty("neighborhood", result.getNeighborhood());
+            jsonOutput.addProperty("specificCrimeRanking", result.getRanking());
+            jsonOutput.addProperty("crimeType", specificCrime);
+            jsonOutput.addProperty("safetyLevel", result.getSafetyLevel());
+
+            // Print the results to console
+            System.err.println("The ranking of neighborhood '" + result.getNeighborhood() + "' by specific crime ('"
+                    + specificCrime + "') is: " + result.getRanking());
+            System.err.println("Safety level: " + result.getSafetyLevel());
+
+            String jsonResult = gson.toJson(jsonOutput);
+            System.err.println(jsonResult);
+
+        } catch (Exception e) {
+            System.err.println("An error occurred while fetching the neighborhood ranking:");
+            e.printStackTrace();
+        }
     }
 }

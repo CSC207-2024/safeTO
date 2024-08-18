@@ -1,9 +1,8 @@
 package analysis.demo;
 
 import analysis.breakAndEnter.BreakAndEnterResult;
-import analysis.facade.BreakAndEnterFacade;
+import analysis.facade.CrimeAnalysisFacade;
 import com.google.gson.Gson;
-
 
 /**
  * A demo class for analyzing and displaying break and enter data within a
@@ -33,10 +32,11 @@ public class BreakAndEnterModelDemo {
             System.exit(1);
         }
 
-        BreakAndEnterFacade facade = new BreakAndEnterFacade();
+        // Create an instance of CrimeAnalysisFacade
+        CrimeAnalysisFacade facade = new CrimeAnalysisFacade();
 
-        // Analyze break and enter data
-        BreakAndEnterResult result = facade.analyze(latitude, longitude, radius, threshold);
+        // Analyze break and enter data using the facade
+        BreakAndEnterResult result = facade.analyzeBreakAndEnter(latitude, longitude, radius, threshold);
 
         // Print the results
         System.err.println("All Break and Enter in the past year within the radius:");

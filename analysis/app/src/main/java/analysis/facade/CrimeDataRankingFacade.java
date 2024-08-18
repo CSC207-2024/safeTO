@@ -1,6 +1,6 @@
 package analysis.facade;
 
-import access.data.CrimeDataFetcher;
+import access.data.InterfaceDataFetcher;
 import access.convert.CrimeDataConverter;
 import access.manipulate.CrimeDataProcessor;
 import analysis.crimeDataRanking.*;
@@ -10,14 +10,15 @@ import tech.tablesaw.api.Table;
  * A facade class that provides a simplified interface to the crime data ranking system.
  */
 public class CrimeDataRankingFacade {
-    private final CrimeDataFetcher fetcher;
+    private final InterfaceDataFetcher fetcher;
     private final CrimeDataConverter converter;
     private final CrimeDataProcessor processor;
 
-    public CrimeDataRankingFacade() {
-        this.fetcher = new CrimeDataFetcher();
-        this.converter = new CrimeDataConverter();
-        this.processor = new CrimeDataProcessor();
+    // Updated constructor to accept interfaces
+    public CrimeDataRankingFacade(InterfaceDataFetcher dataFetcher, CrimeDataConverter converter, CrimeDataProcessor processor) {
+        this.fetcher = dataFetcher;
+        this.converter = converter;
+        this.processor = processor;
         fetchAndConvertData();
     }
 
@@ -26,7 +27,6 @@ public class CrimeDataRankingFacade {
         processor.setTable(table);
         processor.formatNeighbourhoodColumn(processor.getTable(), "NEIGHBOURHOOD_140");
     }
-
 
     public NeighborhoodCrimeRankingResult getNeighborhoodRanking(String neighborhood, String specificCrime) {
         CrimeDataRanker ranker = new CrimeDataRanker(processor);

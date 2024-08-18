@@ -3,6 +3,10 @@ package analysis.facade;
 import analysis.breakAndEnter.BreakAndEnterResult;
 import analysis.carTheft.AutoTheftResult;
 import analysis.crimeDataRanking.NeighborhoodCrimeRankingResult;
+import access.data.CrimeDataFetcher;
+import access.data.InterfaceDataFetcher;
+import access.convert.CrimeDataConverter;
+import access.manipulate.CrimeDataProcessor;
 
 /**
  * A facade class that provides a simplified interface to the crime analysis system.
@@ -14,9 +18,17 @@ public class CrimeAnalysisFacade {
     private final CrimeDataRankingFacade crimeDataRankingFacade;
 
     public CrimeAnalysisFacade() {
-        this.breakAndEnterFacade = new BreakAndEnterFacade();
-        this.autoTheftFacade = new AutoTheftFacade();
-        this.crimeDataRankingFacade = new CrimeDataRankingFacade();
+        // Create instances of the necessary components
+        InterfaceDataFetcher dataFetcher = new CrimeDataFetcher();  // Or any other implementation of InterfaceDataFetcher
+        CrimeDataConverter converter = new CrimeDataConverter();
+        CrimeDataProcessor processor = new CrimeDataProcessor();
+
+        // Pass these instances to the BreakAndEnterFacade
+        this.breakAndEnterFacade = new BreakAndEnterFacade(dataFetcher, converter, processor);
+
+        // Assuming AutoTheftFacade and CrimeDataRankingFacade are structured similarly
+        this.autoTheftFacade = new AutoTheftFacade(dataFetcher, converter, processor);
+        this.crimeDataRankingFacade = new CrimeDataRankingFacade(dataFetcher, converter, processor);
     }
 
     public BreakAndEnterResult analyzeBreakAndEnter(double latitude, double longitude, int radius, int threshold) {
