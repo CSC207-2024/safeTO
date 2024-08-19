@@ -42,8 +42,13 @@ Adhering closely to our initial blueprint, we built the website in a coherent an
 
 - **Email:** <bilin.nong@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
+  - *implement data access and persistence classes that are responsible for:*
+    - *sending http request to fetch data from Toronto Police Service API, and saving responses to local cache.*
+    - *converting data into various formats including `json` and `Table`.*
+    - *analyzing crime data (aggregating, filtering).*
+    - *exporting analysis results in `json` format to [aggregates directory](backend/app/src/main/resources/aggregates).*
   - *implement email alert (initial version), and email builder class for building email body text.*
-  - *implement class and interface that are responsible for storing user emails in `safeTO`database.*
+  - *implement class and interface that are responsible for storing user emails in `safeTO` database.*
 - **Significant Pull Request:**
   - [PR #65: *feat(email): add class to store user email to safeTO db*](https://github.com/CSC207-2024/safeTO/pull/65)
     - *add email storage class that save user email along with userid.*
