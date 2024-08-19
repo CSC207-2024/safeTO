@@ -20,8 +20,10 @@ Adhering closely to our initial blueprint, we built the website in a coherent an
 
 - **Email:** <joe.fang@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
-  - *placeholder*
-  - *placeholder*
+  - Create various backend API endpoints for geolocation features
+  - Implement a Key-Value database API using Cloudflare Workers and Cloudflare KV
+  - Configure the backend server and production environment to process HTTP requests
+  - Connect the analysis project to the main backend through command-line calls to the separate JAR file using ProcessBuilder
 - **Significant Pull Request:**
   - [PR #123: *placeholder*](https://github.com/MinecraftFuns/project/pull/123)
     - *placeholder*
