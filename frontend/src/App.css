@@ -1,487 +1,488 @@
 /*style for the header*/
 .safe-text-color {
-  color: #00791B;
+    color: #00791B;
 }
 
 .to-text-color {
-  color: #164DB9;
+    color: #164DB9;
 }
 
 .glassmorphism-header {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  z-index: 500;
-  transform: translate(-50%, 0);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 500;
+    transform: translate(-50%, 0);
 
-  background: rgba(255, 255, 255, 0.66);
-	-webkit-backdrop-filter: blur(10px);
-	backdrop-filter: blur(10px);
-  width: 50%;
-  text-align: center;
-  padding: 10px;
-  border-radius: 20px;
-  box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.66);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    box-sizing: border-box;
 }
 
 .geosuggest__input {
-  width: 300px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+    width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 .geosuggest__suggests-wrapper {
-  max-height: 200px;
-  overflow-y: auto;
+    max-height: 200px;
+    overflow-y: auto;
 }
 
 .user-profile {
-  background-color: white;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .user-profile div {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .user-profile label {
-  display: block;
-  font-weight: bold;
+    display: block;
+    font-weight: bold;
 }
+
 .user-profile input {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
 }
 
 .user-profile button {
-  background-color: #007bff;
-  color: white;
-  padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
 
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 
 .user-profile button:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
 
 .user-profile button:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
 
 /* Custom styles for Leaflet popups */
 .leaflet-popup-custom {
-  width: 50vw; /* 50% of viewport width */
-  max-width: 400px; /* Optional: max width for larger screens */
-  text-align: center; /* Center text and image */
+    width: 50vw; /* 50% of viewport width */
+    max-width: 400px; /* Optional: max width for larger screens */
+    text-align: center; /* Center text and image */
 }
 
 .leaflet-popup-custom .leaflet-popup-content-wrapper {
-  background: white; /* Background color of the popup */
-  border-radius: 8px; /* Rounded corners */
-  padding: 10px; /* Padding inside the popup */
+    background: white; /* Background color of the popup */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding inside the popup */
 }
 
 .leaflet-popup-custom .leaflet-popup-content {
-  margin: 0; /* Remove default margin */
+    margin: 0; /* Remove default margin */
 }
 
 .profile-image {
-  border-radius: 50%;
-  cursor: pointer;
-  transition: transform 0.2s, opacity 0.2s;
-  opacity: 1.0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    opacity: 1.0;
 }
 
 .profile-image:hover {
-  transform: scale(1.3);
-  opacity: 1;
+    transform: scale(1.3);
+    opacity: 1;
 }
 
 .button {
-  padding: 10px 20px;
-  background-color: #007BFF;
-  color: #FFF;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .close-button {
-  margin-bottom: 10px;
-  padding: 10px 20px;
-  background-color: #DC3545;
-  color: #FFF;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #DC3545;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.close-button:hover{
-  background-color: #a82330;
+.close-button:hover {
+    background-color: #a82330;
 }
 
 .save-button {
-  padding: 10px 20px;
-  background-color: #079cff;
-  color: #FFF;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    padding: 10px 20px;
+    background-color: #079cff;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.save-button:hover{
-  background-color:  #0c71b4;
+.save-button:hover {
+    background-color: #0c71b4;
 }
 
 .edit-button {
-  padding: 10px 20px;
-  background-color: #079cff;
-  color: #FFF;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    padding: 10px 20px;
+    background-color: #079cff;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.edit-button:hover{
-  background-color:  #0c71b4;
+.edit-button:hover {
+    background-color: #0c71b4;
 }
 
 .profile-input {
-  display: block;
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 8px;
-  box-sizing: border-box;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    box-sizing: border-box;
 }
 
 .modal-content {
-  top: 50%;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  background: white;
-  width: 80%;
-  max-width: 500px;
-  z-index: 1000; /* High z-index to be above everything */
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    background: white;
+    width: 80%;
+    max-width: 500px;
+    z-index: 1000; /* High z-index to be above everything */
 }
+
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .search-bar {
-  padding: 10px;
-  font-size: 16px;
-  width: 300px; /* Adjust the width as needed */
-  max-width: 90%; /* Responsive design: prevent overflowing on small screens */
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    width: 300px; /* Adjust the width as needed */
+    max-width: 90%; /* Responsive design: prevent overflowing on small screens */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
 }
-
 
 
 /* Container for the search input and button */
 .search-container {
-  position: relative; /* Ensure relative positioning for the container */
-  display: inline-block; /* Keep the input and button together */
-  width: 100%; /* Adjust width as needed */
+    position: relative; /* Ensure relative positioning for the container */
+    display: inline-block; /* Keep the input and button together */
+    width: 100%; /* Adjust width as needed */
 }
 
 /* Style for the search bar */
 .search-bar {
-  /* width: calc(100% - 110px); Adjust based on button width */
-  width: 80%; /* Adjust the width as needed */
-  padding: 10px;
-  font-size: 16px;
-  /* max-width: 85%; Responsive design: prevent overflowing on small screens */
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 10px 0;
+    /* width: calc(100% - 110px); Adjust based on button width */
+    width: 80%; /* Adjust the width as needed */
+    padding: 10px;
+    font-size: 16px;
+    /* max-width: 85%; Responsive design: prevent overflowing on small screens */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
 }
+
 .search-bar:focus {
-  border-color: #007bff; /* Change the border color on focus */
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #007bff; /* Change the border color on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 /* Style for the search button */
 .search-button {
-  padding: 9px;
-  font-size: 16px;
-  width: 80px; /* Adjust the width as needed */
-  max-width: 90%; /* Responsive design: prevent overflowing on small screens */
-  margin: 0 10px;
+    padding: 9px;
+    font-size: 16px;
+    width: 80px; /* Adjust the width as needed */
+    max-width: 90%; /* Responsive design: prevent overflowing on small screens */
+    margin: 0 10px;
 }
 
 /* Container for the results list */
 .results-container {
-  position: absolute; /* Position the results absolutely */
-  top: 100%; /* Position just below the input/button */
-  left: 0;
-  width: 90%;
-  z-index: 1; /* Ensure it's above other content */
-  background-color: #fff; /* Background color */
-  border: 1px solid #ccc; /* Border to separate from other elements */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Shadow for elevation */
+    position: absolute; /* Position the results absolutely */
+    top: 100%; /* Position just below the input/button */
+    left: 0;
+    width: 90%;
+    z-index: 1; /* Ensure it's above other content */
+    background-color: #fff; /* Background color */
+    border: 1px solid #ccc; /* Border to separate from other elements */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Shadow for elevation */
 }
 
 /* Style for the results list */
 .results-list {
-  max-height: 300px; /* Set a maximum height for the list */
-  overflow-y: auto; /* Enable vertical scrolling */
-  margin: 0;
-  padding: 0;
-  list-style-type: none; /* Remove default list styling */
+    max-height: 300px; /* Set a maximum height for the list */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin: 0;
+    padding: 0;
+    list-style-type: none; /* Remove default list styling */
 }
 
 /* Style for each list item */
 .results-list li {
-  padding: 8px; /* Add some padding for each list item */
-  border-bottom: 1px solid #ddd; /* Optional: Add a bottom border */
+    padding: 8px; /* Add some padding for each list item */
+    border-bottom: 1px solid #ddd; /* Optional: Add a bottom border */
 }
 
 /* Style for the buttons inside list items */
 .results-list li button {
-  width: 100%;
-  padding: 0;
-  border: none;
-  background: none;
-  text-align: left;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    text-align: left;
 }
 
 /* Hover effect for list item buttons */
 .results-list li button:hover {
-  background-color: #f0f0f0; /* Optional: Add a hover effect */
-  padding: 10px; /* Add some padding for each list item */
+    background-color: #f0f0f0; /* Optional: Add a hover effect */
+    padding: 10px; /* Add some padding for each list item */
 }
 
 .modal-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
 .modal-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .modal-button:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
 
 .select-container {
-  margin: 10px;
-  line-height: 1.5;
-  
+    margin: 10px;
+    line-height: 1.5;
+
 }
 
 .analysis-results {
-  margin-top: 30px;
-  max-height: 400px; /* Adjust height as needed */
-  overflow-y: auto; /* Enable vertical scrolling */
-  padding: 1rem; /* Add some padding */
-  border: 2px solid #ddd; /* Optional: Add a border */
-  border-radius: 8px; /* Optional: Add rounded corners */
-  background-color: #f9f9f9; /* Optional: Add a background color */
+    margin-top: 30px;
+    max-height: 400px; /* Adjust height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 1rem; /* Add some padding */
+    border: 2px solid #ddd; /* Optional: Add a border */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    background-color: #f9f9f9; /* Optional: Add a background color */
 }
-
 
 
 .scrollable-table-container {
-  max-height: 300px; /* Adjust height as needed */
-  overflow-y: auto;
-  margin-bottom: 16px;
+    max-height: 300px; /* Adjust height as needed */
+    overflow-y: auto;
+    margin-bottom: 16px;
 }
 
 .scrollable-table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 .scrollable-table th, .scrollable-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
 }
 
 .scrollable-table th {
-  background-color: #f4f4f4;
-  font-weight: bold;
+    background-color: #f4f4f4;
+    font-weight: bold;
 }
 
 .warning-text {
-  color: blue;
+    color: blue;
 }
 
 .popup-button {
-  background-color: #007BFF; /* Blue background */
-  width: 100%;
-  margin-top: 0px;
-  color: white; /* White text */
-  border: none; /* No border */
-  padding: 5px; /* Padding for the button */
-  text-align: center; /* Center text */
-  text-decoration: none; /* Remove underline from text */
-  display: inline-block; /* Inline-block for proper spacing */
-  font-size: 12px; /* Font size */
-  font-weight: bold; /* Bold text */
-  border-radius: 4px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease; /* Smooth transition for hover */
+    background-color: #007BFF; /* Blue background */
+    width: 100%;
+    margin-top: 0px;
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 5px; /* Padding for the button */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline from text */
+    display: inline-block; /* Inline-block for proper spacing */
+    font-size: 12px; /* Font size */
+    font-weight: bold; /* Bold text */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
 }
 
 .popup-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 .popup-button:active {
-  background-color: #004085; /* Even darker blue when clicked */
+    background-color: #004085; /* Even darker blue when clicked */
 }
 
 .popup-button:focus {
-  outline: none; /* Remove outline on focus */
+    outline: none; /* Remove outline on focus */
 }
 
 .range-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center vertically (if needed) */
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically (if needed) */
+    width: 100%;
 }
 
 .range-input {
-  width: 80%; /* Adjust width as needed */
-  max-width: 90%; /* Optional: limit maximum width */
-  margin-left: 10px; /* Space between the slider and text */
-  margin-top: 0;
-  margin-bottom: 0;
+    width: 80%; /* Adjust width as needed */
+    max-width: 90%; /* Optional: limit maximum width */
+    margin-left: 10px; /* Space between the slider and text */
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .neighbourhood-image {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-top: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Spinner styles */
 .loading-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .loading-spinner {
-  border: 8px solid rgba(0, 0, 0, 0.1); /* Light grey border */
-  border-top: 8px solid #3498db; /* Blue border */
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-  margin-bottom: 10px;
+    border: 8px solid rgba(0, 0, 0, 0.1); /* Light grey border */
+    border-top: 8px solid #3498db; /* Blue border */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .loading-container p {
-  font-size: 16px;
-  color: #555;
+    font-size: 16px;
+    color: #555;
 }
 
 
 /*See Ranking Button*/
 .ranking-button {
 
-  padding: 4px 10px;
-  background-color: #079cff;
-  color: #FFF;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    padding: 4px 10px;
+    background-color: #079cff;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.ranking-button:hover{
-  background-color:  #0c71b4;
+.ranking-button:hover {
+    background-color: #0c71b4;
 }
 
 .profile-container {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 .buttons-container {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .login-button, .signup-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 .login-button:hover, .signup-button:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import 'leaflet/dist/leaflet.css';
 import './App.css';
 import Profile from './Profile';
@@ -29,7 +29,7 @@ const Home = () => {
 
 
     // State for managing coordinates from map hover
-    const [coordinates, setCoordinates] = useState({ lat: null, lng: null });
+    const [coordinates, setCoordinates] = useState({lat: null, lng: null});
 
     // State for managing marker coordinates
     const [markerCoordinates, setMarkerCoordinates] = useState(null);
@@ -38,8 +38,8 @@ const Home = () => {
     // Function to handle location selection from LocationSearch component
     const onSuggestSelect = (location) => {
         if (location) {
-            const { lat, lng } = location;
-            setMarkerCoordinates({ lat, lng }); // Set marker coordinates
+            const {lat, lng} = location;
+            setMarkerCoordinates({lat, lng}); // Set marker coordinates
             if (mapRef.current && mapRef.current.flyTo) {
                 mapRef.current.flyTo([lat, lng], 14); // Fly to the selected location with zoom level 15
             }
@@ -49,7 +49,7 @@ const Home = () => {
 
     // Function to handle changes in user information inputs
     const handleInputChange = (e) => {
-        const { name, value, type, checked } = e.target;
+        const {name, value, type, checked} = e.target;
         setUserInfo((prevInfo) => ({
             ...prevInfo,
             [name]: type === 'checkbox' ? checked : value
@@ -72,7 +72,6 @@ const Home = () => {
         setIsLoginMode(false);
         setModalIsOpen(true);
     };
-
 
 
     const validateName = (firstName, lastName) => {
@@ -134,32 +133,34 @@ const Home = () => {
         }
     }, []);
 
-    
+
     const [showMessage, setShowMessage] = useState(false);
-    
+
     const handleClick = () => {
         setShowMessage(!showMessage);
     };
 
     return (
-        <div style={{ height: '100vh', position: 'relative' }}>
+        <div style={{height: '100vh', position: 'relative'}}>
             {/* Map component with a reference and a function to set coordinates on hover */}
             <Map ref={mapRef} setCoordinates={setCoordinates} markerCoordinates={markerCoordinates}> </Map>
 
             <div className="glassmorphism-header">
-                <h2>Welcome to <i className={"safe-text-color"}>safe</i><i className={"to-text-color"}>TO</i> <button class="btn" onClick={handleClick}>{showMessage ? 'ℹ Hide Message' : 'ℹ'} </button></h2>
+                <h2>Welcome to <i className={"safe-text-color"}>safe</i><i className={"to-text-color"}>TO</i>
+                    <button class="btn" onClick={handleClick}>{showMessage ? 'ℹ Hide Message' : 'ℹ'} </button>
+                </h2>
                 {showMessage && (
-                    <p >
-                    A Community Safety Website: To view crime data on an interactive map.
+                    <p>
+                        A Community Safety Website: To view crime data on an interactive map.
                     </p>
                 )}
-                
+
                 {/* LocationSearch component for searching locations */}
-                <LocationSearch onSuggestSelect={onSuggestSelect} />
-                
+                <LocationSearch onSuggestSelect={onSuggestSelect}/>
+
             </div>
-            
-            
+
+
             {/* Profile component for displaying and editing user information */}
             <div style={{position: 'absolute', top: 20, right: 20, zIndex: 1000}}>
 
@@ -184,7 +185,15 @@ const Home = () => {
 
             {/* Display hovered coordinates if available */}
             {coordinates.lat && coordinates.lng && (
-                <div style={{position: 'absolute', bottom: 20, left: 20, zIndex: 500, backgroundColor: 'white', padding: '10px', borderRadius: '5px' }}>
+                <div style={{
+                    position: 'absolute',
+                    bottom: 20,
+                    left: 20,
+                    zIndex: 500,
+                    backgroundColor: 'white',
+                    padding: '10px',
+                    borderRadius: '5px'
+                }}>
                     Current Coordinates: ({coordinates.lat}, {coordinates.lng})
                 </div>
             )}

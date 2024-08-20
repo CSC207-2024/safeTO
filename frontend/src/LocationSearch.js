@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect, Marker } from 'react';
+import React, {useState, useRef, useEffect, Marker} from 'react';
 import axios from 'axios';
 import debounce from 'lodash.debounce';
-import { Popup } from 'react-leaflet';
+import {Popup} from 'react-leaflet';
 
-const LocationSearch = ({ onSuggestSelect}) => {
+const LocationSearch = ({onSuggestSelect}) => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
     const [error, setError] = useState(null);
@@ -17,9 +17,9 @@ const LocationSearch = ({ onSuggestSelect}) => {
         try {
             const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
                 params: {
-                address: query,
-                key: 'AIzaSyC7Aecp14Bec_eTqrAAGlBQsqS80BmedkA', 
-                components: 'country:CA|locality:Toronto', // Restrict to Toronto, Canada 
+                    address: query,
+                    key: 'AIzaSyC7Aecp14Bec_eTqrAAGlBQsqS80BmedkA',
+                    components: 'country:CA|locality:Toronto', // Restrict to Toronto, Canada
                 }
             });
 
@@ -35,7 +35,7 @@ const LocationSearch = ({ onSuggestSelect}) => {
 
                 if (torontoResults.length > 0) {
                     setResults(torontoResults);
-                    
+
                 } else {
                     alert('The address is outside the City of Toronto.');
                 }
@@ -55,42 +55,42 @@ const LocationSearch = ({ onSuggestSelect}) => {
         const location = result.geometry.location;
         setSelectedLocation([location.lat, location.lng]);
         onSuggestSelect(result.geometry.location, result.formatted_address);
-        
+
     };
 
-    
+
     return (
-    <div className="search-container">
-        <input
-            type="text"
-            value={query}
-            onChange={(e) => {
-                setQuery(e.target.value);
-                debouncedHandleSearch();
-            }}
-            placeholder="Search within City of Toronto"
-            className='search-bar'
-        />
+        <div className="search-container">
+            <input
+                type="text"
+                value={query}
+                onChange={(e) => {
+                    setQuery(e.target.value);
+                    debouncedHandleSearch();
+                }}
+                placeholder="Search within City of Toronto"
+                className='search-bar'
+            />
 
-        <button onClick={handleSearch} className='search-button'>Search</button>
+            <button onClick={handleSearch} className='search-button'>Search</button>
 
 
-        {error && <p>{error}</p>}
-        {results.length > 0 && (
-        <div className="results-container">
-        <ul className="results-list">
-            {results.map((result, index) => (
-            <li key={index}>
-                <button onClick={() => handleResultClick(result)}>
-                {result.formatted_address}
-                </button>
-            </li>
-            ))}
-        </ul>
+            {error && <p>{error}</p>}
+            {results.length > 0 && (
+                <div className="results-container">
+                    <ul className="results-list">
+                        {results.map((result, index) => (
+                            <li key={index}>
+                                <button onClick={() => handleResultClick(result)}>
+                                    {result.formatted_address}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+
         </div>
-        )}
-        
-    </div>
     );
 };
 
