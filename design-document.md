@@ -67,14 +67,16 @@ Adhering closely to our initial blueprint, we built the website in a coherent an
 - **Contributions Since Phase 1:**
   - *User Login Feature*
     - *Designed and implemented the backend user login functionality.*
-    - *Updated the `User.java` class to generate unique passwords and store user information in a MySQL database*
+    - *Updated the `UserService.java` class to generate unique passwords and store user information in a MySQL database*
+    - *Linked user profiles from the frontend to backend storage.*
     - *Integrated with the Resend API to automatically send a generated password to new users via email.*
   - *Bar Plot Visualization*
     - *Performed data extraction and analysis from crime data JSON files using Pandas.*
     - *Utilized Matplotlib to generate bar plots for neighborhood crime statistics, and successfully integrated these visualizations into the frontend via modal components in `Map.js`.*
 - **Significant Pull Request:**
-  - [PR #126: *feat(user login): Implement backend user login feature and MySQL integration*](https://github.com/CSC207-2024/safeTO/commit/c64a01106ce10f14546e93f9f8985cb8b84e6cbc)
+  - [PR #126: *feat(user login): Implement backend user login & Registration feature and MySQL integration*](https://github.com/CSC207-2024/safeTO/commit/c64a01106ce10f14546e93f9f8985cb8b84e6cbc)
   - [PR #38: *feat(bar plots): Display crime data bar plots in frontend*](https://github.com/CSC207-2024/safeTO/commit/38d40c0cff1ba61415d86f94131579bb11cc989d)
+  - [PR #134: *feat(api): Add frontend API methods to enhance interaction with backend*](https://github.com/CSC207-2024/safeTO/commit/08aa8a0e1e332de043355e1392fa5ed2d947b7d5)
 
 ### 5. Liangyu Zhu [`@larryzhuly`](https://github.com/larryzhuly)
 
