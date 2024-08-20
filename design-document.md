@@ -11,7 +11,7 @@
 
 Following the completion of Phase 1, our team enhanced the project by focusing on key improvements. We upgraded the user interface design, adopted more reliable data analysis methods, and switched from file-based data storage to a robust database system for better data persistence.
 
-Adhering to our original plan, we developed the website in an organized manner. Through team discussions and iterative revisions, we refined our approach, leading to better solutions and improved project outcomes aligned with Clean Architecture, SOLID Principles, and Design Patterns. This ongoing process allowed us to tackle challenges effectively and optimize both functionality and user experience.
+Adhering to our original plan, we developed the website in an organized manner. Through team discussions and iterative revisions, we refined our approach, leading to better solutions and improved project outcomes aligned with Clean Architecture, SOLID Principles, and Design Patterns. This process allowed us to tackle challenges effectively and optimize both functionality and user experience.
 
 ---
 
@@ -136,6 +136,12 @@ The database automatically logs each operation for tracking and auditing purpose
 
 ## Summary of Test Coverage
 
-- Frontend: We conducted thorough an End-to-End Testing of our frontend functionality by systematically evaluating each feature. For the regex functionality, we tested various invalid inputs to ensure robust error handling. In the case of restricted regions, we checked at least 30 locations outside the City of Toronto to verify proper boundary enforcement. For neighborhoods or locations with no available data, we ensured that a clear and informative message is generated. These tests helped us validate the accuracy and reliability of our frontend components.
+### Backend
 
-- Backend:
+### Frontend
+
+We conducted thorough an End-to-End Testing of our frontend functionality by systematically evaluating each feature. For the regex functionality, we tested various invalid inputs to ensure robust error handling. In the case of restricted regions, we checked at least 30 locations outside the City of Toronto to verify proper boundary enforcement. For neighborhoods or locations with no available data, we ensured that a clear and informative message is generated. These tests helped us validate the accuracy and reliability of our frontend components.
+
+### Database
+
+### Analysis
