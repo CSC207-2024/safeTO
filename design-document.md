@@ -33,70 +33,67 @@ Adhering to our original plan, we developed the website in an organized manner. 
 
 - **Email:** <minghe.ma@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
-  - *Create interactive panels:*
-    - *Design and implement interactive panels in the user interface for collecting input from users;*
-    - *Ensure the panels are intuitive and user-friendly, providing clear options for user interaction;*
-  - *Connect frontend with backend:*
-    - *Send the validated parameters to the server using HTTP GET method;*
-    - *Display JSON results in the interactive panels;*
+  - Create interactive panels:
+    - Design and implement interactive panels in the user interface for collecting input from users;
+    - Ensure the panels are intuitive and user-friendly, providing clear options for user interaction;
+  - Connect frontend with backend:
+    - Send the validated parameters to the server using HTTP GET method;
+    - Display JSON results in the interactive panels;
 - **Significant Pull Request:**
-  - [PR #69: *add panel to show location-based search crime data*](https://github.com/CSC207-2024/safeTO/pull/69)
-    - *When a user searches for an address and double-clicks on the marker, a popup window will appear, allowing the user to select two or three parameters. Based on the chosen parameters, the popup will display relevant crime data.*
-  - [PR #70: *add neighbourhood-based search modal window*](https://github.com/CSC207-2024/safeTO/pull/70)
-    - *When a user clicks on a neighborhood, a popup window will present a bar plot depicting crime data from the past five years. This visualization will include a ranking of crime types, providing insights into the prevalence of different crimes within the selected area.*
+  - [PR #69: add panel to show location-based search crime data](https://github.com/CSC207-2024/safeTO/pull/69)
+    - When a user searches for an address and double-clicks on the marker, a popup window will appear, allowing the user to select two or three parameters. Based on the chosen parameters, the popup will display relevant crime data.
+  - [PR #70: add neighbourhood-based search modal window](https://github.com/CSC207-2024/safeTO/pull/70)
+    - When a user clicks on a neighborhood, a popup window will present a bar plot depicting crime data from the past five years. This visualization will include a ranking of crime types, providing insights into the prevalence of different crimes within the selected area.
 
 ### 3. Bilin Nong [`@Bilin22`](https://github.com/Bilin22)
 
 - **Email:** <bilin.nong@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
-  - *implement data access and persistence classes that are responsible for:*
-    - *sending http request to fetch data from Toronto Police Service API, and saving responses to local cache.*
-    - *converting data into various formats including `json` and `Table`.*
-    - *analyzing crime data (aggregating, filtering).*
-    - *exporting analysis results in `json` format to [aggregates directory](backend/app/src/main/resources/aggregates).*
-  - *implement email alert (initial version), and email builder class for building email body text.*
-  - *implement class and interface that are responsible for storing user emails in `safeTO` database.*
+  - implement data access and persistence classes that are responsible for:
+    - sending http request to fetch data from Toronto Police Service API, and saving responses to local cache.
+    - converting data into various formats including `json` and `Table`.
+    - analyzing crime data (aggregating, filtering).
+    - exporting analysis results in `json` format to [aggregates directory](backend/app/src/main/resources/aggregates).
+  - implement email alert (initial version), and email builder class for building email body text.
+  - implement class and interface that are responsible for storing user emails in `safeTO` database.
 - **Significant Pull Request:**
-  - [PR #65: *feat(email): add class to store user email to safeTO db*](https://github.com/CSC207-2024/safeTO/pull/65)
-    - *add email storage class that save user email along with userid.*
-  - [PR #42: *fix: add Email Builder class*](https://github.com/CSC207-2024/safeTO/pull/42)
-    - *add email builder class for building email body text from parameters including `JsonObject`, `String`, and `HashMap`.*
+  - [PR #65: feat(email): add class to store user email to safeTO db](https://github.com/CSC207-2024/safeTO/pull/65)
+    - add email storage class that save user email along with userid.
+  - [PR #42: fix: add Email Builder class](https://github.com/CSC207-2024/safeTO/pull/42)
+    - add email builder class for building email body text from parameters including `JsonObject`, `String`, and `HashMap`.
 
 ### 4. Yiyun Zhang [`@Yiyun95788`](https://github.com/Yiyun95788)
 
 - **Email:** <yvonnezy.zhang@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
-  - *User Login Feature*
-    - *Designed and implemented the backend user login functionality.*
-    - *Updated the `UserService.java` class to generate unique passwords and store user information in a MySQL database*
-    - *Linked user profiles from the frontend to backend storage.*
-    - *Integrated with the Resend API to automatically send a generated password to new users via email.*
-  - *Bar Plot Visualization*
-    - *Performed data extraction and analysis from crime data JSON files using Pandas.*
-    - *Utilized Matplotlib to generate bar plots for neighborhood crime statistics, and successfully integrated these visualizations into the frontend via modal components in `Map.js`.*
+  - User Login Feature
+    - Designed and implemented the backend user login functionality.
+    - Updated the `UserService.java` class to generate unique passwords and store user information in a MySQL database
+    - Linked user profiles from the frontend to backend storage.
+    - Integrated with the Resend API to automatically send a generated password to new users via email.
+  - Bar Plot Visualization
+    - Performed data extraction and analysis from crime data JSON files using Pandas.
+    - Utilized Matplotlib to generate bar plots for neighborhood crime statistics, and successfully integrated these visualizations into the frontend via modal components in `Map.js`.
 - **Significant Pull Request:**
-  - [PR #126: *feat(user login): Implement backend user login & Registration feature and MySQL integration*](https://github.com/CSC207-2024/safeTO/commit/c64a01106ce10f14546e93f9f8985cb8b84e6cbc)
-  - [PR #38: *feat(bar plots): Display crime data bar plots in frontend*](https://github.com/CSC207-2024/safeTO/commit/38d40c0cff1ba61415d86f94131579bb11cc989d)
-  - [PR #134: *feat(api): Add frontend API methods to enhance interaction with backend*](https://github.com/CSC207-2024/safeTO/commit/08aa8a0e1e332de043355e1392fa5ed2d947b7d5)
+  - [PR #126: feat(user login): Implement backend user login & Registration feature and MySQL integration](https://github.com/CSC207-2024/safeTO/commit/c64a01106ce10f14546e93f9f8985cb8b84e6cbc)
+  - [PR #38: feat(bar plots): Display crime data bar plots in frontend](https://github.com/CSC207-2024/safeTO/commit/38d40c0cff1ba61415d86f94131579bb11cc989d)
+  - [PR #134: feat(api): Add frontend API methods to enhance interaction with backend](https://github.com/CSC207-2024/safeTO/commit/08aa8a0e1e332de043355e1392fa5ed2d947b7d5)
 
 ### 5. Liangyu Zhu [`@larryzhuly`](https://github.com/larryzhuly)
 
 - **Email:** <liangyu.zhu@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
   1. Encapsulation and Simplification using the Facade Pattern
-    - Implementation of CrimeAnalysisFacade
-    - Simplification of Demo Classes (e.g., refactored the demo classes AutoTheftSafeCaseDemo to use the CrimeAnalysisFacade)
-      
-  2. Switching Output to JSON Format
-     
-  3. Adherence to Clean Architecture Principles
-    - Use of Interfaces for Dependency Inversion
-    - Example: AutoTheftCalculator refactored to implement the CrimeCalculatorInterface
-      
-- **Significant Pull Request:**
-  - [PR #100: *Some key Clean Architecture update*](https://github.com/CSC207-2024/safeTO/pull/100)
-    - This pull request represents a significant contribution to the team's project as it involved a comprehensive refactor of the codebase to improve maintainability, usability, and integration with the front end. The PR applies the CrimeAnalysisFacade  to each demo, making the demos more representative. The refactor also aligned the code with clean architecture principles by using interfaces to decouple core logic from specific implementations, enhancing testability and scalability.
+      - Implementation of CrimeAnalysisFacade
+      - Simplification of Demo Classes (e.g., refactored the demo classes AutoTheftSafeCaseDemo to use the CrimeAnalysisFacade)
+  1. Switching Output to JSON Format
+  1. Adherence to Clean Architecture Principles
+      - Use of Interfaces for Dependency Inversion
+      - Example: AutoTheftCalculator refactored to implement the CrimeCalculatorInterface
 
+- **Significant Pull Request:**
+  - [PR #100: Some key Clean Architecture update](https://github.com/CSC207-2024/safeTO/pull/100)
+    - This pull request represents a significant contribution to the team's project as it involved a comprehensive refactor of the codebase to improve maintainability, usability, and integration with the front end. The PR applies the CrimeAnalysisFacade  to each demo, making the demos more representative. The refactor also aligned the code with clean architecture principles by using interfaces to decouple core logic from specific implementations, enhancing testability and scalability.
 
 ---
 
@@ -138,7 +135,6 @@ The database automatically logs each operation for tracking and auditing purpose
 
 ## Summary of Test Coverage
 
-- *Frontend: We conducted thorough an End-to-End Testing of our frontend functionality by systematically evaluating each feature. For the regex functionality, we tested various invalid inputs to ensure robust error handling. In the case of restricted regions, we checked at least 30 locations outside the City of Toronto to verify proper boundary enforcement. For neighborhoods or locations with no available data, we ensured that a clear and informative message is generated. These tests helped us validate the accuracy and reliability of our frontend components.*
+- Frontend: We conducted thorough an End-to-End Testing of our frontend functionality by systematically evaluating each feature. For the regex functionality, we tested various invalid inputs to ensure robust error handling. In the case of restricted regions, we checked at least 30 locations outside the City of Toronto to verify proper boundary enforcement. For neighborhoods or locations with no available data, we ensured that a clear and informative message is generated. These tests helped us validate the accuracy and reliability of our frontend components.
 
-
-- *Backend:*
+- Backend:
