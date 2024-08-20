@@ -162,8 +162,10 @@ const Home = () => {
             
             {/* Profile component for displaying and editing user information */}
             <div style={{position: 'absolute', top: 20, right: 20, zIndex: 1000}}>
-                <button onClick={handleLoginClick} className="profile-button">Log In</button>
-                <button onClick={handleSignUpClick} className="profile-button">Sign Up</button>
+
+                {/*TODO*/}
+                {/*<button onClick={handleLoginClick} className="profile-button">Log In</button>*/}
+                {/*<button onClick={handleSignUpClick} className="profile-button">Sign Up</button>*/}
                 <Profile
                     userInfo={userInfo}
                     isEditing={isEditing}
@@ -183,7 +185,7 @@ const Home = () => {
             {/* Display hovered coordinates if available */}
             {coordinates.lat && coordinates.lng && (
                 <div style={{position: 'absolute', bottom: 20, left: 20, zIndex: 500, backgroundColor: 'white', padding: '10px', borderRadius: '5px' }}>
-                    Hovered Coordinates: ({coordinates.lat}, {coordinates.lng})
+                    Current Coordinates: ({coordinates.lat}, {coordinates.lng})
                 </div>
             )}
         </div>

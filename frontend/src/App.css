@@ -456,7 +456,32 @@
   background-color:  #0c71b4;
 }
 
-.profile-button {
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
 
+.buttons-container {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
+.login-button, .signup-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.login-button:hover, .signup-button:hover {
+  background-color: #0056b3;
 }

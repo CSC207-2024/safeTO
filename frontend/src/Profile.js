@@ -18,6 +18,8 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit, setUserIn
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
 
+  const [showButtons, setShowButtons] = useState(false);
+
   const handleLoginClick = () => {
       setIsLoginMode(true);
       setIsSignUpMode(false);
@@ -79,15 +81,31 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit, setUserIn
         handleSave();
     };
 
+    const handleMouseEnter = () => {
+        setShowButtons(true);
+    };
+
+    const handleMouseLeave = () => {
+        setShowButtons(false);
+    };
+
   return (
-    <div>
-      <Tooltip title="Profile" position="bottom" trigger="mouseenter">
+    <div className='profile-container' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <Tooltip position="bottom" trigger="mouseenter">
         <img
           src="/images/user.png"
           alt="User Icon"
           className="profile-image"
           onClick={openModal}
         />
+
+          {/*TODO*/}
+          {showButtons && (
+              <div className="buttons-container">
+                  <button className="login-button" >Login</button>
+                  <button className="signup-button">Signup</button>
+              </div>
+          )}
       </Tooltip>
 
         <Modal
@@ -97,7 +115,9 @@ const Profile = ({ userInfo, isEditing, handleInputChange, toggleEdit, setUserIn
             className='modal-content'
             overlayClassName="overlay"
         >
-            <button onClick={closeModal} className="close-button">x</button>
+            {/*TODO*/}
+
+        <button onClick={closeModal} className="close-button">&times;</button>
             <h2>{isLoginMode ? 'Log In' : isSignUpMode ? 'Sign Up' : 'User Profile'}</h2>
 
             {isLoginMode ? (

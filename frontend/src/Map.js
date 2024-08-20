@@ -96,7 +96,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
     return (
       <div className={overlayClassName}>
         <div className={className}>
-          <button onClick={onClose} className="close-button">x</button>
+          <button onClick={onClose} className="close-button"> &times; </button>
 
           <h2>Neighbourhood: &nbsp; {neighbourhood}</h2>
           <p>Crime statistics and details about <i>{neighbourhood}</i>.</p>
@@ -508,7 +508,7 @@ const Map = forwardRef(({ setCoordinates, markerCoordinates }, ref) => {
         onRequestClose={closeModal}
         className='modal-content'
         overlayClassName="overlay">
-        <button onClick={closeModal} className="close-button">x</button>
+        <button onClick={closeModal} className="close-button"> &times; </button>
         <h2>Find more crime data at this place?</h2>
 
         <div className='select-container'>
