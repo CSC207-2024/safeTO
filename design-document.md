@@ -9,8 +9,9 @@
 
 ## Overview
 
-*Following the completion of Phase 1, our team continued to advance the project by enhancing several key aspects. We implemented a more sophisticated user interface design, adopted more reliable and effective data analysis methods, and transitioned from file-based data storage to a robust database system for improved data persistence. 
-Adhering closely to our initial blueprint, we built the website in a coherent and structured manner. Through collaborative discussions and iterative revisions, we refined our approach, which led to better solutions and improved project outcomes, aligning well with Clean Architecture, SOLID Principles and Design Patterns. This ongoing development process allowed us to address challenges effectively and optimize the project's functionality and user experience.*
+Following the completion of Phase 1, our team enhanced the project by focusing on key improvements. We upgraded the user interface design, adopted more reliable data analysis methods, and switched from file-based data storage to a robust database system for better data persistence.
+
+Adhering to our original plan, we developed the website in an organized manner. Through team discussions and iterative revisions, we refined our approach, leading to better solutions and improved project outcomes aligned with Clean Architecture, SOLID Principles, and Design Patterns. This ongoing process allowed us to tackle challenges effectively and optimize both functionality and user experience.
 
 ---
 
@@ -25,8 +26,8 @@ Adhering closely to our initial blueprint, we built the website in a coherent an
   - Configure the backend server and production environment to process HTTP requests
   - Connect the analysis project to the main backend through command-line calls to the separate JAR file using ProcessBuilder
 - **Significant Pull Request:**
-  - [PR #123: *placeholder*](https://github.com/MinecraftFuns/project/pull/123)
-    - *placeholder*
+  - [PR #49: feat(database): implement most functionalities](https://github.com/CSC207-2024/safeTO/pull/49)
+    - This pull request, together with [PR #48](https://github.com/CSC207-2024/safeTO/pull/48) and [PR #46](https://github.com/CSC207-2024/safeTO/pull/46), completes a [Key-Value database API](https://github.com/CSC207-2024/safeTO/tree/main/database) on the Cloudflare Workers platform using Cloudflare KV. The API lets users organize data into collections and perform create, read, update, and delete operations, while keeping collections separate.
 
 ### 2. Minghe Ma [`@mhnwa`](https://github.com/mhnwa)
 
