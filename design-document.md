@@ -65,11 +65,16 @@ Adhering closely to our initial blueprint, we built the website in a coherent an
 
 - **Email:** <yvonnezy.zhang@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
-  - Email alert feature
-  - *placeholder*
+  - *User Login Feature*
+    - *Designed and implemented the backend user login functionality.*
+    - *Updated the `User.java` class to generate unique passwords and store user information in a MySQL database*
+    - *Integrated with the Resend API to automatically send a generated password to new users via email.*
+  - *Bar Plot Visualization*
+    - *Performed data extraction and analysis from crime data JSON files using Pandas.*
+    - *Utilized Matplotlib to generate bar plots for neighborhood crime statistics, and successfully integrated these visualizations into the frontend via modal components in `Map.js`.*
 - **Significant Pull Request:**
-  - [PR #126: *placeholder*](https://github.com/Yiyun95788/project/pull/126)
-    - *placeholder*
+  - [PR #126: *feat(user login): Implement backend user login feature and MySQL integration*](https://github.com/CSC207-2024/safeTO/commit/c64a01106ce10f14546e93f9f8985cb8b84e6cbc)
+  - [PR #38: *feat(bar plots): Display crime data bar plots in frontend*](https://github.com/CSC207-2024/safeTO/commit/38d40c0cff1ba61415d86f94131579bb11cc989d)
 
 ### 5. Liangyu Zhu [`@larryzhuly`](https://github.com/larryzhuly)
 
