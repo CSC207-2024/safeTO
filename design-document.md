@@ -3,14 +3,14 @@
 ## Submission
 
 **Team Name:** `Stack Underflow`  
-**Submission Date:** August 15, 2024
+**Submission Date:** August 20, 2024
 
 ---
 
 ## Overview
 
 *Following the completion of Phase 1, our team continued to advance the project by enhancing several key aspects. We implemented a more sophisticated user interface design, adopted more reliable and effective data analysis methods, and transitioned from file-based data storage to a robust database system for improved data persistence. 
-Adhering closely to our initial blueprint, we built the website in a coherent and structured manner. However, through collaborative discussions and iterative revisions, we refined our approach to achieve better solutions and overall project outcomes. This ongoing development process allowed us to address challenges effectively and optimize the project's functionality and user experience.*
+Adhering closely to our initial blueprint, we built the website in a coherent and structured manner. Through collaborative discussions and iterative revisions, we refined our approach, which led to better solutions and improved project outcomes, aligning well with Clean Architecture, SOLID Principles and Design Patterns. This ongoing development process allowed us to address challenges effectively and optimize the project's functionality and user experience.*
 
 ---
 
@@ -32,8 +32,12 @@ Adhering closely to our initial blueprint, we built the website in a coherent an
 
 - **Email:** <minghe.ma@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
-  - *fulfill interactive panels*
-  - *pass parameters to server and get back json results*
+  - *Create interactive panels:*
+    - *Design and implement interactive panels in the user interface for collecting input from users;*
+    - *Ensure the panels are intuitive and user-friendly, providing clear options for user interaction;*
+  - *Connect frontend with backend:*
+    - *Send the validated parameters to the server using HTTP GET method;*
+    - *Display JSON results in the interactive panels;*
 - **Significant Pull Request:**
   - [PR #69: *add panel to show location-based search crime data*](https://github.com/CSC207-2024/safeTO/pull/69)
     - *When a user searches for an address and double-clicks on the marker, a popup window will appear, allowing the user to select two or three parameters. Based on the chosen parameters, the popup will display relevant crime data.*
