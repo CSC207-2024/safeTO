@@ -17,19 +17,20 @@ Adhering to our original plan, we developed the website in an organized manner. 
 
 ## Group Members and Contributions
 
-### 1. Joe Fang [`@MinecraftFuns`](https://github.com/MinecraftFuns)
+### Joe Fang [`@MinecraftFuns`](https://github.com/MinecraftFuns)
 
 - **Email:** <joe.fang@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
   - Create backend API endpoints <sup>[[1]](https://github.com/CSC207-2024/safeTO/blob/a0f5c22e9ecdd30d02070b41cf2384cdd3eb22bc/backend/app/src/main/java/backend/LookupResource.java)</sup> <sup>[[2]](https://github.com/CSC207-2024/safeTO/blob/6c7440b9fefa0ee27b9bafd74988df32b5b0f041/backend/app/src/main/java/backend/SearchResource.java)</sup> for geolocation features
   - Implement a [Key-Value database API](https://github.com/CSC207-2024/safeTO/tree/main/database) using Cloudflare Workers and Cloudflare KV
   - Connect the analysis project to the main backend through [command-line calls](https://github.com/CSC207-2024/safeTO/blob/c2ae1cd78c479cb738b9295b8002a9b5c99f656d/backend/app/src/main/java/backend/AnalysisResource.java) to the separate JAR file using `ProcessBuilder`
-  - Configure the backend server and production environment to process HTTP requests
+  - Configure the backend server to process HTTP requests
+  - Automate the [deployment process](https://github.com/CSC207-2024/safeTO/blob/09f15aed1d1b4e846d448b5b24cc95e233db0bbd/.scripts/deploy.py) for the backend server
 - **Significant Pull Request:**
   - [PR #49: feat(database): implement most functionalities](https://github.com/CSC207-2024/safeTO/pull/49)
     - This pull request, together with [PR #48](https://github.com/CSC207-2024/safeTO/pull/48) and [PR #46](https://github.com/CSC207-2024/safeTO/pull/46), completes a [Key-Value database API](https://github.com/CSC207-2024/safeTO/tree/main/database) on the Cloudflare Workers platform using Cloudflare KV. The API lets users organize data into collections and perform create, read, update, and delete operations, while keeping collections separate.
 
-### 2. Minghe Ma [`@mhnwa`](https://github.com/mhnwa)
+### Minghe Ma [`@mhnwa`](https://github.com/mhnwa)
 
 - **Email:** <minghe.ma@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
@@ -45,7 +46,7 @@ Adhering to our original plan, we developed the website in an organized manner. 
   - [PR #70: add neighbourhood-based search modal window](https://github.com/CSC207-2024/safeTO/pull/70)
     - When a user clicks on a neighborhood, a popup window will present a bar plot depicting crime data from the past five years. This visualization will include a ranking of crime types, providing insights into the prevalence of different crimes within the selected area.
 
-### 3. Bilin Nong [`@Bilin22`](https://github.com/Bilin22)
+### Bilin Nong [`@Bilin22`](https://github.com/Bilin22)
 
 - **Email:** <bilin.nong@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
@@ -62,7 +63,7 @@ Adhering to our original plan, we developed the website in an organized manner. 
   - [PR #42: fix: add Email Builder class](https://github.com/CSC207-2024/safeTO/pull/42)
     - add email builder class for building email body text from parameters including `JsonObject`, `String`, and `HashMap`.
 
-### 4. Yiyun Zhang [`@Yiyun95788`](https://github.com/Yiyun95788)
+### Yiyun Zhang [`@Yiyun95788`](https://github.com/Yiyun95788)
 
 - **Email:** <yvonnezy.zhang@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
@@ -79,7 +80,7 @@ Adhering to our original plan, we developed the website in an organized manner. 
   - [PR #38: feat(bar plots): Display crime data bar plots in frontend](https://github.com/CSC207-2024/safeTO/commit/38d40c0cff1ba61415d86f94131579bb11cc989d)
   - [PR #134: feat(api): Add frontend API methods to enhance interaction with backend](https://github.com/CSC207-2024/safeTO/commit/08aa8a0e1e332de043355e1392fa5ed2d947b7d5)
 
-### 5. Liangyu Zhu [`@larryzhuly`](https://github.com/larryzhuly)
+### Liangyu Zhu [`@larryzhuly`](https://github.com/larryzhuly)
 
 - **Email:** <liangyu.zhu@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
