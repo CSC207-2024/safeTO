@@ -14,70 +14,70 @@ const Profile = ({userInfo, isEditing, handleInputChange, toggleEdit, setUserInf
     const [isLoginMode, setIsLoginMode] = useState(false);
     const [isSignUpMode, setIsSignUpMode] = useState(false);
 
-
     const openModal = () => setModalIsOpen(true);
     const closeModal = () => setModalIsOpen(false);
 
     const [showButtons, setShowButtons] = useState(false);
 
-    const handleLoginClick = () => {
-        setIsLoginMode(true);
-        setIsSignUpMode(false);
-        openModal();
-    };
+    const apiUrl = 'https://csc207-api.joefang.org';
 
-    const handleSignUpClick = () => {
-        setIsSignUpMode(true);
-        setIsLoginMode(false);
-        openModal();
-    };
+    function fetchUserProfile(email) {
+        axios.get('https://csc207-api.joefang.org/info', {
+            params: { email: email }
+        })
+            .then(response => {
+                const userData = response.data;
 
+                // Update the state with the fetched user data
+                setUserInfo(userData);
+            })
+            .catch(error => {
+                console.error('Error fetching user info', error);
+            });
+    }
 
-    const apiUrl = 'https://csc207-api.joefang.org/user/userinfo';
+    function handleLogin(email, password) {
+        axios.post('https://csc207-api.joefang.org/login', null, {
+            params: {
+                email: email,
+                password: password
+            }
+        })
+            .then(response => {
+                alert(response.data); // Display a success message
+                // Optionally, you might want to fetch and display the user profile after successful login
+                fetchUserProfile(email);
+            })
+            .catch(error => {
+                console.error('Invalid email or password', error);
+                alert('Invalid email or password');
+            });
+    }
 
     // Function to handle data submission to the backend
-    const handleSave = async () => {
-        // Format the userInfo object
-        const formattedUserInfo = {
-            firstName: userInfo.firstName.trim(),
-            lastName: userInfo.lastName.trim(),
-            email: userInfo.email.trim(),
-            phoneNumber: userInfo.phoneNumber.trim(),
-            address: userInfo.address.trim(),
-            subscribed: userInfo.subscribed,
+    function handleSaveAndToggleEdit() {
+        const userData = {
+            firstName: userInfo.firstName,
+            lastName: userInfo.lastName,
+            email: userInfo.email,
+            phoneNumber: userInfo.phoneNumber,
+            address: userInfo.address,
+            subscribed: userInfo.subscribed
         };
 
-        try {
-            await axios.post(apiUrl, formattedUserInfo);
-            console.log('User info sent successfully');
-            closeModal();
-        } catch (error) {
-            console.error('Error sending user info:', error);
-        }
-    };
+        axios.post('https://csc207-api.joefang.org/register', userData)
+            .then(response => {
+                const registeredUser = response.data;
 
-    const handleLogin = async () => {
-        try {
-            const response = await axios.post(`${apiUrl}/login`, {identifier: userInfo.identifier.trim()});
-            if (response.data) {
-                // Handle successful login, e.g., update userInfo state with retrieved data
-                setUserInfo(response.data);
-                setIsLoginMode(false); // Exit login mode after successful login
-                closeModal();
-            } else {
-                alert('User not found. Please sign up.');
-            }
-        } catch (error) {
-            console.error('Login failed:', error);
-            alert('Login failed. Please try again.');
-        }
-    };
+                // Fetch the full user profile after successful registration
+                fetchUserProfile(registeredUser.email);
+                isEditing(false); // Switch to profile view
+            })
+            .catch(error => {
+                console.error('There was an error registering the user!', error);
+            });
+    }
 
-
-    const handleSaveAndToggleEdit = () => {
-        toggleEdit();
-        handleSave();
-    };
 
     const handleMouseEnter = () => {
         setShowButtons(true);
@@ -127,11 +127,9 @@ const Profile = ({userInfo, isEditing, handleInputChange, toggleEdit, setUserInf
                             placeholder="Email or User ID"
                             className='profile-input'
                         />
-                        <button onClick={handleLogin} className="save-button">Log In</button>
+                        <button onClick={() => handleLogin(userInfo.email, userInfo.password)} className="login-button">Log In</button>
                     </div>
                 ) : isSignUpMode ? (
-                    // Reuse the existing sign-up form logic here
-                    // For example:
                     <div>
                         <input
                             type="text"
