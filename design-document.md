@@ -21,10 +21,10 @@ Adhering to our original plan, we developed the website in an organized manner. 
 
 - **Email:** <joe.fang@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
-  - Create various backend API endpoints for geolocation features
-  - Implement a Key-Value database API using Cloudflare Workers and Cloudflare KV
+  - Create backend API endpoints <sup>[[1]](https://github.com/CSC207-2024/safeTO/blob/a0f5c22e9ecdd30d02070b41cf2384cdd3eb22bc/backend/app/src/main/java/backend/LookupResource.java)</sup> <sup>[[2]](https://github.com/CSC207-2024/safeTO/blob/6c7440b9fefa0ee27b9bafd74988df32b5b0f041/backend/app/src/main/java/backend/SearchResource.java)</sup> for geolocation features
+  - Implement a [Key-Value database API](https://github.com/CSC207-2024/safeTO/tree/main/database) using Cloudflare Workers and Cloudflare KV
+  - Connect the analysis project to the main backend through [command-line calls](https://github.com/CSC207-2024/safeTO/blob/c2ae1cd78c479cb738b9295b8002a9b5c99f656d/backend/app/src/main/java/backend/AnalysisResource.java) to the separate JAR file using `ProcessBuilder`
   - Configure the backend server and production environment to process HTTP requests
-  - Connect the analysis project to the main backend through command-line calls to the separate JAR file using ProcessBuilder
 - **Significant Pull Request:**
   - [PR #49: feat(database): implement most functionalities](https://github.com/CSC207-2024/safeTO/pull/49)
     - This pull request, together with [PR #48](https://github.com/CSC207-2024/safeTO/pull/48) and [PR #46](https://github.com/CSC207-2024/safeTO/pull/46), completes a [Key-Value database API](https://github.com/CSC207-2024/safeTO/tree/main/database) on the Cloudflare Workers platform using Cloudflare KV. The API lets users organize data into collections and perform create, read, update, and delete operations, while keeping collections separate.
