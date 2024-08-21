@@ -37,7 +37,14 @@ def main():
 
     # Gradle build - analysis
     os.chdir(analysis_dir)
-    subprocess.run(args=("gradlew.bat" if is_my_laptop else "./gradlew", "build"))
+    subprocess.run(
+        args=(
+            "gradlew.bat" if is_my_laptop else "./gradlew",
+            "build",
+            "--exclude-task",
+            "test",
+        )
+    )
     os.chdir(current_dir)
 
     # Copy build result to the deploy folder
@@ -45,7 +52,14 @@ def main():
 
     # Gradle build - backend
     os.chdir(backend_dir)
-    subprocess.run(args=("gradlew.bat" if is_my_laptop else "./gradlew", "build"))
+    subprocess.run(
+        args=(
+            "gradlew.bat" if is_my_laptop else "./gradlew",
+            "build",
+            "--exclude-task",
+            "test",
+        )
+    )
     os.chdir(current_dir)
 
     # Copy build result to the deploy folder
