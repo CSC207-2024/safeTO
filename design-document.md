@@ -155,3 +155,11 @@ We use a local simulated environment that mimics the Cloudflare serverless platf
 We mock the actual database with a JavaScript object that supports operations like `get`, `put`, and `list`, allowing us to test our code effectively. Our test cases cover the main operations supported by the database API, including authentication, data retrieval and writing, as well as log retrieval. Additionally, we address edge cases, such as providing an invalid token or using unsupported HTTP methods, to ensure our API handles these scenarios correctly by returning appropriate errors in a RESTful manner.
 
 ### Analysis
+
+We performed unit tests on the Analysis module, covering various key components such as crime ranking, break-and-enter analysis, auto theft analysis, and geolocation utilities. Each component was thoroughly tested with a range of scenarios, including edge cases, to ensure accuracy and reliability. All the tests were passed successfully, demonstrating robust performance across all functionalities.
+
+For the **Break-and-Enter Analysis** and **Auto Theft Analysis** feature, we ensured that the system correctly identifies incidents within the specified radius and timeframe(only for auto theft cases). The annual average calculations and Poisson probability estimations are accurate in the tests as well. The management of safe parking locations was also tested, ensuring that safe spots are added, updated, and retrieved accurately.
+
+For the **Crime Ranking** feature, we verified the correctness of neighbourhood rankings based on both total crime data and specific crime types. This included testing the ranking algorithms and ensuring that they produced accurate and consistent results across different datasets.
+
+Finally, our **Geolocation Utilities** were tested to ensure that distance calculations between locations are precise and efficient, which is critical for the accurate determination of nearby incidents and safe spots.
