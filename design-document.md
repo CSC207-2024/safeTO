@@ -138,17 +138,15 @@ The database automatically logs each operation for tracking and auditing purpose
 
 ## Summary of Test Coverage
 
-### Backend
-
-We performed comprehensive unit tests on our backend codebase with 57 test cases. Below is a screenshot of the test results.
-
-<img src="https://ragnarok.joefang.org/static/x4plqa1569t9pb2d91hvk2gld77cv9d5d.jpg" alt="Test Coverage" height=300px></img>
-
-The test cases cover the main features, including the RESTful API, geolocation-related code, account management, entities, and builder patterns.
-
 ### Frontend
 
 We performed thorough End-to-End Testing of our frontend functionality by systematically evaluating each feature. For the regex functionality, we tested various invalid inputs to ensure robust error handling. For restricted regions, we checked at least 30 locations outside the City of Toronto to verify proper boundary enforcement. For neighborhoods or locations with no available data, we ensured that a clear and informative message is displayed. These tests helped us validate the accuracy and reliability of our frontend components.
+
+### Backend
+
+We performed comprehensive unit tests on our backend codebase with 57 test cases. The test cases cover the main features, including the RESTful API, geolocation-related code, account management, entities, and builder patterns. Below is a screenshot of the test results.
+
+<img src="https://ragnarok.joefang.org/static/x4plqa1569t9pb2d91hvk2gld77cv9d5d.jpg" alt="Test Coverage" height=300px></img>
 
 ### Database
 
