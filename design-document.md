@@ -29,6 +29,8 @@ Adhering to our original plan, we developed the website in an organized manner. 
 - **Significant Pull Request:**
   - [PR #49: feat(database): implement most functionalities](https://github.com/CSC207-2024/safeTO/pull/49)
     - This pull request, together with [PR #48](https://github.com/CSC207-2024/safeTO/pull/48) and [PR #46](https://github.com/CSC207-2024/safeTO/pull/46), completes a [Key-Value database API](https://github.com/CSC207-2024/safeTO/tree/main/database) on the Cloudflare Workers platform using Cloudflare KV. The API lets users organize data into collections and perform create, read, update, and delete operations, while keeping collections separate.
+  - [PR #41: feat(backend/SearchResource): Geocoding API](https://github.com/CSC207-2024/safeTO/pull/41)
+    - This pull request implements a RESTful API for geocoding (converting a natural language address into a Location object with coordinates, postal codes, and other geolocation attributes) using the Nominatim API provided by OpenStreetMap.
 
 ### Minghe Ma [`@mhnwa`](https://github.com/mhnwa)
 
