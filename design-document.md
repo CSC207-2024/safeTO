@@ -140,7 +140,7 @@ The database automatically logs each operation for tracking and auditing purpose
 
 We performed unit tests with 57 test cases. Below is a screenshot of the test results.
 
-![image](https://github.com/user-attachments/assets/603d5f1c-c250-490a-a38b-83dd8519d210)
+![image](https://i.imgur.com/0q9Lgd3l.png)
 
 ### Frontend
 
