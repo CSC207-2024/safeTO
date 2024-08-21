@@ -138,9 +138,13 @@ The database automatically logs each operation for tracking and auditing purpose
 
 ### Backend
 
+We performed unit tests with 57 test cases. Below is a screenshot of the test results.
+
+![image](https://github.com/user-attachments/assets/603d5f1c-c250-490a-a38b-83dd8519d210)
+
 ### Frontend
 
-We conducted thorough an End-to-End Testing of our frontend functionality by systematically evaluating each feature. For the regex functionality, we tested various invalid inputs to ensure robust error handling. In the case of restricted regions, we checked at least 30 locations outside the City of Toronto to verify proper boundary enforcement. For neighborhoods or locations with no available data, we ensured that a clear and informative message is generated. These tests helped us validate the accuracy and reliability of our frontend components.
+We performed thorough End-to-End Testing of our frontend functionality by systematically evaluating each feature. For the regex functionality, we tested various invalid inputs to ensure robust error handling. For restricted regions, we checked at least 30 locations outside the City of Toronto to verify proper boundary enforcement. For neighborhoods or locations with no available data, we ensured that a clear and informative message is displayed. These tests helped us validate the accuracy and reliability of our frontend components.
 
 ### Database
 
