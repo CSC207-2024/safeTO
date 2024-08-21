@@ -21,11 +21,11 @@ Adhering to our original plan, we developed the website in an organized manner. 
 
 - **Email:** <joe.fang@mail.utoronto.ca>
 - **Contributions Since Phase 1:**
-  - Create backend API endpoints <sup>[[1]](https://github.com/CSC207-2024/safeTO/blob/a0f5c22e9ecdd30d02070b41cf2384cdd3eb22bc/backend/app/src/main/java/backend/LookupResource.java)</sup> <sup>[[2]](https://github.com/CSC207-2024/safeTO/blob/6c7440b9fefa0ee27b9bafd74988df32b5b0f041/backend/app/src/main/java/backend/SearchResource.java)</sup> for geolocation features
+  - Create backend API endpoints <sup>[[1]](https://bit.ly/4dtKVAt)</sup> <sup>[[2]](https://bit.ly/4dOdsQS)</sup> for geolocation features
   - Implement a [Key-Value database API](https://github.com/CSC207-2024/safeTO/tree/main/database) using Cloudflare Workers and Cloudflare KV
-  - Connect the analysis project to the main backend through [command-line calls](https://github.com/CSC207-2024/safeTO/blob/c2ae1cd78c479cb738b9295b8002a9b5c99f656d/backend/app/src/main/java/backend/AnalysisResource.java) to the separate JAR file using `ProcessBuilder`
+  - Connect the analysis project to the main backend through [command-line calls](https://bit.ly/3yJPCa8) to the separate JAR file using `ProcessBuilder`
   - Configure the backend server to process HTTP requests
-  - Automate the [deployment process](https://github.com/CSC207-2024/safeTO/blob/09f15aed1d1b4e846d448b5b24cc95e233db0bbd/.scripts/deploy.py) for the backend server
+  - Automate the [deployment process](https://bit.ly/3yICguN) for the backend server
 - **Significant Pull Request:**
   - [PR #49: feat(database): implement most functionalities](https://github.com/CSC207-2024/safeTO/pull/49)
     - This pull request, together with [PR #48](https://github.com/CSC207-2024/safeTO/pull/48) and [PR #46](https://github.com/CSC207-2024/safeTO/pull/46), completes a [Key-Value database API](https://github.com/CSC207-2024/safeTO/tree/main/database) on the Cloudflare Workers platform using Cloudflare KV. The API lets users organize data into collections and perform create, read, update, and delete operations, while keeping collections separate.
@@ -54,7 +54,7 @@ Adhering to our original plan, we developed the website in an organized manner. 
     - sending http request to fetch data from Toronto Police Service API, and saving responses to local cache.
     - converting data into various formats including `json` and `Table`.
     - analyzing crime data (aggregating, filtering).
-    - exporting analysis results in `json` format to [aggregates directory](backend/app/src/main/resources/aggregates).
+    - exporting analysis results in `json` format to [aggregates directory](https://bit.ly/3yD6srg).
   - implement email alert (initial version), and email builder class for building email body text.
   - implement class and interface that are responsible for storing user emails in `safeTO` database.
 - **Significant Pull Request:**
@@ -102,7 +102,7 @@ Adhering to our original plan, we developed the website in an organized manner. 
 
 ### Database
 
-[**safeTO-DB**](database/README.md) is a key-value database developed with [**Cloudflare Workers KV**](https://developers.cloudflare.com/kv/). It allows users to organize data into collections and perform basic operations like creating, reading, updating, and deleting items while keeping collections separate from each other.
+[**safeTO-DB**](https://bit.ly/4dNvToM) is a key-value database developed with [**Cloudflare Workers KV**](https://developers.cloudflare.com/kv/). It allows users to organize data into collections and perform basic operations like creating, reading, updating, and deleting items while keeping collections separate from each other.
 
 safeTO-DB can be accessed at <https://csc207-db.joefang.org/>, but you must provide a valid authentication token for it to function. If you need a token, please email us at <contact@csc207.joefang.org>.
 
