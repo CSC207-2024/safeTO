@@ -17,8 +17,8 @@ class BreakAndEnterCalculatorTest {
     void setUp() {
         sampleData = new ArrayList<>();
         // Adding test data similar to the real data from the logs
-        sampleData.add(new BreakAndEnterData("id1", 2023, "August", 18, "Break and Enter", 43.8062893908425, -79.1803868891903));
-        sampleData.add(new BreakAndEnterData("id2", 2023, "August", 19, "Break and Enter", 43.8062893908425, -79.1803868891903));
+        sampleData.add(new BreakAndEnterData("id1", 2023, "September", 18, "Break and Enter", 43.8062893908425, -79.1803868891903));
+        sampleData.add(new BreakAndEnterData("id2", 2023, "September", 19, "Break and Enter", 43.8062893908425, -79.1803868891903));
         sampleData.add(new BreakAndEnterData("id3", 2016, "February", 24, "Break and Enter", 43.8062893908425, -79.1803868891903));
         sampleData.add(new BreakAndEnterData("id4", 2016, "July", 30, "Break and Enter", 43.8062893908425, -79.1803868891903));
         sampleData.add(new BreakAndEnterData("id5", 2020, "December", 24, "Break and Enter", 43.8062893908425, -79.1803868891903));
