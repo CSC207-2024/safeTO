@@ -106,6 +106,4 @@ describe('Cloudflare Workers KV API', () => {
 		expect(response.status).toBe(405);
 		expect(await response.text()).toBe('Method Not Allowed');
 	});
-
-	// Additional tests for DELETE, log retrieval and LIST could be added similarly
 });
