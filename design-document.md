@@ -116,7 +116,7 @@ safeTO-DB can be accessed at <https://csc207-db.joefang.org/>, but you must prov
 
 - **Version History**: The database tracks changes made to each key by keeping a version history. When you update a key, a new version is created, while older versions remain accessible with a `_hidden` property that determines their visibility.
 
-### Core Endpoints
+#### Core Endpoints
 
 - **GET** `/get/{collection}/{key}`: This endpoint retrieves the most recent visible value for a specific key. It returns a success message (HTTP 200) if found, or an error (HTTP 404) if not.
 
@@ -128,7 +128,7 @@ safeTO-DB can be accessed at <https://csc207-db.joefang.org/>, but you must prov
 
 - **GET** `/list/{collection}`: This endpoint lists all keys in a collection and supports pagination. A successful request gives (HTTP 200) along with the list of keys.
 
-### Logging and Security
+#### Logging and Security
 
 The database automatically logs each operation for tracking and auditing purposes, noting details like the user, action taken, and the affected keys. Certain key names are restricted from being modified to enhance security.
 
@@ -140,7 +140,7 @@ The database automatically logs each operation for tracking and auditing purpose
 
 We performed unit tests with 57 test cases. Below is a screenshot of the test results.
 
-![image](https://i.imgur.com/0q9Lgd3l.png)
+<img src="https://ragnarok.joefang.org/static/x4plqa1569t9pb2d91hvk2gld77cv9d5d.jpg" alt="Test Coverage" height=300px></img>
 
 ### Frontend
 
